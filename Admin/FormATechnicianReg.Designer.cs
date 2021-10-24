@@ -1,7 +1,7 @@
 ﻿
-namespace milestone___admin
+namespace Assignment
 {
-    partial class techregAdminForm
+    partial class FormATechnicianReg
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace milestone___admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(techregAdminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormATechnicianReg));
             this.techbackBtnAdmin = new System.Windows.Forms.Button();
             this.techregBarAdmin = new System.Windows.Forms.ProgressBar();
             this.technameTxtboxAdmin = new System.Windows.Forms.TextBox();
@@ -355,7 +355,7 @@ namespace milestone___admin
             this.techsaveBtnAdmin.Text = "Save";
             this.techsaveBtnAdmin.UseVisualStyleBackColor = true;
             // 
-            // techregAdminForm
+            // FormATechnicianReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -371,7 +371,7 @@ namespace milestone___admin
             this.Controls.Add(this.techPicBoxAdmin);
             this.Controls.Add(this.techregBarAdmin);
             this.Controls.Add(this.techhistorylistviewAdmin);
-            this.Name = "techregAdminForm";
+            this.Name = "FormATechnicianReg";
             this.Text = "Technician Registration";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.techPicBoxAdmin)).EndInit();

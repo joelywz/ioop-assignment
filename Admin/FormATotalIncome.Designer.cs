@@ -1,7 +1,7 @@
 ﻿
-namespace milestone___admin
+namespace Assignment
 {
-    partial class totalincomeAdminForm
+    partial class FormATotalIncome
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace milestone___admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(totalincomeAdminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormATotalIncome));
             this.totalincomeTxtBoxAdmin = new System.Windows.Forms.TextBox();
             this.totalincomedelBtnAdmin = new System.Windows.Forms.Button();
             this.totalincomeeditBtnAdmin = new System.Windows.Forms.Button();
@@ -320,7 +320,7 @@ namespace milestone___admin
             this.servreportBarAdmin.Size = new System.Drawing.Size(801, 14);
             this.servreportBarAdmin.TabIndex = 45;
             // 
-            // totalincomeAdminForm
+            // FormATotalIncome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -334,7 +334,7 @@ namespace milestone___admin
             this.Controls.Add(this.totalincomeCalendarAdmin);
             this.Controls.Add(this.totalincomeLabelAdmin);
             this.Controls.Add(this.servreportBarAdmin);
-            this.Name = "totalincomeAdminForm";
+            this.Name = "FormATotalIncome";
             this.Text = "Total Income";
             ((System.ComponentModel.ISupportInitialize)(this.totalincomeGridViewAdmin)).EndInit();
             this.totalincomeGrpBoxAdmin.ResumeLayout(false);

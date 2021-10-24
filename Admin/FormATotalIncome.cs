@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace milestone___admin
+namespace Assignment
 {
-    public partial class totalincomeAdminForm : Form
+    public partial class FormATotalIncome : Form
     {
-        public totalincomeAdminForm()
+        public FormATotalIncome()
         {
             InitializeComponent();
         }

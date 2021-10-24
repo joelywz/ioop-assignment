@@ -1,7 +1,7 @@
 ﻿
-namespace IOOP___Technician
+namespace Assignment
 {
-    partial class cusServices
+    partial class FormTCusServices
     {
         /// <summary>
         /// Required designer variable.

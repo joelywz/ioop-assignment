@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace milestone___admin
+namespace Assignment
 {
-    public partial class adminForm : Form
+    public partial class FormAHome : Form
     {
-        public adminForm()
+        public FormAHome()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace milestone___admin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            servicereportAdminForm obj1 = new servicereportAdminForm();
+            FormAServiceReports obj1 = new FormAServiceReports();
             obj1.Show();
         }
 
@@ -50,19 +50,19 @@ namespace milestone___admin
 
         private void totalincomeButtonAdmin_Click(object sender, EventArgs e)
         {
-            totalincomeAdminForm obj2 = new totalincomeAdminForm();
+            FormATotalIncome obj2 = new FormATotalIncome();
             obj2.Show();
         }
 
         private void receptionistButtonAdmin_Click(object sender, EventArgs e)
         {
-            receptAdminForm obj3 = new receptAdminForm();
+            FormAReceptionistReg obj3 = new FormAReceptionistReg();
             obj3.Show();
         }
 
         private void technicianButtonAdmin_Click(object sender, EventArgs e)
         {
-            techregAdminForm obj4 = new techregAdminForm();
+            FormATechnicianReg obj4 = new FormATechnicianReg();
             obj4.Show();
         }
     }

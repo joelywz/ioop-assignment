@@ -1,7 +1,7 @@
 ﻿
-namespace milestone___admin
+namespace Assignment
 {
-    partial class receptAdminForm
+    partial class FormAReceptionistReg
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace milestone___admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(receptAdminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAReceptionistReg));
             this.receptregpassTxtboxAdmin = new System.Windows.Forms.Label();
             this.receptpassTxtboxAdmin = new System.Windows.Forms.TextBox();
             this.receptusernameTxtboxAdmin = new System.Windows.Forms.TextBox();
@@ -350,7 +350,7 @@ namespace milestone___admin
             this.receptsaveBtnAdmin.Text = "Save";
             this.receptsaveBtnAdmin.UseVisualStyleBackColor = true;
             // 
-            // receptAdminForm
+            // FormAReceptionistReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -366,7 +366,7 @@ namespace milestone___admin
             this.Controls.Add(this.receptregBarAdmin);
             this.Controls.Add(this.receptregGrpboxAdmin);
             this.Controls.Add(this.recepthistorylistviewAdmin);
-            this.Name = "receptAdminForm";
+            this.Name = "FormAReceptionistReg";
             this.Text = "Receptionist Registration";
             ((System.ComponentModel.ISupportInitialize)(this.receptstaffsPicBoxAdmin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receptageNumUpDownAdmin)).EndInit();
