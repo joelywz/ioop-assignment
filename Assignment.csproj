@@ -46,35 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\FormAHome.cs">
+    <Compile Include="Admin\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\FormAHome.Designer.cs">
-      <DependentUpon>FormAHome.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\FormAReceptionistReg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\FormAReceptionistReg.Designer.cs">
-      <DependentUpon>FormAReceptionistReg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\FormAServiceReports.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\FormAServiceReports.Designer.cs">
-      <DependentUpon>FormAServiceReports.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\FormATechnicianReg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\FormATechnicianReg.Designer.cs">
-      <DependentUpon>FormATechnicianReg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\FormATotalIncome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\FormATotalIncome.Designer.cs">
-      <DependentUpon>FormATotalIncome.cs</DependentUpon>
+    <Compile Include="Admin\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\FormCHome.cs">
       <SubType>Form</SubType>
@@ -94,7 +70,6 @@
     <Compile Include="Customer\FormCServiceDetails.Designer.cs">
       <DependentUpon>FormCServiceDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database.cs" />
     <Compile Include="FormUpdateProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,21 +120,8 @@
     <Compile Include="Technician\FormTHome.Designer.cs">
       <DependentUpon>FormTHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <EmbeddedResource Include="Admin\FormAHome.resx">
-      <DependentUpon>FormAHome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\FormAReceptionistReg.resx">
-      <DependentUpon>FormAReceptionistReg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\FormAServiceReports.resx">
-      <DependentUpon>FormAServiceReports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\FormATechnicianReg.resx">
-      <DependentUpon>FormATechnicianReg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\FormATotalIncome.resx">
-      <DependentUpon>FormATotalIncome.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\FormCHome.resx">
       <DependentUpon>FormCHome.cs</DependentUpon>
