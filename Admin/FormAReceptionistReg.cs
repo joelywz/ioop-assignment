@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace milestone___admin
+namespace Assignment
 {
-    public partial class receptAdminForm : Form
+    public partial class FormAReceptionistReg : Form
     {
-        public receptAdminForm()
+        public FormAReceptionistReg()
         {
             InitializeComponent();
         }

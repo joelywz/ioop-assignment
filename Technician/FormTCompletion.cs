@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IOOP___Technician
+namespace Assignment
 {
-    public partial class serComplete : Form
+    public partial class FormTCompletion : Form
     {
-        public serComplete()
+        public FormTCompletion()
         {
             InitializeComponent();
         }
 
         private void btnViewServices_Click(object sender, EventArgs e)
         {
-            cusServices obj1 = new cusServices();
+            FormTCusServices obj1 = new FormTCusServices();
             obj1.Show();
         }
     }

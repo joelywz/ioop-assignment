@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IOOP___Technician
+namespace Assignment
 {
-    public partial class cusServices : Form
+    public partial class FormTCusServices : Form
     {
-        public cusServices()
+        public FormTCusServices()
         {
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace IOOP___Technician
 
         private void button2_Click(object sender, EventArgs e)
         {
-            serComplete obj1 = new serComplete();
+            FormTCusServices obj1 = new FormTCusServices();
             obj1.Show();
         }
     }

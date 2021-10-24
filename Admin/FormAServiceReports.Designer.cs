@@ -1,7 +1,7 @@
 ﻿
-namespace milestone___admin
+namespace Assignment
 {
-    partial class servicereportAdminForm
+    partial class FormAServiceReports
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace milestone___admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(servicereportAdminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAServiceReports));
             this.servreportBarAdmin = new System.Windows.Forms.ProgressBar();
             this.servicereportLabelAdmin = new System.Windows.Forms.Label();
             this.servreporttechPicBoxAdmin = new System.Windows.Forms.PictureBox();

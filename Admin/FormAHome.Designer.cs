@@ -1,7 +1,7 @@
 ﻿
-namespace milestone___admin
+namespace Assignment
 {
-    partial class adminForm
+    partial class FormAHome
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace milestone___admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAHome));
             this.registrationLabelAdmin = new System.Windows.Forms.Label();
             this.technicianButtonAdmin = new System.Windows.Forms.Button();
             this.statisticsLabelAdmin = new System.Windows.Forms.Label();
