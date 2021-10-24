@@ -94,6 +94,7 @@
     <Compile Include="Customer\FormCServiceDetails.Designer.cs">
       <DependentUpon>FormCServiceDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database.cs" />
     <Compile Include="FormUpdateProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +145,7 @@
     <Compile Include="Technician\FormTHome.Designer.cs">
       <DependentUpon>FormTHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="Admin\FormAHome.resx">
       <DependentUpon>FormAHome.cs</DependentUpon>
     </EmbeddedResource>

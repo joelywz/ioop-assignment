@@ -1,7 +1,7 @@
 ﻿
-namespace IOOP___Technician
+namespace Assignment
 {
-    partial class techHome
+    partial class FormTHome
     {
         /// <summary>
         /// Required designer variable.

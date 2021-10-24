@@ -1,7 +1,7 @@
 ﻿
-namespace IOOP___Technician
+namespace Assignment
 {
-    partial class serComplete
+    partial class FormTCompletion
     {
         /// <summary>
         /// Required designer variable.

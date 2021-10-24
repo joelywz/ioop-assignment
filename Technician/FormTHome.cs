@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IOOP___Technician
+namespace Assignment
 {
-    public partial class techHome : Form
+    public partial class FormTHome : Form
     {
-        public techHome()
+        public FormTHome()
         {
             InitializeComponent();
         }
@@ -21,13 +21,13 @@ namespace IOOP___Technician
         {
             if (rdoService.Checked)
             {
-                cusServices obj1 = new cusServices();
+                FormTCusServices obj1 = new FormTCusServices();
                 obj1.Show();
             }
 
             if (rdoComplete.Checked)
             {
-                serComplete obj1 = new serComplete();
+                FormTCusServices obj1 = new FormTCusServices();
                 obj1.Show();
             }
         }
