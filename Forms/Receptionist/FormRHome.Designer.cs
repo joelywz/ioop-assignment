@@ -36,15 +36,15 @@ namespace Assignment
             this.listboxUsers = new System.Windows.Forms.ListBox();
             this.btnViewUser = new System.Windows.Forms.Button();
             this.gbNewCustomer = new System.Windows.Forms.GroupBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.txtboxName = new System.Windows.Forms.TextBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.txtboxUsername = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtboxPassword = new System.Windows.Forms.TextBox();
-            this.lblRepeatPassword = new System.Windows.Forms.Label();
             this.txtboxRepeatPassword = new System.Windows.Forms.TextBox();
             this.btnNewCustomer = new System.Windows.Forms.Button();
+            this.txtboxPassword = new System.Windows.Forms.TextBox();
+            this.txtboxUsername = new System.Windows.Forms.TextBox();
+            this.txtboxName = new System.Windows.Forms.TextBox();
+            this.lblRepeatPassword = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.gbViewUser = new System.Windows.Forms.GroupBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.gbNewCustomer.SuspendLayout();
@@ -120,63 +120,6 @@ namespace Assignment
             this.gbNewCustomer.TabStop = false;
             this.gbNewCustomer.Text = "New Customer";
             // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(7, 29);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
-            // 
-            // txtboxName
-            // 
-            this.txtboxName.Location = new System.Drawing.Point(10, 46);
-            this.txtboxName.Name = "txtboxName";
-            this.txtboxName.Size = new System.Drawing.Size(245, 20);
-            this.txtboxName.TabIndex = 1;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(7, 78);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Username";
-            // 
-            // txtboxUsername
-            // 
-            this.txtboxUsername.Location = new System.Drawing.Point(10, 95);
-            this.txtboxUsername.Name = "txtboxUsername";
-            this.txtboxUsername.Size = new System.Drawing.Size(245, 20);
-            this.txtboxUsername.TabIndex = 1;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(7, 129);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
-            this.lblPassword.TabIndex = 0;
-            this.lblPassword.Text = "Password";
-            // 
-            // txtboxPassword
-            // 
-            this.txtboxPassword.Location = new System.Drawing.Point(10, 146);
-            this.txtboxPassword.Name = "txtboxPassword";
-            this.txtboxPassword.Size = new System.Drawing.Size(245, 20);
-            this.txtboxPassword.TabIndex = 1;
-            // 
-            // lblRepeatPassword
-            // 
-            this.lblRepeatPassword.AutoSize = true;
-            this.lblRepeatPassword.Location = new System.Drawing.Point(7, 178);
-            this.lblRepeatPassword.Name = "lblRepeatPassword";
-            this.lblRepeatPassword.Size = new System.Drawing.Size(91, 13);
-            this.lblRepeatPassword.TabIndex = 0;
-            this.lblRepeatPassword.Text = "Repeat Password";
-            // 
             // txtboxRepeatPassword
             // 
             this.txtboxRepeatPassword.Location = new System.Drawing.Point(10, 195);
@@ -192,6 +135,63 @@ namespace Assignment
             this.btnNewCustomer.TabIndex = 4;
             this.btnNewCustomer.Text = "New Customer";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
+            // 
+            // txtboxPassword
+            // 
+            this.txtboxPassword.Location = new System.Drawing.Point(10, 146);
+            this.txtboxPassword.Name = "txtboxPassword";
+            this.txtboxPassword.Size = new System.Drawing.Size(245, 20);
+            this.txtboxPassword.TabIndex = 1;
+            // 
+            // txtboxUsername
+            // 
+            this.txtboxUsername.Location = new System.Drawing.Point(10, 95);
+            this.txtboxUsername.Name = "txtboxUsername";
+            this.txtboxUsername.Size = new System.Drawing.Size(245, 20);
+            this.txtboxUsername.TabIndex = 1;
+            // 
+            // txtboxName
+            // 
+            this.txtboxName.Location = new System.Drawing.Point(10, 46);
+            this.txtboxName.Name = "txtboxName";
+            this.txtboxName.Size = new System.Drawing.Size(245, 20);
+            this.txtboxName.TabIndex = 1;
+            // 
+            // lblRepeatPassword
+            // 
+            this.lblRepeatPassword.AutoSize = true;
+            this.lblRepeatPassword.Location = new System.Drawing.Point(7, 178);
+            this.lblRepeatPassword.Name = "lblRepeatPassword";
+            this.lblRepeatPassword.Size = new System.Drawing.Size(91, 13);
+            this.lblRepeatPassword.TabIndex = 0;
+            this.lblRepeatPassword.Text = "Repeat Password";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(7, 129);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.TabIndex = 0;
+            this.lblPassword.Text = "Password";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(7, 78);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.TabIndex = 0;
+            this.lblUsername.Text = "Username";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(7, 29);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
             // 
             // gbViewUser
             // 
@@ -216,7 +216,7 @@ namespace Assignment
             this.lblTitle.TabIndex = 7;
             this.lblTitle.Text = "Receptionist Home";
             // 
-            // FormReceptionistHome
+            // FormRHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -226,7 +226,7 @@ namespace Assignment
             this.Controls.Add(this.gbNewCustomer);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnLogOut);
-            this.Name = "FormReceptionistHome";
+            this.Name = "FormRHome";
             this.Text = "Receptionist Home";
             this.gbNewCustomer.ResumeLayout(false);
             this.gbNewCustomer.PerformLayout();

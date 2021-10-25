@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IOOP_Assignment___Admin
+namespace Assignment
 {
-    public partial class frmAdmin : Form
+    public partial class FormAHome : Form
     {
-        public frmAdmin()
+        public FormAHome()
         {
             InitializeComponent();
         }

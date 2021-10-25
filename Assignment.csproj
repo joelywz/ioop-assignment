@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,108 +62,110 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Form1.cs">
+    <Compile Include="Forms\Admin\FormAHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Admin\FormAHome.Designer.cs">
+      <DependentUpon>FormAHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\FormCHome.cs">
+    <Compile Include="Forms\Customer\FormCHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\FormCHome.Designer.cs">
+    <Compile Include="Forms\Customer\FormCHome.Designer.cs">
       <DependentUpon>FormCHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\FormCProfile.cs">
+    <Compile Include="Forms\Customer\FormCProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\FormCProfile.Designer.cs">
+    <Compile Include="Forms\Customer\FormCProfile.Designer.cs">
       <DependentUpon>FormCProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\FormCServiceDetails.cs">
+    <Compile Include="Forms\Customer\FormCServiceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\FormCServiceDetails.Designer.cs">
+    <Compile Include="Forms\Customer\FormCServiceDetails.Designer.cs">
       <DependentUpon>FormCServiceDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUpdateProfile.cs">
+    <Compile Include="src\Database.cs" />
+    <Compile Include="Forms\FormUpdateProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUpdateProfile.Designer.cs">
+    <Compile Include="Forms\FormUpdateProfile.Designer.cs">
       <DependentUpon>FormUpdateProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Technician\FormTCusServices.cs">
+    <Compile Include="Forms\Technician\FormTCusServices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Technician\FormTCusServices.Designer.cs">
+    <Compile Include="Forms\Technician\FormTCusServices.Designer.cs">
       <DependentUpon>FormTCusServices.cs</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\FormRPaymentReceipt.cs">
+    <Compile Include="Forms\Receptionist\FormRPaymentReceipt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Receptionist\FormRPaymentReceipt.Designer.cs">
+    <Compile Include="Forms\Receptionist\FormRPaymentReceipt.Designer.cs">
       <DependentUpon>FormRPaymentReceipt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\FormRCusDetails.cs">
+    <Compile Include="Forms\Receptionist\FormRCusDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Receptionist\FormRCusDetails.Designer.cs">
+    <Compile Include="Forms\Receptionist\FormRCusDetails.Designer.cs">
       <DependentUpon>FormRCusDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Receptionist\FormRHome.cs">
+    <Compile Include="Forms\Receptionist\FormRHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Receptionist\FormRHome.Designer.cs">
+    <Compile Include="Forms\Receptionist\FormRHome.Designer.cs">
       <DependentUpon>FormRHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="Forms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Technician\FormTCompletion.cs">
+    <Compile Include="Forms\Technician\FormTCompletion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Technician\FormTCompletion.Designer.cs">
+    <Compile Include="Forms\Technician\FormTCompletion.Designer.cs">
       <DependentUpon>FormTCompletion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Technician\FormTHome.cs">
+    <Compile Include="Forms\Technician\FormTHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Technician\FormTHome.Designer.cs">
+    <Compile Include="Forms\Technician\FormTHome.Designer.cs">
       <DependentUpon>FormTHome.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Admin\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="src\User.cs" />
+    <EmbeddedResource Include="Forms\Admin\FormAHome.resx">
+      <DependentUpon>FormAHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\FormCHome.resx">
+    <EmbeddedResource Include="Forms\Customer\FormCHome.resx">
       <DependentUpon>FormCHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\FormCProfile.resx">
+    <EmbeddedResource Include="Forms\Customer\FormCProfile.resx">
       <DependentUpon>FormCProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\FormCServiceDetails.resx">
+    <EmbeddedResource Include="Forms\Customer\FormCServiceDetails.resx">
       <DependentUpon>FormCServiceDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUpdateProfile.resx">
+    <EmbeddedResource Include="Forms\FormUpdateProfile.resx">
       <DependentUpon>FormUpdateProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Technician\FormTCusServices.resx">
+    <EmbeddedResource Include="Forms\Technician\FormTCusServices.resx">
       <DependentUpon>FormTCusServices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Receptionist\FormRCusDetails.resx">
+    <EmbeddedResource Include="Forms\Receptionist\FormRCusDetails.resx">
       <DependentUpon>FormRCusDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Receptionist\FormRHome.resx">
+    <EmbeddedResource Include="Forms\Receptionist\FormRHome.resx">
       <DependentUpon>FormRHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Receptionist\FormRPaymentReceipt.resx">
+    <EmbeddedResource Include="Forms\Receptionist\FormRPaymentReceipt.resx">
       <DependentUpon>FormRPaymentReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -159,10 +177,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Technician\FormTCompletion.resx">
+    <EmbeddedResource Include="Forms\Technician\FormTCompletion.resx">
       <DependentUpon>FormTCompletion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Technician\FormTHome.resx">
+    <EmbeddedResource Include="Forms\Technician\FormTHome.resx">
       <DependentUpon>FormTHome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -177,6 +195,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
