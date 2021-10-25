@@ -1,7 +1,7 @@
 ﻿
 namespace Assignment
 {
-    partial class custMain
+    partial class FormCHome
     {
         /// <summary>
         ///  Required designer variable.
