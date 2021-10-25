@@ -143,8 +143,8 @@ namespace Assignment
             conn.Open();
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM [User] WHERE email=@email;", conn);
-            cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
-            cmd.Parameters["@username"].Value = email;
+            cmd.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
+            cmd.Parameters["@email"].Value = email;
 
             SqlDataReader reader = cmd.ExecuteReader();
 
