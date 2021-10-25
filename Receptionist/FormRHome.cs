@@ -14,6 +14,7 @@ namespace Assignment
     {
         public FormRHome()
         {
+            // Test
             InitializeComponent();
         }
     }
