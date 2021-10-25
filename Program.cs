@@ -16,6 +16,13 @@ namespace Assignment
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            string dbTest = Database.TestConnection();
+            if (dbTest != "OK")
+            {
+                MessageBox.Show(dbTest, "Failed to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                return;
+            }
             Application.Run(new FormLogin());
         }
     }

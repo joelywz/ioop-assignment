@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Assignment
 {
-    public partial class custMain : Form
+    public partial class FormCHome : Form
     {
-        public custMain()
+        public FormCHome()
         {
             InitializeComponent();
         }
