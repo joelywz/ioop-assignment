@@ -7,8 +7,6 @@ using System.Data.SqlClient;
 
 namespace Assignment
 {
-    
-
     class User
     {
         public int id;
@@ -45,7 +43,6 @@ namespace Assignment
             // Returns null if there's no entries
             if (!reader.HasRows)
             {
-                Console.WriteLine("test");
                 reader.Close();
                 conn.Close();
                 return null;

@@ -19,11 +19,9 @@ namespace Assignment
 
         public static string TestConnection()
         {
-            string value = System.Configuration.ConfigurationManager.AppSettings.Get("connectionString");
-
             try
             {
-                SqlConnection conn = new SqlConnection(value);
+                SqlConnection conn = GetSqlConnection();
                 conn.Open();
                 conn.Close();
                 return "OK";
