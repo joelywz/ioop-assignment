@@ -33,6 +33,7 @@ namespace Assignment
         private void FormRHome_Load(object sender, EventArgs e)
         {
             LoadCustomers();
+            rdoFullName.Checked = true;
         }
 
         private void LoadCustomers()
@@ -48,7 +49,10 @@ namespace Assignment
 
         private void lstCustomers_SelectedValueChanged(object sender, EventArgs e)
         {
-            btnViewCustomer.Enabled = true;
+            if (lstCustomers.SelectedIndex >= 0)
+            {
+                btnViewCustomer.Enabled = true;
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -85,7 +89,7 @@ namespace Assignment
 
         private void ClearListedCustomers()
         {
-            Array.Clear(listedCustomers, 0, listedCustomers.Length);
+            Array.Clear(listedCustomers, 0, 0);
             lstCustomers.Items.Clear();
         }
 
@@ -105,6 +109,15 @@ namespace Assignment
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnViewCustomer_Click(object sender, EventArgs e)
+        {
+            User selectedCustomer = listedCustomers[lstCustomers.SelectedIndex];
+            Console.Write(listedCustomers.Length);
+            Form form = new FormRCustomerDetails(selectedCustomer);
+            form.ShowDialog();
+            LoadCustomers();
         }
     }
 }

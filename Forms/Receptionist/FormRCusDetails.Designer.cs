@@ -30,33 +30,57 @@ namespace Assignment
         private void InitializeComponent()
         {
             this.grpCustomer = new System.Windows.Forms.GroupBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblPhoneNo = new System.Windows.Forms.Label();
             this.lblPayment = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnViewPayment = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnViewCurrentService = new System.Windows.Forms.Button();
+            this.btnService = new System.Windows.Forms.Button();
             this.grpCustomer.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCustomer
             // 
+            this.grpCustomer.Controls.Add(this.lblEmail);
+            this.grpCustomer.Controls.Add(this.lblPhoneNo);
             this.grpCustomer.Controls.Add(this.lblPayment);
             this.grpCustomer.Controls.Add(this.lblUsername);
             this.grpCustomer.Controls.Add(this.lblName);
             this.grpCustomer.Location = new System.Drawing.Point(17, 45);
             this.grpCustomer.Name = "grpCustomer";
-            this.grpCustomer.Size = new System.Drawing.Size(307, 92);
+            this.grpCustomer.Size = new System.Drawing.Size(307, 146);
             this.grpCustomer.TabIndex = 0;
             this.grpCustomer.TabStop = false;
             this.grpCustomer.Text = "Selected Customer";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblEmail.Location = new System.Drawing.Point(6, 66);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(38, 13);
+            this.lblEmail.TabIndex = 0;
+            this.lblEmail.Text = "Email: ";
+            // 
+            // lblPhoneNo
+            // 
+            this.lblPhoneNo.AutoSize = true;
+            this.lblPhoneNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblPhoneNo.Location = new System.Drawing.Point(6, 90);
+            this.lblPhoneNo.Name = "lblPhoneNo";
+            this.lblPhoneNo.Size = new System.Drawing.Size(84, 13);
+            this.lblPhoneNo.TabIndex = 0;
+            this.lblPhoneNo.Text = "Phone Number: ";
             // 
             // lblPayment
             // 
             this.lblPayment.AutoSize = true;
             this.lblPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblPayment.Location = new System.Drawing.Point(6, 65);
+            this.lblPayment.Location = new System.Drawing.Point(6, 114);
             this.lblPayment.Name = "lblPayment";
             this.lblPayment.Size = new System.Drawing.Size(54, 13);
             this.lblPayment.TabIndex = 0;
@@ -94,7 +118,7 @@ namespace Assignment
             // 
             // btnViewPayment
             // 
-            this.btnViewPayment.Location = new System.Drawing.Point(17, 195);
+            this.btnViewPayment.Location = new System.Drawing.Point(17, 248);
             this.btnViewPayment.Name = "btnViewPayment";
             this.btnViewPayment.Size = new System.Drawing.Size(307, 23);
             this.btnViewPayment.TabIndex = 3;
@@ -103,7 +127,7 @@ namespace Assignment
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(17, 233);
+            this.btnClose.Location = new System.Drawing.Point(17, 286);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(307, 23);
             this.btnClose.TabIndex = 3;
@@ -111,27 +135,29 @@ namespace Assignment
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnViewCurrentService
+            // btnService
             // 
-            this.btnViewCurrentService.Location = new System.Drawing.Point(17, 157);
-            this.btnViewCurrentService.Name = "btnViewCurrentService";
-            this.btnViewCurrentService.Size = new System.Drawing.Size(307, 23);
-            this.btnViewCurrentService.TabIndex = 3;
-            this.btnViewCurrentService.Text = "View Current Service";
-            this.btnViewCurrentService.UseVisualStyleBackColor = true;
+            this.btnService.Location = new System.Drawing.Point(17, 210);
+            this.btnService.Name = "btnService";
+            this.btnService.Size = new System.Drawing.Size(307, 23);
+            this.btnService.TabIndex = 3;
+            this.btnService.Text = "View Current Service";
+            this.btnService.UseVisualStyleBackColor = true;
             // 
             // FormRCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 286);
+            this.ClientSize = new System.Drawing.Size(340, 344);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnViewCurrentService);
+            this.Controls.Add(this.btnService);
             this.Controls.Add(this.btnViewPayment);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grpCustomer);
             this.Name = "FormRCustomerDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer Details";
+            this.Load += new System.EventHandler(this.FormRCustomerDetails_Load);
             this.grpCustomer.ResumeLayout(false);
             this.grpCustomer.PerformLayout();
             this.ResumeLayout(false);
@@ -148,6 +174,8 @@ namespace Assignment
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnViewPayment;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnViewCurrentService;
+        private System.Windows.Forms.Button btnService;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblPhoneNo;
     }
 }

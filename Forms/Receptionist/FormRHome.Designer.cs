@@ -36,12 +36,12 @@ namespace Assignment
             this.lstCustomers = new System.Windows.Forms.ListBox();
             this.btnViewCustomer = new System.Windows.Forms.Button();
             this.gbViewUser = new System.Windows.Forms.GroupBox();
+            this.rdoEmail = new System.Windows.Forms.RadioButton();
+            this.rdoUsername = new System.Windows.Forms.RadioButton();
+            this.rdoFullName = new System.Windows.Forms.RadioButton();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnNewCustomer = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.rdoFullName = new System.Windows.Forms.RadioButton();
-            this.rdoUsername = new System.Windows.Forms.RadioButton();
-            this.rdoEmail = new System.Windows.Forms.RadioButton();
             this.gbViewUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +98,7 @@ namespace Assignment
             this.btnViewCustomer.TabIndex = 4;
             this.btnViewCustomer.Text = "View Customer";
             this.btnViewCustomer.UseVisualStyleBackColor = true;
+            this.btnViewCustomer.Click += new System.EventHandler(this.btnViewCustomer_Click);
             // 
             // gbViewUser
             // 
@@ -116,6 +117,46 @@ namespace Assignment
             this.gbViewUser.TabIndex = 6;
             this.gbViewUser.TabStop = false;
             this.gbViewUser.Text = "View Customers";
+            // 
+            // rdoEmail
+            // 
+            this.rdoEmail.AutoSize = true;
+            this.rdoEmail.Location = new System.Drawing.Point(203, 60);
+            this.rdoEmail.Name = "rdoEmail";
+            this.rdoEmail.Size = new System.Drawing.Size(65, 17);
+            this.rdoEmail.TabIndex = 5;
+            this.rdoEmail.Text = "By Email";
+            this.rdoEmail.UseVisualStyleBackColor = true;
+            // 
+            // rdoUsername
+            // 
+            this.rdoUsername.AutoSize = true;
+            this.rdoUsername.Location = new System.Drawing.Point(109, 60);
+            this.rdoUsername.Name = "rdoUsername";
+            this.rdoUsername.Size = new System.Drawing.Size(88, 17);
+            this.rdoUsername.TabIndex = 5;
+            this.rdoUsername.Text = "By Username";
+            this.rdoUsername.UseVisualStyleBackColor = true;
+            // 
+            // rdoFullName
+            // 
+            this.rdoFullName.AutoSize = true;
+            this.rdoFullName.Location = new System.Drawing.Point(16, 60);
+            this.rdoFullName.Name = "rdoFullName";
+            this.rdoFullName.Size = new System.Drawing.Size(87, 17);
+            this.rdoFullName.TabIndex = 5;
+            this.rdoFullName.Text = "By Full Name";
+            this.rdoFullName.UseVisualStyleBackColor = true;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(315, 23);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(70, 23);
+            this.btnReset.TabIndex = 2;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnNewCustomer
             // 
@@ -137,50 +178,6 @@ namespace Assignment
             this.lblTitle.TabIndex = 7;
             this.lblTitle.Text = "Receptionist Home";
             // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(315, 23);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(70, 23);
-            this.btnReset.TabIndex = 2;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // rdoFullName
-            // 
-            this.rdoFullName.AutoSize = true;
-            this.rdoFullName.Checked = true;
-            this.rdoFullName.Location = new System.Drawing.Point(16, 60);
-            this.rdoFullName.Name = "rdoFullName";
-            this.rdoFullName.Size = new System.Drawing.Size(87, 17);
-            this.rdoFullName.TabIndex = 5;
-            this.rdoFullName.TabStop = true;
-            this.rdoFullName.Text = "By Full Name";
-            this.rdoFullName.UseVisualStyleBackColor = true;
-            // 
-            // rdoUsername
-            // 
-            this.rdoUsername.AutoSize = true;
-            this.rdoUsername.Location = new System.Drawing.Point(109, 60);
-            this.rdoUsername.Name = "rdoUsername";
-            this.rdoUsername.Size = new System.Drawing.Size(88, 17);
-            this.rdoUsername.TabIndex = 5;
-            this.rdoUsername.TabStop = true;
-            this.rdoUsername.Text = "By Username";
-            this.rdoUsername.UseVisualStyleBackColor = true;
-            // 
-            // rdoEmail
-            // 
-            this.rdoEmail.AutoSize = true;
-            this.rdoEmail.Location = new System.Drawing.Point(203, 60);
-            this.rdoEmail.Name = "rdoEmail";
-            this.rdoEmail.Size = new System.Drawing.Size(65, 17);
-            this.rdoEmail.TabIndex = 5;
-            this.rdoEmail.TabStop = true;
-            this.rdoEmail.Text = "By Email";
-            this.rdoEmail.UseVisualStyleBackColor = true;
-            // 
             // FormRHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +188,7 @@ namespace Assignment
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnLogOut);
             this.Name = "FormRHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receptionist Home";
             this.Load += new System.EventHandler(this.FormRHome_Load);
             this.gbViewUser.ResumeLayout(false);

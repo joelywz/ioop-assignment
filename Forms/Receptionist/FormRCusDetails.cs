@@ -12,14 +12,25 @@ namespace Assignment
 {
     public partial class FormRCustomerDetails : Form
     {
-        public FormRCustomerDetails()
+        User customer;
+
+        public FormRCustomerDetails(User user)
         {
             InitializeComponent();
+            customer = user;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormRCustomerDetails_Load(object sender, EventArgs e)
+        {
+            lblName.Text += customer.fullName;
+            lblUsername.Text += customer.username;
+            lblPhoneNo.Text += customer.phoneNo;
+            lblEmail.Text += customer.email;
         }
     }
 }
