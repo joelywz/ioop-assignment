@@ -27,7 +27,7 @@ namespace Assignment
 
             if (rdoComplete.Checked)
             {
-                FormTCusServices obj1 = new FormTCusServices();
+                FormTCompletion obj1 = new FormTCompletion();
                 obj1.Show();
             }
         }
