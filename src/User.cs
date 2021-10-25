@@ -17,14 +17,14 @@ namespace Assignment
         public string fullName;
         public string email;
         public string phoneNo;
-        public string role;
+        public Roles role;
 
         public enum Roles
         {
             Customer = 0,
-            Receptionist = 1,
-            Technician = 2,
-            Administrator = 3,
+            Administrator = 1,
+            Receptionist = 2,
+            Technician = 3,
         }
         User()
         {
@@ -37,7 +37,7 @@ namespace Assignment
             conn.Open();
             // Querying this way can prevent database injections
             // Docs: https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters?redirectedfrom=MSDN&view=dotnet-plat-ext-5.0#System_Data_SqlClient_SqlCommand_Parameters
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [User] WHERE username = @username", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM [User] WHERE username=@username;", conn);
             cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
             cmd.Parameters["@username"].Value = username;
             SqlDataReader reader = cmd.ExecuteReader();
@@ -45,6 +45,7 @@ namespace Assignment
             // Returns null if there's no entries
             if (!reader.HasRows)
             {
+                Console.WriteLine("test");
                 reader.Close();
                 conn.Close();
                 return null;
@@ -61,7 +62,7 @@ namespace Assignment
                 user.email = reader["email"].ToString();
                 user.fullName = reader["fullName"].ToString();
                 user.phoneNo = reader["phoneNo"].ToString();
-                user.role = reader["role"].ToString();
+                user.role = (Roles)int.Parse(reader["role"].ToString());
             }
 
             reader.Close();

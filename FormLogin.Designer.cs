@@ -30,11 +30,12 @@ namespace Assignment
         private void InitializeComponent()
         {
             this.lblUsername = new System.Windows.Forms.Label();
-            this.txtBoxUsername = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtBoxPassword = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -46,12 +47,12 @@ namespace Assignment
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
-            // txtBoxUsername
+            // txtUsername
             // 
-            this.txtBoxUsername.Location = new System.Drawing.Point(12, 74);
-            this.txtBoxUsername.Name = "txtBoxUsername";
-            this.txtBoxUsername.Size = new System.Drawing.Size(283, 20);
-            this.txtBoxUsername.TabIndex = 1;
+            this.txtUsername.Location = new System.Drawing.Point(12, 74);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(283, 20);
+            this.txtUsername.TabIndex = 1;
             // 
             // lblPassword
             // 
@@ -62,21 +63,22 @@ namespace Assignment
             this.lblPassword.TabIndex = 0;
             this.lblPassword.Text = "Password";
             // 
-            // txtBoxPassword
+            // txtPassword
             // 
-            this.txtBoxPassword.Location = new System.Drawing.Point(12, 129);
-            this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.Size = new System.Drawing.Size(283, 20);
-            this.txtBoxPassword.TabIndex = 1;
+            this.txtPassword.Location = new System.Drawing.Point(12, 129);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(283, 20);
+            this.txtPassword.TabIndex = 1;
             // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(13, 175);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(282, 31);
+            this.btnLogin.Size = new System.Drawing.Size(136, 31);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblTitle
             // 
@@ -88,19 +90,32 @@ namespace Assignment
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Login";
             // 
+            // btnExit
+            // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.Location = new System.Drawing.Point(159, 175);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(136, 31);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 253);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtBoxPassword);
-            this.Controls.Add(this.txtBoxUsername);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Name = "FormLogin";
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLogin_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,10 +124,11 @@ namespace Assignment
         #endregion
 
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox txtBoxUsername;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtBoxPassword;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnExit;
     }
 }

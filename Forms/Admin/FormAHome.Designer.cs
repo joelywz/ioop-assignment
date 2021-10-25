@@ -1,7 +1,7 @@
 ﻿
-namespace IOOP_Assignment___Admin
+namespace Assignment
 {
-    partial class frmAdmin
+    partial class FormAHome
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace IOOP_Assignment___Admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAHome));
             this.cmbRoles = new System.Windows.Forms.ComboBox();
             this.lblRoles = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
