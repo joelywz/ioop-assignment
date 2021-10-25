@@ -23,7 +23,7 @@ namespace Assignment
             // Check if fields are empty
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
-                showErrorMessageBox("Username or password is empty.");
+                ShowErrorMessageBox("Username or password is empty.");
                 return;
             }
 
@@ -33,14 +33,14 @@ namespace Assignment
             // Check if user exist
             if (user == null)
             {
-                showErrorMessageBox("Invalid credentials.");
+                ShowErrorMessageBox("Invalid credentials.");
                 return;
             }
 
             // Compare passwords
             if (txtPassword.Text != user.password)
             {
-                showErrorMessageBox("Invalid credentials.");
+                ShowErrorMessageBox("Invalid credentials.");
                 return;
             }
 
@@ -70,7 +70,7 @@ namespace Assignment
 
         }
 
-        private void showErrorMessageBox(string message)
+        private void ShowErrorMessageBox(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
