@@ -143,6 +143,8 @@
     <Compile Include="Forms\Technician\FormTHome.Designer.cs">
       <DependentUpon>FormTHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\IncompleteService.cs" />
+    <Compile Include="src\Service.cs" />
     <Compile Include="src\User.cs" />
     <Compile Include="src\Validation.cs" />
     <EmbeddedResource Include="Forms\Admin\FormAHome.resx">

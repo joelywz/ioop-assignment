@@ -141,7 +141,7 @@ namespace Assignment
             this.btnService.Name = "btnService";
             this.btnService.Size = new System.Drawing.Size(307, 23);
             this.btnService.TabIndex = 3;
-            this.btnService.Text = "View Current Service";
+            this.btnService.Text = "Add Service";
             this.btnService.UseVisualStyleBackColor = true;
             // 
             // FormRCustomerDetails

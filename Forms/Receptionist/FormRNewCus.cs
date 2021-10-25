@@ -44,7 +44,7 @@ namespace Assignment.Forms.Receptionist
                 return;
             }
 
-            User user = new User(username, password, fullName, email, phoneNo, User.Role.Customer);
+            User user = new User(username, password, fullName, email, phoneNo, User.Roles.Customer);
 
             try
             {

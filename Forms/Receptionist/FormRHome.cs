@@ -20,7 +20,7 @@ namespace Assignment
             InitializeComponent();
 
             // Check if user has the right role
-            if (user.role != User.Role.Receptionist) Close();
+            if (user.Role != User.Roles.Receptionist) Close();
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Assignment
         private void LoadCustomers()
         {
             btnViewCustomer.Enabled = false;
-            customers = User.GetUsersByRole(User.Role.Customer);
+            customers = User.FromDbByRole(User.Roles.Customer);
             ClearListedCustomers();
             foreach (User user in customers)
             {
@@ -63,7 +63,7 @@ namespace Assignment
             if (rdoFullName.Checked)
                 foreach (User user in customers)
                 {
-                    if (user.fullName.ToLower().Contains(txtboxSearch.Text.ToLower()))
+                    if (user.FullName.ToLower().Contains(txtboxSearch.Text.ToLower()))
                     {
                         AddListedCustomer(user);
                     }
@@ -71,7 +71,7 @@ namespace Assignment
             else if (rdoUsername.Checked)
                 foreach (User user in customers)
                 {
-                    if (user.username.ToLower().Contains(txtboxSearch.Text.ToLower()))
+                    if (user.Username.ToLower().Contains(txtboxSearch.Text.ToLower()))
                     {
                         AddListedCustomer(user);
                     }
@@ -79,7 +79,7 @@ namespace Assignment
             else if (rdoEmail.Checked)
                 foreach (User user in customers)
                 {
-                    if (user.email.ToLower().Contains(txtboxSearch.Text.ToLower()))
+                    if (user.Email.ToLower().Contains(txtboxSearch.Text.ToLower()))
                     {
                         AddListedCustomer(user);
                     }
@@ -97,7 +97,7 @@ namespace Assignment
         {
             Array.Resize(ref listedCustomers, listedCustomers.Length + 1);
             listedCustomers[listedCustomers.Length - 1] = user;
-            lstCustomers.Items.Add(user.fullName);
+            lstCustomers.Items.Add(user.FullName);
         }
 
         private void btnReset_Click(object sender, EventArgs e)

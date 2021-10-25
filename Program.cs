@@ -24,7 +24,10 @@ namespace Assignment
                 return;
             }
             //Application.Run(new FormLogin());
-            Application.Run(new FormRHome(User.FromDb("johnsmith")));
+            IncompleteService s = IncompleteService.FromDbByUser(User.FromDbById(5));
+
+
+            Application.Run(new FormRHome(User.FromDbByUsername("johnsmith")));
         }
     }
 }
