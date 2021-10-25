@@ -44,7 +44,7 @@ namespace Assignment
                 return;
             }
 
-            // Redirect user to their corresponding home screen
+            // Redirect user to their home screen
             Form homeForm = null;
             switch (user.role)
             {
@@ -63,10 +63,9 @@ namespace Assignment
             }
 
             if (homeForm == null) return;
-            this.Hide();
-            homeForm.ShowDialog();
-            // Once Home Form is closed, the login form will reopen
-            this.Show();
+            this.Hide(); // Hide login form
+            homeForm.ShowDialog(); // Show home form
+            this.Show(); // Show login form when home form is closed
 
         }
 

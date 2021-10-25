@@ -52,7 +52,7 @@ namespace Assignment
             this.txtUsername.Location = new System.Drawing.Point(12, 74);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(283, 20);
-            this.txtUsername.TabIndex = 1;
+            this.txtUsername.TabIndex = 0;
             // 
             // lblPassword
             // 
@@ -72,9 +72,9 @@ namespace Assignment
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(13, 175);
+            this.btnLogin.Location = new System.Drawing.Point(99, 177);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(136, 31);
+            this.btnLogin.Size = new System.Drawing.Size(196, 31);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -93,10 +93,10 @@ namespace Assignment
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(159, 175);
+            this.btnExit.Location = new System.Drawing.Point(12, 177);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(136, 31);
-            this.btnExit.TabIndex = 2;
+            this.btnExit.Size = new System.Drawing.Size(81, 31);
+            this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -114,6 +114,7 @@ namespace Assignment
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLogin_FormClosed);
             this.ResumeLayout(false);
