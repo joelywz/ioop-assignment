@@ -14,5 +14,12 @@ namespace Assignment
         {
             InitializeComponent();
         }
+
+        private void btnCustProfChgProf_Click(object sender, EventArgs e)
+        {
+            FormUpdateProfile objUpProf = new FormUpdateProfile();
+            objUpProf.Show();
+            this.Hide();
+        }
     }
 }

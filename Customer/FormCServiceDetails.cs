@@ -14,5 +14,12 @@ namespace Assignment
         {
             InitializeComponent();
         }
+
+        private void btnCustServChg_Click(object sender, EventArgs e)
+        {
+            FormRCustomerDetails objCusDetails = new FormRCustomerDetails();
+            objCusDetails.Show();
+            this.Hide();
+        }
     }
 }
