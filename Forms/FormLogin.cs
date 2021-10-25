@@ -48,16 +48,16 @@ namespace Assignment
             Form homeForm = null;
             switch (user.role)
             {
-                case User.Roles.Customer:
+                case User.Role.Customer:
                     homeForm = new FormCHome();
                     break;
-                case User.Roles.Receptionist:
-                    homeForm = new FormRHome();
+                case User.Role.Receptionist:
+                    homeForm = new FormRHome(user);
                     break;
-                case User.Roles.Technician:
+                case User.Role.Technician:
                     homeForm = new FormTHome();
                     break;
-                case User.Roles.Administrator:
+                case User.Role.Administrator:
                     homeForm = new FormAHome();
                     break;
             }

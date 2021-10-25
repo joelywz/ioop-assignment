@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -86,6 +86,12 @@
     <Compile Include="Forms\Customer\FormCServiceDetails.Designer.cs">
       <DependentUpon>FormCServiceDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Receptionist\FormRNewCus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Receptionist\FormRNewCus.Designer.cs">
+      <DependentUpon>FormRNewCus.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Database.cs" />
     <Compile Include="Forms\FormUpdateProfile.cs">
       <SubType>Form</SubType>
@@ -138,6 +144,7 @@
       <DependentUpon>FormTHome.cs</DependentUpon>
     </Compile>
     <Compile Include="src\User.cs" />
+    <Compile Include="src\Validation.cs" />
     <EmbeddedResource Include="Forms\Admin\FormAHome.resx">
       <DependentUpon>FormAHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUpdateProfile.resx">
       <DependentUpon>FormUpdateProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Receptionist\FormRNewCus.resx">
+      <DependentUpon>FormRNewCus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Technician\FormTCusServices.resx">
       <DependentUpon>FormTCusServices.cs</DependentUpon>
@@ -208,8 +218,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Database\" />
+    <Content Include="Database\db.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\db_log.ldf">
+      <DependentUpon>db.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

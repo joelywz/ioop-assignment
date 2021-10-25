@@ -72,9 +72,9 @@ namespace Assignment
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(99, 177);
+            this.btnLogin.Location = new System.Drawing.Point(122, 177);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(196, 31);
+            this.btnLogin.Size = new System.Drawing.Size(173, 31);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@ namespace Assignment
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Location = new System.Drawing.Point(12, 177);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(81, 31);
+            this.btnExit.Size = new System.Drawing.Size(104, 31);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;

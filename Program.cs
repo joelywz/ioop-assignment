@@ -23,7 +23,8 @@ namespace Assignment
                 MessageBox.Show(dbTest, "Failed to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
                 return;
             }
-            Application.Run(new FormLogin());
+            //Application.Run(new FormLogin());
+            Application.Run(new FormRHome(User.FromDb("johnsmith")));
         }
     }
 }
