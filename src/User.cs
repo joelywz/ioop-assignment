@@ -57,12 +57,13 @@ namespace Assignment
             while (reader.Read())
             {
                 // Sets user variables to their value
+                user.id = Convert.ToInt32(reader["userId"]);
                 user.username = reader["username"].ToString();
                 user.password = reader["password"].ToString();
                 user.email = reader["email"].ToString();
                 user.fullName = reader["fullName"].ToString();
                 user.phoneNo = reader["phoneNo"].ToString();
-                user.role = (Roles)int.Parse(reader["role"].ToString());
+                user.role = (Roles)Convert.ToInt32(reader["role"]);
             }
 
             reader.Close();

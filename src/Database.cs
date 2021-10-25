@@ -17,5 +17,21 @@ namespace Assignment
             return new SqlConnection(value);
         }
 
+        public static string TestConnection()
+        {
+            string value = System.Configuration.ConfigurationManager.AppSettings.Get("connectionString");
+
+            try
+            {
+                SqlConnection conn = new SqlConnection(value);
+                conn.Open();
+                conn.Close();
+                return "OK";
+            } catch(Exception e)
+            {
+                return e.Message;
+            }
+        }
+
     }
 }
