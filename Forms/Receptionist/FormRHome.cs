@@ -19,6 +19,9 @@ namespace Assignment
         // This is to hold customers that are being shown on the listbox customers
         List<User> listedCustomers = new List<User>();
 
+        // Save Selected Customer
+        User selectedCustomer = null;
+
         public FormRHome(User user)
         {
             InitializeComponent();
@@ -27,6 +30,7 @@ namespace Assignment
         {
             FetchCustomers();
             rdoFullName.Checked = true;
+            Search();
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
@@ -36,9 +40,11 @@ namespace Assignment
 
         private void lstCustomers_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (lstCustomers.SelectedIndex >= 0)
+            int selectedIndex = lstCustomers.SelectedIndex;
+            if (selectedIndex >= 0)
             {
-                btnViewCustomer.Enabled = true;
+                selectedCustomer = listedCustomers[selectedIndex];
+                LoadDetails(selectedCustomer);
             }
         }
 
@@ -57,21 +63,23 @@ namespace Assignment
             this.Close();
         }
 
-        private void btnViewCustomer_Click(object sender, EventArgs e)
+        private void btnService_Click(object sender, EventArgs e)
         {
-            ShowCustomerDetailsForm();
+            if (selectedCustomer == null) return;
+            Form addServiceForm = new FormRAddService(selectedCustomer);
+            addServiceForm.ShowDialog();
+        }
+
+        private void btnRefersh_Click(object sender, EventArgs e)
+        {
+            FetchCustomers();
+            Search();
         }
 
         // Helper functions
         private void FetchCustomers()
         {
-            btnViewCustomer.Enabled = false;
             customers = User.GetByRole(User.Roles.Customer).ToList<User>();
-            ClearListedCustomers();
-            foreach (User user in customers)
-            {
-                AddListedCustomer(user);
-            }
         }
         
         private void ShowNewCustomerForm()
@@ -79,16 +87,6 @@ namespace Assignment
             Form newCustomerForm = new FormRNewCus();
             newCustomerForm.ShowDialog();
             FetchCustomers();
-        }
-
-        private void ShowCustomerDetailsForm()
-        {
-            User selectedCustomer = listedCustomers[lstCustomers.SelectedIndex];
-
-            Form form = new FormRCustomerDetails(selectedCustomer);
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
         }
 
         private void ClearListedCustomers()
@@ -105,7 +103,6 @@ namespace Assignment
 
         private void Search()
         {
-            btnViewCustomer.Enabled = false;
             ClearListedCustomers();
 
 
@@ -132,7 +129,51 @@ namespace Assignment
         {
             txtboxSearch.Text = "";
             chkNotPaid.Checked = false;
-            FetchCustomers();
+            ClearListedCustomers();
+            foreach (User customer in customers)
+            {
+                AddListedCustomer(customer);
+            }
         }
+
+        // Customer Detail
+        private void LoadDetails(User customer)
+        {
+            txtFullName.Text = customer.FullName;
+            txtUsername.Text = customer.Username;
+            txtPhoneNo.Text = customer.PhoneNo;
+            txtEmail.Text =  customer.Email;
+
+            // Check if any service is active
+            IncompleteService services = IncompleteService.GetByUser(customer);
+            btnViewPayment.Enabled = true;
+            btnService.Enabled = services == null ? false : true;
+
+            if(services == null)
+            {
+                btnService.Enabled = true;
+                btnService.Text = "Add Service";
+            } else
+            {
+                btnService.Enabled = false;
+                btnService.Text = "A Service is Active";
+            }
+
+            // Check for payments
+            int paymentDue = CompletedService.GetUnpaidCount(customer);
+
+            if (paymentDue > 0)
+            {
+                lblPayment.Text = paymentDue + " outstanding payment(s)";
+                lblPayment.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblPayment.Text = "No outstanding payment";
+                lblPayment.ForeColor = Color.Green;
+            }
+        }
+
+
     }
 }
