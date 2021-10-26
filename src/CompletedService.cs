@@ -92,6 +92,29 @@ namespace Assignment
 
         }
 
+        public static CompletedService[] GetByUser(User user)
+        {
+            SqlConnection conn = Database.GetSqlConnection();
+
+            string cmdText = "SELECT * FROM [CompletedService] WHERE [userId]=@userId; ";
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
+                .AddParameter<int>("@userId", System.Data.SqlDbType.Int, user.Id);
+
+            conn.Open();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
+
+            List<CompletedService> cs = new List<CompletedService>();
+            while (reader.Read())
+            {
+                cs.Add(Reader(reader));
+            }
+
+            reader.Close();
+            conn.Close();
+
+            return cs.ToArray();
+        }
+
         private static CompletedService Reader(SqlDataReader reader)
         {
             int completedServiceId = Convert.ToInt32(reader["completedServiceId"]);
