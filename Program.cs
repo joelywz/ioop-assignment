@@ -24,6 +24,10 @@ namespace Assignment
                 return;
             }
             //Application.Run(new FormLogin());
+
+            User u = User.GetById(8);
+            u.FullName = "PP";
+            u.Update();
             Application.Run(new FormRHome(User.GetByUsername("johnsmith")));
         }
     }
