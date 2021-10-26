@@ -49,7 +49,7 @@ namespace Assignment.Forms.Receptionist
                 if (test != null) throw new Exception("Email taken.");
 
                 // Attempt to create and save user
-                User user = User.Save(username, password, fullName, email, phoneNo, User.Roles.Customer);
+                User user = User.Save(username, fullName, email, password, phoneNo, User.Roles.Customer);
                 MessageBox.Show("User sucessfully created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             } catch (Exception exception)
