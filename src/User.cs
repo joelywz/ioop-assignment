@@ -17,6 +17,7 @@ namespace Assignment
         public string PhoneNo { get; set; }
         public string Ic { get; set; }
         public Roles Role { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         public enum Roles
         {
@@ -181,6 +182,19 @@ namespace Assignment
             user.Ic = reader["ic"].ToString();
             user.Role = (Roles)(int)reader["role"];
 
+            try
+            {
+                user.DateOfBirth = Convert.ToDateTime(reader["dateOfBirth"]);
+            } catch (Exception)
+            {
+                user.DateOfBirth = null;
+            }
+
+            if (string.IsNullOrWhiteSpace(user.Ic))
+            {
+                user.Ic = null;
+            }
+
             return user;
         }
 
@@ -189,15 +203,20 @@ namespace Assignment
             SqlConnection conn = Database.GetSqlConnection();
             conn.Open();
 
-            string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [phoneNo]=@phoneNo, [role]=@role WHERE [userId]=@userId;";
+            string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [phoneNo]=@phoneNo, [role]=@role, [dateOfBirth]=@dateOfBirth, [ic]=@ic WHERE [userId]=@userId;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn);
             bsc
+                .AddParameter<int>("@userId", System.Data.SqlDbType.VarChar, Id)
                 .AddParameter<string>("@username", System.Data.SqlDbType.VarChar, Username)
                 .AddParameter<string>("@fullname", System.Data.SqlDbType.VarChar, FullName)
                 .AddParameter<string>("@email", System.Data.SqlDbType.VarChar, Email)
                 .AddParameter<string>("@password", System.Data.SqlDbType.VarChar, Password)
                 .AddParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, PhoneNo)
-                .AddParameter<int>("@role", System.Data.SqlDbType.Bit, (int)Role);
+                .AddParameter<int>("@role", System.Data.SqlDbType.Bit, (int)Role)
+                .AddParameter<string>("@ic", System.Data.SqlDbType.VarChar, Ic)
+                .AddParameter<DateTime?>("@dateOfBirth", System.Data.SqlDbType.Date, DateOfBirth);
+  
+
 
             int rowsAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("rowsAffected: {0}", rowsAffected);

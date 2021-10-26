@@ -18,8 +18,12 @@ namespace Assignment
 
         public BetterSqlCommand AddParameter<T>(string parameterName, System.Data.SqlDbType type, T value)
         {
+ 
             Cmd.Parameters.Add(parameterName, type);
-            Cmd.Parameters[parameterName].Value = value;
+            if (value != null)
+                Cmd.Parameters[parameterName].Value = value;
+            else
+                Cmd.Parameters[parameterName].Value = DBNull.Value;
 
             return this;
         }
