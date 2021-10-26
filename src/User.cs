@@ -9,7 +9,7 @@ namespace Assignment
 {
     public class User
     {
-        public int? Id { get; }
+        public int Id { get; }
         public string Username { get; set;}
         public string Password { get; set; }
         public string FullName { get; set; }
