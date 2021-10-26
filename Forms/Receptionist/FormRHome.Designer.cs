@@ -42,6 +42,7 @@ namespace Assignment
             this.btnReset = new System.Windows.Forms.Button();
             this.btnNewCustomer = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.chkNotPaid = new System.Windows.Forms.CheckBox();
             this.gbViewUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,15 +85,15 @@ namespace Assignment
             // lstCustomers
             // 
             this.lstCustomers.FormattingEnabled = true;
-            this.lstCustomers.Location = new System.Drawing.Point(16, 92);
+            this.lstCustomers.Location = new System.Drawing.Point(19, 92);
             this.lstCustomers.Name = "lstCustomers";
-            this.lstCustomers.Size = new System.Drawing.Size(369, 186);
+            this.lstCustomers.Size = new System.Drawing.Size(366, 186);
             this.lstCustomers.TabIndex = 3;
             this.lstCustomers.SelectedValueChanged += new System.EventHandler(this.lstCustomers_SelectedValueChanged);
             // 
             // btnViewCustomer
             // 
-            this.btnViewCustomer.Location = new System.Drawing.Point(212, 291);
+            this.btnViewCustomer.Location = new System.Drawing.Point(212, 310);
             this.btnViewCustomer.Name = "btnViewCustomer";
             this.btnViewCustomer.Size = new System.Drawing.Size(173, 30);
             this.btnViewCustomer.TabIndex = 4;
@@ -102,6 +103,7 @@ namespace Assignment
             // 
             // gbViewUser
             // 
+            this.gbViewUser.Controls.Add(this.chkNotPaid);
             this.gbViewUser.Controls.Add(this.rdoEmail);
             this.gbViewUser.Controls.Add(this.rdoUsername);
             this.gbViewUser.Controls.Add(this.rdoFullName);
@@ -111,9 +113,9 @@ namespace Assignment
             this.gbViewUser.Controls.Add(this.btnNewCustomer);
             this.gbViewUser.Controls.Add(this.btnViewCustomer);
             this.gbViewUser.Controls.Add(this.lstCustomers);
-            this.gbViewUser.Location = new System.Drawing.Point(12, 74);
+            this.gbViewUser.Location = new System.Drawing.Point(12, 92);
             this.gbViewUser.Name = "gbViewUser";
-            this.gbViewUser.Size = new System.Drawing.Size(401, 343);
+            this.gbViewUser.Size = new System.Drawing.Size(401, 356);
             this.gbViewUser.TabIndex = 6;
             this.gbViewUser.TabStop = false;
             this.gbViewUser.Text = "View Customers";
@@ -154,13 +156,13 @@ namespace Assignment
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(70, 23);
             this.btnReset.TabIndex = 2;
-            this.btnReset.Text = "Reset";
+            this.btnReset.Text = "Reset & Refresh";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnNewCustomer
             // 
-            this.btnNewCustomer.Location = new System.Drawing.Point(16, 291);
+            this.btnNewCustomer.Location = new System.Drawing.Point(16, 310);
             this.btnNewCustomer.Name = "btnNewCustomer";
             this.btnNewCustomer.Size = new System.Drawing.Size(173, 30);
             this.btnNewCustomer.TabIndex = 4;
@@ -178,11 +180,21 @@ namespace Assignment
             this.lblTitle.TabIndex = 7;
             this.lblTitle.Text = "Receptionist Home";
             // 
+            // chkNotPaid
+            // 
+            this.chkNotPaid.AutoSize = true;
+            this.chkNotPaid.Location = new System.Drawing.Point(277, 61);
+            this.chkNotPaid.Name = "chkNotPaid";
+            this.chkNotPaid.Size = new System.Drawing.Size(67, 17);
+            this.chkNotPaid.TabIndex = 6;
+            this.chkNotPaid.Text = "Not Paid";
+            this.chkNotPaid.UseVisualStyleBackColor = true;
+            // 
             // FormRHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 429);
+            this.ClientSize = new System.Drawing.Size(433, 490);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.gbViewUser);
             this.Controls.Add(this.btnUpdateProfile);
@@ -213,5 +225,6 @@ namespace Assignment
         private System.Windows.Forms.RadioButton rdoUsername;
         private System.Windows.Forms.RadioButton rdoFullName;
         private System.Windows.Forms.RadioButton rdoEmail;
+        private System.Windows.Forms.CheckBox chkNotPaid;
     }
 }

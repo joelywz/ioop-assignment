@@ -13,38 +13,25 @@ namespace Assignment
 {
     public partial class FormRHome : Form
     {
-        User[] customers = { };
-        User[] listedCustomers = { };
+        // This is to hold all customers
+        List<User> customers = new List<User>();
+
+        // This is to hold customers that are being shown on the listbox customers
+        List<User> listedCustomers = new List<User>();
+
         public FormRHome(User user)
         {
             InitializeComponent();
-
-            // Check if user has the right role
-            if (user.Role != User.Roles.Receptionist) Close();
+        }
+        private void FormRHome_Load(object sender, EventArgs e)
+        {
+            FetchCustomers();
+            rdoFullName.Checked = true;
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            Form newCustomerForm = new FormRNewCus();
-            newCustomerForm.ShowDialog();
-            LoadCustomers();
-        }
-
-        private void FormRHome_Load(object sender, EventArgs e)
-        {
-            LoadCustomers();
-            rdoFullName.Checked = true;
-        }
-
-        private void LoadCustomers()
-        {
-            btnViewCustomer.Enabled = false;
-            customers = User.GetByRole(User.Roles.Customer);
-            ClearListedCustomers();
-            foreach (User user in customers)
-            {
-                AddListedCustomer(user);
-            }
+            ShowNewCustomerForm();
         }
 
         private void lstCustomers_SelectedValueChanged(object sender, EventArgs e)
@@ -57,54 +44,12 @@ namespace Assignment
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            btnViewCustomer.Enabled = false;
-            ClearListedCustomers();
-
-            if (rdoFullName.Checked)
-                foreach (User user in customers)
-                {
-                    if (user.FullName.ToLower().Contains(txtboxSearch.Text.ToLower()))
-                    {
-                        AddListedCustomer(user);
-                    }
-                }
-            else if (rdoUsername.Checked)
-                foreach (User user in customers)
-                {
-                    if (user.Username.ToLower().Contains(txtboxSearch.Text.ToLower()))
-                    {
-                        AddListedCustomer(user);
-                    }
-                }
-            else if (rdoEmail.Checked)
-                foreach (User user in customers)
-                {
-                    if (user.Email.ToLower().Contains(txtboxSearch.Text.ToLower()))
-                    {
-                        AddListedCustomer(user);
-                    }
-                }
-
-        }
-
-        private void ClearListedCustomers()
-        {
-            Array.Clear(listedCustomers, 0, listedCustomers.Length);
-            Array.Resize(ref listedCustomers, 0);
-            lstCustomers.Items.Clear();
-        }
-
-        private void AddListedCustomer(User user)
-        {
-            Array.Resize(ref listedCustomers, listedCustomers.Length + 1);
-            listedCustomers[listedCustomers.Length - 1] = user;
-            lstCustomers.Items.Add(user.FullName);
+            Search();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtboxSearch.Text = "";
-            LoadCustomers();
+            Reset();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -114,12 +59,86 @@ namespace Assignment
 
         private void btnViewCustomer_Click(object sender, EventArgs e)
         {
+            ShowCustomerDetailsForm();
+        }
+
+        // Helper functions
+        private void FetchCustomers()
+        {
+            btnViewCustomer.Enabled = false;
+            customers = User.GetByRole(User.Roles.Customer).ToList<User>();
+            ClearListedCustomers();
+            foreach (User user in customers)
+            {
+                AddListedCustomer(user);
+            }
+        }
+        
+        private void ShowNewCustomerForm()
+        {
+            Form newCustomerForm = new FormRNewCus();
+            newCustomerForm.ShowDialog();
+            FetchCustomers();
+        }
+
+        private void ShowCustomerDetailsForm()
+        {
             User selectedCustomer = listedCustomers[lstCustomers.SelectedIndex];
-    
+
             Form form = new FormRCustomerDetails(selectedCustomer);
             this.Hide();
             form.ShowDialog();
             this.Show();
+        }
+
+        private void ClearListedCustomers()
+        {
+            listedCustomers.Clear();
+            lstCustomers.Items.Clear();
+        }
+
+        private void AddListedCustomer(User user)
+        {
+            listedCustomers.Add(user);
+            lstCustomers.Items.Add(user.FullName);
+        }
+
+        private void Search()
+        {
+            btnViewCustomer.Enabled = false;
+            ClearListedCustomers();
+
+
+            foreach (User user in customers)
+            {
+                // Radiobox filter
+                if (rdoFullName.Checked && !user.FullName.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
+                else if (rdoUsername.Checked && !user.Username.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
+                else if (rdoEmail.Checked && !user.Email.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
+
+                // Checkbox not paid filter
+                if (chkNotPaid.Checked)
+                {
+                    CompletedService[] services = CompletedService.GetByUser(user);
+                    if (services.Length == 0) continue;
+
+                    foreach (CompletedService service in services)
+                    {
+                        if (service.HasPaid) continue;
+                    }
+
+                }
+
+                AddListedCustomer(user);
+            }
+
+        }
+
+        private void Reset()
+        {
+            txtboxSearch.Text = "";
+            chkNotPaid.Checked = false;
+            FetchCustomers();
         }
     }
 }
