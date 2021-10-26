@@ -99,6 +99,7 @@
       <DependentUpon>FormRNewCus.cs</DependentUpon>
     </Compile>
     <Compile Include="src\BetterSqlCommand.cs" />
+    <Compile Include="src\CompletedService.cs" />
     <Compile Include="src\Database.cs" />
     <Compile Include="Forms\FormUpdateProfile.cs">
       <SubType>Form</SubType>

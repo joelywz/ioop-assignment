@@ -24,9 +24,6 @@ namespace Assignment
                 return;
             }
             //Application.Run(new FormLogin());
-            IncompleteService s = IncompleteService.GetByUser(User.GetById(5));
-
-
             Application.Run(new FormRHome(User.GetByUsername("johnsmith")));
         }
     }

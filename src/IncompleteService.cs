@@ -148,5 +148,21 @@ namespace Assignment
             conn.Close();
         }
 
+        public void Delete()
+        {
+            SqlConnection conn = Database.GetSqlConnection();
+
+            string cmdText = "DELETE FROM [IncompleteService] WHERE [userId]=@userId";
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
+                .AddParameter<int>("@userId", System.Data.SqlDbType.Int, User.Id);
+
+            conn.Open();
+            int rowsAffected = (int)bsc.Cmd.ExecuteNonQuery();
+
+            Console.WriteLine("Rows Affected: {0}", rowsAffected);
+
+            conn.Close();
+        }
+
     }
 }

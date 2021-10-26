@@ -36,24 +36,18 @@ namespace Assignment
             SqlConnection conn = Database.GetSqlConnection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("" +
-                "INSERT INTO [User] ([username], [fullName], [email], [password], [phoneNo], [role]) " +
-                "VALUES (@username, @fullName, @email, @password, @phoneNo, @role);", conn);
-            cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@fullName", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@phoneNo", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@role", System.Data.SqlDbType.Int);
-            cmd.Parameters["@username"].Value = username;
-            cmd.Parameters["@fullName"].Value = fullName;
-            cmd.Parameters["@email"].Value = email;
-            cmd.Parameters["@password"].Value = password;
-            cmd.Parameters["@phoneNo"].Value = phoneNo;
-            cmd.Parameters["@role"].Value = role;
+            string cmdText = "INSERT INTO [User] ([username], [fullName], [email], [password], [phoneNo], [role]) " +
+                "VALUES (@username, @fullName, @email, @password, @phoneNo, @role);";
 
-            cmd.ExecuteNonQuery();
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
+                .AddParameter<string>("@username", System.Data.SqlDbType.VarChar, username)
+                .AddParameter<string>("@fullName", System.Data.SqlDbType.VarChar, fullName)
+                .AddParameter<string>("@email", System.Data.SqlDbType.VarChar, email)
+                .AddParameter<string>("@password", System.Data.SqlDbType.VarChar, password)
+                .AddParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, phoneNo)
+                .AddParameter<int>("@role", System.Data.SqlDbType.Int, (int)role);
 
+            bsc.Cmd.ExecuteNonQuery();
 
             conn.Close();
             return User.GetByUsername(username);
