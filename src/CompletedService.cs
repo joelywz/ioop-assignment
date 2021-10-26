@@ -9,15 +9,15 @@ namespace Assignment
 {
     public class CompletedService
     {
-        public int Id {get;}
-        public User User;
-        public User CompletedBy;
-        public Service Service;
-        public bool Urgent;
-        public string Description;
-        public bool HasPaid;
-        public DateTime DateTimeCreated;
-        public DateTime DateTimeCompleted;
+        public int Id { get; }
+        public User User { get; }
+        public User CompletedBy { get; }
+        public Service Service { get; }
+        public bool Urgent { get; }
+        public string Description { get; }
+        public bool HasPaid { get; set; }
+        public DateTime DateTimeCreated { get; }
+        public DateTime DateTimeCompleted { get; }
 
         private CompletedService(int id, User user, User completedBy, Service service, bool urgent, bool hasPaid, string description, DateTime created, DateTime completed)
         {
@@ -81,7 +81,7 @@ namespace Assignment
         /// Get a CompletedService by id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>null when not found</returns>
         public static CompletedService GetById(int id)
         {
             // Preperation
@@ -140,6 +140,33 @@ namespace Assignment
             return cs.ToArray();
         }
 
+        public static CompletedService[] GetByDate(DateTime start, DateTime end)
+        {
+            // Preperation
+            SqlConnection conn = Database.GetSqlConnection();
+            string cmdText = "SELECT * FROM [CompletedService] WHERE [dateTimeCompleted] BETWEEN @start AND @end;";
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
+                .AddParameter<DateTime>("@start", System.Data.SqlDbType.DateTime, start)
+                .AddParameter<DateTime>("@end", System.Data.SqlDbType.DateTime, end);
+
+            // Execution
+            conn.Open();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
+
+            List<CompletedService> cs = new List<CompletedService>();
+            while (reader.Read())
+            {
+                cs.Add(Reader(reader));
+            }
+
+            // Clean up
+            reader.Close();
+            bsc.Dispose();
+            conn.Close();
+
+            return cs.ToArray();
+        }
+
         /// <summary>
         /// Gets the number of unpaid service.
         /// </summary>
@@ -163,6 +190,7 @@ namespace Assignment
 
             return count;
         }
+
         private static CompletedService Reader(SqlDataReader reader)
         {
             int completedServiceId = Convert.ToInt32(reader["completedServiceId"]);
@@ -178,6 +206,27 @@ namespace Assignment
             return new CompletedService(completedServiceId, user, completedBy, service, urgent, hasPaid, description, created, completed);
             
 
+        }
+
+        public void Update()
+        {
+            // Since only "HasPaid" is changeable, only HasPaid will be updated to the database.
+
+            // Preperation
+            SqlConnection conn = Database.GetSqlConnection();
+            string cmdText = "UPDATE [CompletedService] SET [hasPaid]=@hasPaid WHERE [completedServiceId]=@completedServicedId;";
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
+                .AddParameter<byte>("@hasPaid", System.Data.SqlDbType.Bit, Convert.ToByte(HasPaid))
+                .AddParameter<int>("@completedServiceId", System.Data.SqlDbType.Int, Id);
+
+            // Execution
+            conn.Open();
+            int rowsAffected = bsc.Cmd.ExecuteNonQuery();
+            Console.WriteLine("Rows Affected: {0}", rowsAffected);
+
+            // Clean up
+            bsc.Dispose();
+            conn.Close();
         }
     }
 }
