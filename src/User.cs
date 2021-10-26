@@ -30,16 +30,33 @@ namespace Assignment
         {
             this.Id = id;
         }
-            
-        public User(string username, string password, string fullName, string email, string phoneNo, Roles role)
+
+        public static User Save(string username, string fullName, string email, string password, string phoneNo, Roles role)
         {
-            this.Id = null;
-            this.Username = username;
-            this.Password = password;
-            this.FullName = fullName;
-            this.Email = email;
-            this.PhoneNo = phoneNo;
-            this.Role = role;
+            SqlConnection conn = Database.GetSqlConnection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("" +
+                "INSERT INTO [User] ([username], [fullName], [email], [password], [phoneNo], [role]) " +
+                "VALUES (@username, @fullName, @email, @password, @phoneNo, @role);", conn);
+            cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@fullName", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@phoneNo", System.Data.SqlDbType.VarChar);
+            cmd.Parameters.Add("@role", System.Data.SqlDbType.Int);
+            cmd.Parameters["@username"].Value = username;
+            cmd.Parameters["@fullName"].Value = fullName;
+            cmd.Parameters["@email"].Value = email;
+            cmd.Parameters["@password"].Value = password;
+            cmd.Parameters["@phoneNo"].Value = phoneNo;
+            cmd.Parameters["@role"].Value = role;
+
+            cmd.ExecuteNonQuery();
+
+
+            conn.Close();
+            return User.GetByUsername(username);
         }
 
         /// <summary>
@@ -47,23 +64,21 @@ namespace Assignment
         /// </summary>
         /// <param name="username"></param>
         /// <returns>User Object</returns>
-        public static User FromDbByUsername(string username)
+        public static User GetByUsername(string username)
         {
             // Querying this way can prevent database injections
             // Docs: https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters?redirectedfrom=MSDN&view=dotnet-plat-ext-5.0#System_Data_SqlClient_SqlCommand_Parameters
             SqlConnection conn = Database.GetSqlConnection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [User] WHERE username=@username;", conn);
-            cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
-            cmd.Parameters["@username"].Value = username;
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE username=@username;", conn);
+            bsc.addParameter<string>("@username", System.Data.SqlDbType.VarChar, username);
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
 
             User user = null;
             while (reader.Read())
             {
-                // Sets user variables to their value
                 user = Reader(reader);
                 break;
             }
@@ -77,18 +92,17 @@ namespace Assignment
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static User FromDbById(int id)
+        public static User GetById(int id)
         {
             // Querying this way can prevent database injections
             // Docs: https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters?redirectedfrom=MSDN&view=dotnet-plat-ext-5.0#System_Data_SqlClient_SqlCommand_Parameters
             SqlConnection conn = Database.GetSqlConnection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [User] WHERE userId=@userId;", conn);
-            cmd.Parameters.Add("@userId", System.Data.SqlDbType.VarChar);
-            cmd.Parameters["@userId"].Value = id;
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE userId=@userId;", conn);
+            bsc.addParameter<int>("@userId", System.Data.SqlDbType.Int, id);
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
 
             User user = null;
             while (reader.Read())
@@ -98,6 +112,34 @@ namespace Assignment
             }
             reader.Close();
             conn.Close();
+            return user;
+        }
+
+        /// <summary>
+        /// Get a user from database by email.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>null when no User found</returns>
+        public static User GetByEmail(string email)
+        {
+            SqlConnection conn = Database.GetSqlConnection();
+            conn.Open();
+
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE email=@email;", conn);
+            bsc.addParameter<string>("@email", System.Data.SqlDbType.VarChar, email);
+
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
+
+            User user = null;
+            while (reader.Read())
+            {
+                user = Reader(reader);
+                break;
+            }
+
+            reader.Close();
+            conn.Close();
+
             return user;
         }
 
@@ -106,58 +148,26 @@ namespace Assignment
         /// </summary>
         /// <param name="role"></param>
         /// <returns></returns>
-        public static User[] FromDbByRole(Roles role)
+        public static User[] GetByRole(Roles role)
         {
             SqlConnection conn = Database.GetSqlConnection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [User] WHERE [role]=@role ORDER BY[fullname] ASC;", conn);
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE [role]=@role ORDER BY[fullname] ASC;", conn);
+            bsc.addParameter<int>("@role", System.Data.SqlDbType.Bit, (int)role);
 
-            cmd.Parameters.Add("@role", System.Data.SqlDbType.Int);
-            cmd.Parameters["@role"].Value = (int)role;
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
 
-            User[] users = { };
+            List<User> users = new List<User>();
 
             while (reader.Read())
             {
-                // Sets user variables to their value
                 User user = Reader(reader);
-
-                Array.Resize(ref users, users.Length + 1);
-                users[users.Length - 1] = (user);
+                users.Add(user);
             }
 
-            return users;
-        }
-
-        /// <summary>
-        /// Get a user from database by email.
-        /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
-        public static User FromDbByEmail(string email)
-        {
-            SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [User] WHERE email=@email;", conn);
-            cmd.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
-            cmd.Parameters["@email"].Value = email;
-
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            User user = null;
-            while (reader.Read())
-            {
-                // Sets user variables to their value
-                user = Reader(reader);
-                break;
-            }
-            reader.Close();
-            conn.Close();
-            return user;
+            return users.ToArray();
         }
 
         /// <summary>
@@ -180,55 +190,22 @@ namespace Assignment
             return user;
         }
 
-        public User Save()
-        {
-            SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
-            SqlCommand cmd = new SqlCommand("" +
-                "INSERT INTO [User] ([username], [fullName], [email], [password], [phoneNo], [role]) " +
-                "VALUES (@username, @fullName, @email, @password, @phoneNo, @role);", conn);
-            cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@fullName", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@phoneNo", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@role", System.Data.SqlDbType.Int);
-            cmd.Parameters["@username"].Value = Username;
-            cmd.Parameters["@fullName"].Value = FullName;
-            cmd.Parameters["@email"].Value = Email;
-            cmd.Parameters["@password"].Value = Password;
-            cmd.Parameters["@phoneNo"].Value = PhoneNo;
-            cmd.Parameters["@role"].Value = Role;
-
-            cmd.ExecuteNonQuery();
-
-            Console.WriteLine(Id);
-            conn.Close();
-            return User.FromDbByUsername(Username);
-        }
-
         public void Update()
         {
             SqlConnection conn = Database.GetSqlConnection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [phoneNo]=@phoneNo, [role]=@role WHERE [userId]=@userId;", conn);
-            cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@fullName", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@email", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@password", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@phoneNo", System.Data.SqlDbType.VarChar);
-            cmd.Parameters.Add("@role", System.Data.SqlDbType.Int);
-            cmd.Parameters["@username"].Value = Username;
-            cmd.Parameters["@fullName"].Value = FullName;
-            cmd.Parameters["@email"].Value = Email;
-            cmd.Parameters["@password"].Value = Password;
-            cmd.Parameters["@phoneNo"].Value = PhoneNo;
-            cmd.Parameters["@role"].Value = Role;
+            string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [phoneNo]=@phoneNo, [role]=@role WHERE [userId]=@userId;";
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn);
+            bsc
+                .addParameter<string>("@username", System.Data.SqlDbType.VarChar, Username)
+                .addParameter<string>("@fullname", System.Data.SqlDbType.VarChar, FullName)
+                .addParameter<string>("@email", System.Data.SqlDbType.VarChar, Email)
+                .addParameter<string>("@password", System.Data.SqlDbType.VarChar, Password)
+                .addParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, PhoneNo)
+                .addParameter<int>("@role", System.Data.SqlDbType.Bit, (int)Role);
 
-            int rowsAffected = cmd.ExecuteNonQuery();
-
+            int rowsAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("rowsAffected: {0}", rowsAffected);
 
             conn.Close();

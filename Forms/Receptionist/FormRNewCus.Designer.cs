@@ -31,20 +31,20 @@ namespace Assignment.Forms.Receptionist
         {
             this.gbNewCustomer = new System.Windows.Forms.GroupBox();
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtRepeatPassword = new System.Windows.Forms.TextBox();
             this.btnNewCustomer = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblPhoneNo = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.lblRepeatPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.gbNewCustomer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,15 +76,21 @@ namespace Assignment.Forms.Receptionist
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(245, 20);
             this.txtPhoneNo.TabIndex = 6;
-            this.txtPhoneNo.Text = "012-35896478";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(10, 249);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(245, 20);
+            this.txtEmail.TabIndex = 5;
             // 
             // txtRepeatPassword
             // 
             this.txtRepeatPassword.Location = new System.Drawing.Point(10, 195);
             this.txtRepeatPassword.Name = "txtRepeatPassword";
+            this.txtRepeatPassword.PasswordChar = '●';
             this.txtRepeatPassword.Size = new System.Drawing.Size(245, 20);
             this.txtRepeatPassword.TabIndex = 4;
-            this.txtRepeatPassword.Text = "samueljackson";
             // 
             // btnNewCustomer
             // 
@@ -100,9 +106,9 @@ namespace Assignment.Forms.Receptionist
             // 
             this.txtPassword.Location = new System.Drawing.Point(10, 146);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(245, 20);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.Text = "samueljackson";
             // 
             // txtUsername
             // 
@@ -110,7 +116,6 @@ namespace Assignment.Forms.Receptionist
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(245, 20);
             this.txtUsername.TabIndex = 2;
-            this.txtUsername.Text = "samueljackson";
             // 
             // txtName
             // 
@@ -118,7 +123,6 @@ namespace Assignment.Forms.Receptionist
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(245, 20);
             this.txtName.TabIndex = 1;
-            this.txtName.Text = "Samuel Jackson";
             // 
             // lblPhoneNo
             // 
@@ -128,6 +132,15 @@ namespace Assignment.Forms.Receptionist
             this.lblPhoneNo.Size = new System.Drawing.Size(78, 13);
             this.lblPhoneNo.TabIndex = 0;
             this.lblPhoneNo.Text = "Phone Number";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(7, 233);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.TabIndex = 0;
+            this.lblEmail.Text = "Email";
             // 
             // lblRepeatPassword
             // 
@@ -184,23 +197,6 @@ namespace Assignment.Forms.Receptionist
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(10, 249);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(245, 20);
-            this.txtEmail.TabIndex = 5;
-            this.txtEmail.Text = "samueljackson@yahoo.com";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(7, 233);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
-            this.lblEmail.TabIndex = 0;
-            this.lblEmail.Text = "Email";
             // 
             // FormRNewCus
             // 

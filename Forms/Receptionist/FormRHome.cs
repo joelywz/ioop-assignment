@@ -39,7 +39,7 @@ namespace Assignment
         private void LoadCustomers()
         {
             btnViewCustomer.Enabled = false;
-            customers = User.FromDbByRole(User.Roles.Customer);
+            customers = User.GetByRole(User.Roles.Customer);
             ClearListedCustomers();
             foreach (User user in customers)
             {
@@ -89,7 +89,8 @@ namespace Assignment
 
         private void ClearListedCustomers()
         {
-            Array.Clear(listedCustomers, 0, 0);
+            Array.Clear(listedCustomers, 0, listedCustomers.Length);
+            Array.Resize(ref listedCustomers, 0);
             lstCustomers.Items.Clear();
         }
 
@@ -114,10 +115,11 @@ namespace Assignment
         private void btnViewCustomer_Click(object sender, EventArgs e)
         {
             User selectedCustomer = listedCustomers[lstCustomers.SelectedIndex];
-            Console.Write(listedCustomers.Length);
+    
             Form form = new FormRCustomerDetails(selectedCustomer);
+            this.Hide();
             form.ShowDialog();
-            LoadCustomers();
+            this.Show();
         }
     }
 }

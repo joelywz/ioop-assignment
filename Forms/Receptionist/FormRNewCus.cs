@@ -31,27 +31,31 @@ namespace Assignment.Forms.Receptionist
             string email = txtEmail.Text;
             string phoneNo = txtPhoneNo.Text;
 
+
             try
             {
+                // Validate Fields
                 Validation.ValidateFullName(fullName);
                 Validation.ValidateUsername(username);
                 Validation.ValidatePassword(password, repeatPassword);
                 Validation.ValidateEmail(email);
                 Validation.ValidatePhoneNo(phoneNo);
+
+                // Check if user already exist
+                User test = null;
+                test = User.GetByUsername(username);
+                if (test != null) throw new Exception("Username taken.");
+                test = User.GetByEmail(email);
+                if (test != null) throw new Exception("Email taken.");
+
+                // Attempt to create and save user
+                User user = User.Save(username, password, fullName, email, phoneNo, User.Roles.Customer);
+                MessageBox.Show("User sucessfully created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             } catch (Exception exception)
             {
                 MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-
-            User user = new User(username, password, fullName, email, phoneNo, User.Roles.Customer);
-
-            try
-            {
-                user.Save();
-            } catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, "Unable to create user.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
