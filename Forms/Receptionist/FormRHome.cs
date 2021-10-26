@@ -119,14 +119,8 @@ namespace Assignment
                 // Checkbox not paid filter
                 if (chkNotPaid.Checked)
                 {
-                    CompletedService[] services = CompletedService.GetByUser(user);
-                    if (services.Length == 0) continue;
-
-                    foreach (CompletedService service in services)
-                    {
-                        if (service.HasPaid) continue;
-                    }
-
+                    int paymentDue = CompletedService.GetUnpaidCount(user);
+                    if (paymentDue == 0) continue;
                 }
 
                 AddListedCustomer(user);
