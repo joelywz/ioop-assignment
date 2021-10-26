@@ -40,17 +40,12 @@ namespace Assignment
             int serviceId = incompleteService.Service.Id;
             bool urgent = incompleteService.Urgent;
             DateTime dateTimeCreated = incompleteService.DateTimeCreated;
-            double price = incompleteService.Service.Price;
-
-            if (urgent)
-            {
-                price = incompleteService.Service.UrgentPrice;
-            }
+            double price = urgent ? incompleteService.Service.UrgentPrice : incompleteService.Service.Price;
 
             // Delete incomplete service
             incompleteService.Delete();
 
-            // Save to compelted
+            // Save to database
             SqlConnection conn = Database.GetSqlConnection();
 
             string cmdText =
@@ -99,8 +94,6 @@ namespace Assignment
 
         private static CompletedService Reader(SqlDataReader reader)
         {
-            //CompletedService completedService = new CompletedService()
-
             int completedServiceId = Convert.ToInt32(reader["completedServiceId"]);
             User user = User.GetById(Convert.ToInt32(reader["userId"]));
             User completedBy = User.GetById(Convert.ToInt32(reader["completedByUserId"]));
