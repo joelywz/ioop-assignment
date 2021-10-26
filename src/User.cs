@@ -72,7 +72,7 @@ namespace Assignment
             conn.Open();
 
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE username=@username;", conn);
-            bsc.addParameter<string>("@username", System.Data.SqlDbType.VarChar, username);
+            bsc.AddParameter<string>("@username", System.Data.SqlDbType.VarChar, username);
 
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
 
@@ -100,7 +100,7 @@ namespace Assignment
             conn.Open();
 
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE userId=@userId;", conn);
-            bsc.addParameter<int>("@userId", System.Data.SqlDbType.Int, id);
+            bsc.AddParameter<int>("@userId", System.Data.SqlDbType.Int, id);
 
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
 
@@ -126,7 +126,7 @@ namespace Assignment
             conn.Open();
 
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE email=@email;", conn);
-            bsc.addParameter<string>("@email", System.Data.SqlDbType.VarChar, email);
+            bsc.AddParameter<string>("@email", System.Data.SqlDbType.VarChar, email);
 
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
 
@@ -154,7 +154,7 @@ namespace Assignment
             conn.Open();
 
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE [role]=@role ORDER BY[fullname] ASC;", conn);
-            bsc.addParameter<int>("@role", System.Data.SqlDbType.Bit, (int)role);
+            bsc.AddParameter<int>("@role", System.Data.SqlDbType.Bit, (int)role);
 
 
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
@@ -198,12 +198,12 @@ namespace Assignment
             string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [phoneNo]=@phoneNo, [role]=@role WHERE [userId]=@userId;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn);
             bsc
-                .addParameter<string>("@username", System.Data.SqlDbType.VarChar, Username)
-                .addParameter<string>("@fullname", System.Data.SqlDbType.VarChar, FullName)
-                .addParameter<string>("@email", System.Data.SqlDbType.VarChar, Email)
-                .addParameter<string>("@password", System.Data.SqlDbType.VarChar, Password)
-                .addParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, PhoneNo)
-                .addParameter<int>("@role", System.Data.SqlDbType.Bit, (int)Role);
+                .AddParameter<string>("@username", System.Data.SqlDbType.VarChar, Username)
+                .AddParameter<string>("@fullname", System.Data.SqlDbType.VarChar, FullName)
+                .AddParameter<string>("@email", System.Data.SqlDbType.VarChar, Email)
+                .AddParameter<string>("@password", System.Data.SqlDbType.VarChar, Password)
+                .AddParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, PhoneNo)
+                .AddParameter<int>("@role", System.Data.SqlDbType.Bit, (int)Role);
 
             int rowsAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("rowsAffected: {0}", rowsAffected);

@@ -16,7 +16,7 @@ namespace Assignment
             Cmd = new SqlCommand(cmdText, conn);
         }
 
-        public BetterSqlCommand addParameter<T>(string parameterName, System.Data.SqlDbType type, T value)
+        public BetterSqlCommand AddParameter<T>(string parameterName, System.Data.SqlDbType type, T value)
         {
             Cmd.Parameters.Add(parameterName);
             Cmd.Parameters[parameterName].Value = value;
