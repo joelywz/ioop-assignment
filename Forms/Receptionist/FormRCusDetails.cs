@@ -30,29 +30,48 @@ namespace Assignment
             LoadDetails();
         }
 
-        private void LoadDetails()
-        {
-            lblName.Text = "Full Name:" + customer.FullName;
-            lblUsername.Text = "Username: " +  customer.Username;
-            lblPhoneNo.Text = "Phone Number: " +  customer.PhoneNo;
-            lblEmail.Text = "Email: " +  customer.Email;
-
-            IncompleteService services = IncompleteService.GetByUser(customer);
-
-            if (services != null)
-            {
-                btnService.Enabled = false;
-            } else
-            {
-                btnService.Enabled = true;
-            }
-        }
-
         private void btnService_Click(object sender, EventArgs e)
         {
             Form addServiceForm = new FormRAddService(customer);
             addServiceForm.ShowDialog();
             LoadDetails();
+        }
+
+        // Helper Functions
+        private void LoadDetails()
+        {
+            lblName.Text = "Full Name: " + customer.FullName;
+            lblUsername.Text = "Username: " + customer.Username;
+            lblPhoneNo.Text = "Phone Number: " + customer.PhoneNo;
+            lblEmail.Text = "Email: " + customer.Email;
+
+            // Check if any service is active
+            IncompleteService services = IncompleteService.GetByUser(customer);
+
+            if (services != null)
+            {
+                btnService.Enabled = false;
+            }
+            else
+            {
+                btnService.Enabled = true;
+            }
+
+            // Check for payments
+            int paymentDue = CompletedService.GetUnpaidCount(customer);
+
+            if (paymentDue > 0)
+            {
+                lblPayment.Text = paymentDue + " outstanding payment(s)";
+                lblPayment.ForeColor = Color.Red;
+            } else
+            {
+                lblPayment.Text = "No outstanding payment";
+                lblPayment.ForeColor = Color.Green;
+            }
+
+
+
         }
     }
 }
