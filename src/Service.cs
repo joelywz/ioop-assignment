@@ -9,11 +9,16 @@ namespace Assignment
 {
     public class Service
     {
-        private static Service[] services = null;
-        public int id;
-        public string name;
-        public double price;
-        public double urgentPrice;
+        private static Service[] services = { };
+        public int Id { get; }
+        public string Name { get; }
+        public double Price { get; }
+        public double UrgentPrice { get; }
+
+        private Service(int id, string name, double price, double urgentPrice)
+        {
+            Id = id;
+        }
        
         private static Service[] FromDb()
         {
@@ -27,22 +32,23 @@ namespace Assignment
             // Create SQL reader
             SqlDataReader reader = cmd.ExecuteReader();
 
-            Service[] services = { };
+            List<Service> services = new List<Service>();
+            services.Clear();
 
             while (reader.Read())
             {
-                Service service = new Service();
-                service.id = (int)reader["serviceId"];
-                service.name = reader["name"].ToString();
-                service.price = (double)reader["price"];
-                service.urgentPrice = (double)reader["urgentPrice"];
+ 
+                int id = (int)reader["serviceId"];
+                string name = (string)reader["name"];
+                double  price = (double)reader["price"];
+                double urgentPrice = (double)reader["urgentPrice"];
 
-                Array.Resize(ref services, services.Length + 1);
-                services[services.Length - 1] = service;
-              
+                Service service = new Service(id, name, price, urgentPrice);
+
+                services.Add(service);              
             }
 
-            return services;
+            return services.ToArray();
         }
 
         /// <summary>
