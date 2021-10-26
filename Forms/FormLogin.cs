@@ -28,7 +28,7 @@ namespace Assignment
             }
 
             // Fetch user from database
-            User user = User.FromDbByUsername(txtUsername.Text);
+            User user = User.GetByUsername(txtUsername.Text);
 
             // Check if user exist
             if (user == null)

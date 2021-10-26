@@ -143,6 +143,7 @@ namespace Assignment
             this.btnService.TabIndex = 3;
             this.btnService.Text = "Add Service";
             this.btnService.UseVisualStyleBackColor = true;
+            this.btnService.Click += new System.EventHandler(this.btnService_Click);
             // 
             // FormRCustomerDetails
             // 

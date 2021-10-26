@@ -86,12 +86,19 @@
     <Compile Include="Forms\Customer\FormCServiceDetails.Designer.cs">
       <DependentUpon>FormCServiceDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Receptionist\FormRAddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Receptionist\FormRAddService.Designer.cs">
+      <DependentUpon>FormRAddService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Receptionist\FormRNewCus.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Receptionist\FormRNewCus.Designer.cs">
       <DependentUpon>FormRNewCus.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\BetterSqlCommand.cs" />
     <Compile Include="src\Database.cs" />
     <Compile Include="Forms\FormUpdateProfile.cs">
       <SubType>Form</SubType>
@@ -161,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUpdateProfile.resx">
       <DependentUpon>FormUpdateProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Receptionist\FormRAddService.resx">
+      <DependentUpon>FormRAddService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Receptionist\FormRNewCus.resx">
       <DependentUpon>FormRNewCus.cs</DependentUpon>

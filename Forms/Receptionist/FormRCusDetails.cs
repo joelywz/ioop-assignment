@@ -37,7 +37,7 @@ namespace Assignment
             lblPhoneNo.Text = "Phone Number: " +  customer.PhoneNo;
             lblEmail.Text = "Email: " +  customer.Email;
 
-            IncompleteService services = IncompleteService.FromDbByUser(customer);
+            IncompleteService services = IncompleteService.GetByUser(customer);
 
             if (services != null)
             {
@@ -46,6 +46,13 @@ namespace Assignment
             {
                 btnService.Enabled = true;
             }
+        }
+
+        private void btnService_Click(object sender, EventArgs e)
+        {
+            Form addServiceForm = new FormRAddService(customer);
+            addServiceForm.ShowDialog();
+            LoadDetails();
         }
     }
 }

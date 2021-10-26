@@ -15,17 +15,17 @@ namespace Assignment
 {
     public class IncompleteService
     {
-        public User user { get; }
-        public Service service { get; set; }
-        public bool urgent { get; set; }
-        public DateTime dateTimeCreated { get; set; }
+        public User User { get; }
+        public Service Service { get; set; }
+        public bool Urgent { get; set; }
+        public DateTime DateTimeCreated { get; set; }
 
         private IncompleteService(User user, Service service, bool urgent, DateTime dateTimeCreated)
         {
-            this.user = user;
-            this.service = service;
-            this.urgent = urgent;
-            this.dateTimeCreated = dateTimeCreated;
+            this.User = user;
+            this.Service = service;
+            this.Urgent = urgent;
+            this.DateTimeCreated = dateTimeCreated;
         }
 
         /// <summary>
@@ -132,20 +132,18 @@ namespace Assignment
         {
             SqlConnection conn = Database.GetSqlConnection();
 
-            SqlCommand cmd = new SqlCommand("UPDATE [IncompleteService] " +
-                "SET [userId]=@userId, [serviceId]=@serviceId, [urgent]=@urgent " +
-                "WHERE [userId]=@userId", conn);
+            string cmdText = "UPDATE [IncompleteService] " +
+                "SET [userId]=@userId, [serviceId]=@serviceId, [urgent]=@urgent [dateTimeCreated]=@dateTimeCreated" +
+                "WHERE [userId]=@userId";
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
+                .AddParameter<int>("@userId", System.Data.SqlDbType.Int, User.Id)
+                .AddParameter<int>("@serviceId", System.Data.SqlDbType.Int, Service.Id)
+                .AddParameter<byte>("@urgent", System.Data.SqlDbType.Bit, Convert.ToByte(Urgent))
+                .AddParameter<DateTime>("@dateTimeCreated", System.Data.SqlDbType.DateTime, DateTimeCreated);
 
-            cmd.Parameters.Add("@userId", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@serviceId", System.Data.SqlDbType.Int);
-            cmd.Parameters.Add("@urgent", System.Data.SqlDbType.Bit);
-
-            cmd.Parameters["@userId"].Value = user.Id;
-            cmd.Parameters["@serviceId"].Value = service.Id;
-            cmd.Parameters["@urgent"].Value = Convert.ToByte(urgent);
 
             conn.Open();
-            int rowAffected = cmd.ExecuteNonQuery();
+            int rowAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("Row Affected: {0}", rowAffected);
             conn.Close();
         }

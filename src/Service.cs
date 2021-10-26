@@ -9,7 +9,7 @@ namespace Assignment
 {
     public class Service
     {
-        private static Service[] services = { };
+        private static Service[] services = null;
         public int Id { get; }
         public string Name { get; }
         public double Price { get; }
@@ -18,6 +18,9 @@ namespace Assignment
         private Service(int id, string name, double price, double urgentPrice)
         {
             Id = id;
+            Name = name;
+            Price = price;
+            UrgentPrice = urgentPrice;
         }
        
         private static Service[] FromDb()
@@ -39,7 +42,7 @@ namespace Assignment
             {
  
                 int id = (int)reader["serviceId"];
-                string name = (string)reader["name"];
+                string name = reader["name"].ToString();
                 double  price = (double)reader["price"];
                 double urgentPrice = (double)reader["urgentPrice"];
 
