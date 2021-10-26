@@ -32,37 +32,32 @@ namespace Assignment
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.txtboxSearch = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listboxUsers = new System.Windows.Forms.ListBox();
-            this.btnViewUser = new System.Windows.Forms.Button();
-            this.gbNewCustomer = new System.Windows.Forms.GroupBox();
-            this.txtboxRepeatPassword = new System.Windows.Forms.TextBox();
-            this.btnNewCustomer = new System.Windows.Forms.Button();
-            this.txtboxPassword = new System.Windows.Forms.TextBox();
-            this.txtboxUsername = new System.Windows.Forms.TextBox();
-            this.txtboxName = new System.Windows.Forms.TextBox();
-            this.lblRepeatPassword = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.lstCustomers = new System.Windows.Forms.ListBox();
+            this.btnViewCustomer = new System.Windows.Forms.Button();
             this.gbViewUser = new System.Windows.Forms.GroupBox();
+            this.rdoEmail = new System.Windows.Forms.RadioButton();
+            this.rdoUsername = new System.Windows.Forms.RadioButton();
+            this.rdoFullName = new System.Windows.Forms.RadioButton();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnNewCustomer = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.gbNewCustomer.SuspendLayout();
             this.gbViewUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(360, 21);
+            this.btnLogOut.Location = new System.Drawing.Point(208, 22);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(75, 23);
             this.btnLogOut.TabIndex = 0;
             this.btnLogOut.Text = "Log out";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnUpdateProfile
             // 
-            this.btnUpdateProfile.Location = new System.Drawing.Point(441, 21);
+            this.btnUpdateProfile.Location = new System.Drawing.Point(289, 22);
             this.btnUpdateProfile.Name = "btnUpdateProfile";
             this.btnUpdateProfile.Size = new System.Drawing.Size(124, 23);
             this.btnUpdateProfile.TabIndex = 0;
@@ -73,138 +68,105 @@ namespace Assignment
             // 
             this.txtboxSearch.Location = new System.Drawing.Point(16, 24);
             this.txtboxSearch.Name = "txtboxSearch";
-            this.txtboxSearch.Size = new System.Drawing.Size(161, 20);
+            this.txtboxSearch.Size = new System.Drawing.Size(210, 20);
             this.txtboxSearch.TabIndex = 1;
             // 
-            // button3
+            // btnSearch
             // 
-            this.button3.Location = new System.Drawing.Point(184, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(232, 23);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(77, 23);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // listboxUsers
+            // lstCustomers
             // 
-            this.listboxUsers.FormattingEnabled = true;
-            this.listboxUsers.Location = new System.Drawing.Point(16, 52);
-            this.listboxUsers.Name = "listboxUsers";
-            this.listboxUsers.Size = new System.Drawing.Size(242, 173);
-            this.listboxUsers.TabIndex = 3;
+            this.lstCustomers.FormattingEnabled = true;
+            this.lstCustomers.Location = new System.Drawing.Point(16, 92);
+            this.lstCustomers.Name = "lstCustomers";
+            this.lstCustomers.Size = new System.Drawing.Size(369, 186);
+            this.lstCustomers.TabIndex = 3;
+            this.lstCustomers.SelectedValueChanged += new System.EventHandler(this.lstCustomers_SelectedValueChanged);
             // 
-            // btnViewUser
+            // btnViewCustomer
             // 
-            this.btnViewUser.Location = new System.Drawing.Point(16, 237);
-            this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(242, 30);
-            this.btnViewUser.TabIndex = 4;
-            this.btnViewUser.Text = "View Selected User";
-            this.btnViewUser.UseVisualStyleBackColor = true;
-            // 
-            // gbNewCustomer
-            // 
-            this.gbNewCustomer.Controls.Add(this.txtboxRepeatPassword);
-            this.gbNewCustomer.Controls.Add(this.btnNewCustomer);
-            this.gbNewCustomer.Controls.Add(this.txtboxPassword);
-            this.gbNewCustomer.Controls.Add(this.txtboxUsername);
-            this.gbNewCustomer.Controls.Add(this.txtboxName);
-            this.gbNewCustomer.Controls.Add(this.lblRepeatPassword);
-            this.gbNewCustomer.Controls.Add(this.lblPassword);
-            this.gbNewCustomer.Controls.Add(this.lblUsername);
-            this.gbNewCustomer.Controls.Add(this.lblName);
-            this.gbNewCustomer.Location = new System.Drawing.Point(303, 74);
-            this.gbNewCustomer.Name = "gbNewCustomer";
-            this.gbNewCustomer.Size = new System.Drawing.Size(261, 290);
-            this.gbNewCustomer.TabIndex = 5;
-            this.gbNewCustomer.TabStop = false;
-            this.gbNewCustomer.Text = "New Customer";
-            // 
-            // txtboxRepeatPassword
-            // 
-            this.txtboxRepeatPassword.Location = new System.Drawing.Point(10, 195);
-            this.txtboxRepeatPassword.Name = "txtboxRepeatPassword";
-            this.txtboxRepeatPassword.Size = new System.Drawing.Size(245, 20);
-            this.txtboxRepeatPassword.TabIndex = 1;
-            // 
-            // btnNewCustomer
-            // 
-            this.btnNewCustomer.Location = new System.Drawing.Point(10, 237);
-            this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(245, 30);
-            this.btnNewCustomer.TabIndex = 4;
-            this.btnNewCustomer.Text = "New Customer";
-            this.btnNewCustomer.UseVisualStyleBackColor = true;
-            // 
-            // txtboxPassword
-            // 
-            this.txtboxPassword.Location = new System.Drawing.Point(10, 146);
-            this.txtboxPassword.Name = "txtboxPassword";
-            this.txtboxPassword.Size = new System.Drawing.Size(245, 20);
-            this.txtboxPassword.TabIndex = 1;
-            // 
-            // txtboxUsername
-            // 
-            this.txtboxUsername.Location = new System.Drawing.Point(10, 95);
-            this.txtboxUsername.Name = "txtboxUsername";
-            this.txtboxUsername.Size = new System.Drawing.Size(245, 20);
-            this.txtboxUsername.TabIndex = 1;
-            // 
-            // txtboxName
-            // 
-            this.txtboxName.Location = new System.Drawing.Point(10, 46);
-            this.txtboxName.Name = "txtboxName";
-            this.txtboxName.Size = new System.Drawing.Size(245, 20);
-            this.txtboxName.TabIndex = 1;
-            // 
-            // lblRepeatPassword
-            // 
-            this.lblRepeatPassword.AutoSize = true;
-            this.lblRepeatPassword.Location = new System.Drawing.Point(7, 178);
-            this.lblRepeatPassword.Name = "lblRepeatPassword";
-            this.lblRepeatPassword.Size = new System.Drawing.Size(91, 13);
-            this.lblRepeatPassword.TabIndex = 0;
-            this.lblRepeatPassword.Text = "Repeat Password";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(7, 129);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
-            this.lblPassword.TabIndex = 0;
-            this.lblPassword.Text = "Password";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(7, 78);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "Username";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(7, 29);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
+            this.btnViewCustomer.Location = new System.Drawing.Point(212, 291);
+            this.btnViewCustomer.Name = "btnViewCustomer";
+            this.btnViewCustomer.Size = new System.Drawing.Size(173, 30);
+            this.btnViewCustomer.TabIndex = 4;
+            this.btnViewCustomer.Text = "View Customer";
+            this.btnViewCustomer.UseVisualStyleBackColor = true;
+            this.btnViewCustomer.Click += new System.EventHandler(this.btnViewCustomer_Click);
             // 
             // gbViewUser
             // 
+            this.gbViewUser.Controls.Add(this.rdoEmail);
+            this.gbViewUser.Controls.Add(this.rdoUsername);
+            this.gbViewUser.Controls.Add(this.rdoFullName);
             this.gbViewUser.Controls.Add(this.txtboxSearch);
-            this.gbViewUser.Controls.Add(this.button3);
-            this.gbViewUser.Controls.Add(this.btnViewUser);
-            this.gbViewUser.Controls.Add(this.listboxUsers);
+            this.gbViewUser.Controls.Add(this.btnReset);
+            this.gbViewUser.Controls.Add(this.btnSearch);
+            this.gbViewUser.Controls.Add(this.btnNewCustomer);
+            this.gbViewUser.Controls.Add(this.btnViewCustomer);
+            this.gbViewUser.Controls.Add(this.lstCustomers);
             this.gbViewUser.Location = new System.Drawing.Point(12, 74);
             this.gbViewUser.Name = "gbViewUser";
-            this.gbViewUser.Size = new System.Drawing.Size(271, 290);
+            this.gbViewUser.Size = new System.Drawing.Size(401, 343);
             this.gbViewUser.TabIndex = 6;
             this.gbViewUser.TabStop = false;
-            this.gbViewUser.Text = "View User";
+            this.gbViewUser.Text = "View Customers";
+            // 
+            // rdoEmail
+            // 
+            this.rdoEmail.AutoSize = true;
+            this.rdoEmail.Location = new System.Drawing.Point(203, 60);
+            this.rdoEmail.Name = "rdoEmail";
+            this.rdoEmail.Size = new System.Drawing.Size(65, 17);
+            this.rdoEmail.TabIndex = 5;
+            this.rdoEmail.Text = "By Email";
+            this.rdoEmail.UseVisualStyleBackColor = true;
+            // 
+            // rdoUsername
+            // 
+            this.rdoUsername.AutoSize = true;
+            this.rdoUsername.Location = new System.Drawing.Point(109, 60);
+            this.rdoUsername.Name = "rdoUsername";
+            this.rdoUsername.Size = new System.Drawing.Size(88, 17);
+            this.rdoUsername.TabIndex = 5;
+            this.rdoUsername.Text = "By Username";
+            this.rdoUsername.UseVisualStyleBackColor = true;
+            // 
+            // rdoFullName
+            // 
+            this.rdoFullName.AutoSize = true;
+            this.rdoFullName.Location = new System.Drawing.Point(16, 60);
+            this.rdoFullName.Name = "rdoFullName";
+            this.rdoFullName.Size = new System.Drawing.Size(87, 17);
+            this.rdoFullName.TabIndex = 5;
+            this.rdoFullName.Text = "By Full Name";
+            this.rdoFullName.UseVisualStyleBackColor = true;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(315, 23);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(70, 23);
+            this.btnReset.TabIndex = 2;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnNewCustomer
+            // 
+            this.btnNewCustomer.Location = new System.Drawing.Point(16, 291);
+            this.btnNewCustomer.Name = "btnNewCustomer";
+            this.btnNewCustomer.Size = new System.Drawing.Size(173, 30);
+            this.btnNewCustomer.TabIndex = 4;
+            this.btnNewCustomer.Text = "New Customer";
+            this.btnNewCustomer.UseVisualStyleBackColor = true;
+            this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
             // 
             // lblTitle
             // 
@@ -220,16 +182,15 @@ namespace Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 382);
+            this.ClientSize = new System.Drawing.Size(427, 429);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.gbViewUser);
-            this.Controls.Add(this.gbNewCustomer);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnLogOut);
             this.Name = "FormRHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receptionist Home";
-            this.gbNewCustomer.ResumeLayout(false);
-            this.gbNewCustomer.PerformLayout();
+            this.Load += new System.EventHandler(this.FormRHome_Load);
             this.gbViewUser.ResumeLayout(false);
             this.gbViewUser.PerformLayout();
             this.ResumeLayout(false);
@@ -242,20 +203,15 @@ namespace Assignment
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnUpdateProfile;
         private System.Windows.Forms.TextBox txtboxSearch;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listboxUsers;
-        private System.Windows.Forms.Button btnViewUser;
-        private System.Windows.Forms.GroupBox gbNewCustomer;
-        private System.Windows.Forms.TextBox txtboxRepeatPassword;
-        private System.Windows.Forms.Button btnNewCustomer;
-        private System.Windows.Forms.TextBox txtboxPassword;
-        private System.Windows.Forms.TextBox txtboxUsername;
-        private System.Windows.Forms.TextBox txtboxName;
-        private System.Windows.Forms.Label lblRepeatPassword;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ListBox lstCustomers;
+        private System.Windows.Forms.Button btnViewCustomer;
         private System.Windows.Forms.GroupBox gbViewUser;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnNewCustomer;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.RadioButton rdoUsername;
+        private System.Windows.Forms.RadioButton rdoFullName;
+        private System.Windows.Forms.RadioButton rdoEmail;
     }
 }
