@@ -96,7 +96,7 @@ namespace Assignment
         {
             SqlConnection conn = Database.GetSqlConnection();
 
-            string cmdText = "SELECT * FROM [CompletedService] WHERE [userId]=@userId; ";
+            string cmdText = "SELECT * FROM [CompletedService] WHERE [userId]=@userId;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, user.Id);
 
@@ -115,6 +115,17 @@ namespace Assignment
             return cs.ToArray();
         }
 
+        public static int GetUnpaidCount(User user)
+        {
+            SqlConnection conn = Database.GetSqlConnection();
+            string cmdText = "SELECT COUNT([completedServiceId]) FROM [CompletedService] WHERE [userId]=@userId AND [hasPaid]=0;";
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
+                .AddParameter<int>("@userId", System.Data.SqlDbType.Int, user.Id);
+            conn.Open();
+            int count = Convert.ToInt32(bsc.Cmd.ExecuteScalar());
+            conn.Close();
+            return count;
+        }
         private static CompletedService Reader(SqlDataReader reader)
         {
             int completedServiceId = Convert.ToInt32(reader["completedServiceId"]);
