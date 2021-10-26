@@ -23,12 +23,25 @@ namespace Assignment
                 MessageBox.Show(dbTest, "Failed to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
                 return;
             }
-            //Application.Run(new FormLogin());
+            // Main
+            Application.Run(new FormLogin());
 
-            User u = User.GetById(8);
-            u.FullName = "PP";
-            u.Update();
-            Application.Run(new FormRHome(User.GetByUsername("johnsmith")));
+
+            // You can automatically log in to your form here by uncommenting the right one
+
+            // Customer
+            //Application.Run(new FormRHome(User.GetById(1)));
+
+            // Admin
+            //Application.Run(new FormRHome(User.GetById(2)));
+
+            // Receptionist
+            //Application.Run(new FormRHome(User.GetById(3)));
+
+            // Technican
+            //Application.Run(new FormRHome(User.GetById(4)));
+
+
         }
     }
 }
