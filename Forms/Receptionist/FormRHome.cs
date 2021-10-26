@@ -13,98 +13,49 @@ namespace Assignment
 {
     public partial class FormRHome : Form
     {
-        User[] customers = { };
-        User[] listedCustomers = { };
+        // This is to hold all customers
+        List<User> customers = new List<User>();
+
+        // This is to hold customers that are being shown on the listbox customers
+        List<User> listedCustomers = new List<User>();
+
+        // Save Selected Customer
+        User selectedCustomer = null;
+
         public FormRHome(User user)
         {
             InitializeComponent();
-
-            // Check if user has the right role
-            if (user.Role != User.Roles.Receptionist) Close();
+        }
+        private void FormRHome_Load(object sender, EventArgs e)
+        {
+            FetchCustomers();
+            rdoFullName.Checked = true;
+            Search();
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
         {
-            Form newCustomerForm = new FormRNewCus();
-            newCustomerForm.ShowDialog();
-            LoadCustomers();
-        }
-
-        private void FormRHome_Load(object sender, EventArgs e)
-        {
-            LoadCustomers();
-            rdoFullName.Checked = true;
-        }
-
-        private void LoadCustomers()
-        {
-            btnViewCustomer.Enabled = false;
-            customers = User.GetByRole(User.Roles.Customer);
-            ClearListedCustomers();
-            foreach (User user in customers)
-            {
-                AddListedCustomer(user);
-            }
+            ShowNewCustomerForm();
         }
 
         private void lstCustomers_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (lstCustomers.SelectedIndex >= 0)
+            int selectedIndex = lstCustomers.SelectedIndex;
+            if (selectedIndex >= 0)
             {
-                btnViewCustomer.Enabled = true;
+                selectedCustomer = listedCustomers[selectedIndex];
+                LoadDetails(selectedCustomer);
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            btnViewCustomer.Enabled = false;
-            ClearListedCustomers();
-
-            if (rdoFullName.Checked)
-                foreach (User user in customers)
-                {
-                    if (user.FullName.ToLower().Contains(txtboxSearch.Text.ToLower()))
-                    {
-                        AddListedCustomer(user);
-                    }
-                }
-            else if (rdoUsername.Checked)
-                foreach (User user in customers)
-                {
-                    if (user.Username.ToLower().Contains(txtboxSearch.Text.ToLower()))
-                    {
-                        AddListedCustomer(user);
-                    }
-                }
-            else if (rdoEmail.Checked)
-                foreach (User user in customers)
-                {
-                    if (user.Email.ToLower().Contains(txtboxSearch.Text.ToLower()))
-                    {
-                        AddListedCustomer(user);
-                    }
-                }
-
-        }
-
-        private void ClearListedCustomers()
-        {
-            Array.Clear(listedCustomers, 0, listedCustomers.Length);
-            Array.Resize(ref listedCustomers, 0);
-            lstCustomers.Items.Clear();
-        }
-
-        private void AddListedCustomer(User user)
-        {
-            Array.Resize(ref listedCustomers, listedCustomers.Length + 1);
-            listedCustomers[listedCustomers.Length - 1] = user;
-            lstCustomers.Items.Add(user.FullName);
+            Search();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtboxSearch.Text = "";
-            LoadCustomers();
+            Reset();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -112,14 +63,117 @@ namespace Assignment
             this.Close();
         }
 
-        private void btnViewCustomer_Click(object sender, EventArgs e)
+        private void btnService_Click(object sender, EventArgs e)
         {
-            User selectedCustomer = listedCustomers[lstCustomers.SelectedIndex];
-    
-            Form form = new FormRCustomerDetails(selectedCustomer);
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
+            if (selectedCustomer == null) return;
+            Form addServiceForm = new FormRAddService(selectedCustomer);
+            addServiceForm.ShowDialog();
         }
+
+        private void btnRefersh_Click(object sender, EventArgs e)
+        {
+            FetchCustomers();
+            Search();
+        }
+
+        // Helper functions
+        private void FetchCustomers()
+        {
+            customers = User.GetByRole(User.Roles.Customer).ToList<User>();
+        }
+        
+        private void ShowNewCustomerForm()
+        {
+            Form newCustomerForm = new FormRNewCus();
+            newCustomerForm.ShowDialog();
+            FetchCustomers();
+        }
+
+        private void ClearListedCustomers()
+        {
+            listedCustomers.Clear();
+            lstCustomers.Items.Clear();
+        }
+
+        private void AddListedCustomer(User user)
+        {
+            listedCustomers.Add(user);
+            lstCustomers.Items.Add(user.FullName);
+        }
+
+        private void Search()
+        {
+            ClearListedCustomers();
+
+
+            foreach (User user in customers)
+            {
+                // Radiobox filter
+                if (rdoFullName.Checked && !user.FullName.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
+                else if (rdoUsername.Checked && !user.Username.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
+                else if (rdoEmail.Checked && !user.Email.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
+
+                // Checkbox not paid filter
+                if (chkNotPaid.Checked)
+                {
+                    int paymentDue = CompletedService.GetUnpaidCount(user);
+                    if (paymentDue == 0) continue;
+                }
+
+                AddListedCustomer(user);
+            }
+
+        }
+
+        private void Reset()
+        {
+            txtboxSearch.Text = "";
+            chkNotPaid.Checked = false;
+            ClearListedCustomers();
+            foreach (User customer in customers)
+            {
+                AddListedCustomer(customer);
+            }
+        }
+
+        // Customer Detail
+        private void LoadDetails(User customer)
+        {
+            txtFullName.Text = customer.FullName;
+            txtUsername.Text = customer.Username;
+            txtPhoneNo.Text = customer.PhoneNo;
+            txtEmail.Text =  customer.Email;
+
+            // Check if any service is active
+            IncompleteService services = IncompleteService.GetByUser(customer);
+            btnViewPayment.Enabled = true;
+            btnService.Enabled = services == null ? false : true;
+
+            if(services == null)
+            {
+                btnService.Enabled = true;
+                btnService.Text = "Add Service";
+            } else
+            {
+                btnService.Enabled = false;
+                btnService.Text = "A Service is Active";
+            }
+
+            // Check for payments
+            int paymentDue = CompletedService.GetUnpaidCount(customer);
+
+            if (paymentDue > 0)
+            {
+                lblPayment.Text = paymentDue + " outstanding payment(s)";
+                lblPayment.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblPayment.Text = "No outstanding payment";
+                lblPayment.ForeColor = Color.Green;
+            }
+        }
+
+
     }
 }
