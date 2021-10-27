@@ -14,18 +14,20 @@ namespace Assignment
         public User CompletedBy { get; }
         public Service Service { get; }
         public bool Urgent { get; }
+        public double Price { get;  }
         public string Description { get; }
         public bool HasPaid { get; set; }
         public DateTime DateTimeCreated { get; }
         public DateTime DateTimeCompleted { get; }
 
-        private CompletedService(int id, User user, User completedBy, Service service, bool urgent, bool hasPaid, string description, DateTime created, DateTime completed)
+        private CompletedService(int id, User user, User completedBy, Service service, bool urgent, double price, bool hasPaid, string description, DateTime created, DateTime completed)
         {
             this.Id = id;
             this.User = user;
             this.CompletedBy = completedBy;
             this.Service = service;
             this.Urgent = urgent;
+            this.Price = price;
             this.HasPaid = hasPaid;
             this.Description = description;
             this.DateTimeCreated = created;
@@ -199,11 +201,12 @@ namespace Assignment
             Service service = Service.GetService(Convert.ToInt32(reader["serviceId"]));
             bool urgent = (bool)reader["urgent"];
             bool hasPaid = (bool)reader["hasPaid"];
+            double price = Convert.ToDouble(reader["price"]);
             string description = reader["description"].ToString();
             DateTime created = (DateTime)reader["dateTimeCreated"];
             DateTime completed = (DateTime)reader["dateTimeCompleted"];
 
-            return new CompletedService(completedServiceId, user, completedBy, service, urgent, hasPaid, description, created, completed);
+            return new CompletedService(completedServiceId, user, completedBy, service, urgent, price, hasPaid, description, created, completed);
             
 
         }
@@ -214,7 +217,7 @@ namespace Assignment
 
             // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            string cmdText = "UPDATE [CompletedService] SET [hasPaid]=@hasPaid WHERE [completedServiceId]=@completedServicedId;";
+            string cmdText = "UPDATE [CompletedService] SET [hasPaid]=@hasPaid WHERE [completedServiceId]=@completedServiceId;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<byte>("@hasPaid", System.Data.SqlDbType.Bit, Convert.ToByte(HasPaid))
                 .AddParameter<int>("@completedServiceId", System.Data.SqlDbType.Int, Id);
