@@ -30,24 +30,33 @@ namespace Assignment
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.gbPayments = new System.Windows.Forms.GroupBox();
-            this.btnViewReceipt = new System.Windows.Forms.Button();
+            this.grpPayments = new System.Windows.Forms.GroupBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
-            this.checkboxSettled = new System.Windows.Forms.CheckBox();
-            this.checkboxIncomplete = new System.Windows.Forms.CheckBox();
-            this.checkboxUnsettled = new System.Windows.Forms.CheckBox();
-            this.checkboxCompleted = new System.Windows.Forms.CheckBox();
-            this.listboxPayments = new System.Windows.Forms.ListBox();
-            this.gbReceipt = new System.Windows.Forms.GroupBox();
+            this.rdoSettled = new System.Windows.Forms.RadioButton();
+            this.rdoOutstanding = new System.Windows.Forms.RadioButton();
+            this.lstPayments = new System.Windows.Forms.ListBox();
+            this.rdoAll = new System.Windows.Forms.RadioButton();
+            this.grpReceipt = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtTotalAmount = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.txtCompleted = new System.Windows.Forms.TextBox();
+            this.txtCreated = new System.Windows.Forms.TextBox();
+            this.txtServiceName = new System.Windows.Forms.TextBox();
+            this.txtServiceId = new System.Windows.Forms.TextBox();
+            this.lblPaymentInfo = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.lblServiceId = new System.Windows.Forms.Label();
+            this.btnPaid = new System.Windows.Forms.Button();
+            this.lblServiceName = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.lblCustomerName = new System.Windows.Forms.Label();
+            this.lblCompletedAt = new System.Windows.Forms.Label();
             this.lblCreatedAt = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.lblCustomer = new System.Windows.Forms.Label();
-            this.listboxReceipt = new System.Windows.Forms.ListBox();
-            this.btnMarkSettled = new System.Windows.Forms.Button();
-            this.labelTotal = new System.Windows.Forms.Label();
-            this.lblPaymentStatus = new System.Windows.Forms.Label();
-            this.gbPayments.SuspendLayout();
-            this.gbReceipt.SuspendLayout();
+            this.grpPayments.SuspendLayout();
+            this.grpReceipt.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -60,184 +69,277 @@ namespace Assignment
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Payment and Receipt";
             // 
-            // gbPayments
+            // grpPayments
             // 
-            this.gbPayments.Controls.Add(this.btnViewReceipt);
-            this.gbPayments.Controls.Add(this.btnFilter);
-            this.gbPayments.Controls.Add(this.checkboxSettled);
-            this.gbPayments.Controls.Add(this.checkboxIncomplete);
-            this.gbPayments.Controls.Add(this.checkboxUnsettled);
-            this.gbPayments.Controls.Add(this.checkboxCompleted);
-            this.gbPayments.Controls.Add(this.listboxPayments);
-            this.gbPayments.Location = new System.Drawing.Point(16, 59);
-            this.gbPayments.Name = "gbPayments";
-            this.gbPayments.Size = new System.Drawing.Size(366, 285);
-            this.gbPayments.TabIndex = 1;
-            this.gbPayments.TabStop = false;
-            this.gbPayments.Text = "Payments";
+            this.grpPayments.Controls.Add(this.btnRefresh);
+            this.grpPayments.Controls.Add(this.btnFilter);
+            this.grpPayments.Controls.Add(this.rdoSettled);
+            this.grpPayments.Controls.Add(this.rdoOutstanding);
+            this.grpPayments.Controls.Add(this.lstPayments);
+            this.grpPayments.Controls.Add(this.rdoAll);
+            this.grpPayments.Location = new System.Drawing.Point(16, 59);
+            this.grpPayments.Name = "grpPayments";
+            this.grpPayments.Size = new System.Drawing.Size(388, 372);
+            this.grpPayments.TabIndex = 1;
+            this.grpPayments.TabStop = false;
+            this.grpPayments.Text = "Payments";
             // 
-            // btnViewReceipt
+            // btnRefresh
             // 
-            this.btnViewReceipt.Location = new System.Drawing.Point(15, 233);
-            this.btnViewReceipt.Name = "btnViewReceipt";
-            this.btnViewReceipt.Size = new System.Drawing.Size(242, 30);
-            this.btnViewReceipt.TabIndex = 2;
-            this.btnViewReceipt.Text = "View Receipt";
-            this.btnViewReceipt.UseVisualStyleBackColor = true;
+            this.btnRefresh.Location = new System.Drawing.Point(309, 13);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(73, 23);
+            this.btnRefresh.TabIndex = 2;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(275, 123);
+            this.btnFilter.Location = new System.Drawing.Point(15, 92);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(78, 23);
+            this.btnFilter.Size = new System.Drawing.Size(142, 23);
             this.btnFilter.TabIndex = 2;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
-            // checkboxSettled
+            // rdoSettled
             // 
-            this.checkboxSettled.AutoSize = true;
-            this.checkboxSettled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.checkboxSettled.Location = new System.Drawing.Point(275, 69);
-            this.checkboxSettled.Name = "checkboxSettled";
-            this.checkboxSettled.Size = new System.Drawing.Size(59, 17);
-            this.checkboxSettled.TabIndex = 1;
-            this.checkboxSettled.Text = "Settled";
-            this.checkboxSettled.UseVisualStyleBackColor = true;
+            this.rdoSettled.AutoSize = true;
+            this.rdoSettled.Location = new System.Drawing.Point(15, 69);
+            this.rdoSettled.Name = "rdoSettled";
+            this.rdoSettled.Size = new System.Drawing.Size(82, 17);
+            this.rdoSettled.TabIndex = 0;
+            this.rdoSettled.TabStop = true;
+            this.rdoSettled.Text = "Settled Only";
+            this.rdoSettled.UseVisualStyleBackColor = true;
             // 
-            // checkboxIncomplete
+            // rdoOutstanding
             // 
-            this.checkboxIncomplete.AutoSize = true;
-            this.checkboxIncomplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.checkboxIncomplete.Location = new System.Drawing.Point(275, 46);
-            this.checkboxIncomplete.Name = "checkboxIncomplete";
-            this.checkboxIncomplete.Size = new System.Drawing.Size(78, 17);
-            this.checkboxIncomplete.TabIndex = 1;
-            this.checkboxIncomplete.Text = "Incomplete";
-            this.checkboxIncomplete.UseVisualStyleBackColor = true;
+            this.rdoOutstanding.AutoSize = true;
+            this.rdoOutstanding.Location = new System.Drawing.Point(15, 46);
+            this.rdoOutstanding.Name = "rdoOutstanding";
+            this.rdoOutstanding.Size = new System.Drawing.Size(106, 17);
+            this.rdoOutstanding.TabIndex = 0;
+            this.rdoOutstanding.TabStop = true;
+            this.rdoOutstanding.Text = "Outstanding Only";
+            this.rdoOutstanding.UseVisualStyleBackColor = true;
             // 
-            // checkboxUnsettled
+            // lstPayments
             // 
-            this.checkboxUnsettled.AutoSize = true;
-            this.checkboxUnsettled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.checkboxUnsettled.Location = new System.Drawing.Point(275, 92);
-            this.checkboxUnsettled.Name = "checkboxUnsettled";
-            this.checkboxUnsettled.Size = new System.Drawing.Size(71, 17);
-            this.checkboxUnsettled.TabIndex = 1;
-            this.checkboxUnsettled.Text = "Unsettled";
-            this.checkboxUnsettled.UseVisualStyleBackColor = true;
+            this.lstPayments.FormattingEnabled = true;
+            this.lstPayments.Location = new System.Drawing.Point(15, 123);
+            this.lstPayments.Name = "lstPayments";
+            this.lstPayments.Size = new System.Drawing.Size(358, 225);
+            this.lstPayments.TabIndex = 0;
+            this.lstPayments.SelectedIndexChanged += new System.EventHandler(this.lstPayments_SelectedIndexChanged);
             // 
-            // checkboxCompleted
+            // rdoAll
             // 
-            this.checkboxCompleted.AutoSize = true;
-            this.checkboxCompleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.checkboxCompleted.Location = new System.Drawing.Point(275, 23);
-            this.checkboxCompleted.Name = "checkboxCompleted";
-            this.checkboxCompleted.Size = new System.Drawing.Size(76, 17);
-            this.checkboxCompleted.TabIndex = 1;
-            this.checkboxCompleted.Text = "Completed";
-            this.checkboxCompleted.UseVisualStyleBackColor = true;
+            this.rdoAll.AutoSize = true;
+            this.rdoAll.Location = new System.Drawing.Point(15, 23);
+            this.rdoAll.Name = "rdoAll";
+            this.rdoAll.Size = new System.Drawing.Size(36, 17);
+            this.rdoAll.TabIndex = 0;
+            this.rdoAll.TabStop = true;
+            this.rdoAll.Text = "All";
+            this.rdoAll.UseVisualStyleBackColor = true;
             // 
-            // listboxPayments
+            // grpReceipt
             // 
-            this.listboxPayments.FormattingEnabled = true;
-            this.listboxPayments.Location = new System.Drawing.Point(15, 23);
-            this.listboxPayments.Name = "listboxPayments";
-            this.listboxPayments.Size = new System.Drawing.Size(242, 199);
-            this.listboxPayments.TabIndex = 0;
+            this.grpReceipt.Controls.Add(this.txtDescription);
+            this.grpReceipt.Controls.Add(this.txtTotalAmount);
+            this.grpReceipt.Controls.Add(this.txtCustomerName);
+            this.grpReceipt.Controls.Add(this.txtCompleted);
+            this.grpReceipt.Controls.Add(this.txtCreated);
+            this.grpReceipt.Controls.Add(this.txtServiceName);
+            this.grpReceipt.Controls.Add(this.txtServiceId);
+            this.grpReceipt.Controls.Add(this.lblPaymentInfo);
+            this.grpReceipt.Controls.Add(this.lblTotalAmount);
+            this.grpReceipt.Controls.Add(this.lblServiceId);
+            this.grpReceipt.Controls.Add(this.btnPaid);
+            this.grpReceipt.Controls.Add(this.lblServiceName);
+            this.grpReceipt.Controls.Add(this.lblDescription);
+            this.grpReceipt.Controls.Add(this.lblCustomerName);
+            this.grpReceipt.Controls.Add(this.lblCompletedAt);
+            this.grpReceipt.Controls.Add(this.lblCreatedAt);
+            this.grpReceipt.Location = new System.Drawing.Point(425, 59);
+            this.grpReceipt.Name = "grpReceipt";
+            this.grpReceipt.Size = new System.Drawing.Size(306, 427);
+            this.grpReceipt.TabIndex = 2;
+            this.grpReceipt.TabStop = false;
+            this.grpReceipt.Text = "Receipt";
             // 
-            // gbReceipt
+            // txtDescription
             // 
-            this.gbReceipt.Controls.Add(this.lblPaymentStatus);
-            this.gbReceipt.Controls.Add(this.labelTotal);
-            this.gbReceipt.Controls.Add(this.btnMarkSettled);
-            this.gbReceipt.Controls.Add(this.lblCustomer);
-            this.gbReceipt.Controls.Add(this.lblCreatedAt);
-            this.gbReceipt.Controls.Add(this.listboxReceipt);
-            this.gbReceipt.Location = new System.Drawing.Point(414, 59);
-            this.gbReceipt.Name = "gbReceipt";
-            this.gbReceipt.Size = new System.Drawing.Size(259, 341);
-            this.gbReceipt.TabIndex = 2;
-            this.gbReceipt.TabStop = false;
-            this.gbReceipt.Text = "Receipt";
+            this.txtDescription.Enabled = false;
+            this.txtDescription.Location = new System.Drawing.Point(22, 221);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(265, 71);
+            this.txtDescription.TabIndex = 8;
+            // 
+            // txtTotalAmount
+            // 
+            this.txtTotalAmount.Enabled = false;
+            this.txtTotalAmount.Location = new System.Drawing.Point(22, 315);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.Size = new System.Drawing.Size(265, 20);
+            this.txtTotalAmount.TabIndex = 7;
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Enabled = false;
+            this.txtCustomerName.Location = new System.Drawing.Point(22, 176);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(265, 20);
+            this.txtCustomerName.TabIndex = 7;
+            // 
+            // txtCompleted
+            // 
+            this.txtCompleted.Enabled = false;
+            this.txtCompleted.Location = new System.Drawing.Point(177, 126);
+            this.txtCompleted.Name = "txtCompleted";
+            this.txtCompleted.Size = new System.Drawing.Size(101, 20);
+            this.txtCompleted.TabIndex = 6;
+            // 
+            // txtCreated
+            // 
+            this.txtCreated.Enabled = false;
+            this.txtCreated.Location = new System.Drawing.Point(22, 126);
+            this.txtCreated.Name = "txtCreated";
+            this.txtCreated.Size = new System.Drawing.Size(101, 20);
+            this.txtCreated.TabIndex = 6;
+            // 
+            // txtServiceName
+            // 
+            this.txtServiceName.Enabled = false;
+            this.txtServiceName.Location = new System.Drawing.Point(22, 79);
+            this.txtServiceName.Name = "txtServiceName";
+            this.txtServiceName.Size = new System.Drawing.Size(265, 20);
+            this.txtServiceName.TabIndex = 6;
+            // 
+            // txtServiceId
+            // 
+            this.txtServiceId.Enabled = false;
+            this.txtServiceId.Location = new System.Drawing.Point(22, 40);
+            this.txtServiceId.Name = "txtServiceId";
+            this.txtServiceId.Size = new System.Drawing.Size(265, 20);
+            this.txtServiceId.TabIndex = 6;
+            // 
+            // lblPaymentInfo
+            // 
+            this.lblPaymentInfo.AutoSize = true;
+            this.lblPaymentInfo.Location = new System.Drawing.Point(19, 350);
+            this.lblPaymentInfo.Name = "lblPaymentInfo";
+            this.lblPaymentInfo.Size = new System.Drawing.Size(69, 13);
+            this.lblPaymentInfo.TabIndex = 3;
+            this.lblPaymentInfo.Text = "Payment Info";
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Location = new System.Drawing.Point(19, 298);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(70, 13);
+            this.lblTotalAmount.TabIndex = 3;
+            this.lblTotalAmount.Text = "Total Amount";
+            // 
+            // lblServiceId
+            // 
+            this.lblServiceId.AutoSize = true;
+            this.lblServiceId.Location = new System.Drawing.Point(19, 23);
+            this.lblServiceId.Name = "lblServiceId";
+            this.lblServiceId.Size = new System.Drawing.Size(57, 13);
+            this.lblServiceId.TabIndex = 4;
+            this.lblServiceId.Text = "Service ID";
+            // 
+            // btnPaid
+            // 
+            this.btnPaid.Location = new System.Drawing.Point(22, 381);
+            this.btnPaid.Name = "btnPaid";
+            this.btnPaid.Size = new System.Drawing.Size(265, 28);
+            this.btnPaid.TabIndex = 1;
+            this.btnPaid.Text = "Mark as Paid";
+            this.btnPaid.UseVisualStyleBackColor = true;
+            this.btnPaid.Click += new System.EventHandler(this.btnPaid_Click);
+            // 
+            // lblServiceName
+            // 
+            this.lblServiceName.AutoSize = true;
+            this.lblServiceName.Location = new System.Drawing.Point(19, 63);
+            this.lblServiceName.Name = "lblServiceName";
+            this.lblServiceName.Size = new System.Drawing.Size(74, 13);
+            this.lblServiceName.TabIndex = 0;
+            this.lblServiceName.Text = "Service Name";
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(19, 204);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(60, 13);
+            this.lblDescription.TabIndex = 0;
+            this.lblDescription.Text = "Description";
+            // 
+            // lblCustomerName
+            // 
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.Location = new System.Drawing.Point(19, 159);
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.Size = new System.Drawing.Size(51, 13);
+            this.lblCustomerName.TabIndex = 0;
+            this.lblCustomerName.Text = "Customer";
+            // 
+            // lblCompletedAt
+            // 
+            this.lblCompletedAt.AutoSize = true;
+            this.lblCompletedAt.Location = new System.Drawing.Point(174, 110);
+            this.lblCompletedAt.Name = "lblCompletedAt";
+            this.lblCompletedAt.Size = new System.Drawing.Size(96, 13);
+            this.lblCompletedAt.TabIndex = 0;
+            this.lblCompletedAt.Text = "Service Completed";
             // 
             // lblCreatedAt
             // 
             this.lblCreatedAt.AutoSize = true;
-            this.lblCreatedAt.Location = new System.Drawing.Point(19, 23);
+            this.lblCreatedAt.Location = new System.Drawing.Point(19, 110);
             this.lblCreatedAt.Name = "lblCreatedAt";
-            this.lblCreatedAt.Size = new System.Drawing.Size(116, 13);
+            this.lblCreatedAt.Size = new System.Drawing.Size(83, 13);
             this.lblCreatedAt.TabIndex = 0;
-            this.lblCreatedAt.Text = "Created at: 01-10-2021";
+            this.lblCreatedAt.Text = "Service Created";
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(16, 365);
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(16, 456);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(366, 30);
+            this.btnClose.Size = new System.Drawing.Size(388, 30);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // lblCustomer
-            // 
-            this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(19, 46);
-            this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(103, 13);
-            this.lblCustomer.TabIndex = 0;
-            this.lblCustomer.Text = "Customer: John Doe";
-            // 
-            // listboxReceipt
-            // 
-            this.listboxReceipt.FormattingEnabled = true;
-            this.listboxReceipt.Location = new System.Drawing.Point(22, 66);
-            this.listboxReceipt.Name = "listboxReceipt";
-            this.listboxReceipt.Size = new System.Drawing.Size(213, 186);
-            this.listboxReceipt.TabIndex = 0;
-            // 
-            // btnMarkSettled
-            // 
-            this.btnMarkSettled.Location = new System.Drawing.Point(128, 301);
-            this.btnMarkSettled.Name = "btnMarkSettled";
-            this.btnMarkSettled.Size = new System.Drawing.Size(107, 23);
-            this.btnMarkSettled.TabIndex = 1;
-            this.btnMarkSettled.Text = "Mark as Settled";
-            this.btnMarkSettled.UseVisualStyleBackColor = true;
-            // 
-            // labelTotal
-            // 
-            this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(19, 272);
-            this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(75, 13);
-            this.labelTotal.TabIndex = 2;
-            this.labelTotal.Text = "Total: RM 100";
-            // 
-            // lblPaymentStatus
-            // 
-            this.lblPaymentStatus.AutoSize = true;
-            this.lblPaymentStatus.Location = new System.Drawing.Point(19, 306);
-            this.lblPaymentStatus.Name = "lblPaymentStatus";
-            this.lblPaymentStatus.Size = new System.Drawing.Size(52, 13);
-            this.lblPaymentStatus.TabIndex = 3;
-            this.lblPaymentStatus.Text = "Unsettled";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FormRPaymentReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 423);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(742, 511);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.gbReceipt);
-            this.Controls.Add(this.gbPayments);
+            this.Controls.Add(this.grpReceipt);
+            this.Controls.Add(this.grpPayments);
             this.Controls.Add(this.lblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormRPaymentReceipt";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment and Receipt";
-            this.gbPayments.ResumeLayout(false);
-            this.gbPayments.PerformLayout();
-            this.gbReceipt.ResumeLayout(false);
-            this.gbReceipt.PerformLayout();
+            this.Load += new System.EventHandler(this.FormRPaymentReceipt_Load);
+            this.grpPayments.ResumeLayout(false);
+            this.grpPayments.PerformLayout();
+            this.grpReceipt.ResumeLayout(false);
+            this.grpReceipt.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,21 +348,30 @@ namespace Assignment
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.GroupBox gbPayments;
-        private System.Windows.Forms.Button btnViewReceipt;
-        private System.Windows.Forms.Button btnFilter;
-        private System.Windows.Forms.CheckBox checkboxSettled;
-        private System.Windows.Forms.CheckBox checkboxIncomplete;
-        private System.Windows.Forms.CheckBox checkboxUnsettled;
-        private System.Windows.Forms.CheckBox checkboxCompleted;
-        private System.Windows.Forms.ListBox listboxPayments;
-        private System.Windows.Forms.GroupBox gbReceipt;
+        private System.Windows.Forms.GroupBox grpPayments;
+        private System.Windows.Forms.ListBox lstPayments;
+        private System.Windows.Forms.GroupBox grpReceipt;
         private System.Windows.Forms.Label lblCreatedAt;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblPaymentStatus;
-        private System.Windows.Forms.Label labelTotal;
-        private System.Windows.Forms.Button btnMarkSettled;
-        private System.Windows.Forms.Label lblCustomer;
-        private System.Windows.Forms.ListBox listboxReceipt;
+        private System.Windows.Forms.Label lblTotalAmount;
+        private System.Windows.Forms.Button btnPaid;
+        private System.Windows.Forms.Label lblCustomerName;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.RadioButton rdoSettled;
+        private System.Windows.Forms.RadioButton rdoOutstanding;
+        private System.Windows.Forms.RadioButton rdoAll;
+        private System.Windows.Forms.TextBox txtTotalAmount;
+        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.TextBox txtServiceName;
+        private System.Windows.Forms.TextBox txtServiceId;
+        private System.Windows.Forms.Label lblPaymentInfo;
+        private System.Windows.Forms.Label lblServiceId;
+        private System.Windows.Forms.Label lblServiceName;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Label lblCompletedAt;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtCompleted;
+        private System.Windows.Forms.TextBox txtCreated;
     }
 }
