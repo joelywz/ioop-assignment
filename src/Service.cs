@@ -25,19 +25,14 @@ namespace Assignment
        
         private static Service[] FromDb()
         {
-            // Create SQL connection
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [Service];", conn);
+
+            // Execution
             conn.Open();
-
-            // Create SQL command
-            SqlCommand cmd = new SqlCommand("SELECT * FROM [Service];", conn);
-
-            // Create SQL reader
-            SqlDataReader reader = cmd.ExecuteReader();
-
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
             List<Service> services = new List<Service>();
-            services.Clear();
-
             while (reader.Read())
             {
  
@@ -51,7 +46,14 @@ namespace Assignment
                 services.Add(service);              
             }
 
-            return services.ToArray();
+            Service.services = services.ToArray();
+
+            // Clean up
+            reader.Close();
+            bsc.Cmd.Dispose();
+            conn.Close();
+
+            return Service.services;
         }
 
         /// <summary>

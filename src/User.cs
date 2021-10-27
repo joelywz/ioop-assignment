@@ -61,23 +61,24 @@ namespace Assignment
         /// <returns>User Object</returns>
         public static User GetByUsername(string username)
         {
-            // Querying this way can prevent database injections
-            // Docs: https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters?redirectedfrom=MSDN&view=dotnet-plat-ext-5.0#System_Data_SqlClient_SqlCommand_Parameters
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE username=@username;", conn);
             bsc.AddParameter<string>("@username", System.Data.SqlDbType.VarChar, username);
 
+            // Execution
+            conn.Open();
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
-
             User user = null;
             while (reader.Read())
             {
                 user = Reader(reader);
                 break;
             }
+
+            // Clean up
             reader.Close();
+            bsc.Cmd.Dispose();
             conn.Close();
             return user;
         }
@@ -89,23 +90,24 @@ namespace Assignment
         /// <returns></returns>
         public static User GetById(int id)
         {
-            // Querying this way can prevent database injections
-            // Docs: https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.parameters?redirectedfrom=MSDN&view=dotnet-plat-ext-5.0#System_Data_SqlClient_SqlCommand_Parameters
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE userId=@userId;", conn);
             bsc.AddParameter<int>("@userId", System.Data.SqlDbType.Int, id);
-
+            
+            // Execution
+            conn.Open();
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
-
             User user = null;
             while (reader.Read())
             {
                 user = Reader(reader);
                 break;
             }
+
+            // Clean up
             reader.Close();
+            bsc.Cmd.Dispose();
             conn.Close();
             return user;
         }
@@ -117,14 +119,14 @@ namespace Assignment
         /// <returns>null when no User found</returns>
         public static User GetByEmail(string email)
         {
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE email=@email;", conn);
             bsc.AddParameter<string>("@email", System.Data.SqlDbType.VarChar, email);
 
+            // Execution
+            conn.Open();
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
-
             User user = null;
             while (reader.Read())
             {
@@ -132,7 +134,9 @@ namespace Assignment
                 break;
             }
 
+            // Clean up
             reader.Close();
+            bsc.Cmd.Dispose();
             conn.Close();
 
             return user;
@@ -145,15 +149,14 @@ namespace Assignment
         /// <returns></returns>
         public static User[] GetByRole(Roles role)
         {
+            //  Preparation
             SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE [role]=@role ORDER BY[fullname] ASC;", conn);
             bsc.AddParameter<int>("@role", System.Data.SqlDbType.Bit, (int)role);
-
-
+            
+            // Execution
+            conn.Open();
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
-
             List<User> users = new List<User>();
 
             while (reader.Read())
@@ -161,6 +164,11 @@ namespace Assignment
                 User user = Reader(reader);
                 users.Add(user);
             }
+
+            // Clean Up
+            bsc.Cmd.Dispose();
+            reader.Close();
+            conn.Close();
 
             return users.ToArray();
         }
@@ -200,9 +208,8 @@ namespace Assignment
 
         public void Update()
         {
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
             string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [phoneNo]=@phoneNo, [role]=@role, [dateOfBirth]=@dateOfBirth, [ic]=@ic WHERE [userId]=@userId;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn);
             bsc
@@ -215,12 +222,12 @@ namespace Assignment
                 .AddParameter<int>("@role", System.Data.SqlDbType.Bit, (int)Role)
                 .AddParameter<string>("@ic", System.Data.SqlDbType.VarChar, Ic)
                 .AddParameter<DateTime?>("@dateOfBirth", System.Data.SqlDbType.Date, DateOfBirth);
-  
 
 
+            // Execution
+            conn.Open();
             int rowsAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("rowsAffected: {0}", rowsAffected);
-
             conn.Close();
         }
     }

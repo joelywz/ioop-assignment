@@ -5,12 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-
-// PK - userId
-// PK - serviceId
-// urgent
-// dateTimeCreated 
-
 namespace Assignment
 {
     public class IncompleteService
@@ -34,12 +28,12 @@ namespace Assignment
         /// <returns>An array of IncompleteService</returns>
         public static IncompleteService[] GetAll()
         {
-            // Create SQL connection
+            // Preparation
             SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [IncompleteService];", conn);
 
+            // Execution
+            conn.Open();
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
 
             List<IncompleteService> incompleteServices = new List<IncompleteService>();
@@ -51,7 +45,9 @@ namespace Assignment
                 incompleteServices.Add(s);
             }
 
+            // Clean up
             reader.Close();
+            bsc.Dispose();
             conn.Close();
 
             return incompleteServices.ToArray();
@@ -64,24 +60,24 @@ namespace Assignment
         /// <returns>NULL when not found</returns>
         public static IncompleteService GetByUser(User user)
         {
-
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [IncompleteService] WHERE [userId]=@userId;", conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, user.Id);
 
+            // Execution
+            conn.Open();
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
-
             IncompleteService incompleteService = null;
-
             while (reader.Read())
             {
                 incompleteService = Reader(reader);
                 break;
             }
 
+            // Clean up
             reader.Close();
+            bsc.Dispose();
             conn.Close();
 
             return incompleteService;
@@ -94,8 +90,6 @@ namespace Assignment
         /// <returns></returns>
         private static IncompleteService Reader(SqlDataReader reader)
         {
-
-
             User user = User.GetById((int)reader["userId"]);
             Service service = Service.GetService((int)reader["serviceId"] - 1);
             bool urgent  = (bool)reader["urgent"];
@@ -106,32 +100,41 @@ namespace Assignment
             return incompleteService;
         }
 
+        /// <summary>
+        /// Create a service for customer.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="service"></param>
+        /// <param name="urgent"></param>
+        /// <returns></returns>
         public static IncompleteService Save(User user, Service service, bool urgent)
         {
-
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-
             string cmdText = "INSERT INTO [IncompleteService]([userId], [serviceId], [urgent], [dateTimeCreated]) " +
                 "VALUES (@userId, @serviceId, @urgent, @dateTimeCreated)";
-            
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, user.Id)
                 .AddParameter<int>("@serviceId", System.Data.SqlDbType.Int, service.Id)
                 .AddParameter<byte>("@urgent", System.Data.SqlDbType.Bit, Convert.ToByte(urgent))
                 .AddParameter<DateTime>("@dateTimeCreated", System.Data.SqlDbType.DateTime, DateTime.Now);
 
+            // Execution
             conn.Open();
             int rowAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("Row Affected: {0}", rowAffected);
-            conn.Close();
 
+            // Clean up
+            bsc.Dispose();
+            conn.Close();
+            
             return IncompleteService.GetByUser(user);
         }
 
         public void Update()
         {
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-
             string cmdText = "UPDATE [IncompleteService] " +
                 "SET [userId]=@userId, [serviceId]=@serviceId, [urgent]=@urgent [dateTimeCreated]=@dateTimeCreated" +
                 "WHERE [userId]=@userId";
@@ -141,26 +144,31 @@ namespace Assignment
                 .AddParameter<byte>("@urgent", System.Data.SqlDbType.Bit, Convert.ToByte(Urgent))
                 .AddParameter<DateTime>("@dateTimeCreated", System.Data.SqlDbType.DateTime, DateTimeCreated);
 
-
+            // Execution
             conn.Open();
             int rowAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("Row Affected: {0}", rowAffected);
+
+            // Clean up
+            bsc.Dispose();
             conn.Close();
         }
 
         public void Delete()
         {
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-
             string cmdText = "DELETE FROM [IncompleteService] WHERE [userId]=@userId";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, User.Id);
 
+            // Exection
             conn.Open();
-            int rowsAffected = (int)bsc.Cmd.ExecuteNonQuery();
-
+            int rowsAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("Rows Affected: {0}", rowsAffected);
 
+            // Clean up
+            bsc.Dispose();
             conn.Close();
         }
 
