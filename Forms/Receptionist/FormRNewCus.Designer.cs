@@ -206,6 +206,7 @@ namespace Assignment.Forms.Receptionist
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gbNewCustomer);
             this.Controls.Add(this.btnClose);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormRNewCus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Customer";

@@ -14,13 +14,13 @@ namespace Assignment
     public partial class FormRHome : Form
     {
         // This is to hold all customers
-        List<User> customers = new List<User>();
+        List<User> Customers = new List<User>();
 
         // This is to hold customers that are being shown on the listbox customers
-        List<User> listedCustomers = new List<User>();
+        List<User> ListedCustomers = new List<User>();
 
         // Save Selected Customer
-        User selectedCustomer = null;
+        User SelectedCustomer = null;
 
         public FormRHome(User user)
         {
@@ -28,9 +28,11 @@ namespace Assignment
         }
         private void FormRHome_Load(object sender, EventArgs e)
         {
-            FetchCustomers();
+            lblPayment.Text = "";
+            btnService.Enabled = false;
+            btnViewPayment.Enabled = false;
             rdoFullName.Checked = true;
-            Search();
+            RefreshContent();
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
@@ -43,8 +45,8 @@ namespace Assignment
             int selectedIndex = lstCustomers.SelectedIndex;
             if (selectedIndex >= 0)
             {
-                selectedCustomer = listedCustomers[selectedIndex];
-                LoadDetails(selectedCustomer);
+                SelectedCustomer = ListedCustomers[selectedIndex];
+                LoadDetails();
             }
         }
 
@@ -65,39 +67,51 @@ namespace Assignment
 
         private void btnService_Click(object sender, EventArgs e)
         {
-            if (selectedCustomer == null) return;
-            Form addServiceForm = new FormRAddService(selectedCustomer);
+            if (SelectedCustomer == null) return;
+            Form addServiceForm = new FormRAddService(SelectedCustomer);
             addServiceForm.ShowDialog();
         }
 
         private void btnRefersh_Click(object sender, EventArgs e)
         {
-            FetchCustomers();
+            RefreshContent();
+        }
+
+        private void chkNotPaid_CheckedChanged(object sender, EventArgs e)
+        {
             Search();
+        }
+
+        private void btnViewPayment_Click(object sender, EventArgs e)
+        {
+            if (SelectedCustomer == null) return;
+            Form form = new FormRPaymentReceipt(SelectedCustomer);
+            form.ShowDialog();
+            RefreshContent();
         }
 
         // Helper functions
         private void FetchCustomers()
         {
-            customers = User.GetByRole(User.Roles.Customer).ToList<User>();
+            Customers = User.GetByRole(User.Roles.Customer).ToList<User>();
         }
         
         private void ShowNewCustomerForm()
         {
             Form newCustomerForm = new FormRNewCus();
             newCustomerForm.ShowDialog();
-            FetchCustomers();
+            RefreshContent();
         }
 
         private void ClearListedCustomers()
         {
-            listedCustomers.Clear();
+            ListedCustomers.Clear();
             lstCustomers.Items.Clear();
         }
 
         private void AddListedCustomer(User user)
         {
-            listedCustomers.Add(user);
+            ListedCustomers.Add(user);
             lstCustomers.Items.Add(user.FullName);
         }
 
@@ -106,7 +120,7 @@ namespace Assignment
             ClearListedCustomers();
 
 
-            foreach (User user in customers)
+            foreach (User user in Customers)
             {
                 // Radiobox filter
                 if (rdoFullName.Checked && !user.FullName.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
@@ -130,22 +144,31 @@ namespace Assignment
             txtboxSearch.Text = "";
             chkNotPaid.Checked = false;
             ClearListedCustomers();
-            foreach (User customer in customers)
+            foreach (User customer in Customers)
             {
                 AddListedCustomer(customer);
             }
         }
 
-        // Customer Detail
-        private void LoadDetails(User customer)
+        private void RefreshContent()
         {
-            txtFullName.Text = customer.FullName;
-            txtUsername.Text = customer.Username;
-            txtPhoneNo.Text = customer.PhoneNo;
-            txtEmail.Text =  customer.Email;
+            FetchCustomers();
+            Search();
+            LoadDetails();
+        }
+
+        // Customer Detail
+        private void LoadDetails()
+        {
+            if (SelectedCustomer == null) return;
+
+            txtFullName.Text = SelectedCustomer.FullName;
+            txtUsername.Text = SelectedCustomer.Username;
+            txtPhoneNo.Text = SelectedCustomer.PhoneNo;
+            txtEmail.Text =  SelectedCustomer.Email;
 
             // Check if any service is active
-            IncompleteService services = IncompleteService.GetByUser(customer);
+            IncompleteService services = IncompleteService.GetByUser(SelectedCustomer);
             btnViewPayment.Enabled = true;
             btnService.Enabled = services == null ? false : true;
 
@@ -160,7 +183,7 @@ namespace Assignment
             }
 
             // Check for payments
-            int paymentDue = CompletedService.GetUnpaidCount(customer);
+            int paymentDue = CompletedService.GetUnpaidCount(SelectedCustomer);
 
             if (paymentDue > 0)
             {
