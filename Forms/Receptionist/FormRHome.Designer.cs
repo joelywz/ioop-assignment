@@ -35,26 +35,26 @@ namespace Assignment
             this.btnSearch = new System.Windows.Forms.Button();
             this.lstCustomers = new System.Windows.Forms.ListBox();
             this.gbViewUser = new System.Windows.Forms.GroupBox();
+            this.chkNotPaid = new System.Windows.Forms.CheckBox();
             this.rdoEmail = new System.Windows.Forms.RadioButton();
             this.rdoUsername = new System.Windows.Forms.RadioButton();
             this.rdoFullName = new System.Windows.Forms.RadioButton();
+            this.btnRefersh = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnNewCustomer = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.chkNotPaid = new System.Windows.Forms.CheckBox();
             this.btnService = new System.Windows.Forms.Button();
             this.btnViewPayment = new System.Windows.Forms.Button();
             this.grpCustomer = new System.Windows.Forms.GroupBox();
+            this.txtPhoneNo = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhoneNo = new System.Windows.Forms.Label();
             this.lblPayment = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.btnRefersh = new System.Windows.Forms.Button();
-            this.txtFullName = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.gbViewUser.SuspendLayout();
             this.grpCustomer.SuspendLayout();
             this.SuspendLayout();
@@ -80,14 +80,14 @@ namespace Assignment
             // 
             // txtboxSearch
             // 
-            this.txtboxSearch.Location = new System.Drawing.Point(17, 51);
+            this.txtboxSearch.Location = new System.Drawing.Point(17, 22);
             this.txtboxSearch.Name = "txtboxSearch";
             this.txtboxSearch.Size = new System.Drawing.Size(210, 20);
             this.txtboxSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(233, 50);
+            this.btnSearch.Location = new System.Drawing.Point(233, 20);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(77, 23);
             this.btnSearch.TabIndex = 2;
@@ -123,10 +123,21 @@ namespace Assignment
             this.gbViewUser.TabStop = false;
             this.gbViewUser.Text = "View Customers";
             // 
+            // chkNotPaid
+            // 
+            this.chkNotPaid.AutoSize = true;
+            this.chkNotPaid.Location = new System.Drawing.Point(18, 83);
+            this.chkNotPaid.Name = "chkNotPaid";
+            this.chkNotPaid.Size = new System.Drawing.Size(162, 17);
+            this.chkNotPaid.TabIndex = 6;
+            this.chkNotPaid.Text = "Outstanding Payment(s) Only";
+            this.chkNotPaid.UseVisualStyleBackColor = true;
+            this.chkNotPaid.CheckedChanged += new System.EventHandler(this.chkNotPaid_CheckedChanged);
+            // 
             // rdoEmail
             // 
             this.rdoEmail.AutoSize = true;
-            this.rdoEmail.Location = new System.Drawing.Point(204, 87);
+            this.rdoEmail.Location = new System.Drawing.Point(204, 53);
             this.rdoEmail.Name = "rdoEmail";
             this.rdoEmail.Size = new System.Drawing.Size(65, 17);
             this.rdoEmail.TabIndex = 5;
@@ -136,7 +147,7 @@ namespace Assignment
             // rdoUsername
             // 
             this.rdoUsername.AutoSize = true;
-            this.rdoUsername.Location = new System.Drawing.Point(110, 87);
+            this.rdoUsername.Location = new System.Drawing.Point(110, 53);
             this.rdoUsername.Name = "rdoUsername";
             this.rdoUsername.Size = new System.Drawing.Size(88, 17);
             this.rdoUsername.TabIndex = 5;
@@ -146,16 +157,26 @@ namespace Assignment
             // rdoFullName
             // 
             this.rdoFullName.AutoSize = true;
-            this.rdoFullName.Location = new System.Drawing.Point(17, 87);
+            this.rdoFullName.Location = new System.Drawing.Point(17, 53);
             this.rdoFullName.Name = "rdoFullName";
             this.rdoFullName.Size = new System.Drawing.Size(87, 17);
             this.rdoFullName.TabIndex = 5;
             this.rdoFullName.Text = "By Full Name";
             this.rdoFullName.UseVisualStyleBackColor = true;
             // 
+            // btnRefersh
+            // 
+            this.btnRefersh.Location = new System.Drawing.Point(316, 50);
+            this.btnRefersh.Name = "btnRefersh";
+            this.btnRefersh.Size = new System.Drawing.Size(70, 23);
+            this.btnRefersh.TabIndex = 2;
+            this.btnRefersh.Text = "Refresh";
+            this.btnRefersh.UseVisualStyleBackColor = true;
+            this.btnRefersh.Click += new System.EventHandler(this.btnRefersh_Click);
+            // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(316, 51);
+            this.btnReset.Location = new System.Drawing.Point(316, 20);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(70, 22);
             this.btnReset.TabIndex = 2;
@@ -183,16 +204,6 @@ namespace Assignment
             this.lblTitle.TabIndex = 7;
             this.lblTitle.Text = "Receptionist Home";
             // 
-            // chkNotPaid
-            // 
-            this.chkNotPaid.AutoSize = true;
-            this.chkNotPaid.Location = new System.Drawing.Point(278, 88);
-            this.chkNotPaid.Name = "chkNotPaid";
-            this.chkNotPaid.Size = new System.Drawing.Size(67, 17);
-            this.chkNotPaid.TabIndex = 6;
-            this.chkNotPaid.Text = "Not Paid";
-            this.chkNotPaid.UseVisualStyleBackColor = true;
-            // 
             // btnService
             // 
             this.btnService.Location = new System.Drawing.Point(9, 301);
@@ -211,6 +222,7 @@ namespace Assignment
             this.btnViewPayment.TabIndex = 11;
             this.btnViewPayment.Text = "View Payment and Receipt";
             this.btnViewPayment.UseVisualStyleBackColor = true;
+            this.btnViewPayment.Click += new System.EventHandler(this.btnViewPayment_Click);
             // 
             // grpCustomer
             // 
@@ -231,6 +243,38 @@ namespace Assignment
             this.grpCustomer.TabIndex = 8;
             this.grpCustomer.TabStop = false;
             this.grpCustomer.Text = "Selected Customer";
+            // 
+            // txtPhoneNo
+            // 
+            this.txtPhoneNo.Enabled = false;
+            this.txtPhoneNo.Location = new System.Drawing.Point(9, 157);
+            this.txtPhoneNo.Name = "txtPhoneNo";
+            this.txtPhoneNo.Size = new System.Drawing.Size(206, 20);
+            this.txtPhoneNo.TabIndex = 12;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Location = new System.Drawing.Point(9, 116);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(206, 20);
+            this.txtEmail.TabIndex = 12;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(9, 77);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(206, 20);
+            this.txtUsername.TabIndex = 12;
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Enabled = false;
+            this.txtFullName.Location = new System.Drawing.Point(9, 36);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(206, 20);
+            this.txtFullName.TabIndex = 12;
             // 
             // lblEmail
             // 
@@ -282,48 +326,6 @@ namespace Assignment
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Full Name";
             // 
-            // btnRefersh
-            // 
-            this.btnRefersh.Location = new System.Drawing.Point(316, 19);
-            this.btnRefersh.Name = "btnRefersh";
-            this.btnRefersh.Size = new System.Drawing.Size(70, 23);
-            this.btnRefersh.TabIndex = 2;
-            this.btnRefersh.Text = "Refresh";
-            this.btnRefersh.UseVisualStyleBackColor = true;
-            this.btnRefersh.Click += new System.EventHandler(this.btnRefersh_Click);
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.Enabled = false;
-            this.txtFullName.Location = new System.Drawing.Point(9, 36);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(206, 20);
-            this.txtFullName.TabIndex = 12;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Enabled = false;
-            this.txtUsername.Location = new System.Drawing.Point(9, 77);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(206, 20);
-            this.txtUsername.TabIndex = 12;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Enabled = false;
-            this.txtEmail.Location = new System.Drawing.Point(9, 116);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(206, 20);
-            this.txtEmail.TabIndex = 12;
-            // 
-            // txtPhoneNo
-            // 
-            this.txtPhoneNo.Enabled = false;
-            this.txtPhoneNo.Location = new System.Drawing.Point(9, 157);
-            this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(206, 20);
-            this.txtPhoneNo.TabIndex = 12;
-            // 
             // FormRHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +336,7 @@ namespace Assignment
             this.Controls.Add(this.gbViewUser);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnLogOut);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormRHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receptionist Home";
