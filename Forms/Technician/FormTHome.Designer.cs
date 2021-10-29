@@ -31,7 +31,7 @@ namespace Assignment
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpFunctions = new System.Windows.Forms.GroupBox();
-            this.rdpUpdateProfile = new System.Windows.Forms.RadioButton();
+            this.rdoUpdateProfile = new System.Windows.Forms.RadioButton();
             this.rdoComplete = new System.Windows.Forms.RadioButton();
             this.rdoService = new System.Windows.Forms.RadioButton();
             this.btnProceed = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@ namespace Assignment
             // grpFunctions
             // 
             this.grpFunctions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.grpFunctions.Controls.Add(this.rdpUpdateProfile);
+            this.grpFunctions.Controls.Add(this.rdoUpdateProfile);
             this.grpFunctions.Controls.Add(this.rdoComplete);
             this.grpFunctions.Controls.Add(this.rdoService);
             this.grpFunctions.Location = new System.Drawing.Point(10, 50);
@@ -64,16 +64,16 @@ namespace Assignment
             this.grpFunctions.TabStop = false;
             this.grpFunctions.Text = "Functions";
             // 
-            // rdpUpdateProfile
+            // rdoUpdateProfile
             // 
-            this.rdpUpdateProfile.AutoSize = true;
-            this.rdpUpdateProfile.Location = new System.Drawing.Point(6, 75);
-            this.rdpUpdateProfile.Name = "rdpUpdateProfile";
-            this.rdpUpdateProfile.Size = new System.Drawing.Size(119, 21);
-            this.rdpUpdateProfile.TabIndex = 2;
-            this.rdpUpdateProfile.TabStop = true;
-            this.rdpUpdateProfile.Text = "Update Profile";
-            this.rdpUpdateProfile.UseVisualStyleBackColor = true;
+            this.rdoUpdateProfile.AutoSize = true;
+            this.rdoUpdateProfile.Location = new System.Drawing.Point(6, 75);
+            this.rdoUpdateProfile.Name = "rdoUpdateProfile";
+            this.rdoUpdateProfile.Size = new System.Drawing.Size(119, 21);
+            this.rdoUpdateProfile.TabIndex = 2;
+            this.rdoUpdateProfile.TabStop = true;
+            this.rdoUpdateProfile.Text = "Update Profile";
+            this.rdoUpdateProfile.UseVisualStyleBackColor = true;
             // 
             // rdoComplete
             // 
@@ -120,7 +120,7 @@ namespace Assignment
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
             // 
-            // techHome
+            // FormTHome
             // 
             this.AcceptButton = this.btnProceed;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -132,7 +132,7 @@ namespace Assignment
             this.Controls.Add(this.btnProceed);
             this.Controls.Add(this.btnLogOut);
             this.MinimumSize = new System.Drawing.Size(425, 292);
-            this.Name = "techHome";
+            this.Name = "FormTHome";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Technician Homepage";
@@ -146,7 +146,7 @@ namespace Assignment
 
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.GroupBox grpFunctions;
-        private System.Windows.Forms.RadioButton rdpUpdateProfile;
+        private System.Windows.Forms.RadioButton rdoUpdateProfile;
         private System.Windows.Forms.RadioButton rdoComplete;
         private System.Windows.Forms.RadioButton rdoService;
         private System.Windows.Forms.Button btnProceed;

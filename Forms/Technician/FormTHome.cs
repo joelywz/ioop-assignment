@@ -19,17 +19,21 @@ namespace Assignment
 
         private void btnProceed_Click(object sender, EventArgs e)
         {
+            Form menuForm = null;
+
             if (rdoService.Checked)
-            {
-                FormTCusServices obj1 = new FormTCusServices();
-                obj1.Show();
-            }
+                menuForm = new FormTCusServices();
 
             if (rdoComplete.Checked)
-            {
-                FormTCompletion obj1 = new FormTCompletion();
-                obj1.Show();
-            }
+                menuForm = new FormTCompletion();
+
+            if (rdoUpdateProfile.Checked)
+                menuForm = new FormUpdateProfile();
+
+            this.Hide();
+            menuForm.ShowDialog();
+            this.Show();
+
         }
     }
 }
