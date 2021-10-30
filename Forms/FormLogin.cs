@@ -28,7 +28,7 @@ namespace Assignment
             }
 
             // Fetch user from database
-            User user = User.FromDb(txtUsername.Text);
+            User user = User.GetByUsername(txtUsername.Text);
 
             // Check if user exist
             if (user == null)
@@ -38,7 +38,7 @@ namespace Assignment
             }
 
             // Compare passwords
-            if (txtPassword.Text != user.password)
+            if (txtPassword.Text != user.Password)
             {
                 ShowErrorMessageBox("Invalid credentials.");
                 return;
@@ -46,13 +46,13 @@ namespace Assignment
 
             // Redirect user to their home screen
             Form homeForm = null;
-            switch (user.role)
+            switch (user.Role)
             {
                 case User.Roles.Customer:
                     homeForm = new FormCHome();
                     break;
                 case User.Roles.Receptionist:
-                    homeForm = new FormRHome();
+                    homeForm = new FormRHome(user);
                     break;
                 case User.Roles.Technician:
                     homeForm = new FormTHome();
@@ -64,6 +64,8 @@ namespace Assignment
 
             if (homeForm == null) return;
             this.Hide(); // Hide login form
+            txtUsername.Text = "";
+            txtPassword.Text = "";
             homeForm.ShowDialog(); // Show home form
             this.Show(); // Show login form when home form is closed
 
