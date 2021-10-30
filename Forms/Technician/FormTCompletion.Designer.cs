@@ -39,6 +39,8 @@ namespace Assignment
             this.btnComplete = new System.Windows.Forms.Button();
             this.lstServices = new System.Windows.Forms.ListBox();
             this.grpServices = new System.Windows.Forms.GroupBox();
+            this.lblSerTypeContent = new System.Windows.Forms.Label();
+            this.lblSerType = new System.Windows.Forms.Label();
             this.grpCollectionDate = new System.Windows.Forms.GroupBox();
             this.calCollectionDate = new System.Windows.Forms.DateTimePicker();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -79,6 +81,7 @@ namespace Assignment
             this.btnIDSearch.TabIndex = 3;
             this.btnIDSearch.Text = "Search";
             this.btnIDSearch.UseVisualStyleBackColor = true;
+            this.btnIDSearch.Click += new System.EventHandler(this.btnIDSearch_Click);
             // 
             // btnIDClear
             // 
@@ -88,6 +91,7 @@ namespace Assignment
             this.btnIDClear.TabIndex = 2;
             this.btnIDClear.Text = "Clear";
             this.btnIDClear.UseVisualStyleBackColor = true;
+            this.btnIDClear.Click += new System.EventHandler(this.btnIDClear_Click);
             // 
             // lblID
             // 
@@ -101,7 +105,7 @@ namespace Assignment
             // grpDescription
             // 
             this.grpDescription.Controls.Add(this.rtxtDescription);
-            this.grpDescription.Location = new System.Drawing.Point(8, 380);
+            this.grpDescription.Location = new System.Drawing.Point(10, 371);
             this.grpDescription.Margin = new System.Windows.Forms.Padding(5);
             this.grpDescription.Name = "grpDescription";
             this.grpDescription.Size = new System.Drawing.Size(239, 156);
@@ -116,16 +120,19 @@ namespace Assignment
             this.rtxtDescription.Size = new System.Drawing.Size(227, 129);
             this.rtxtDescription.TabIndex = 0;
             this.rtxtDescription.Text = "Enter service description";
+            this.rtxtDescription.Enter += new System.EventHandler(this.rtxtDescription_Enter);
+            this.rtxtDescription.Leave += new System.EventHandler(this.rtxtDescription_Leave);
             // 
             // btnComplete
             // 
-            this.btnComplete.Location = new System.Drawing.Point(257, 436);
+            this.btnComplete.Location = new System.Drawing.Point(257, 427);
             this.btnComplete.Margin = new System.Windows.Forms.Padding(5);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(260, 100);
             this.btnComplete.TabIndex = 6;
             this.btnComplete.Text = "Complete";
             this.btnComplete.UseVisualStyleBackColor = true;
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // lstServices
             // 
@@ -133,25 +140,47 @@ namespace Assignment
             this.lstServices.ItemHeight = 16;
             this.lstServices.Location = new System.Drawing.Point(6, 21);
             this.lstServices.Name = "lstServices";
-            this.lstServices.Size = new System.Drawing.Size(497, 132);
+            this.lstServices.Size = new System.Drawing.Size(497, 164);
             this.lstServices.TabIndex = 2;
+            this.lstServices.SelectedIndexChanged += new System.EventHandler(this.lstServices_SelectedIndexChanged);
             // 
             // grpServices
             // 
             this.grpServices.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.grpServices.Controls.Add(this.lblSerTypeContent);
+            this.grpServices.Controls.Add(this.lblSerType);
             this.grpServices.Controls.Add(this.lstServices);
             this.grpServices.Location = new System.Drawing.Point(8, 115);
             this.grpServices.Margin = new System.Windows.Forms.Padding(5);
             this.grpServices.Name = "grpServices";
-            this.grpServices.Size = new System.Drawing.Size(509, 255);
+            this.grpServices.Size = new System.Drawing.Size(509, 246);
             this.grpServices.TabIndex = 3;
             this.grpServices.TabStop = false;
             this.grpServices.Text = "Services";
             // 
+            // lblSerTypeContent
+            // 
+            this.lblSerTypeContent.AutoSize = true;
+            this.lblSerTypeContent.Location = new System.Drawing.Point(9, 214);
+            this.lblSerTypeContent.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.lblSerTypeContent.Name = "lblSerTypeContent";
+            this.lblSerTypeContent.Size = new System.Drawing.Size(0, 17);
+            this.lblSerTypeContent.TabIndex = 4;
+            // 
+            // lblSerType
+            // 
+            this.lblSerType.AutoSize = true;
+            this.lblSerType.Location = new System.Drawing.Point(3, 191);
+            this.lblSerType.Margin = new System.Windows.Forms.Padding(3);
+            this.lblSerType.Name = "lblSerType";
+            this.lblSerType.Size = new System.Drawing.Size(95, 17);
+            this.lblSerType.TabIndex = 3;
+            this.lblSerType.Text = "Service Type:";
+            // 
             // grpCollectionDate
             // 
             this.grpCollectionDate.Controls.Add(this.calCollectionDate);
-            this.grpCollectionDate.Location = new System.Drawing.Point(257, 380);
+            this.grpCollectionDate.Location = new System.Drawing.Point(257, 371);
             this.grpCollectionDate.Margin = new System.Windows.Forms.Padding(5);
             this.grpCollectionDate.Name = "grpCollectionDate";
             this.grpCollectionDate.Size = new System.Drawing.Size(260, 50);
@@ -194,7 +223,7 @@ namespace Assignment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(525, 545);
+            this.ClientSize = new System.Drawing.Size(525, 536);
             this.Controls.Add(this.btnViewServices);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnComplete);
@@ -202,7 +231,6 @@ namespace Assignment
             this.Controls.Add(this.grpDescription);
             this.Controls.Add(this.grpServices);
             this.Controls.Add(this.grpID);
-            this.MinimumSize = new System.Drawing.Size(543, 592);
             this.Name = "FormTCompletion";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -212,6 +240,7 @@ namespace Assignment
             this.grpID.PerformLayout();
             this.grpDescription.ResumeLayout(false);
             this.grpServices.ResumeLayout(false);
+            this.grpServices.PerformLayout();
             this.grpCollectionDate.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -234,5 +263,7 @@ namespace Assignment
         private System.Windows.Forms.DateTimePicker calCollectionDate;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnViewServices;
+        private System.Windows.Forms.Label lblSerType;
+        private System.Windows.Forms.Label lblSerTypeContent;
     }
 }

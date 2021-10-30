@@ -38,9 +38,9 @@ namespace Assignment
             this.btnFilterApply = new System.Windows.Forms.Button();
             this.btnFilterClear = new System.Windows.Forms.Button();
             this.grpServices = new System.Windows.Forms.GroupBox();
-            this.lblSerTypeContent = new System.Windows.Forms.Label();
             this.lblSerType = new System.Windows.Forms.Label();
             this.btnComplete = new System.Windows.Forms.Button();
+            this.lblSerTypeContent = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpFilter.SuspendLayout();
             this.grpServices.SuspendLayout();
@@ -51,12 +51,12 @@ namespace Assignment
             this.cboDisplay.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.cboDisplay.FormattingEnabled = true;
             this.cboDisplay.Items.AddRange(new object[] {
-            "Date - User First Name",
-            "Date - User ID",
-            "Date - Service ID"});
-            this.cboDisplay.Location = new System.Drawing.Point(84, 21);
+            "Date    --    User First Name",
+            "Date    --    User ID",
+            "Date    --    Service ID"});
+            this.cboDisplay.Location = new System.Drawing.Point(86, 21);
             this.cboDisplay.Name = "cboDisplay";
-            this.cboDisplay.Size = new System.Drawing.Size(173, 24);
+            this.cboDisplay.Size = new System.Drawing.Size(310, 24);
             this.cboDisplay.TabIndex = 1;
             // 
             // cboServiceStatus
@@ -71,9 +71,9 @@ namespace Assignment
             "All",
             "Normal",
             "Urgent"});
-            this.cboServiceStatus.Location = new System.Drawing.Point(84, 51);
+            this.cboServiceStatus.Location = new System.Drawing.Point(86, 51);
             this.cboServiceStatus.Name = "cboServiceStatus";
-            this.cboServiceStatus.Size = new System.Drawing.Size(173, 24);
+            this.cboServiceStatus.Size = new System.Drawing.Size(310, 24);
             this.cboServiceStatus.TabIndex = 4;
             // 
             // lstServices
@@ -82,7 +82,7 @@ namespace Assignment
             this.lstServices.ItemHeight = 16;
             this.lstServices.Location = new System.Drawing.Point(6, 21);
             this.lstServices.Name = "lstServices";
-            this.lstServices.Size = new System.Drawing.Size(354, 180);
+            this.lstServices.Size = new System.Drawing.Size(493, 180);
             this.lstServices.TabIndex = 5;
             this.lstServices.SelectedIndexChanged += new System.EventHandler(this.lstServices_SelectedIndexChanged);
             // 
@@ -98,7 +98,7 @@ namespace Assignment
             this.grpFilter.Location = new System.Drawing.Point(10, 50);
             this.grpFilter.Margin = new System.Windows.Forms.Padding(5);
             this.grpFilter.Name = "grpFilter";
-            this.grpFilter.Size = new System.Drawing.Size(366, 125);
+            this.grpFilter.Size = new System.Drawing.Size(505, 125);
             this.grpFilter.TabIndex = 8;
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Filters";
@@ -106,7 +106,7 @@ namespace Assignment
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 54);
+            this.label1.Location = new System.Drawing.Point(3, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
             this.label1.TabIndex = 13;
@@ -115,7 +115,7 @@ namespace Assignment
             // lblDisplay
             // 
             this.lblDisplay.AutoSize = true;
-            this.lblDisplay.Location = new System.Drawing.Point(6, 24);
+            this.lblDisplay.Location = new System.Drawing.Point(3, 24);
             this.lblDisplay.Name = "lblDisplay";
             this.lblDisplay.Size = new System.Drawing.Size(77, 17);
             this.lblDisplay.TabIndex = 12;
@@ -125,7 +125,7 @@ namespace Assignment
             // 
             this.btnFilterApply.Location = new System.Drawing.Point(6, 81);
             this.btnFilterApply.Name = "btnFilterApply";
-            this.btnFilterApply.Size = new System.Drawing.Size(354, 38);
+            this.btnFilterApply.Size = new System.Drawing.Size(493, 38);
             this.btnFilterApply.TabIndex = 11;
             this.btnFilterApply.Text = "Apply Filters";
             this.btnFilterApply.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@ namespace Assignment
             // btnFilterClear
             // 
             this.btnFilterClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnFilterClear.Location = new System.Drawing.Point(263, 20);
+            this.btnFilterClear.Location = new System.Drawing.Point(402, 20);
             this.btnFilterClear.Name = "btnFilterClear";
             this.btnFilterClear.Size = new System.Drawing.Size(97, 58);
             this.btnFilterClear.TabIndex = 9;
@@ -151,23 +151,16 @@ namespace Assignment
             this.grpServices.Location = new System.Drawing.Point(10, 177);
             this.grpServices.Margin = new System.Windows.Forms.Padding(5);
             this.grpServices.Name = "grpServices";
-            this.grpServices.Size = new System.Drawing.Size(366, 314);
+            this.grpServices.Size = new System.Drawing.Size(505, 295);
             this.grpServices.TabIndex = 9;
             this.grpServices.TabStop = false;
             this.grpServices.Text = "Services";
             // 
-            // lblSerTypeContent
-            // 
-            this.lblSerTypeContent.AutoSize = true;
-            this.lblSerTypeContent.Location = new System.Drawing.Point(6, 221);
-            this.lblSerTypeContent.Name = "lblSerTypeContent";
-            this.lblSerTypeContent.Size = new System.Drawing.Size(0, 17);
-            this.lblSerTypeContent.TabIndex = 8;
-            // 
             // lblSerType
             // 
             this.lblSerType.AutoSize = true;
-            this.lblSerType.Location = new System.Drawing.Point(6, 204);
+            this.lblSerType.Location = new System.Drawing.Point(3, 207);
+            this.lblSerType.Margin = new System.Windows.Forms.Padding(3);
             this.lblSerType.Name = "lblSerType";
             this.lblSerType.Size = new System.Drawing.Size(95, 17);
             this.lblSerType.TabIndex = 7;
@@ -175,13 +168,22 @@ namespace Assignment
             // 
             // btnComplete
             // 
-            this.btnComplete.Location = new System.Drawing.Point(6, 272);
+            this.btnComplete.Location = new System.Drawing.Point(6, 253);
             this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(354, 36);
+            this.btnComplete.Size = new System.Drawing.Size(493, 36);
             this.btnComplete.TabIndex = 6;
             this.btnComplete.Text = "Complete Selected Service";
             this.btnComplete.UseVisualStyleBackColor = true;
             this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
+            // 
+            // lblSerTypeContent
+            // 
+            this.lblSerTypeContent.AutoSize = true;
+            this.lblSerTypeContent.Location = new System.Drawing.Point(8, 230);
+            this.lblSerTypeContent.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.lblSerTypeContent.Name = "lblSerTypeContent";
+            this.lblSerTypeContent.Size = new System.Drawing.Size(0, 17);
+            this.lblSerTypeContent.TabIndex = 8;
             // 
             // lblTitle
             // 
@@ -200,7 +202,7 @@ namespace Assignment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(387, 500);
+            this.ClientSize = new System.Drawing.Size(525, 481);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grpServices);
             this.Controls.Add(this.grpFilter);

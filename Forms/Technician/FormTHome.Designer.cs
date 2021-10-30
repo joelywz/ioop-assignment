@@ -119,6 +119,7 @@ namespace Assignment
             this.btnLogOut.TabIndex = 3;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // FormTHome
             // 

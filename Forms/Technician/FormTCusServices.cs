@@ -51,11 +51,11 @@ namespace Assignment
             }
 
             if (cboDisplay.SelectedIndex == 0)
-                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + " - " + uFirstName);
+                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + "    --    " + uFirstName);
             else if (cboDisplay.SelectedIndex == 1)
-                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + " - " + Convert.ToString(service.User.Id));
+                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + "    --    " + Convert.ToString(service.User.Id));
             else if (cboDisplay.SelectedIndex == 2)
-                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + " - " + Convert.ToString(service.Service.Id));
+                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + "    --    " + Convert.ToString(service.Service.Id));
         }
 
         //Clear listbox items and listed list
