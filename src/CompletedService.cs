@@ -41,8 +41,9 @@ namespace Assignment
         /// <param name="incompleteService"></param>
         /// <param name="completedBy"></param>
         /// <param name="description"></param>
+        /// <param name="dateTimeCompleted"</param>
         /// <returns>CompletedService</returns>
-        public static CompletedService Save(IncompleteService incompleteService, User completedBy, string description)
+        public static CompletedService Save(IncompleteService incompleteService, User completedBy, string description, DateTime dateTimeCompleted)
         {
             int userId = incompleteService.User.Id;
             int completedByUserId = completedBy.Id;
@@ -57,8 +58,8 @@ namespace Assignment
             // Preperation
             SqlConnection conn = Database.GetSqlConnection();
             string cmdText =
-                "INSERT INTO [CompletedService]([userId], [completedByUserId], [serviceId], [urgent], [price], [description], [dateTimeCreated]) " +
-                "VALUES(@userId, @completedByUserId, @serviceId, @urgent, @price, @description, @dateTimeCreated);" +
+                "INSERT INTO [CompletedService]([userId], [completedByUserId], [serviceId], [urgent], [price], [description], [dateTimeCreated], [dateTimeCompleted]) " +
+                "VALUES(@userId, @completedByUserId, @serviceId, @urgent, @price, @description, @dateTimeCreated, @dateTimeCompleted);" +
                 "SELECT SCOPE_IDENTITY();";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, userId)
@@ -67,7 +68,8 @@ namespace Assignment
                 .AddParameter<byte>("@urgent", System.Data.SqlDbType.Bit, Convert.ToByte(urgent))
                 .AddParameter<double>("@price", System.Data.SqlDbType.Float, price)
                 .AddParameter<string>("@description", System.Data.SqlDbType.Text, description)
-                .AddParameter<DateTime>("@dateTimeCreated", System.Data.SqlDbType.DateTime, dateTimeCreated);
+                .AddParameter<DateTime>("@dateTimeCreated", System.Data.SqlDbType.DateTime, dateTimeCreated)
+                .AddParameter<DateTime>("@dateTimeCompleted", System.Data.SqlDbType.DateTime, dateTimeCompleted);
 
             // Execution
             conn.Open();
@@ -77,6 +79,20 @@ namespace Assignment
             bsc.Dispose();
             conn.Close();
             return CompletedService.GetById(completedServiceId);
+        }
+
+
+        /// <summary>
+        /// Create a complete service from Incomplete service. It also deletes the entry of incomplete service in database.
+        /// Automatically sets completed DateTime to current DateTime
+        /// </summary>
+        /// <param name="incompleteService"></param>
+        /// <param name="completedBy"></param>
+        /// <param name="description"></param>
+        /// <returns>CompletedService</returns>
+        public static CompletedService Save(IncompleteService incompleteService, User completedBy, string description)
+        {
+            return CompletedService.Save(incompleteService, completedBy, description, DateTime.Now);
         }
 
         /// <summary>
