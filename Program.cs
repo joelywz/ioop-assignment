@@ -39,7 +39,7 @@ namespace Assignment
             //Application.Run(new FormRHome(User.GetById(3)));
 
             // Technican
-            //Application.Run(new FormRHome(User.GetById(4)));
+            //Application.Run(new FormTHome(User.GetById(4)));
 
 
         }

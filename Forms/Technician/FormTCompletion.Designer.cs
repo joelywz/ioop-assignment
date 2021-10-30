@@ -51,9 +51,9 @@ namespace Assignment
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(88, 22);
+            this.txtID.Location = new System.Drawing.Point(71, 22);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(133, 22);
+            this.txtID.Size = new System.Drawing.Size(150, 22);
             this.txtID.TabIndex = 0;
             // 
             // grpID
@@ -94,9 +94,9 @@ namespace Assignment
             this.lblID.AutoSize = true;
             this.lblID.Location = new System.Drawing.Point(6, 25);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(76, 17);
+            this.lblID.Size = new System.Drawing.Size(59, 17);
             this.lblID.TabIndex = 1;
-            this.lblID.Text = "Service ID:";
+            this.lblID.Text = "User ID:";
             // 
             // grpDescription
             // 
@@ -187,7 +187,7 @@ namespace Assignment
             this.btnViewServices.UseVisualStyleBackColor = true;
             this.btnViewServices.Click += new System.EventHandler(this.btnViewServices_Click);
             // 
-            // serComplete
+            // FormTCompletion
             // 
             this.AcceptButton = this.btnComplete;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -203,7 +203,7 @@ namespace Assignment
             this.Controls.Add(this.grpServices);
             this.Controls.Add(this.grpID);
             this.MinimumSize = new System.Drawing.Size(543, 592);
-            this.Name = "serComplete";
+            this.Name = "FormTCompletion";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Service Completion";

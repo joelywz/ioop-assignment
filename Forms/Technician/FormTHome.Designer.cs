@@ -36,6 +36,7 @@ namespace Assignment
             this.rdoService = new System.Windows.Forms.RadioButton();
             this.btnProceed = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.grpFunctions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +121,13 @@ namespace Assignment
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(190, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(202, 22);
+            this.textBox1.TabIndex = 4;
+            // 
             // FormTHome
             // 
             this.AcceptButton = this.btnProceed;
@@ -127,6 +135,7 @@ namespace Assignment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(407, 245);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.grpFunctions);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnProceed);
@@ -139,6 +148,7 @@ namespace Assignment
             this.grpFunctions.ResumeLayout(false);
             this.grpFunctions.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -151,6 +161,7 @@ namespace Assignment
         private System.Windows.Forms.RadioButton rdoService;
         private System.Windows.Forms.Button btnProceed;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

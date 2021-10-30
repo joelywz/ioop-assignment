@@ -12,15 +12,25 @@ namespace Assignment
 {
     public partial class FormTCompletion : Form
     {
-        public FormTCompletion()
+        //To store technician login details
+        User technician;
+
+        //To store selected service ID
+        IncompleteService selectedService;
+
+        public FormTCompletion(User user, IncompleteService selectedService)
         {
+            this.technician = user;
+            this.selectedService = selectedService;
             InitializeComponent();
         }
 
         private void btnViewServices_Click(object sender, EventArgs e)
         {
-            FormTCusServices obj1 = new FormTCusServices();
-            obj1.Show();
+            FormTCusServices obj1 = new FormTCusServices(technician);
+            this.Hide();
+            obj1.ShowDialog();
+            this.Close();
         }
     }
 }
