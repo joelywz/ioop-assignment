@@ -91,7 +91,7 @@ namespace Assignment
         private static IncompleteService Reader(SqlDataReader reader)
         {
             User user = User.GetById((int)reader["userId"]);
-            Service service = Service.GetService((int)reader["serviceId"] - 1);
+            Service service = Service.GetService((int)reader["serviceId"]);
             bool urgent  = (bool)reader["urgent"];
             DateTime dateTimeCreated = (DateTime)reader["dateTimeCreated"];
 
