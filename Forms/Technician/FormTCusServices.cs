@@ -39,6 +39,8 @@ namespace Assignment
             if (cboServiceStatus.SelectedIndex != 0)
                 cboServiceStatus.SelectedIndex = 0;
 
+            this.selectedService = null;
+            loader();
             urgencyFilter();
         }
 
@@ -94,8 +96,13 @@ namespace Assignment
 
         private void loader()
         {
-            Service serType = Service.GetService(selectedService.Service.Id);
-            lblSerTypeContent.Text = serType.Name;
+            if (selectedService == null)
+                lblSerTypeContent.Text = "";
+            else
+            {
+                Service serType = Service.GetService(selectedService.Service.Id);
+                lblSerTypeContent.Text = serType.Name;
+            }
         }
 
         private void cusServices_Load(object sender, EventArgs e)
@@ -105,6 +112,7 @@ namespace Assignment
             cboServiceStatus.SelectedIndex = 0;
 
             fetchServices();
+            loader();
             urgencyFilter();
         }
 
@@ -118,7 +126,9 @@ namespace Assignment
 
         private void btnFilterApply_Click(object sender, EventArgs e)
         {
+            this.selectedService = null;
             clearListed();
+            loader();
             urgencyFilter();
         }
 
