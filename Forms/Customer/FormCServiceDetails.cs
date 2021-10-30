@@ -17,8 +17,14 @@ namespace Assignment
 
         private void btnCustServChg_Click(object sender, EventArgs e)
         {
-            FormRCustomerDetails objCusDetails = new FormRCustomerDetails();
-            objCusDetails.Show();
+            //customer is going to change service themselves
+            
+        }
+
+        private void btnCustServBack_Click(object sender, EventArgs e)
+        {
+            FormCHome objCHome = new FormCHome();
+            objCHome.Show();
             this.Hide();
         }
     }

@@ -168,6 +168,7 @@ namespace Assignment
             this.btnCustServBack.TabIndex = 3;
             this.btnCustServBack.Text = "Back";
             this.btnCustServBack.UseVisualStyleBackColor = true;
+            this.btnCustServBack.Click += new System.EventHandler(this.btnCustServBack_Click);
             // 
             // FormCServiceDetails
             // 

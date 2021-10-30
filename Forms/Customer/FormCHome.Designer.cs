@@ -39,8 +39,8 @@ namespace Assignment
             // lblCustMain
             // 
             this.lblCustMain.AutoSize = true;
-            this.lblCustMain.Font = new System.Drawing.Font("Imprint MT Shadow", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCustMain.Location = new System.Drawing.Point(203, 26);
+            this.lblCustMain.Font = new System.Drawing.Font("Imprint MT Shadow", 48F);
+            this.lblCustMain.Location = new System.Drawing.Point(174, 23);
             this.lblCustMain.Name = "lblCustMain";
             this.lblCustMain.Size = new System.Drawing.Size(407, 75);
             this.lblCustMain.TabIndex = 0;
@@ -49,8 +49,8 @@ namespace Assignment
             // lblCustIntro
             // 
             this.lblCustIntro.AutoSize = true;
-            this.lblCustIntro.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCustIntro.Location = new System.Drawing.Point(34, 118);
+            this.lblCustIntro.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.lblCustIntro.Location = new System.Drawing.Point(29, 102);
             this.lblCustIntro.Name = "lblCustIntro";
             this.lblCustIntro.Size = new System.Drawing.Size(364, 25);
             this.lblCustIntro.TabIndex = 1;
@@ -58,45 +58,48 @@ namespace Assignment
             // 
             // btnCustServ
             // 
-            this.btnCustServ.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCustServ.Location = new System.Drawing.Point(271, 188);
+            this.btnCustServ.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCustServ.Location = new System.Drawing.Point(232, 163);
             this.btnCustServ.Name = "btnCustServ";
-            this.btnCustServ.Size = new System.Drawing.Size(282, 39);
+            this.btnCustServ.Size = new System.Drawing.Size(242, 34);
             this.btnCustServ.TabIndex = 2;
             this.btnCustServ.Text = "View Service";
             this.btnCustServ.UseVisualStyleBackColor = true;
+            this.btnCustServ.Click += new System.EventHandler(this.btnCustServ_Click);
             // 
             // btnCustProf
             // 
-            this.btnCustProf.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCustProf.Location = new System.Drawing.Point(271, 258);
+            this.btnCustProf.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCustProf.Location = new System.Drawing.Point(232, 224);
             this.btnCustProf.Name = "btnCustProf";
-            this.btnCustProf.Size = new System.Drawing.Size(282, 39);
+            this.btnCustProf.Size = new System.Drawing.Size(242, 34);
             this.btnCustProf.TabIndex = 3;
             this.btnCustProf.Text = "View Profile";
             this.btnCustProf.UseVisualStyleBackColor = true;
+            this.btnCustProf.Click += new System.EventHandler(this.btnCustProf_Click);
             // 
             // btnCustLogout
             // 
-            this.btnCustLogout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCustLogout.Location = new System.Drawing.Point(271, 332);
+            this.btnCustLogout.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCustLogout.Location = new System.Drawing.Point(232, 288);
             this.btnCustLogout.Name = "btnCustLogout";
-            this.btnCustLogout.Size = new System.Drawing.Size(282, 39);
+            this.btnCustLogout.Size = new System.Drawing.Size(242, 34);
             this.btnCustLogout.TabIndex = 4;
             this.btnCustLogout.Text = "Log out";
             this.btnCustLogout.UseVisualStyleBackColor = true;
+            this.btnCustLogout.Click += new System.EventHandler(this.btnCustLogout_Click);
             // 
-            // custMain
+            // FormCHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.btnCustLogout);
             this.Controls.Add(this.btnCustProf);
             this.Controls.Add(this.btnCustServ);
             this.Controls.Add(this.lblCustIntro);
             this.Controls.Add(this.lblCustMain);
-            this.Name = "custMain";
+            this.Name = "FormCHome";
             this.Text = "Main Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
