@@ -39,7 +39,6 @@ namespace Assignment
             if (cboServiceStatus.SelectedIndex != 0)
                 cboServiceStatus.SelectedIndex = 0;
 
-            loader();
             urgencyFilter();
         }
 
@@ -120,7 +119,6 @@ namespace Assignment
         private void btnFilterApply_Click(object sender, EventArgs e)
         {
             clearListed();
-            loader();
             urgencyFilter();
         }
 
