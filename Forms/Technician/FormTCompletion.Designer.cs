@@ -133,7 +133,7 @@ namespace Assignment
             this.lstServices.ItemHeight = 16;
             this.lstServices.Location = new System.Drawing.Point(6, 21);
             this.lstServices.Name = "lstServices";
-            this.lstServices.Size = new System.Drawing.Size(497, 228);
+            this.lstServices.Size = new System.Drawing.Size(497, 132);
             this.lstServices.TabIndex = 2;
             // 
             // grpServices
@@ -207,6 +207,7 @@ namespace Assignment
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Service Completion";
+            this.Load += new System.EventHandler(this.FormTCompletion_Load);
             this.grpID.ResumeLayout(false);
             this.grpID.PerformLayout();
             this.grpDescription.ResumeLayout(false);

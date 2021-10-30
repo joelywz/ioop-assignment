@@ -25,30 +25,17 @@ namespace Assignment
         //List to hold all listed incomplete services
         List<IncompleteService> listedServices = new List<IncompleteService>();
 
-        public FormTCusServices(User user)
-        {
-            this.technician = user;
-            InitializeComponent();
-        }
 
-        private void btnFilterClear_Click(object sender, EventArgs e)
-        {
-            //Resetting comboboxes
-            if (cboDisplay.SelectedIndex != 0)
-                cboDisplay.SelectedIndex = 0;
-            if (cboServiceStatus.SelectedIndex != 0)
-                cboServiceStatus.SelectedIndex = 0;
 
-            this.selectedService = null;
-            loader();
-            urgencyFilter();
-        }
+        //HELPER FUNCTIONS
 
+        //To store all incomplete services in a list
         private void fetchServices()
         {
             services = IncompleteService.GetAll().ToList<IncompleteService>();
         }
 
+        //To add incomplete services to a list to be displayed
         private void addListedService(IncompleteService service)
         {
             listedServices.Add(service);
@@ -78,7 +65,7 @@ namespace Assignment
             lstServices.Items.Clear();
         }
 
-        //Urgency Filter
+        //Urgency filter
         private void urgencyFilter()
         {
             clearListed();
@@ -94,6 +81,7 @@ namespace Assignment
             }
         }
 
+        //To load service type in lblSerTypeContent
         private void loader()
         {
             if (selectedService == null)
@@ -103,6 +91,15 @@ namespace Assignment
                 Service serType = Service.GetService(selectedService.Service.Id);
                 lblSerTypeContent.Text = serType.Name;
             }
+        }
+
+
+
+        //EVENTS
+        public FormTCusServices(User user)
+        {
+            this.technician = user;
+            InitializeComponent();
         }
 
         private void cusServices_Load(object sender, EventArgs e)
@@ -116,18 +113,17 @@ namespace Assignment
             urgencyFilter();
         }
 
-        private void btnComplete_Click(object sender, EventArgs e)
+        private void btnFilterClear_Click(object sender, EventArgs e)
         {
-            if (selectedService != null)
-            {
-                FormTCompletion obj1 = new FormTCompletion(technician, selectedService);
-                this.Hide();
-                obj1.ShowDialog();
-                this.Close();
-            }
-            else
-                MessageBox.Show("Please select a service to complete.");
-            
+            //Resetting comboboxes
+            if (cboDisplay.SelectedIndex != 0)
+                cboDisplay.SelectedIndex = 0;
+            if (cboServiceStatus.SelectedIndex != 0)
+                cboServiceStatus.SelectedIndex = 0;
+
+            this.selectedService = null;
+            loader();
+            urgencyFilter();
         }
 
         private void btnFilterApply_Click(object sender, EventArgs e)
@@ -144,6 +140,19 @@ namespace Assignment
             if (selectedIndex >= 0)
                 this.selectedService = listedServices[selectedIndex];
             loader();
+        }
+
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+            if (selectedService != null)
+            {
+                FormTCompletion obj1 = new FormTCompletion(technician, selectedService);
+                this.Hide();
+                obj1.ShowDialog();
+                this.Close();
+            }
+            else
+                MessageBox.Show("Please select a service to complete.");
         }
     }
 }

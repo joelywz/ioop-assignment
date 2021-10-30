@@ -32,5 +32,11 @@ namespace Assignment
             obj1.ShowDialog();
             this.Close();
         }
+
+        private void FormTCompletion_Load(object sender, EventArgs e)
+        {
+            if (selectedService != null)
+                txtID.Text = Convert.ToString(selectedService.User.Id);
+        }
     }
 }

@@ -48,6 +48,7 @@ namespace Assignment
             // 
             // cboDisplay
             // 
+            this.cboDisplay.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.cboDisplay.FormattingEnabled = true;
             this.cboDisplay.Items.AddRange(new object[] {
             "Date - User First Name",
@@ -60,6 +61,7 @@ namespace Assignment
             // 
             // cboServiceStatus
             // 
+            this.cboServiceStatus.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.cboServiceStatus.AutoCompleteCustomSource.AddRange(new string[] {
             "Urgency",
             "Normal",
