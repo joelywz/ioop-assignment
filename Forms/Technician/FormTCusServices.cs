@@ -97,7 +97,7 @@ namespace Assignment
         private void loader()
         {
             if (selectedService == null)
-                lblSerTypeContent.Text = "";
+                lblSerTypeContent.Text = " - ";
             else
             {
                 Service serType = Service.GetService(selectedService.Service.Id);
@@ -118,10 +118,16 @@ namespace Assignment
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            FormTCompletion obj1 = new FormTCompletion(technician, selectedService);
-            this.Hide();
-            obj1.ShowDialog();
-            this.Close();
+            if (selectedService != null)
+            {
+                FormTCompletion obj1 = new FormTCompletion(technician, selectedService);
+                this.Hide();
+                obj1.ShowDialog();
+                this.Close();
+            }
+            else
+                MessageBox.Show("Please select a service to complete.");
+            
         }
 
         private void btnFilterApply_Click(object sender, EventArgs e)
@@ -135,8 +141,8 @@ namespace Assignment
         private void lstServices_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = Convert.ToInt32(lstServices.SelectedIndex);
-            this.selectedService = listedServices[selectedIndex];
-
+            if (selectedIndex >= 0)
+                this.selectedService = listedServices[selectedIndex];
             loader();
         }
     }

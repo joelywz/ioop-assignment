@@ -132,9 +132,9 @@ namespace Assignment
             // btnFilterClear
             // 
             this.btnFilterClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnFilterClear.Location = new System.Drawing.Point(263, 21);
+            this.btnFilterClear.Location = new System.Drawing.Point(263, 20);
             this.btnFilterClear.Name = "btnFilterClear";
-            this.btnFilterClear.Size = new System.Drawing.Size(97, 54);
+            this.btnFilterClear.Size = new System.Drawing.Size(97, 58);
             this.btnFilterClear.TabIndex = 9;
             this.btnFilterClear.Text = "Clear Filters";
             this.btnFilterClear.UseVisualStyleBackColor = true;
