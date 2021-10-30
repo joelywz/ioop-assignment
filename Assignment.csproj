@@ -70,11 +70,11 @@
     <Compile Include="Forms\Admin\FormAHome.Designer.cs">
       <DependentUpon>FormAHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer\Form1.cs">
+    <Compile Include="Forms\Customer\FormCChangeService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customer\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Customer\FormCChangeService.Designer.cs">
+      <DependentUpon>FormCChangeService.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customer\FormCHome.cs">
       <SubType>Form</SubType>
@@ -160,8 +160,8 @@
     <EmbeddedResource Include="Forms\Admin\FormAHome.resx">
       <DependentUpon>FormAHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customer\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Customer\FormCChangeService.resx">
+      <DependentUpon>FormCChangeService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\FormCHome.resx">
       <DependentUpon>FormCHome.cs</DependentUpon>
