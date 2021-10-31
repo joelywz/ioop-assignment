@@ -173,9 +173,11 @@ namespace Assignment
         private void btnComplete_Click(object sender, EventArgs e)
         {
             if (rtxtDescription.Text == "" | rtxtDescription.Text == "Enter service description")
+            {
                 MessageBox.Show("Please enter a service description.");
-
-            
+                return;
+            }
+            CompletedService compService = CompletedService.Save(selectedService, technician, rtxtDescription.Text, calCollectionDate.Value);
         }
     }
 }
