@@ -24,7 +24,7 @@ namespace Assignment
                 return;
             }
             // Main
-            Application.Run(new FormLogin());
+            //Application.Run(new FormLogin());
 
 
             // You can automatically log in to your form here by uncommenting the right one
@@ -33,7 +33,7 @@ namespace Assignment
             //Application.Run(new FormRHome(User.GetById(1)));
 
             // Admin
-            //Application.Run(new FormRHome(User.GetById(2)));
+            Application.Run(new FormAHome());
 
             // Receptionist
             //Application.Run(new FormRHome(User.GetById(3)));
