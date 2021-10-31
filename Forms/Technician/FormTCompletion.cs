@@ -108,6 +108,17 @@ namespace Assignment
             }
         }
 
+        //Reset listbox (show all services)
+        private void reset()
+        {
+            clearListed();
+            services.Clear();
+            fetchServices();
+            foreach (IncompleteService service in services)
+                addListedService(service);
+        }
+
+
 
 
         //EVENTS
@@ -172,12 +183,22 @@ namespace Assignment
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            if (rtxtDescription.Text == "" | rtxtDescription.Text == "Enter service description")
+            if (selectedService != null)
             {
-                MessageBox.Show("Please enter a service description.");
-                return;
+                if (rtxtDescription.Text == "" | rtxtDescription.Text == "Enter service description")
+                {
+                    MessageBox.Show("Please enter a service description.");
+                    return;
+                }
+
+                CompletedService compService = CompletedService.Save(selectedService, technician, rtxtDescription.Text, calCollectionDate.Value);
+                this.selectedService = null;
+                loader();
+                txtID.Clear();
+                reset();
             }
-            CompletedService compService = CompletedService.Save(selectedService, technician, rtxtDescription.Text, calCollectionDate.Value);
+            else
+                MessageBox.Show("Please select a service to complete.");
         }
     }
 }
