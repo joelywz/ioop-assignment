@@ -10,30 +10,57 @@ namespace Assignment
 {
     public partial class FormCProfile : Form
     {
-        public FormCProfile()
+        //customer details
+        User customer;
+
+        //function for user's current service
+        private string servCurrent()
         {
-            InitializeComponent();
+            IncompleteService[] current = IncompleteService.GetAll();
+            foreach (IncompleteService s in current)
+            {
+                if (s.User.Username == customer.Username)
+                {
+                    return Convert.ToString(s);
+                }
+            }
+            return "-";
         }
+
+        public FormCProfile(User user)
+        {
+            this.customer = user;
+            InitializeComponent();
+            lblCustProfUser.Text = customer.Username;
+            lblCustProfDispName.Text = customer.FullName;
+            lblCustProfDispDOB.Text = Convert.ToString(customer.DateOfBirth);
+            lblCustProfDispEmail.Text = customer.Email;
+            lblCustProfDispPhone.Text = customer.PhoneNo;
+            lblCustProfDispServ.Text = servCurrent();
+        }
+
 
         private void btnCustProfChgProf_Click(object sender, EventArgs e)
         {
             FormUpdateProfile objUpdateProfile = new FormUpdateProfile();
-            objUpdateProfile.Show();
+            objUpdateProfile.ShowDialog();
             this.Hide();
         }
 
         private void btnCustProfServ_Click(object sender, EventArgs e)
         {
-            FormCServiceDetails objCServiceDetails = new FormCServiceDetails();
-            objCServiceDetails.Show();
+            FormCServiceDetails objCServiceDetails = new FormCServiceDetails(customer);
+            objCServiceDetails.ShowDialog();
             this.Hide();
         }
 
         private void btnCustProfBack_Click(object sender, EventArgs e)
         {
-            FormCHome objCHome = new FormCHome();
-            objCHome.Show();
+            FormCHome objCHome = new FormCHome(customer);
+            objCHome.ShowDialog();
             this.Hide();
         }
+
+       
     }
 }

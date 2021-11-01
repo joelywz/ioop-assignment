@@ -12,22 +12,25 @@ namespace Assignment
 {
     public partial class FormCHome : Form
     {
-        public FormCHome()
+        //customer details
+        User customer;
+        public FormCHome(User user)
         {
+            this.customer = user;
             InitializeComponent();
         }
 
         private void btnCustServ_Click(object sender, EventArgs e)
         {
             FormCServiceDetails objCServiceDetais = new FormCServiceDetails();
-            objCServiceDetais.Show();
+            objCServiceDetais.ShowDialog();
             this.Hide();
         }
 
         private void btnCustProf_Click(object sender, EventArgs e)
         {
-            FormCProfile objCProfile = new FormCProfile();
-            objCProfile.Show();
+            FormCProfile objCProfile = new FormCProfile(customer);
+            objCProfile.ShowDialog();
             this.Hide();
         }
 

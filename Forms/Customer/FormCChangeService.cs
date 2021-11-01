@@ -12,16 +12,24 @@ namespace Assignment.Forms.Customer
 {
     public partial class FormCChangeService : Form
     {
-        public FormCChangeService()
+        //customer details
+        User customer;
+
+        public FormCChangeService(User user)
         {
             InitializeComponent();
         }
 
         private void btnCustChangeBack_Click(object sender, EventArgs e)
         {
-            FormCServiceDetails objCServiceDetails = new FormCServiceDetails();
-            objCServiceDetails.Show();
+            FormCServiceDetails objCServiceDetails = new FormCServiceDetails(customer);
+            objCServiceDetails.ShowDialog();
             this.Hide();
+        }
+
+        private void btnCustChange_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

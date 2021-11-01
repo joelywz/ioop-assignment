@@ -40,8 +40,6 @@ namespace Assignment
             this.lblCustProfEmail = new System.Windows.Forms.Label();
             this.lblCustProfDispDOB = new System.Windows.Forms.Label();
             this.lblCustProfDOB = new System.Windows.Forms.Label();
-            this.lblCustProfDispAge = new System.Windows.Forms.Label();
-            this.lblCustProfAge = new System.Windows.Forms.Label();
             this.lblCustProfDispName = new System.Windows.Forms.Label();
             this.lblCustProfName = new System.Windows.Forms.Label();
             this.btnCustProfServ = new System.Windows.Forms.Button();
@@ -57,9 +55,9 @@ namespace Assignment
             this.lblCustProfUser.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.lblCustProfUser.Location = new System.Drawing.Point(29, 34);
             this.lblCustProfUser.Name = "lblCustProfUser";
-            this.lblCustProfUser.Size = new System.Drawing.Size(143, 32);
+            this.lblCustProfUser.Size = new System.Drawing.Size(103, 32);
             this.lblCustProfUser.TabIndex = 0;
-            this.lblCustProfUser.Text = "johndoe123";
+            this.lblCustProfUser.Text = "chris123";
             // 
             // lblCustProfServ
             // 
@@ -97,8 +95,6 @@ namespace Assignment
             this.grpCustProf.Controls.Add(this.lblCustProfEmail);
             this.grpCustProf.Controls.Add(this.lblCustProfDispDOB);
             this.grpCustProf.Controls.Add(this.lblCustProfDOB);
-            this.grpCustProf.Controls.Add(this.lblCustProfDispAge);
-            this.grpCustProf.Controls.Add(this.lblCustProfAge);
             this.grpCustProf.Controls.Add(this.lblCustProfDispName);
             this.grpCustProf.Controls.Add(this.lblCustProfName);
             this.grpCustProf.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -148,7 +144,7 @@ namespace Assignment
             // lblCustProfDispDOB
             // 
             this.lblCustProfDispDOB.AutoSize = true;
-            this.lblCustProfDispDOB.Location = new System.Drawing.Point(177, 112);
+            this.lblCustProfDispDOB.Location = new System.Drawing.Point(63, 118);
             this.lblCustProfDispDOB.Name = "lblCustProfDispDOB";
             this.lblCustProfDispDOB.Size = new System.Drawing.Size(76, 21);
             this.lblCustProfDispDOB.TabIndex = 5;
@@ -157,29 +153,11 @@ namespace Assignment
             // lblCustProfDOB
             // 
             this.lblCustProfDOB.AutoSize = true;
-            this.lblCustProfDOB.Location = new System.Drawing.Point(139, 86);
+            this.lblCustProfDOB.Location = new System.Drawing.Point(18, 89);
             this.lblCustProfDOB.Name = "lblCustProfDOB";
             this.lblCustProfDOB.Size = new System.Drawing.Size(97, 21);
             this.lblCustProfDOB.TabIndex = 4;
             this.lblCustProfDOB.Text = "Date of birth";
-            // 
-            // lblCustProfDispAge
-            // 
-            this.lblCustProfDispAge.AutoSize = true;
-            this.lblCustProfDispAge.Location = new System.Drawing.Point(63, 112);
-            this.lblCustProfDispAge.Name = "lblCustProfDispAge";
-            this.lblCustProfDispAge.Size = new System.Drawing.Size(28, 21);
-            this.lblCustProfDispAge.TabIndex = 3;
-            this.lblCustProfDispAge.Text = "30";
-            // 
-            // lblCustProfAge
-            // 
-            this.lblCustProfAge.AutoSize = true;
-            this.lblCustProfAge.Location = new System.Drawing.Point(18, 86);
-            this.lblCustProfAge.Name = "lblCustProfAge";
-            this.lblCustProfAge.Size = new System.Drawing.Size(37, 21);
-            this.lblCustProfAge.TabIndex = 2;
-            this.lblCustProfAge.Text = "Age";
             // 
             // lblCustProfDispName
             // 
@@ -265,8 +243,6 @@ namespace Assignment
         private System.Windows.Forms.Label lblCustProfEmail;
         private System.Windows.Forms.Label lblCustProfDispDOB;
         private System.Windows.Forms.Label lblCustProfDOB;
-        private System.Windows.Forms.Label lblCustProfDispAge;
-        private System.Windows.Forms.Label lblCustProfAge;
         private System.Windows.Forms.Label lblCustProfDispName;
         private System.Windows.Forms.Label lblCustProfName;
         private System.Windows.Forms.Button btnCustProfServ;

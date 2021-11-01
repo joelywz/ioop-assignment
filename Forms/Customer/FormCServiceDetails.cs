@@ -10,7 +10,10 @@ namespace Assignment
 {
     public partial class FormCServiceDetails : Form
     {
-        public FormCServiceDetails()
+        //customer details
+        User customer;
+
+        public FormCServiceDetails(User user)
         {
             InitializeComponent();
         }
@@ -18,13 +21,13 @@ namespace Assignment
         private void btnCustServChg_Click(object sender, EventArgs e)
         {
             //customer is going to change service themselves
-            
+            Form obj1 = new FormCChangeService();
         }
 
         private void btnCustServBack_Click(object sender, EventArgs e)
         {
-            FormCHome objCHome = new FormCHome();
-            objCHome.Show();
+            FormCHome objCHome = new FormCHome(customer);
+            objCHome.ShowDialog();
             this.Hide();
         }
     }

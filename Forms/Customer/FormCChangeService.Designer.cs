@@ -32,17 +32,17 @@ namespace Assignment.Forms.Customer
             this.grpCustChangeDispCurrent = new System.Windows.Forms.GroupBox();
             this.lblCustChangeDispCurrent = new System.Windows.Forms.Label();
             this.grpCustChangeSelect = new System.Windows.Forms.GroupBox();
-            this.lblCustChangeSelect = new System.Windows.Forms.Label();
-            this.rbtnCustChange1 = new System.Windows.Forms.RadioButton();
-            this.rbtnCustChange2 = new System.Windows.Forms.RadioButton();
-            this.rbtnCustChange3 = new System.Windows.Forms.RadioButton();
-            this.rbtnCustChange4 = new System.Windows.Forms.RadioButton();
-            this.rbtnCustChange5 = new System.Windows.Forms.RadioButton();
-            this.rbtnCustChange6 = new System.Windows.Forms.RadioButton();
-            this.rbtnCustChange7 = new System.Windows.Forms.RadioButton();
-            this.rbtnCustChange8 = new System.Windows.Forms.RadioButton();
             this.chkCustChangeUrgent = new System.Windows.Forms.CheckBox();
+            this.rbtnCustChange8 = new System.Windows.Forms.RadioButton();
+            this.rbtnCustChange7 = new System.Windows.Forms.RadioButton();
             this.lblCustChangePayment = new System.Windows.Forms.Label();
+            this.rbtnCustChange6 = new System.Windows.Forms.RadioButton();
+            this.rbtnCustChange5 = new System.Windows.Forms.RadioButton();
+            this.rbtnCustChange4 = new System.Windows.Forms.RadioButton();
+            this.rbtnCustChange3 = new System.Windows.Forms.RadioButton();
+            this.rbtnCustChange2 = new System.Windows.Forms.RadioButton();
+            this.rbtnCustChange1 = new System.Windows.Forms.RadioButton();
+            this.lblCustChangeSelect = new System.Windows.Forms.Label();
             this.lblCustChangeDispPayment = new System.Windows.Forms.Label();
             this.btnCustChange = new System.Windows.Forms.Button();
             this.btnCustChangeBack = new System.Windows.Forms.Button();
@@ -92,98 +92,16 @@ namespace Assignment.Forms.Customer
             this.grpCustChangeSelect.TabStop = false;
             this.grpCustChangeSelect.Text = "Service Menu";
             // 
-            // lblCustChangeSelect
+            // chkCustChangeUrgent
             // 
-            this.lblCustChangeSelect.AutoSize = true;
-            this.lblCustChangeSelect.Location = new System.Drawing.Point(10, 24);
-            this.lblCustChangeSelect.Name = "lblCustChangeSelect";
-            this.lblCustChangeSelect.Size = new System.Drawing.Size(116, 17);
-            this.lblCustChangeSelect.TabIndex = 0;
-            this.lblCustChangeSelect.Text = "Select new service:";
-            // 
-            // rbtnCustChange1
-            // 
-            this.rbtnCustChange1.AutoSize = true;
-            this.rbtnCustChange1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCustChange1.Location = new System.Drawing.Point(13, 62);
-            this.rbtnCustChange1.Name = "rbtnCustChange1";
-            this.rbtnCustChange1.Size = new System.Drawing.Size(152, 19);
-            this.rbtnCustChange1.TabIndex = 1;
-            this.rbtnCustChange1.TabStop = true;
-            this.rbtnCustChange1.Text = "Remove virus / malware";
-            this.rbtnCustChange1.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCustChange2
-            // 
-            this.rbtnCustChange2.AutoSize = true;
-            this.rbtnCustChange2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCustChange2.Location = new System.Drawing.Point(13, 87);
-            this.rbtnCustChange2.Name = "rbtnCustChange2";
-            this.rbtnCustChange2.Size = new System.Drawing.Size(253, 19);
-            this.rbtnCustChange2.TabIndex = 2;
-            this.rbtnCustChange2.TabStop = true;
-            this.rbtnCustChange2.Text = "Troubleshot and fix computer running slow";
-            this.rbtnCustChange2.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCustChange3
-            // 
-            this.rbtnCustChange3.AutoSize = true;
-            this.rbtnCustChange3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCustChange3.Location = new System.Drawing.Point(13, 112);
-            this.rbtnCustChange3.Name = "rbtnCustChange3";
-            this.rbtnCustChange3.Size = new System.Drawing.Size(168, 19);
-            this.rbtnCustChange3.TabIndex = 3;
-            this.rbtnCustChange3.TabStop = true;
-            this.rbtnCustChange3.Text = "Laptop screen replacement";
-            this.rbtnCustChange3.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCustChange4
-            // 
-            this.rbtnCustChange4.AutoSize = true;
-            this.rbtnCustChange4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCustChange4.Location = new System.Drawing.Point(13, 137);
-            this.rbtnCustChange4.Name = "rbtnCustChange4";
-            this.rbtnCustChange4.Size = new System.Drawing.Size(183, 19);
-            this.rbtnCustChange4.TabIndex = 4;
-            this.rbtnCustChange4.TabStop = true;
-            this.rbtnCustChange4.Text = "Laptop keyboard replacement";
-            this.rbtnCustChange4.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCustChange5
-            // 
-            this.rbtnCustChange5.AutoSize = true;
-            this.rbtnCustChange5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCustChange5.Location = new System.Drawing.Point(13, 162);
-            this.rbtnCustChange5.Name = "rbtnCustChange5";
-            this.rbtnCustChange5.Size = new System.Drawing.Size(171, 19);
-            this.rbtnCustChange5.TabIndex = 5;
-            this.rbtnCustChange5.TabStop = true;
-            this.rbtnCustChange5.Text = "Laptop battery replacement";
-            this.rbtnCustChange5.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCustChange6
-            // 
-            this.rbtnCustChange6.AutoSize = true;
-            this.rbtnCustChange6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCustChange6.Location = new System.Drawing.Point(13, 187);
-            this.rbtnCustChange6.Name = "rbtnCustChange6";
-            this.rbtnCustChange6.Size = new System.Drawing.Size(244, 19);
-            this.rbtnCustChange6.TabIndex = 6;
-            this.rbtnCustChange6.TabStop = true;
-            this.rbtnCustChange6.Text = "Operating System Format and Installation";
-            this.rbtnCustChange6.UseVisualStyleBackColor = true;
-            // 
-            // rbtnCustChange7
-            // 
-            this.rbtnCustChange7.AutoSize = true;
-            this.rbtnCustChange7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCustChange7.Location = new System.Drawing.Point(13, 212);
-            this.rbtnCustChange7.Name = "rbtnCustChange7";
-            this.rbtnCustChange7.Size = new System.Drawing.Size(162, 19);
-            this.rbtnCustChange7.TabIndex = 7;
-            this.rbtnCustChange7.TabStop = true;
-            this.rbtnCustChange7.Text = "Data backup and recovery";
-            this.rbtnCustChange7.UseVisualStyleBackColor = true;
+            this.chkCustChangeUrgent.AutoSize = true;
+            this.chkCustChangeUrgent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCustChangeUrgent.Location = new System.Drawing.Point(13, 281);
+            this.chkCustChangeUrgent.Name = "chkCustChangeUrgent";
+            this.chkCustChangeUrgent.Size = new System.Drawing.Size(62, 19);
+            this.chkCustChangeUrgent.TabIndex = 9;
+            this.chkCustChangeUrgent.Text = "Urgent";
+            this.chkCustChangeUrgent.UseVisualStyleBackColor = true;
             // 
             // rbtnCustChange8
             // 
@@ -197,16 +115,17 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange8.Text = "Internet connectivity issues";
             this.rbtnCustChange8.UseVisualStyleBackColor = true;
             // 
-            // chkCustChangeUrgent
+            // rbtnCustChange7
             // 
-            this.chkCustChangeUrgent.AutoSize = true;
-            this.chkCustChangeUrgent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCustChangeUrgent.Location = new System.Drawing.Point(13, 281);
-            this.chkCustChangeUrgent.Name = "chkCustChangeUrgent";
-            this.chkCustChangeUrgent.Size = new System.Drawing.Size(62, 19);
-            this.chkCustChangeUrgent.TabIndex = 9;
-            this.chkCustChangeUrgent.Text = "Urgent";
-            this.chkCustChangeUrgent.UseVisualStyleBackColor = true;
+            this.rbtnCustChange7.AutoSize = true;
+            this.rbtnCustChange7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnCustChange7.Location = new System.Drawing.Point(13, 212);
+            this.rbtnCustChange7.Name = "rbtnCustChange7";
+            this.rbtnCustChange7.Size = new System.Drawing.Size(162, 19);
+            this.rbtnCustChange7.TabIndex = 7;
+            this.rbtnCustChange7.TabStop = true;
+            this.rbtnCustChange7.Text = "Data backup and recovery";
+            this.rbtnCustChange7.UseVisualStyleBackColor = true;
             // 
             // lblCustChangePayment
             // 
@@ -217,6 +136,87 @@ namespace Assignment.Forms.Customer
             this.lblCustChangePayment.Size = new System.Drawing.Size(146, 15);
             this.lblCustChangePayment.TabIndex = 10;
             this.lblCustChangePayment.Text = "Amount due after change:";
+            // 
+            // rbtnCustChange6
+            // 
+            this.rbtnCustChange6.AutoSize = true;
+            this.rbtnCustChange6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnCustChange6.Location = new System.Drawing.Point(13, 187);
+            this.rbtnCustChange6.Name = "rbtnCustChange6";
+            this.rbtnCustChange6.Size = new System.Drawing.Size(244, 19);
+            this.rbtnCustChange6.TabIndex = 6;
+            this.rbtnCustChange6.TabStop = true;
+            this.rbtnCustChange6.Text = "Operating System Format and Installation";
+            this.rbtnCustChange6.UseVisualStyleBackColor = true;
+            // 
+            // rbtnCustChange5
+            // 
+            this.rbtnCustChange5.AutoSize = true;
+            this.rbtnCustChange5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnCustChange5.Location = new System.Drawing.Point(13, 162);
+            this.rbtnCustChange5.Name = "rbtnCustChange5";
+            this.rbtnCustChange5.Size = new System.Drawing.Size(171, 19);
+            this.rbtnCustChange5.TabIndex = 5;
+            this.rbtnCustChange5.TabStop = true;
+            this.rbtnCustChange5.Text = "Laptop battery replacement";
+            this.rbtnCustChange5.UseVisualStyleBackColor = true;
+            // 
+            // rbtnCustChange4
+            // 
+            this.rbtnCustChange4.AutoSize = true;
+            this.rbtnCustChange4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnCustChange4.Location = new System.Drawing.Point(13, 137);
+            this.rbtnCustChange4.Name = "rbtnCustChange4";
+            this.rbtnCustChange4.Size = new System.Drawing.Size(183, 19);
+            this.rbtnCustChange4.TabIndex = 4;
+            this.rbtnCustChange4.TabStop = true;
+            this.rbtnCustChange4.Text = "Laptop keyboard replacement";
+            this.rbtnCustChange4.UseVisualStyleBackColor = true;
+            // 
+            // rbtnCustChange3
+            // 
+            this.rbtnCustChange3.AutoSize = true;
+            this.rbtnCustChange3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnCustChange3.Location = new System.Drawing.Point(13, 112);
+            this.rbtnCustChange3.Name = "rbtnCustChange3";
+            this.rbtnCustChange3.Size = new System.Drawing.Size(168, 19);
+            this.rbtnCustChange3.TabIndex = 3;
+            this.rbtnCustChange3.TabStop = true;
+            this.rbtnCustChange3.Text = "Laptop screen replacement";
+            this.rbtnCustChange3.UseVisualStyleBackColor = true;
+            // 
+            // rbtnCustChange2
+            // 
+            this.rbtnCustChange2.AutoSize = true;
+            this.rbtnCustChange2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnCustChange2.Location = new System.Drawing.Point(13, 87);
+            this.rbtnCustChange2.Name = "rbtnCustChange2";
+            this.rbtnCustChange2.Size = new System.Drawing.Size(253, 19);
+            this.rbtnCustChange2.TabIndex = 2;
+            this.rbtnCustChange2.TabStop = true;
+            this.rbtnCustChange2.Text = "Troubleshot and fix computer running slow";
+            this.rbtnCustChange2.UseVisualStyleBackColor = true;
+            // 
+            // rbtnCustChange1
+            // 
+            this.rbtnCustChange1.AutoSize = true;
+            this.rbtnCustChange1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnCustChange1.Location = new System.Drawing.Point(13, 62);
+            this.rbtnCustChange1.Name = "rbtnCustChange1";
+            this.rbtnCustChange1.Size = new System.Drawing.Size(152, 19);
+            this.rbtnCustChange1.TabIndex = 1;
+            this.rbtnCustChange1.TabStop = true;
+            this.rbtnCustChange1.Text = "Remove virus / malware";
+            this.rbtnCustChange1.UseVisualStyleBackColor = true;
+            // 
+            // lblCustChangeSelect
+            // 
+            this.lblCustChangeSelect.AutoSize = true;
+            this.lblCustChangeSelect.Location = new System.Drawing.Point(10, 24);
+            this.lblCustChangeSelect.Name = "lblCustChangeSelect";
+            this.lblCustChangeSelect.Size = new System.Drawing.Size(116, 17);
+            this.lblCustChangeSelect.TabIndex = 0;
+            this.lblCustChangeSelect.Text = "Select new service:";
             // 
             // lblCustChangeDispPayment
             // 
@@ -236,6 +236,7 @@ namespace Assignment.Forms.Customer
             this.btnCustChange.TabIndex = 12;
             this.btnCustChange.Text = "Change service";
             this.btnCustChange.UseVisualStyleBackColor = true;
+            this.btnCustChange.Click += new System.EventHandler(this.btnCustChange_Click);
             // 
             // btnCustChangeBack
             // 
