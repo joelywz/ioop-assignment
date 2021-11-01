@@ -29,6 +29,7 @@ namespace Assignment.Forms.Receptionist
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbNewCustomer = new System.Windows.Forms.GroupBox();
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -45,7 +46,19 @@ namespace Assignment.Forms.Receptionist
             this.lblName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.errFullName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errUsername = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errRepeatPassword = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errEmail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPhoneNo = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbNewCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errFullName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errUsername)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errRepeatPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPhoneNo)).BeginInit();
             this.SuspendLayout();
             // 
             // gbNewCustomer
@@ -74,14 +87,14 @@ namespace Assignment.Forms.Receptionist
             // 
             this.txtPhoneNo.Location = new System.Drawing.Point(10, 302);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(245, 20);
+            this.txtPhoneNo.Size = new System.Drawing.Size(230, 20);
             this.txtPhoneNo.TabIndex = 6;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(10, 249);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(245, 20);
+            this.txtEmail.Size = new System.Drawing.Size(230, 20);
             this.txtEmail.TabIndex = 5;
             // 
             // txtRepeatPassword
@@ -89,7 +102,7 @@ namespace Assignment.Forms.Receptionist
             this.txtRepeatPassword.Location = new System.Drawing.Point(10, 195);
             this.txtRepeatPassword.Name = "txtRepeatPassword";
             this.txtRepeatPassword.PasswordChar = '●';
-            this.txtRepeatPassword.Size = new System.Drawing.Size(245, 20);
+            this.txtRepeatPassword.Size = new System.Drawing.Size(230, 20);
             this.txtRepeatPassword.TabIndex = 4;
             // 
             // btnNewCustomer
@@ -107,21 +120,21 @@ namespace Assignment.Forms.Receptionist
             this.txtPassword.Location = new System.Drawing.Point(10, 146);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(245, 20);
+            this.txtPassword.Size = new System.Drawing.Size(230, 20);
             this.txtPassword.TabIndex = 3;
             // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(10, 95);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(245, 20);
+            this.txtUsername.Size = new System.Drawing.Size(230, 20);
             this.txtUsername.TabIndex = 2;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(10, 46);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(245, 20);
+            this.txtName.Size = new System.Drawing.Size(230, 20);
             this.txtName.TabIndex = 1;
             // 
             // lblPhoneNo
@@ -198,6 +211,30 @@ namespace Assignment.Forms.Receptionist
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // errFullName
+            // 
+            this.errFullName.ContainerControl = this;
+            // 
+            // errUsername
+            // 
+            this.errUsername.ContainerControl = this;
+            // 
+            // errPassword
+            // 
+            this.errPassword.ContainerControl = this;
+            // 
+            // errRepeatPassword
+            // 
+            this.errRepeatPassword.ContainerControl = this;
+            // 
+            // errEmail
+            // 
+            this.errEmail.ContainerControl = this;
+            // 
+            // errPhoneNo
+            // 
+            this.errPhoneNo.ContainerControl = this;
+            // 
             // FormRNewCus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,6 +249,12 @@ namespace Assignment.Forms.Receptionist
             this.Text = "New Customer";
             this.gbNewCustomer.ResumeLayout(false);
             this.gbNewCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errFullName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errUsername)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errRepeatPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPhoneNo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +278,11 @@ namespace Assignment.Forms.Receptionist
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.ErrorProvider errFullName;
+        private System.Windows.Forms.ErrorProvider errUsername;
+        private System.Windows.Forms.ErrorProvider errPassword;
+        private System.Windows.Forms.ErrorProvider errRepeatPassword;
+        private System.Windows.Forms.ErrorProvider errEmail;
+        private System.Windows.Forms.ErrorProvider errPhoneNo;
     }
 }
