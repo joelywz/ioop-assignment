@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTCusServices));
             this.cboDisplay = new System.Windows.Forms.ComboBox();
             this.cboServiceStatus = new System.Windows.Forms.ComboBox();
             this.lstServices = new System.Windows.Forms.ListBox();
@@ -38,9 +39,9 @@ namespace Assignment
             this.btnFilterApply = new System.Windows.Forms.Button();
             this.btnFilterClear = new System.Windows.Forms.Button();
             this.grpServices = new System.Windows.Forms.GroupBox();
+            this.lblSerTypeContent = new System.Windows.Forms.Label();
             this.lblSerType = new System.Windows.Forms.Label();
             this.btnComplete = new System.Windows.Forms.Button();
-            this.lblSerTypeContent = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpFilter.SuspendLayout();
             this.grpServices.SuspendLayout();
@@ -156,6 +157,15 @@ namespace Assignment
             this.grpServices.TabStop = false;
             this.grpServices.Text = "Services";
             // 
+            // lblSerTypeContent
+            // 
+            this.lblSerTypeContent.AutoSize = true;
+            this.lblSerTypeContent.Location = new System.Drawing.Point(8, 230);
+            this.lblSerTypeContent.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.lblSerTypeContent.Name = "lblSerTypeContent";
+            this.lblSerTypeContent.Size = new System.Drawing.Size(0, 17);
+            this.lblSerTypeContent.TabIndex = 8;
+            // 
             // lblSerType
             // 
             this.lblSerType.AutoSize = true;
@@ -176,15 +186,6 @@ namespace Assignment
             this.btnComplete.UseVisualStyleBackColor = true;
             this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
-            // lblSerTypeContent
-            // 
-            this.lblSerTypeContent.AutoSize = true;
-            this.lblSerTypeContent.Location = new System.Drawing.Point(8, 230);
-            this.lblSerTypeContent.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.lblSerTypeContent.Name = "lblSerTypeContent";
-            this.lblSerTypeContent.Size = new System.Drawing.Size(0, 17);
-            this.lblSerTypeContent.TabIndex = 8;
-            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -202,10 +203,12 @@ namespace Assignment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(525, 481);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grpServices);
             this.Controls.Add(this.grpFilter);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormTCusServices";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

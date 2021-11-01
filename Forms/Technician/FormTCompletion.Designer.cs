@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTCompletion));
             this.txtID = new System.Windows.Forms.TextBox();
             this.grpID = new System.Windows.Forms.GroupBox();
             this.btnIDSearch = new System.Windows.Forms.Button();
@@ -223,6 +224,7 @@ namespace Assignment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(525, 536);
             this.Controls.Add(this.btnViewServices);
             this.Controls.Add(this.lblTitle);
@@ -231,6 +233,7 @@ namespace Assignment
             this.Controls.Add(this.grpDescription);
             this.Controls.Add(this.grpServices);
             this.Controls.Add(this.grpID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormTCompletion";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

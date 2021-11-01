@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTHome));
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpFunctions = new System.Windows.Forms.GroupBox();
             this.rdoUpdateProfile = new System.Windows.Forms.RadioButton();
@@ -45,7 +46,7 @@ namespace Assignment
             this.lblTitle.Location = new System.Drawing.Point(15, 15);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(377, 25);
+            this.lblTitle.Size = new System.Drawing.Size(204, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Technician Home\r\n";
             // 
@@ -127,11 +128,13 @@ namespace Assignment
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(407, 245);
             this.Controls.Add(this.grpFunctions);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnProceed);
             this.Controls.Add(this.btnLogOut);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(425, 292);
             this.Name = "FormTHome";
             this.Padding = new System.Windows.Forms.Padding(5);
