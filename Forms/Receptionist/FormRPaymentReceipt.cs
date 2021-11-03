@@ -12,9 +12,132 @@ namespace Assignment
 {
     public partial class FormRPaymentReceipt : Form
     {
-        public FormRPaymentReceipt()
+        User Customer;
+        CompletedService[] CompletedServices;
+        List<CompletedService> ListedCompletedServices = new List<CompletedService>();
+        CompletedService SelectedService = null;
+
+        public FormRPaymentReceipt(User customer)
         {
+            this.Customer = customer;
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FormRPaymentReceipt_Load(object sender, EventArgs e)
+        {
+            FetchCompletedService();
+            txtCustomerName.Text = Customer.FullName;
+            lblPaymentInfo.Text = "";
+            rdoAll.Checked = true;
+            Filter();
+
+        }
+
+        private void lstPayments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = lstPayments.SelectedIndex;
+            if (selectedIndex < 0) return;
+            SelectedService = ListedCompletedServices[selectedIndex];
+            ShowReceipt();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            Filter();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshContent();
+        }
+
+        private void btnPaid_Click(object sender, EventArgs e)
+        {
+            if (SelectedService == null) return;
+
+            DialogResult confirmation = MessageBox.Show("Confirm payment for " + SelectedService.User.FullName + " at RM " + SelectedService.Price,
+                "Confirmaton" , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            
+            if (confirmation == DialogResult.OK)
+            {
+                SelectedService.HasPaid = true;
+                SelectedService.Update();
+                RefreshContent();
+            }
+        
+        }
+
+
+
+        // Helper Functions
+        private void FetchCompletedService()
+        {
+            CompletedServices = CompletedService.GetByUser(Customer);
+        }
+
+        private void ShowReceipt()
+        {
+            if (SelectedService == null) return;
+
+            txtServiceId.Text = SelectedService.Id.ToString();
+            txtServiceName.Text = SelectedService.Service.Name;
+            txtCompleted.Text = SelectedService.DateTimeCompleted.ToString("dd-MM-yyyy");
+            txtCreated.Text = SelectedService.DateTimeCreated.ToString("dd-MM-yyyy");
+            txtTotalAmount.Text = "RM " + SelectedService.Price;
+            txtDescription.Text = SelectedService.Description;
+
+            if (SelectedService.HasPaid)
+            {
+                lblPaymentInfo.Text = "Payment Completed";
+                lblPaymentInfo.ForeColor = Color.Green;
+                btnPaid.Enabled = false;
+            }
+            else
+            {
+                lblPaymentInfo.Text = "Outstanding Payment";
+                lblPaymentInfo.ForeColor = Color.Red;
+                btnPaid.Enabled = true;
+            }
+
+        }
+
+        private void AddToList(CompletedService compService)
+        {
+            lstPayments.Items.Add(compService.DateTimeCreated.ToString("dd-MM-yyyy") + " | " + compService.Service.Name);
+            ListedCompletedServices.Add(compService);
+        }
+
+        private void ClearList()
+        {
+            lstPayments.Items.Clear();
+            ListedCompletedServices.Clear();
+        }
+
+        private void RefreshContent()
+        {
+            FetchCompletedService();
+            Filter();
+            ShowReceipt();
+        }
+
+        private void Filter()
+        {
+            ClearList();
+            foreach (CompletedService service in CompletedServices)
+            {
+
+                if (rdoOutstanding.Checked && service.HasPaid) continue;
+                else if (rdoSettled.Checked && !service.HasPaid) continue;
+
+                AddToList(service);
+            }
+        }
+
+
     }
 }

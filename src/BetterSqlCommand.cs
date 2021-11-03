@@ -27,5 +27,10 @@ namespace Assignment
 
             return this;
         }
+
+        public void Dispose()
+        {
+            this.Cmd.Dispose();
+        }
     }
 }

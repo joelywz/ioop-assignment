@@ -64,6 +64,8 @@ namespace Assignment
 
             if (homeForm == null) return;
             this.Hide(); // Hide login form
+            txtUsername.Text = "";
+            txtPassword.Text = "";
             homeForm.ShowDialog(); // Show home form
             this.Show(); // Show login form when home form is closed
 
