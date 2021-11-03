@@ -43,6 +43,7 @@ namespace Assignment
             this.lblSerType = new System.Windows.Forms.Label();
             this.btnComplete = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnCompleteServices = new System.Windows.Forms.Button();
             this.grpFilter.SuspendLayout();
             this.grpServices.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +51,7 @@ namespace Assignment
             // cboDisplay
             // 
             this.cboDisplay.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.cboDisplay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDisplay.FormattingEnabled = true;
             this.cboDisplay.Items.AddRange(new object[] {
             "Date    --    User First Name",
@@ -67,6 +69,7 @@ namespace Assignment
             "Urgency",
             "Normal",
             "Urgent"});
+            this.cboServiceStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboServiceStatus.FormattingEnabled = true;
             this.cboServiceStatus.Items.AddRange(new object[] {
             "All",
@@ -149,7 +152,7 @@ namespace Assignment
             this.grpServices.Controls.Add(this.lblSerType);
             this.grpServices.Controls.Add(this.btnComplete);
             this.grpServices.Controls.Add(this.lstServices);
-            this.grpServices.Location = new System.Drawing.Point(10, 177);
+            this.grpServices.Location = new System.Drawing.Point(10, 185);
             this.grpServices.Margin = new System.Windows.Forms.Padding(5);
             this.grpServices.Name = "grpServices";
             this.grpServices.Size = new System.Drawing.Size(505, 295);
@@ -197,22 +200,37 @@ namespace Assignment
             this.lblTitle.TabIndex = 10;
             this.lblTitle.Text = "Customer Services";
             // 
+            // btnCompleteServices
+            // 
+            this.btnCompleteServices.Location = new System.Drawing.Point(359, 15);
+            this.btnCompleteServices.Name = "btnCompleteServices";
+            this.btnCompleteServices.Size = new System.Drawing.Size(150, 31);
+            this.btnCompleteServices.TabIndex = 11;
+            this.btnCompleteServices.Text = "Complete Services";
+            this.btnCompleteServices.UseVisualStyleBackColor = true;
+            this.btnCompleteServices.Click += new System.EventHandler(this.btnCompleteServices_Click);
+            // 
             // FormTCusServices
             // 
+            this.AcceptButton = this.btnComplete;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(525, 481);
+            this.ClientSize = new System.Drawing.Size(525, 490);
+            this.Controls.Add(this.btnCompleteServices);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grpServices);
             this.Controls.Add(this.grpFilter);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormTCusServices";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Customer Services";
+            this.Text = "Brics";
             this.Load += new System.EventHandler(this.cusServices_Load);
             this.grpFilter.ResumeLayout(false);
             this.grpFilter.PerformLayout();
@@ -238,5 +256,6 @@ namespace Assignment
         private System.Windows.Forms.Label lblSerType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDisplay;
+        private System.Windows.Forms.Button btnCompleteServices;
     }
 }

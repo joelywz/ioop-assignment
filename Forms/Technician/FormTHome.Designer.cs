@@ -113,6 +113,7 @@ namespace Assignment
             // btnLogOut
             // 
             this.btnLogOut.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogOut.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnLogOut.Location = new System.Drawing.Point(10, 208);
             this.btnLogOut.MinimumSize = new System.Drawing.Size(294, 27);
             this.btnLogOut.Name = "btnLogOut";
@@ -129,17 +130,20 @@ namespace Assignment
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnLogOut;
             this.ClientSize = new System.Drawing.Size(407, 245);
             this.Controls.Add(this.grpFunctions);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnProceed);
             this.Controls.Add(this.btnLogOut);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(425, 292);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormTHome";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Technician Homepage";
+            this.Text = "Brics";
             this.grpFunctions.ResumeLayout(false);
             this.grpFunctions.PerformLayout();
             this.ResumeLayout(false);

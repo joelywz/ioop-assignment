@@ -192,7 +192,9 @@ namespace Assignment
                 }
 
                 CompletedService compService = CompletedService.Save(selectedService, technician, rtxtDescription.Text, calCollectionDate.Value);
+                MessageBox.Show("Service for " + selectedService.User.FullName + " has been completed.");
                 this.selectedService = null;
+                rtxtDescription.Clear();
                 loader();
                 txtID.Clear();
                 reset();

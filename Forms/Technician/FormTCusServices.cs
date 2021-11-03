@@ -154,5 +154,13 @@ namespace Assignment
             else
                 MessageBox.Show("Please select a service to complete.");
         }
+
+        private void btnCompleteServices_Click(object sender, EventArgs e)
+        {
+            FormTCompletion obj1 = new FormTCompletion(technician, null);
+            this.Hide();
+            obj1.ShowDialog();
+            this.Close();
+        }
     }
 }

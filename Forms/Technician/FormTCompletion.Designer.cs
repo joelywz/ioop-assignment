@@ -66,7 +66,7 @@ namespace Assignment
             this.grpID.Controls.Add(this.btnIDClear);
             this.grpID.Controls.Add(this.lblID);
             this.grpID.Controls.Add(this.txtID);
-            this.grpID.Location = new System.Drawing.Point(8, 50);
+            this.grpID.Location = new System.Drawing.Point(10, 50);
             this.grpID.Margin = new System.Windows.Forms.Padding(5);
             this.grpID.Name = "grpID";
             this.grpID.Size = new System.Drawing.Size(509, 55);
@@ -129,7 +129,7 @@ namespace Assignment
             this.btnComplete.Location = new System.Drawing.Point(257, 427);
             this.btnComplete.Margin = new System.Windows.Forms.Padding(5);
             this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(260, 100);
+            this.btnComplete.Size = new System.Drawing.Size(262, 100);
             this.btnComplete.TabIndex = 6;
             this.btnComplete.Text = "Complete";
             this.btnComplete.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@ namespace Assignment
             this.grpServices.Controls.Add(this.lblSerTypeContent);
             this.grpServices.Controls.Add(this.lblSerType);
             this.grpServices.Controls.Add(this.lstServices);
-            this.grpServices.Location = new System.Drawing.Point(8, 115);
+            this.grpServices.Location = new System.Drawing.Point(10, 115);
             this.grpServices.Margin = new System.Windows.Forms.Padding(5);
             this.grpServices.Name = "grpServices";
             this.grpServices.Size = new System.Drawing.Size(509, 246);
@@ -184,7 +184,7 @@ namespace Assignment
             this.grpCollectionDate.Location = new System.Drawing.Point(257, 371);
             this.grpCollectionDate.Margin = new System.Windows.Forms.Padding(5);
             this.grpCollectionDate.Name = "grpCollectionDate";
-            this.grpCollectionDate.Size = new System.Drawing.Size(260, 50);
+            this.grpCollectionDate.Size = new System.Drawing.Size(262, 50);
             this.grpCollectionDate.TabIndex = 5;
             this.grpCollectionDate.TabStop = false;
             this.grpCollectionDate.Text = "Collection Date";
@@ -193,7 +193,7 @@ namespace Assignment
             // 
             this.calCollectionDate.Location = new System.Drawing.Point(6, 21);
             this.calCollectionDate.Name = "calCollectionDate";
-            this.calCollectionDate.Size = new System.Drawing.Size(248, 22);
+            this.calCollectionDate.Size = new System.Drawing.Size(250, 22);
             this.calCollectionDate.TabIndex = 0;
             // 
             // lblTitle
@@ -209,7 +209,7 @@ namespace Assignment
             // 
             // btnViewServices
             // 
-            this.btnViewServices.Location = new System.Drawing.Point(382, 15);
+            this.btnViewServices.Location = new System.Drawing.Point(384, 15);
             this.btnViewServices.Name = "btnViewServices";
             this.btnViewServices.Size = new System.Drawing.Size(129, 31);
             this.btnViewServices.TabIndex = 9;
@@ -225,7 +225,7 @@ namespace Assignment
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(525, 536);
+            this.ClientSize = new System.Drawing.Size(529, 536);
             this.Controls.Add(this.btnViewServices);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnComplete);
@@ -234,8 +234,11 @@ namespace Assignment
             this.Controls.Add(this.grpServices);
             this.Controls.Add(this.grpID);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormTCompletion";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Service Completion";
             this.Load += new System.EventHandler(this.FormTCompletion_Load);
