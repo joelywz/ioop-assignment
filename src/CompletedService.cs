@@ -115,5 +115,23 @@ namespace Assignment
             
 
         }
+
+        public static CompletedService[] GetAll()
+        {
+            SqlConnection conn = Database.GetSqlConnection();
+            string cmdText = "SELECT * FROM [CompletedService];";
+            SqlCommand command = new SqlCommand(cmdText, conn);
+            conn.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            List<CompletedService> CS = new List<CompletedService>();
+            while (reader.Read())
+            {
+                CS.Add(Reader(reader));
+            }
+            reader.Close();
+            command.Dispose();
+            conn.Close();
+            return CS.ToArray();
+        }
     }
 }

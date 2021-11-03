@@ -41,6 +41,12 @@ namespace Assignment
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
+            foreach (var item in retrievedServices)
+            {
+                lstStatistics.Items.Add(item);
+            }
+
             cmbRoles.Text = " - Select Roles -";
             txtName.Text = "Enter full name in this field";
             txtEmail.Text = "Enter email in this field";
@@ -48,7 +54,7 @@ namespace Assignment
             txtic.Text = "Enter IC number in this field";
             txtUsername.Text = "Enter Username";
             txtPassword.Text = "Enter Password";
-            txtConfirmpass.Text = "Re enter your password for confirmation";
+            txtConfirmpass.Text = "Re-enter your password for confirmation";
             txtName.ForeColor = Color.Gray;
             cmbRoles.ForeColor = Color.Gray;
             txtEmail.ForeColor = Color.Gray;
@@ -228,12 +234,12 @@ namespace Assignment
 
         private void cmbRoles_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void lstStatistics_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void BtnRegister_Click(object sender, EventArgs e)
@@ -247,6 +253,12 @@ namespace Assignment
             errPassword.SetError(txtPassword, null);
             errConfirmpass.SetError(txtConfirmpass, null);
             tmrAdmin.Start();
+
+
+            foreach (char a in txtPhone.Text)
+            foreach (char b in txtName.Text)
+            foreach (char c in txtic.Text)
+            
             if (cmbRoles.Text == " - Select Roles -")
             {
                 errRoles.SetError(cmbRoles, "Field is required!");
@@ -255,25 +267,58 @@ namespace Assignment
             {
                 errName.SetError(txtName, "Field is required!");
             }
+            else if (char.IsLetter(b) == false)
+            {
+                errName.SetError(txtName, "Only Letters are allowed");
+            }
             else if (txtEmail.Text == "Enter email in this field")
             {
                 errEmail.SetError(txtEmail, "Field is required!");
+            }
+            else if (!txtEmail.Text.Contains("@"))
+            {
+                errEmail.SetError(txtEmail, "Invalid email!");
             }
             else if (txtPhone.Text == "Enter phone number in this field")
             {
                 errPhone.SetError(txtPhone, "Field is required!");
             }
+            else if (char.IsDigit(a) == false)
+            {
+                    if (a == '-') continue;
+                    errPhone.SetError(txtPhone, "Only numeric digits and dashes are allowed!");
+            }
             else if (txtic.Text == "Enter IC number in this field")
             {
                 erric.SetError(txtic, "Field is required!");
+            }
+            else if (char.IsDigit(c) == false)
+            {
+                erric.SetError(txtic, "Only numeric digits are allowed!");
             }
             else if (txtUsername.Text == "Enter Username")
             {
                 errUsername.SetError(txtUsername, "Field is required!");
             }
+            else if (txtUsername.Text.Contains(" ") )
+            {
+                errUsername.SetError(txtUsername, "Spaces are not allowed!");
+            }
+            else if (txtUsername.Text.Length <= 6 || txtUsername.Text.Length >= 50)
+            {
+                errUsername.SetError(txtUsername, "Username must be atleast 6 characters and not more than 50 characters");
+            }
             else if (txtPassword.Text == "Enter Password")
             {
                 errPassword.SetError(txtPassword, "Field is required!");
+            }
+            else if (txtPassword.Text.Contains(" ") )
+            {
+                errPassword.SetError(txtPassword, "Spaces are not allowed!");
+            }
+            else if (txtPassword.Text.Length <= 6 || txtPassword.Text.Length >= 128)
+            {
+                errPassword.SetError(txtPassword, "Password must be atleast 6 characters and not more than 128 characters");
             }
             else if (txtConfirmpass.Text != txtPassword.Text)
             {
@@ -281,7 +326,10 @@ namespace Assignment
             }
             else
             {
-                User newUser = User.Save(txtUsername.Text, txtName.Text, txtEmail.Text, txtPassword.Text, txtPhone.Text, txtic.Text, dtpAge.Value, (User.Roles)cmbRoles.SelectedIndex + 2);
+                User user = User.Save(txtUsername.Text, txtName.Text, txtEmail.Text, txtPassword.Text, txtPhone.Text, (User.Roles)cmbRoles.SelectedIndex + 2);
+                user.Ic = txtic.Text;
+                user.DateOfBirth = dtpAge.Value;
+                user.Update();
                 System.Windows.Forms.MessageBox.Show(txtName.Text + " has been successfully registered!", (User.Roles)cmbRoles.SelectedIndex + 2 + " registered");
                 errRoles.SetError(cmbRoles, null);
                 errName.SetError(txtName, null);
@@ -332,6 +380,21 @@ namespace Assignment
         private void btnDelete_Click(object sender, EventArgs e)
         {
             tmrAdmin.Start();
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbRoles_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cmbFilterby_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

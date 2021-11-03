@@ -112,6 +112,7 @@ namespace Assignment
             this.cmbRoles.TabIndex = 0;
             this.cmbRoles.SelectedIndexChanged += new System.EventHandler(this.cmbRoles_SelectedIndexChanged);
             this.cmbRoles.Enter += new System.EventHandler(this.cmbRoles_Enter);
+            this.cmbRoles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbRoles_KeyPress);
             this.cmbRoles.Leave += new System.EventHandler(this.cmbRoles_Leave);
             // 
             // lblRoles
@@ -160,6 +161,7 @@ namespace Assignment
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(199, 20);
             this.txtPhone.TabIndex = 6;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
             this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);
             // 
@@ -216,7 +218,7 @@ namespace Assignment
             this.grpRegister.Controls.Add(this.cmbRoles);
             this.grpRegister.Location = new System.Drawing.Point(12, 12);
             this.grpRegister.Name = "grpRegister";
-            this.grpRegister.Size = new System.Drawing.Size(341, 579);
+            this.grpRegister.Size = new System.Drawing.Size(341, 576);
             this.grpRegister.TabIndex = 10;
             this.grpRegister.TabStop = false;
             this.grpRegister.Text = "Registration";
@@ -331,7 +333,7 @@ namespace Assignment
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(529, 543);
+            this.btnBack.Location = new System.Drawing.Point(537, 541);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(112, 47);
             this.btnBack.TabIndex = 11;
@@ -342,11 +344,16 @@ namespace Assignment
             // cmbFilterby
             // 
             this.cmbFilterby.FormattingEnabled = true;
+            this.cmbFilterby.Items.AddRange(new object[] {
+            "",
+            "View Monthly Total Income",
+            "View Monthly Service Reports"});
             this.cmbFilterby.Location = new System.Drawing.Point(27, 40);
             this.cmbFilterby.Name = "cmbFilterby";
             this.cmbFilterby.Size = new System.Drawing.Size(227, 21);
             this.cmbFilterby.TabIndex = 24;
             this.cmbFilterby.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cmbFilterby.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbFilterby_KeyPress);
             // 
             // cdrStatistics
             // 
@@ -365,7 +372,7 @@ namespace Assignment
             this.grpStatistics.Controls.Add(this.cmbFilterby);
             this.grpStatistics.Location = new System.Drawing.Point(892, 12);
             this.grpStatistics.Name = "grpStatistics";
-            this.grpStatistics.Size = new System.Drawing.Size(275, 578);
+            this.grpStatistics.Size = new System.Drawing.Size(275, 576);
             this.grpStatistics.TabIndex = 26;
             this.grpStatistics.TabStop = false;
             this.grpStatistics.Text = "Statistics";
@@ -539,10 +546,10 @@ namespace Assignment
             this.grpProfile.Controls.Add(this.txtic_display);
             this.grpProfile.Location = new System.Drawing.Point(401, 214);
             this.grpProfile.Name = "grpProfile";
-            this.grpProfile.Size = new System.Drawing.Size(374, 320);
+            this.grpProfile.Size = new System.Drawing.Size(374, 312);
             this.grpProfile.TabIndex = 32;
             this.grpProfile.TabStop = false;
-            this.grpProfile.Text = "Displayed profile";
+            this.grpProfile.Text = "Selected Technician\'s Profile";
             // 
             // picBrics
             // 
@@ -620,6 +627,7 @@ namespace Assignment
             this.Controls.Add(this.grpStatistics);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.grpRegister);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAHome";
             this.Text = "Admin\'s Homepage";
             this.Load += new System.EventHandler(this.Form1_Load);
