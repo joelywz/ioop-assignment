@@ -32,13 +32,13 @@ namespace Assignment
             this.Id = id;
         }
 
-        public static User Save(string username, string fullName, string email, string password, string phoneNo, string ic, DateTime? dateOfBirth, Roles role)
+        public static User Save(string username, string fullName, string email, string password, string phoneNo, Roles role)
         {
             SqlConnection conn = Database.GetSqlConnection();
             conn.Open();
 
-            string cmdText = "INSERT INTO [User] ([username], [fullName], [email], [password], [phoneNo], [ic], [dateOfBirth], [role]) " +
-                "VALUES (@username, @fullName, @email, @password, @phoneNo, @ic, @dateOfBirth, @role);";
+            string cmdText = "INSERT INTO [User] ([username], [fullName], [email], [password], [phoneNo], [role]) " +
+                "VALUES (@username, @fullName, @email, @password, @phoneNo, @role);";
 
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<string>("@username", System.Data.SqlDbType.VarChar, username)
@@ -46,8 +46,6 @@ namespace Assignment
                 .AddParameter<string>("@email", System.Data.SqlDbType.VarChar, email)
                 .AddParameter<string>("@password", System.Data.SqlDbType.VarChar, password)
                 .AddParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, phoneNo)
-                .AddParameter<string>("@ic", System.Data.SqlDbType.VarChar, ic)
-                .AddParameter<DateTime?>("@dateOfBirth", System.Data.SqlDbType.VarChar, dateOfBirth)
                 .AddParameter<int>("@role", System.Data.SqlDbType.Int, (int)role);
 
             bsc.Cmd.ExecuteNonQuery();
