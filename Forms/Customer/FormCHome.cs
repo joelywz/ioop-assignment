@@ -22,7 +22,7 @@ namespace Assignment
 
         private void btnCustServ_Click(object sender, EventArgs e)
         {
-            FormCServiceDetails objCServiceDetais = new FormCServiceDetails();
+            FormCServiceDetails objCServiceDetais = new FormCServiceDetails(customer);
             objCServiceDetais.ShowDialog();
             this.Hide();
         }

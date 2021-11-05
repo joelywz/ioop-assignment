@@ -46,17 +46,21 @@ namespace Assignment.Forms.Customer
             this.lblCustChangeDispPayment = new System.Windows.Forms.Label();
             this.btnCustChange = new System.Windows.Forms.Button();
             this.btnCustChangeBack = new System.Windows.Forms.Button();
+            this.lblCustChangePrice = new System.Windows.Forms.Label();
+            this.lblCustChangeDispPrice = new System.Windows.Forms.Label();
             this.grpCustChangeDispCurrent.SuspendLayout();
             this.grpCustChangeSelect.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpCustChangeDispCurrent
             // 
+            this.grpCustChangeDispCurrent.Controls.Add(this.lblCustChangeDispPrice);
+            this.grpCustChangeDispCurrent.Controls.Add(this.lblCustChangePrice);
             this.grpCustChangeDispCurrent.Controls.Add(this.lblCustChangeDispCurrent);
             this.grpCustChangeDispCurrent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCustChangeDispCurrent.Location = new System.Drawing.Point(25, 28);
+            this.grpCustChangeDispCurrent.Location = new System.Drawing.Point(25, 12);
             this.grpCustChangeDispCurrent.Name = "grpCustChangeDispCurrent";
-            this.grpCustChangeDispCurrent.Size = new System.Drawing.Size(287, 71);
+            this.grpCustChangeDispCurrent.Size = new System.Drawing.Size(287, 100);
             this.grpCustChangeDispCurrent.TabIndex = 0;
             this.grpCustChangeDispCurrent.TabStop = false;
             this.grpCustChangeDispCurrent.Text = "Current Service";
@@ -65,11 +69,11 @@ namespace Assignment.Forms.Customer
             // 
             this.lblCustChangeDispCurrent.AutoSize = true;
             this.lblCustChangeDispCurrent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustChangeDispCurrent.Location = new System.Drawing.Point(18, 31);
+            this.lblCustChangeDispCurrent.Location = new System.Drawing.Point(10, 28);
             this.lblCustChangeDispCurrent.Name = "lblCustChangeDispCurrent";
-            this.lblCustChangeDispCurrent.Size = new System.Drawing.Size(78, 15);
+            this.lblCustChangeDispCurrent.Size = new System.Drawing.Size(134, 15);
             this.lblCustChangeDispCurrent.TabIndex = 0;
-            this.lblCustChangeDispCurrent.Text = "Remove virus";
+            this.lblCustChangeDispCurrent.Text = "Remove virus / malware";
             // 
             // grpCustChangeSelect
             // 
@@ -248,6 +252,24 @@ namespace Assignment.Forms.Customer
             this.btnCustChangeBack.UseVisualStyleBackColor = true;
             this.btnCustChangeBack.Click += new System.EventHandler(this.btnCustChangeBack_Click);
             // 
+            // lblCustChangePrice
+            // 
+            this.lblCustChangePrice.AutoSize = true;
+            this.lblCustChangePrice.Location = new System.Drawing.Point(10, 66);
+            this.lblCustChangePrice.Name = "lblCustChangePrice";
+            this.lblCustChangePrice.Size = new System.Drawing.Size(39, 17);
+            this.lblCustChangePrice.TabIndex = 1;
+            this.lblCustChangePrice.Text = "Price:";
+            // 
+            // lblCustChangeDispPrice
+            // 
+            this.lblCustChangeDispPrice.AutoSize = true;
+            this.lblCustChangeDispPrice.Location = new System.Drawing.Point(83, 66);
+            this.lblCustChangeDispPrice.Name = "lblCustChangeDispPrice";
+            this.lblCustChangeDispPrice.Size = new System.Drawing.Size(53, 17);
+            this.lblCustChangeDispPrice.TabIndex = 2;
+            this.lblCustChangeDispPrice.Text = "RM 100";
+            // 
             // FormCChangeService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +310,7 @@ namespace Assignment.Forms.Customer
         private System.Windows.Forms.Label lblCustChangeDispPayment;
         private System.Windows.Forms.Button btnCustChange;
         private System.Windows.Forms.Button btnCustChangeBack;
+        private System.Windows.Forms.Label lblCustChangeDispPrice;
+        private System.Windows.Forms.Label lblCustChangePrice;
     }
 }

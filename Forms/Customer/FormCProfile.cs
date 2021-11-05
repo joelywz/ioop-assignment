@@ -21,7 +21,7 @@ namespace Assignment
             {
                 if (s.User.Username == customer.Username)
                 {
-                    return Convert.ToString(s);
+                    return s.Service.Name;
                 }
             }
             return "-";
