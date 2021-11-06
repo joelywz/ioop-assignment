@@ -15,13 +15,15 @@ namespace Assignment
         // Variable for storing selected month in MonthCalendar control
         int selectedMonth = DateTime.Now.Date.Month;
 
+        // Variable for storing CompletedService table
+        List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
+
         /// <summary>
         ///  To display statistics in the listbox compared with filter combobox and dates selected
         /// </summary>
         public void Display_statistics()
         {
             var cnt = 0;
-            List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
             if (cmbFilterby.SelectedIndex == 0)
             {
                 lstStatistics.Items.Clear();
@@ -54,15 +56,21 @@ namespace Assignment
         /// </summary>
         public void FindUserFromlst()
         {
-            List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
-            CompletedService item = retrievedServices[lstStatistics.SelectedIndex];
-            User find_user = User.GetById(item.CompletedBy.Id);
-            txtName_display.Text = find_user.FullName;
-            txtUserID_display.Text = find_user.Id.ToString();
-            txtAge_display.Text = find_user.DateOfBirth.ToString();
-            txtEmail_display.Text = find_user.Email;
-            txtPhone_display.Text = find_user.PhoneNo;
-            txtic_display.Text = find_user.Ic;
+            foreach (var item in retrievedServices)
+            {
+                if (selectedMonth == item.DateTimeCompleted.Date.Month)
+                {
+                    var selection = retrievedServices[lstStatistics.SelectedIndex];
+                    User find_user = User.GetById(selection.CompletedBy.Id);
+
+                    txtName_display.Text = find_user.FullName;
+                    txtUserID_display.Text = find_user.Id.ToString();
+                    txtAge_display.Text = find_user.DateOfBirth.ToString();
+                    txtEmail_display.Text = find_user.Email;
+                    txtPhone_display.Text = find_user.PhoneNo;
+                    txtic_display.Text = find_user.Ic;
+                }
+            }
         }
 
         /// <summary>
@@ -315,6 +323,9 @@ namespace Assignment
 
         private void lstStatistics_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Stop executing when index becomes -1 from clicking anywhere else in the listbox
+            if (lstStatistics.SelectedIndex == -1) return;
+
             // To limit tech profile display when filter "view monthly total income" is chosen as index changes activates FindUserFromlst()
             if (cmbFilterby.SelectedIndex == 0)
             {
