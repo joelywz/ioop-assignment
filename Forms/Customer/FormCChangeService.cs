@@ -97,7 +97,7 @@ namespace Assignment.Forms.Customer
             return -1;
         }
 
-        //method for retrieving pric of changed service
+        //method for retrieving price of changed service
         private void changePrice()
         {
             int serviceIndex = changeService();
@@ -114,6 +114,10 @@ namespace Assignment.Forms.Customer
                     price = servicePrice.Price; 
                 }
             }
+
+            //to retrieve amount due
+            //show message if original > changed
+            int amountdue = 
         }
 
         private void btnCustChange_Click(object sender, EventArgs e)
