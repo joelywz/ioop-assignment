@@ -147,7 +147,7 @@ namespace Assignment
             this.txtic.Location = new System.Drawing.Point(119, 280);
             this.txtic.Name = "txtic";
             this.txtic.Size = new System.Drawing.Size(199, 20);
-            this.txtic.TabIndex = 5;
+            this.txtic.TabIndex = 6;
             this.txtic.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.txtic.Enter += new System.EventHandler(this.txtic_Enter);
             this.txtic.Leave += new System.EventHandler(this.txtic_Leave);
@@ -157,7 +157,7 @@ namespace Assignment
             this.txtPhone.Location = new System.Drawing.Point(119, 229);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(199, 20);
-            this.txtPhone.TabIndex = 6;
+            this.txtPhone.TabIndex = 5;
             this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             this.txtPhone.Enter += new System.EventHandler(this.txtPhone_Enter);
             this.txtPhone.Leave += new System.EventHandler(this.txtPhone_Leave);

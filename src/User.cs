@@ -113,6 +113,64 @@ namespace Assignment
         }
 
         /// <summary>
+        /// Get a user from database by Ic.
+        /// </summary>
+        /// <param name="ic"></param>
+        /// <returns></returns>
+        public static User GetByIc(string ic)
+        {
+            // Preperation
+            SqlConnection conn = Database.GetSqlConnection();
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE ic=@userIc;", conn);
+            bsc.AddParameter<string>("@userIc", System.Data.SqlDbType.VarChar, ic);
+
+            // Execution
+            conn.Open();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
+            User user = null;
+            while (reader.Read())
+            {
+                user = Reader(reader);
+                break;
+            }
+
+            // Clean up
+            reader.Close();
+            bsc.Cmd.Dispose();
+            conn.Close();
+            return user;
+        }
+
+        /// <summary>
+        /// Get a user from database by phoneNo.
+        /// </summary>
+        /// <param name="phoneNo"></param>
+        /// <returns></returns>
+        public static User GetByPhoneNo(string phoneNo)
+        {
+            // Preperation
+            SqlConnection conn = Database.GetSqlConnection();
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE PhoneNo=@phone;", conn);
+            bsc.AddParameter<string>("@phone", System.Data.SqlDbType.VarChar, phoneNo);
+
+            // Execution
+            conn.Open();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
+            User user = null;
+            while (reader.Read())
+            {
+                user = Reader(reader);
+                break;
+            }
+
+            // Clean up
+            reader.Close();
+            bsc.Cmd.Dispose();
+            conn.Close();
+            return user;
+        }
+
+        /// <summary>
         /// Get a user from database by email.
         /// </summary>
         /// <param name="email"></param>

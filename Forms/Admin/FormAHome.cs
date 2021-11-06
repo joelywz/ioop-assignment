@@ -62,7 +62,6 @@ namespace Assignment
                 {
                     var selection = retrievedServices[lstStatistics.SelectedIndex];
                     User find_user = User.GetById(selection.CompletedBy.Id);
-
                     txtName_display.Text = find_user.FullName;
                     txtUserID_display.Text = find_user.Id.ToString();
                     txtAge_display.Text = find_user.DateOfBirth.ToString();
@@ -86,6 +85,77 @@ namespace Assignment
             txtic_display.Clear();
         }
 
+        /// <summary>
+        /// Verify if existing entry is already in database and save them if available
+        /// </summary>
+        public void VerifyCredential()
+        {
+            if (User.GetByEmail(txtEmail.Text) != null)
+            {
+                errEmail.SetError(txtEmail, "Existing email! Please enter a different email");
+            }
+            else if (User.GetByUsername(txtUsername.Text) != null)
+            {
+                errUsername.SetError(txtUsername, "Existing user! Please enter a different username");
+            }
+            else if (User.GetByPhoneNo(txtPhone.Text) != null)
+            {
+                errPhone.SetError(txtPhone, "Existing phone no! Please enter a different phone no");
+            }
+            else if (User.GetByIc(txtic.Text) != null)
+            {
+                erric.SetError(txtic, "Existing IC! Please enter a different IC no");
+            }
+            else
+            {
+                User user_save = User.Save(txtUsername.Text, txtName.Text, txtEmail.Text, txtPassword.Text, txtPhone.Text, (User.Roles)cmbRoles.SelectedIndex + 2);
+                user_save.Ic = txtic.Text;
+                user_save.DateOfBirth = dtpAge.Value;
+                user_save.Update();
+                System.Windows.Forms.MessageBox.Show(txtName.Text + " has been successfully registered!", (User.Roles)cmbRoles.SelectedIndex + 2 + " registered");
+                ClearFields();
+                ClearErrors();
+            }
+        }
+
+        /// <summary>
+        /// Clear error lists
+        /// </summary>
+        public void ClearErrors()
+        {
+            errRoles.SetError(cmbRoles, null);
+            errName.SetError(txtName, null);
+            errEmail.SetError(txtEmail, null);
+            errPhone.SetError(txtPhone, null);
+            erric.SetError(txtic, null);
+            errUsername.SetError(txtUsername, null);
+            errPassword.SetError(txtPassword, null);
+            errConfirmpass.SetError(txtConfirmpass, null);
+        }
+
+        /// <summary>
+        /// Clear fields for registration's textboxes
+        /// </summary>
+        public void ClearFields()
+        {
+            txtName.ForeColor = Color.Gray;
+            txtName.Text = "Enter full name in this field";
+            cmbRoles.ForeColor = Color.Gray;
+            cmbRoles.Text = " - Select Roles -";
+            txtEmail.ForeColor = Color.Gray;
+            txtEmail.Text = "Enter email in this field";
+            txtPhone.ForeColor = Color.Gray;
+            txtPhone.Text = "Enter phone number in this field";
+            txtic.ForeColor = Color.Gray;
+            txtic.Text = "Enter IC number in this field";
+            txtUsername.ForeColor = Color.Gray;
+            txtUsername.Text = "Enter Username";
+            txtPassword.ForeColor = Color.Gray;
+            txtPassword.Text = "Enter Password";
+            txtConfirmpass.ForeColor = Color.Gray;
+            txtConfirmpass.Text = "Re-enter your password for confirmation";
+        }
+
         public FormAHome()
         {
             InitializeComponent();
@@ -102,15 +172,7 @@ namespace Assignment
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Clear button for textbox's field
-            txtName.Text = String.Empty;
-            txtEmail.Text = String.Empty;
-            cmbRoles.Text = String.Empty;
-            txtPhone.Text = String.Empty;
-            txtic.Text = String.Empty;
-            txtUsername.Text = String.Empty;
-            txtPassword.Text = String.Empty;
-            txtConfirmpass.Text = String.Empty;
+            ClearFields();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -150,7 +212,6 @@ namespace Assignment
         /// </summary>
         private void txtName_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("text");
             if (txtName.Text == "Enter full name in this field")
             {
                 txtName.ForeColor = Color.Black;
@@ -183,7 +244,6 @@ namespace Assignment
 
         private void txtEmail_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("text");
             if (txtEmail.Text == "Enter email in this field")
             {
                 txtEmail.ForeColor = Color.Black;
@@ -202,7 +262,6 @@ namespace Assignment
 
         private void txtPhone_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("text");
             if (txtPhone.Text == "Enter phone number in this field")
             {
                 txtPhone.ForeColor = Color.Black;
@@ -221,7 +280,6 @@ namespace Assignment
 
         private void txtic_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("text");
             if (txtic.Text == "Enter IC number in this field")
             {
                 txtic.ForeColor = Color.Black;
@@ -240,7 +298,6 @@ namespace Assignment
 
         private void txtUsername_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("text");
             if (txtUsername.Text == "Enter Username")
             {
                 txtUsername.ForeColor = Color.Black;
@@ -259,7 +316,6 @@ namespace Assignment
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("text");
             if (txtPassword.Text == "Enter Password")
             {
                 txtPassword.ForeColor = Color.Black;
@@ -278,7 +334,6 @@ namespace Assignment
 
         private void txtConfirmpass_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("text");
             if (txtConfirmpass.Text == "Re-enter your password for confirmation")
             {
                 txtConfirmpass.ForeColor = Color.Black;
@@ -339,20 +394,10 @@ namespace Assignment
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
-            // Clear displaying error from previous attempts
-            errRoles.SetError(cmbRoles, null);
-            errName.SetError(txtName, null);
-            errEmail.SetError(txtEmail, null);
-            errPhone.SetError(txtPhone, null);
-            erric.SetError(txtic, null);
-            errUsername.SetError(txtUsername, null);
-            errPassword.SetError(txtPassword, null);
-            errConfirmpass.SetError(txtConfirmpass, null);
-            tmrAdmin.Start();
+            ClearErrors();
 
             // To limit character data type within textbox fields
             foreach (char a in txtPhone.Text)
-            foreach (char b in txtName.Text)
             foreach (char c in txtic.Text)
             
             if (cmbRoles.Text == " - Select Roles -")
@@ -362,10 +407,6 @@ namespace Assignment
             else if (txtName.Text == "Enter full name in this field")
             {
                 errName.SetError(txtName, "Field is required!");
-            }
-            else if (char.IsLetter(b) == false)
-            {
-                errName.SetError(txtName, "Only Letters are allowed");
             }
             else if (txtEmail.Text == "Enter email in this field")
             {
@@ -381,8 +422,8 @@ namespace Assignment
             }
             else if (char.IsDigit(a) == false)
             {
-                    if (a == '-') continue;
-                    errPhone.SetError(txtPhone, "Only numeric digits and dashes are allowed!");
+                if (a == '-') continue;    
+                errPhone.SetError(txtPhone, "Only numeric digits and dashes are allowed!");    
             }
             else if (txtic.Text == "Enter IC number in this field")
             {
@@ -422,20 +463,7 @@ namespace Assignment
             }
             else
             {
-                // Save user value from textbox and removing previous errors
-                User user_save = User.Save(txtUsername.Text, txtName.Text, txtEmail.Text, txtPassword.Text, txtPhone.Text, (User.Roles)cmbRoles.SelectedIndex + 2);
-                user_save.Ic = txtic.Text;
-                user_save.DateOfBirth = dtpAge.Value;
-                user_save.Update();
-                System.Windows.Forms.MessageBox.Show(txtName.Text + " has been successfully registered!", (User.Roles)cmbRoles.SelectedIndex + 2 + " registered");
-                errRoles.SetError(cmbRoles, null);
-                errName.SetError(txtName, null);
-                errEmail.SetError(txtEmail, null);
-                errPhone.SetError(txtPhone, null);
-                erric.SetError(txtic, null);
-                errUsername.SetError(txtUsername, null);
-                errPassword.SetError(txtPassword, null);
-                errConfirmpass.SetError(txtConfirmpass, null);
+                VerifyCredential();            
             }
         }
 
