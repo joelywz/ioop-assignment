@@ -15,29 +15,53 @@ namespace Assignment
         // Variable for storing selected month in MonthCalendar control
         int selectedMonth = DateTime.Now.Date.Month;
 
+        // To store current listed statistics
+        List<CompletedService> ListedStatistics = new List<CompletedService>();
+
+        private void AddListedService(CompletedService service)
+        {
+            lstStatistics.Items.Add(
+                "[Service ID: " + service.Id +
+                "][User ID: " + service.User.Id +
+                "][Technician ID: " + service.CompletedBy.Id +
+                "][Service type: " + service.Service.Name +
+                "][Urgency: " + service.Urgent +
+                "][Price: " + service.Price +
+                "][Description: " + service.Description +
+                "][Paid: " + service.HasPaid +
+                "][Date of service requested: " + service.DateTimeCreated +
+                "][Service completion date: " + service.DateTimeCompleted + "]");
+            //lstStatistics.Items.Add(service.Id + " | " + service.DateTimeCompleted.ToString("dd-MM-yyyy") + " | " + service.Service.Name);
+            ListedStatistics.Add(service);
+        }
+
+        private void ClearListedServices()
+        {
+            lstStatistics.Items.Clear();
+            ListedStatistics.Clear();
+        }
+
         /// <summary>
         ///  To display statistics in the listbox compared with filter combobox and dates selected
         /// </summary>
         public void Display_statistics()
         {
-            var cnt = 0;
+            ClearListedServices();
             List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
+
+            // View Monthly Service Reports
             if (cmbFilterby.SelectedIndex == 0)
             {
-                lstStatistics.Items.Clear();
-                foreach (var item in retrievedServices)
+                foreach (var service in retrievedServices)
                 {
-                    if (selectedMonth == item.DateTimeCompleted.Date.Month)
-                    {
-                        cnt += 1;
-                        lstStatistics.Items.Add(cnt + ". [Service ID: " + item.Id + "]   [User ID: " + item.User.Id + "]   [Technician ID: " + item.CompletedBy.Id + "]   [Service type: " + item.Service.Name + "]   [Urgency: " + item.Urgent + "]   [Price: " + item.Price + "]   [Description: " + item.Description + "]   [Paid: " + item.HasPaid + "]   [Date of service requested: " + item.DateTimeCreated + "]   [Service completion date: " + item.DateTimeCompleted + "]");
-                    }
+                    if (selectedMonth != service.DateTimeCompleted.Date.Month) continue;
+                    AddListedService(service);
                 }
             }
+            // View Monthly Total Income
             else if (cmbFilterby.SelectedIndex == 1)
             {
                 double sum = 0;
-                lstStatistics.Items.Clear();
                 foreach (var item in retrievedServices)
                 {
                     if (selectedMonth == item.DateTimeCompleted.Date.Month)
@@ -54,15 +78,14 @@ namespace Assignment
         /// </summary>
         public void FindUserFromlst()
         {
-            List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
-            CompletedService item = retrievedServices[lstStatistics.SelectedIndex];
-            User find_user = User.GetById(item.CompletedBy.Id);
-            txtName_display.Text = find_user.FullName;
-            txtUserID_display.Text = find_user.Id.ToString();
-            txtAge_display.Text = find_user.DateOfBirth.ToString();
-            txtEmail_display.Text = find_user.Email;
-            txtPhone_display.Text = find_user.PhoneNo;
-            txtic_display.Text = find_user.Ic;
+            CompletedService selectedService = ListedStatistics[lstStatistics.SelectedIndex];
+            User technician =selectedService.CompletedBy;
+            txtName_display.Text = technician.FullName;
+            txtUserID_display.Text = technician.Id.ToString();
+            txtAge_display.Text = technician.DateOfBirth.ToString();
+            txtEmail_display.Text = technician.Email;
+            txtPhone_display.Text = technician.PhoneNo;
+            txtic_display.Text = technician.Ic;
         }
 
         /// <summary>
@@ -315,6 +338,7 @@ namespace Assignment
 
         private void lstStatistics_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lstStatistics.SelectedIndex == -1) return;
             // To limit tech profile display when filter "view monthly total income" is chosen as index changes activates FindUserFromlst()
             if (cmbFilterby.SelectedIndex == 0)
             {
