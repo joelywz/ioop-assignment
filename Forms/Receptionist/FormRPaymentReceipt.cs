@@ -60,7 +60,7 @@ namespace Assignment
         {
             if (SelectedService == null) return;
 
-            DialogResult confirmation = MessageBox.Show("Confirm payment for " + SelectedService.User.FullName + " at RM " + SelectedService.Price,
+            DialogResult confirmation = MessageBox.Show("Confirm payment for " + SelectedService.User.FullName + " with the total of RM " + SelectedService.Price,
                 "Confirmaton" , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             
             if (confirmation == DialogResult.OK)
