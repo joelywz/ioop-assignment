@@ -120,41 +120,37 @@ namespace Assignment
             }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
 
         //Text changed or value changed events
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-            if (txtUsername.Text != "")
-                btnSave.Enabled = true;
+            btnSave.Enabled = true;
         }
-
+        
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
-            if (txtPassword.Text != "")
-                btnSave.Enabled = true;
+            btnSave.Enabled = true;
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            if (txtEmail.Text != "")
-                btnSave.Enabled = true;
+            btnSave.Enabled = true;
         }
 
         private void txtPhoneNo_TextChanged(object sender, EventArgs e)
         {
-            if (txtPhoneNo.Text != "")
-                btnSave.Enabled = true;
+            btnSave.Enabled = true;
         }
 
         private void dtpDateOfBirth_ValueChanged(object sender, EventArgs e)
         {
             btnSave.Enabled = true;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
