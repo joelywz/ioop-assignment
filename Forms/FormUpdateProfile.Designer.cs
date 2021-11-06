@@ -29,9 +29,10 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUpdateProfile));
             this.grpInformation = new System.Windows.Forms.GroupBox();
             this.lblRole = new System.Windows.Forms.Label();
-            this.lblJoined = new System.Windows.Forms.Label();
+            this.lblFullName = new System.Windows.Forms.Label();
             this.grpDetails = new System.Windows.Forms.GroupBox();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -55,10 +56,11 @@ namespace Assignment
             // grpInformation
             // 
             this.grpInformation.Controls.Add(this.lblRole);
-            this.grpInformation.Controls.Add(this.lblJoined);
-            this.grpInformation.Location = new System.Drawing.Point(11, 56);
+            this.grpInformation.Controls.Add(this.lblFullName);
+            this.grpInformation.Location = new System.Drawing.Point(10, 50);
+            this.grpInformation.Margin = new System.Windows.Forms.Padding(5);
             this.grpInformation.Name = "grpInformation";
-            this.grpInformation.Size = new System.Drawing.Size(232, 86);
+            this.grpInformation.Size = new System.Drawing.Size(309, 72);
             this.grpInformation.TabIndex = 0;
             this.grpInformation.TabStop = false;
             this.grpInformation.Text = "Information";
@@ -66,20 +68,22 @@ namespace Assignment
             // lblRole
             // 
             this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(13, 53);
+            this.lblRole.Location = new System.Drawing.Point(6, 44);
+            this.lblRole.Margin = new System.Windows.Forms.Padding(3);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(79, 13);
+            this.lblRole.Size = new System.Drawing.Size(50, 17);
             this.lblRole.TabIndex = 0;
-            this.lblRole.Text = "Role: Customer";
+            this.lblRole.Text = "Role: -";
             // 
-            // lblJoined
+            // lblFullName
             // 
-            this.lblJoined.AutoSize = true;
-            this.lblJoined.Location = new System.Drawing.Point(13, 29);
-            this.lblJoined.Name = "lblJoined";
-            this.lblJoined.Size = new System.Drawing.Size(98, 13);
-            this.lblJoined.TabIndex = 0;
-            this.lblJoined.Text = "Joined: 29-09-2021";
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.Location = new System.Drawing.Point(6, 21);
+            this.lblFullName.Margin = new System.Windows.Forms.Padding(3);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(84, 17);
+            this.lblFullName.TabIndex = 0;
+            this.lblFullName.Text = "Full Name: -";
             // 
             // grpDetails
             // 
@@ -96,43 +100,52 @@ namespace Assignment
             this.grpDetails.Controls.Add(this.lblEmail);
             this.grpDetails.Controls.Add(this.lblPassword);
             this.grpDetails.Controls.Add(this.lblUsername);
-            this.grpDetails.Location = new System.Drawing.Point(12, 148);
+            this.grpDetails.Location = new System.Drawing.Point(10, 132);
+            this.grpDetails.Margin = new System.Windows.Forms.Padding(5);
             this.grpDetails.Name = "grpDetails";
-            this.grpDetails.Size = new System.Drawing.Size(231, 336);
+            this.grpDetails.Size = new System.Drawing.Size(308, 414);
             this.grpDetails.TabIndex = 1;
             this.grpDetails.TabStop = false;
             this.grpDetails.Text = "Details";
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(18, 218);
+            this.dtpDateOfBirth.Enabled = false;
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(24, 268);
+            this.dtpDateOfBirth.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(195, 20);
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(259, 22);
             this.dtpDateOfBirth.TabIndex = 3;
+            this.dtpDateOfBirth.ValueChanged += new System.EventHandler(this.dtpDateOfBirth_ValueChanged);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(142, 19);
+            this.btnEdit.Location = new System.Drawing.Point(189, 23);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(71, 22);
+            this.btnEdit.Size = new System.Drawing.Size(95, 27);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(18, 288);
+            this.btnCancel.Location = new System.Drawing.Point(24, 354);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(195, 29);
+            this.btnCancel.Size = new System.Drawing.Size(260, 36);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(18, 253);
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(24, 311);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(195, 29);
+            this.btnSave.Size = new System.Drawing.Size(260, 36);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -140,107 +153,137 @@ namespace Assignment
             // 
             // txtPhoneNo
             // 
-            this.txtPhoneNo.Location = new System.Drawing.Point(18, 179);
+            this.txtPhoneNo.Enabled = false;
+            this.txtPhoneNo.Location = new System.Drawing.Point(24, 220);
+            this.txtPhoneNo.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhoneNo.Name = "txtPhoneNo";
-            this.txtPhoneNo.Size = new System.Drawing.Size(195, 20);
+            this.txtPhoneNo.Size = new System.Drawing.Size(259, 22);
             this.txtPhoneNo.TabIndex = 1;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(18, 140);
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Location = new System.Drawing.Point(24, 172);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(195, 20);
+            this.txtEmail.Size = new System.Drawing.Size(259, 22);
             this.txtEmail.TabIndex = 1;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(18, 101);
+            this.txtPassword.Enabled = false;
+            this.txtPassword.Location = new System.Drawing.Point(24, 124);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(195, 20);
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.Size = new System.Drawing.Size(259, 22);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(18, 62);
+            this.txtUsername.Enabled = false;
+            this.txtUsername.Location = new System.Drawing.Point(24, 76);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(195, 20);
+            this.txtUsername.Size = new System.Drawing.Size(259, 22);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // lblDateOfBirth
             // 
             this.lblDateOfBirth.AutoSize = true;
-            this.lblDateOfBirth.Location = new System.Drawing.Point(15, 202);
+            this.lblDateOfBirth.Location = new System.Drawing.Point(19, 248);
+            this.lblDateOfBirth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
-            this.lblDateOfBirth.Size = new System.Drawing.Size(66, 13);
+            this.lblDateOfBirth.Size = new System.Drawing.Size(87, 17);
             this.lblDateOfBirth.TabIndex = 0;
             this.lblDateOfBirth.Text = "Date of Birth";
             // 
             // lblPhoneNo
             // 
             this.lblPhoneNo.AutoSize = true;
-            this.lblPhoneNo.Location = new System.Drawing.Point(15, 163);
+            this.lblPhoneNo.Location = new System.Drawing.Point(19, 200);
+            this.lblPhoneNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhoneNo.Name = "lblPhoneNo";
-            this.lblPhoneNo.Size = new System.Drawing.Size(58, 13);
+            this.lblPhoneNo.Size = new System.Drawing.Size(75, 17);
             this.lblPhoneNo.TabIndex = 0;
             this.lblPhoneNo.Text = "Phone No.";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(15, 124);
+            this.lblEmail.Location = new System.Drawing.Point(19, 152);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.Size = new System.Drawing.Size(42, 17);
             this.lblEmail.TabIndex = 0;
             this.lblEmail.Text = "Email";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(15, 85);
+            this.lblPassword.Location = new System.Drawing.Point(19, 104);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.Size = new System.Drawing.Size(69, 17);
             this.lblPassword.TabIndex = 0;
             this.lblPassword.Text = "Password";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(15, 46);
+            this.lblUsername.Location = new System.Drawing.Point(19, 56);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.Size = new System.Drawing.Size(73, 17);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username";
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(11, 501);
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(10, 556);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(5);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(232, 29);
+            this.btnClose.Size = new System.Drawing.Size(309, 36);
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(12, 18);
+            this.lblTitle.Location = new System.Drawing.Point(15, 15);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(110, 20);
+            this.lblTitle.Size = new System.Drawing.Size(134, 25);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Update Profile";
             // 
             // FormUpdateProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(266, 552);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(355, 679);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.grpDetails);
             this.Controls.Add(this.grpInformation);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormUpdateProfile";
-            this.Text = "Update Profile";
+            this.Padding = new System.Windows.Forms.Padding(5);
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Brics";
             this.Load += new System.EventHandler(this.FormUpdateProfile_Load);
             this.grpInformation.ResumeLayout(false);
             this.grpInformation.PerformLayout();
@@ -255,7 +298,7 @@ namespace Assignment
 
         private System.Windows.Forms.GroupBox grpInformation;
         private System.Windows.Forms.Label lblRole;
-        private System.Windows.Forms.Label lblJoined;
+        private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.GroupBox grpDetails;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblUsername;

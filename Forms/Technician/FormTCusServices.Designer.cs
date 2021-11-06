@@ -111,6 +111,7 @@ namespace Assignment
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
             this.label1.TabIndex = 13;
@@ -120,6 +121,7 @@ namespace Assignment
             // 
             this.lblDisplay.AutoSize = true;
             this.lblDisplay.Location = new System.Drawing.Point(3, 24);
+            this.lblDisplay.Margin = new System.Windows.Forms.Padding(3);
             this.lblDisplay.Name = "lblDisplay";
             this.lblDisplay.Size = new System.Drawing.Size(77, 17);
             this.lblDisplay.TabIndex = 12;
