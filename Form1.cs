@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Assignment
 {
-    public partial class FormUpdateProfile : Form
+    public partial class Form1 : Form
     {
-        public FormUpdateProfile()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormUpdateProfile_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -12,15 +12,16 @@ namespace Assignment
         {
             if (string.IsNullOrWhiteSpace(username)) throw new Exception("Username cannot be empty.");
             if (username.Contains(" ")) throw new Exception("Username cannot contain spaces.");
-            if (username.Length < 6) throw new Exception("Username must be at least 6 characters.");
-            if (username.Length > 50) throw new Exception("Username must be below 6 characters.");
+            if (username.Length <= 6) throw new Exception("Username must be at least 6 characters.");
+            if (username.Length >= 50) throw new Exception("Username must not have over 50 characters.");
         }
 
         public static void ValidatePassword(string password)
         {
             if (string.IsNullOrEmpty(password)) throw new Exception("Password cannot be empty.");
-            if (password.Length < 6) throw new Exception("Password must be at least 6 characters.");
-            if (password.Length > 128) throw new Exception("Password must be below 128 characters.");
+            if (password.Contains(" ")) throw new Exception("Password cannot contain spaces.");
+            if (password.Length <= 6) throw new Exception("Password must be at least 6 characters.");
+            if (password.Length >= 128) throw new Exception("Password must not have over 128 characters.");
         }
 
         public static void ValidatePassword(string password, string repeatPassword)

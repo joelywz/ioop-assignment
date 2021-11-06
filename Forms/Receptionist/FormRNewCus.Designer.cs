@@ -247,6 +247,7 @@ namespace Assignment.Forms.Receptionist
             this.Name = "FormRNewCus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Customer";
+            this.Load += new System.EventHandler(this.FormRNewCus_Load);
             this.gbNewCustomer.ResumeLayout(false);
             this.gbNewCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errFullName)).EndInit();
