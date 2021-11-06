@@ -233,15 +233,6 @@
   <ItemGroup>
     <Folder Include="Database\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="JohanDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="JohanDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>JohanDB.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
