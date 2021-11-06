@@ -12,9 +12,79 @@ namespace Assignment
 {
     public partial class FormAHome : Form
     {
+        // Variable for storing selected month in MonthCalendar control
+        int selectedMonth = DateTime.Now.Date.Month;
+
+        /// <summary>
+        ///  To display statistics in the listbox compared with filter combobox and dates selected
+        /// </summary>
+        public void Display_statistics()
+        {
+            var cnt = 0;
+            List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
+            if (cmbFilterby.SelectedIndex == 0)
+            {
+                lstStatistics.Items.Clear();
+                foreach (var item in retrievedServices)
+                {
+                    if (selectedMonth == item.DateTimeCompleted.Date.Month)
+                    {
+                        cnt += 1;
+                        lstStatistics.Items.Add(cnt + ". [Service ID: " + item.Id + "]   [User ID: " + item.User.Id + "]   [Technician ID: " + item.CompletedBy.Id + "]   [Service type: " + item.Service.Name + "]   [Urgency: " + item.Urgent + "]   [Price: " + item.Price + "]   [Description: " + item.Description + "]   [Paid: " + item.HasPaid + "]   [Date of service requested: " + item.DateTimeCreated + "]   [Service completion date: " + item.DateTimeCompleted + "]");
+                    }
+                }
+            }
+            else if (cmbFilterby.SelectedIndex == 1)
+            {
+                double sum = 0;
+                lstStatistics.Items.Clear();
+                foreach (var item in retrievedServices)
+                {
+                    if (selectedMonth == item.DateTimeCompleted.Date.Month)
+                    {
+                        sum = sum + item.Price;
+                    }
+                }
+                lstStatistics.Items.Add("Total Income Of Selected Month: " + sum);
+            }
+        }
+
+        /// <summary>
+        /// To match technician's user profile in User.db from listbox items and display them
+        /// </summary>
+        public void FindUserFromlst()
+        {
+            List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
+            CompletedService item = retrievedServices[lstStatistics.SelectedIndex];
+            User find_user = User.GetById(item.CompletedBy.Id);
+            txtName_display.Text = find_user.FullName;
+            txtUserID_display.Text = find_user.Id.ToString();
+            txtAge_display.Text = find_user.DateOfBirth.ToString();
+            txtEmail_display.Text = find_user.Email;
+            txtPhone_display.Text = find_user.PhoneNo;
+            txtic_display.Text = find_user.Ic;
+        }
+
+        /// <summary>
+        /// Clearing displaying technician's profile
+        /// </summary>
+        public void ClearTechProfile()
+        {
+            txtName_display.Clear();
+            txtUserID_display.Clear();
+            txtAge_display.Clear();
+            txtEmail_display.Clear();
+            txtPhone_display.Clear();
+            txtic_display.Clear();
+        }
+
         public FormAHome()
         {
             InitializeComponent();
+
+            // Activate scrollbar for listbox
+            lstStatistics.HorizontalScrollbar = true;
+            lstStatistics.ScrollAlwaysVisible = true;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -24,6 +94,7 @@ namespace Assignment
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Clear button for textbox's field
             txtName.Text = String.Empty;
             txtEmail.Text = String.Empty;
             cmbRoles.Text = String.Empty;
@@ -41,12 +112,13 @@ namespace Assignment
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
-            foreach (var item in retrievedServices)
-            {
-                lstStatistics.Items.Add(item);
-            }
+            // Limiting selections to the current month in MonthCalendar control
+            cdrStatistics.MaxDate = DateTime.Now;
 
+            // Set default selected index upon form load
+            cmbFilterby.SelectedIndex = 0;  
+
+            // Set default description in each textbox's field to instruct users
             cmbRoles.Text = " - Select Roles -";
             txtName.Text = "Enter full name in this field";
             txtEmail.Text = "Enter email in this field";
@@ -65,6 +137,9 @@ namespace Assignment
             txtConfirmpass.ForeColor = Color.Gray;
         }
 
+        /// <summary>
+        /// Reintroducing default descriptions upon entering/leaving textbox's fields
+        /// </summary>
         private void txtName_Enter(object sender, EventArgs e)
         {
             Console.WriteLine("text");
@@ -224,7 +299,8 @@ namespace Assignment
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ClearTechProfile();
+            Display_statistics();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -239,11 +315,20 @@ namespace Assignment
 
         private void lstStatistics_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            // To limit tech profile display when filter "view monthly total income" is chosen as index changes activates FindUserFromlst()
+            if (cmbFilterby.SelectedIndex == 0)
+            {
+                FindUserFromlst();
+            }
+            else if (cmbFilterby.SelectedIndex == 1)
+            {
+                ClearTechProfile();
+            }
         }
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
+            // Clear displaying error from previous attempts
             errRoles.SetError(cmbRoles, null);
             errName.SetError(txtName, null);
             errEmail.SetError(txtEmail, null);
@@ -254,7 +339,7 @@ namespace Assignment
             errConfirmpass.SetError(txtConfirmpass, null);
             tmrAdmin.Start();
 
-
+            // To limit character data type within textbox fields
             foreach (char a in txtPhone.Text)
             foreach (char b in txtName.Text)
             foreach (char c in txtic.Text)
@@ -326,10 +411,11 @@ namespace Assignment
             }
             else
             {
-                User user = User.Save(txtUsername.Text, txtName.Text, txtEmail.Text, txtPassword.Text, txtPhone.Text, (User.Roles)cmbRoles.SelectedIndex + 2);
-                user.Ic = txtic.Text;
-                user.DateOfBirth = dtpAge.Value;
-                user.Update();
+                // Save user value from textbox and removing previous errors
+                User user_save = User.Save(txtUsername.Text, txtName.Text, txtEmail.Text, txtPassword.Text, txtPhone.Text, (User.Roles)cmbRoles.SelectedIndex + 2);
+                user_save.Ic = txtic.Text;
+                user_save.DateOfBirth = dtpAge.Value;
+                user_save.Update();
                 System.Windows.Forms.MessageBox.Show(txtName.Text + " has been successfully registered!", (User.Roles)cmbRoles.SelectedIndex + 2 + " registered");
                 errRoles.SetError(cmbRoles, null);
                 errName.SetError(txtName, null);
@@ -359,6 +445,7 @@ namespace Assignment
 
         private void tmrAdmin_Tick(object sender, EventArgs e)
         {
+            // Set progressbar's increment
             prgAdmin.Increment(10);
             if (prgAdmin.Value == 100)
             {
@@ -369,16 +456,19 @@ namespace Assignment
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            // Start timer for progressbar
             tmrAdmin.Start();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            // Start timer for progressbar
             tmrAdmin.Start();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            // Start timer for progressbar
             tmrAdmin.Start();
         }
 
@@ -389,12 +479,22 @@ namespace Assignment
 
         private void cmbRoles_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Disable combobox editing
             e.Handled = true;
         }
 
         private void cmbFilterby_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Disable combobox editing
             e.Handled = true;
+        }
+
+        private void cdrStatistics_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            // Clearing tech profile and display new statistic in listbox if available
+            ClearTechProfile();
+            selectedMonth = cdrStatistics.SelectionRange.Start.Date.Month;
+            Display_statistics();
         }
     }
 }

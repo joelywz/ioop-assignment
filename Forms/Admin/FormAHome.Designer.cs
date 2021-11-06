@@ -56,9 +56,6 @@ namespace Assignment
             this.cmbFilterby = new System.Windows.Forms.ComboBox();
             this.cdrStatistics = new System.Windows.Forms.MonthCalendar();
             this.grpStatistics = new System.Windows.Forms.GroupBox();
-            this.hscStatistics = new System.Windows.Forms.HScrollBar();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.lstStatistics = new System.Windows.Forms.ListBox();
             this.lblFilterby = new System.Windows.Forms.Label();
             this.lblPhone_display = new System.Windows.Forms.Label();
@@ -218,7 +215,7 @@ namespace Assignment
             this.grpRegister.Controls.Add(this.cmbRoles);
             this.grpRegister.Location = new System.Drawing.Point(12, 12);
             this.grpRegister.Name = "grpRegister";
-            this.grpRegister.Size = new System.Drawing.Size(341, 576);
+            this.grpRegister.Size = new System.Drawing.Size(341, 566);
             this.grpRegister.TabIndex = 10;
             this.grpRegister.TabStop = false;
             this.grpRegister.Text = "Registration";
@@ -345,10 +342,9 @@ namespace Assignment
             // 
             this.cmbFilterby.FormattingEnabled = true;
             this.cmbFilterby.Items.AddRange(new object[] {
-            "",
-            "View Monthly Total Income",
-            "View Monthly Service Reports"});
-            this.cmbFilterby.Location = new System.Drawing.Point(27, 40);
+            "View Monthly Service Reports",
+            "View Monthly Total Income"});
+            this.cmbFilterby.Location = new System.Drawing.Point(26, 40);
             this.cmbFilterby.Name = "cmbFilterby";
             this.cmbFilterby.Size = new System.Drawing.Size(227, 21);
             this.cmbFilterby.TabIndex = 24;
@@ -358,65 +354,37 @@ namespace Assignment
             // cdrStatistics
             // 
             this.cdrStatistics.Location = new System.Drawing.Point(27, 73);
+            this.cdrStatistics.MaxSelectionCount = 1;
             this.cdrStatistics.Name = "cdrStatistics";
             this.cdrStatistics.TabIndex = 25;
+            this.cdrStatistics.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.cdrStatistics_DateChanged);
             // 
             // grpStatistics
             // 
-            this.grpStatistics.Controls.Add(this.hscStatistics);
-            this.grpStatistics.Controls.Add(this.btnDelete);
-            this.grpStatistics.Controls.Add(this.btnEdit);
             this.grpStatistics.Controls.Add(this.lstStatistics);
-            this.grpStatistics.Controls.Add(this.lblFilterby);
             this.grpStatistics.Controls.Add(this.cdrStatistics);
+            this.grpStatistics.Controls.Add(this.lblFilterby);
             this.grpStatistics.Controls.Add(this.cmbFilterby);
-            this.grpStatistics.Location = new System.Drawing.Point(892, 12);
+            this.grpStatistics.Location = new System.Drawing.Point(887, 12);
             this.grpStatistics.Name = "grpStatistics";
-            this.grpStatistics.Size = new System.Drawing.Size(275, 576);
+            this.grpStatistics.Size = new System.Drawing.Size(280, 566);
             this.grpStatistics.TabIndex = 26;
             this.grpStatistics.TabStop = false;
             this.grpStatistics.Text = "Statistics";
             // 
-            // hscStatistics
-            // 
-            this.hscStatistics.Location = new System.Drawing.Point(27, 462);
-            this.hscStatistics.Name = "hscStatistics";
-            this.hscStatistics.Size = new System.Drawing.Size(227, 19);
-            this.hscStatistics.TabIndex = 29;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(166, 512);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(88, 47);
-            this.btnDelete.TabIndex = 28;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Location = new System.Drawing.Point(27, 512);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(86, 47);
-            this.btnEdit.TabIndex = 27;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
             // lstStatistics
             // 
             this.lstStatistics.FormattingEnabled = true;
-            this.lstStatistics.Location = new System.Drawing.Point(27, 234);
+            this.lstStatistics.Location = new System.Drawing.Point(27, 235);
             this.lstStatistics.Name = "lstStatistics";
-            this.lstStatistics.Size = new System.Drawing.Size(227, 225);
+            this.lstStatistics.Size = new System.Drawing.Size(227, 316);
             this.lstStatistics.TabIndex = 26;
             this.lstStatistics.SelectedIndexChanged += new System.EventHandler(this.lstStatistics_SelectedIndexChanged);
             // 
             // lblFilterby
             // 
             this.lblFilterby.AutoSize = true;
-            this.lblFilterby.Location = new System.Drawing.Point(24, 24);
+            this.lblFilterby.Location = new System.Drawing.Point(23, 24);
             this.lblFilterby.Name = "lblFilterby";
             this.lblFilterby.Size = new System.Drawing.Size(46, 13);
             this.lblFilterby.TabIndex = 24;
@@ -675,11 +643,8 @@ namespace Assignment
         private System.Windows.Forms.ComboBox cmbFilterby;
         private System.Windows.Forms.MonthCalendar cdrStatistics;
         private System.Windows.Forms.GroupBox grpStatistics;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.ListBox lstStatistics;
         private System.Windows.Forms.Label lblFilterby;
-        private System.Windows.Forms.HScrollBar hscStatistics;
         private System.Windows.Forms.Label lblPhone_display;
         private System.Windows.Forms.Label lblic_display;
         private System.Windows.Forms.Label lblEmail_display;
