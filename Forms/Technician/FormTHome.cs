@@ -35,7 +35,7 @@ namespace Assignment
             }
 
             if (rdoUpdateProfile.Checked)
-                menuForm = new FormUpdateProfile();
+                menuForm = new FormUpdateProfile(technician);
 
             this.Hide();
             menuForm.ShowDialog();
