@@ -13,6 +13,9 @@ namespace Assignment
 {
     public partial class FormRHome : Form
     {
+        // This is to hold receptionist log in details
+        User receptionist;
+
         // This is to hold all customers
         List<User> Customers = new List<User>();
 
@@ -24,6 +27,7 @@ namespace Assignment
 
         public FormRHome(User user)
         {
+            this.receptionist = user;
             InitializeComponent();
         }
         private void FormRHome_Load(object sender, EventArgs e)
@@ -197,6 +201,12 @@ namespace Assignment
             }
         }
 
-
+        private void btnUpdateProfile_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form updateProfileForm = new FormUpdateProfile(receptionist);
+            updateProfileForm.ShowDialog();
+            this.Show();
+        }
     }
 }

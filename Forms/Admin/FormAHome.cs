@@ -12,6 +12,9 @@ namespace Assignment
 {
     public partial class FormAHome : Form
     {
+        // Variable to store admin log in details
+        User admin;
+
         // Variable for storing selected month in MonthCalendar control
         int selectedMonth = DateTime.Now.Date.Month;
 
@@ -183,8 +186,9 @@ namespace Assignment
             txtConfirmpass.Text = "Re-enter your password for confirmation";
         }
 
-        public FormAHome()
+        public FormAHome(User user)
         {
+            this.admin = user;
             InitializeComponent();
 
             // Activate scrollbar for listbox
@@ -568,7 +572,7 @@ namespace Assignment
             // Start timer for progressbar
             tmrAdmin.Start();
 
-            FormUpdateProfile update_profile = new FormUpdateProfile();
+            FormUpdateProfile update_profile = new FormUpdateProfile(admin);
             update_profile.Show();
         }
     }
