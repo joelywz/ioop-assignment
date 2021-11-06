@@ -51,25 +51,42 @@ namespace Assignment
             }
         }
 
+        private void AddListedService(CompletedService service)
+        {
+            lstStatistics.Items.Add(
+                "[Service ID: " + service.Id +
+                "][User ID: " + service.User.Id +
+                "][Technician ID: " + service.CompletedBy.Id +
+                "][Service type: " + service.Service.Name +
+                "][Urgency: " + service.Urgent +
+                "][Price: " + service.Price +
+                "][Description: " + service.Description +
+                "][Paid: " + service.HasPaid +
+                "][Date of service requested: " + service.DateTimeCreated +
+                "][Service completion date: " + service.DateTimeCompleted + "]");
+            //lstStatistics.Items.Add(service.Id + " | " + service.DateTimeCompleted.ToString("dd-MM-yyyy") + " | " + service.Service.Name);
+            ListedStatistics.Add(service);
+        }
+
+        private void ClearListedServices()
+        {
+            lstStatistics.Items.Clear();
+            ListedStatistics.Clear();
+        }
+
         /// <summary>
         /// To match technician's user profile in User.db from listbox items and display them
         /// </summary>
         public void FindUserFromlst()
         {
-            foreach (var item in retrievedServices)
-            {
-                if (selectedMonth == item.DateTimeCompleted.Date.Month)
-                {
-                    var selection = retrievedServices[lstStatistics.SelectedIndex];
-                    User find_user = User.GetById(selection.CompletedBy.Id);
-                    txtName_display.Text = find_user.FullName;
-                    txtUserID_display.Text = find_user.Id.ToString();
-                    txtAge_display.Text = find_user.DateOfBirth.ToString();
-                    txtEmail_display.Text = find_user.Email;
-                    txtPhone_display.Text = find_user.PhoneNo;
-                    txtic_display.Text = find_user.Ic;
-                }
-            }
+            CompletedService selectedService = ListedStatistics[lstStatistics.SelectedIndex];
+            User technician = selectedService.CompletedBy;
+            txtName_display.Text = technician.FullName;
+            txtUserID_display.Text = technician.Id.ToString();
+            txtAge_display.Text = technician.DateOfBirth.ToString();
+            txtEmail_display.Text = technician.Email;
+            txtPhone_display.Text = technician.PhoneNo;
+            txtic_display.Text = technician.Ic;
         }
 
         /// <summary>
