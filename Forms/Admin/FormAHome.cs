@@ -18,6 +18,9 @@ namespace Assignment
         // Variable for storing CompletedService table
         List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
 
+        //Store a list
+        List<CompletedService> ListedStatistics = new List<CompletedService>();
+
         /// <summary>
         ///  To display statistics in the listbox compared with filter combobox and dates selected
         /// </summary>
