@@ -82,6 +82,7 @@ namespace Assignment
             this.erric = new System.Windows.Forms.ErrorProvider(this.components);
             this.errUsername = new System.Windows.Forms.ErrorProvider(this.components);
             this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.grpRegister.SuspendLayout();
             this.grpStatistics.SuspendLayout();
             this.grpProfile.SuspendLayout();
@@ -330,9 +331,9 @@ namespace Assignment
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(537, 541);
+            this.btnBack.Location = new System.Drawing.Point(619, 541);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(112, 47);
+            this.btnBack.Size = new System.Drawing.Size(120, 47);
             this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -583,12 +584,23 @@ namespace Assignment
             this.errPassword.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errPassword.ContainerControl = this;
             // 
+            // btnUpdateProfile
+            // 
+            this.btnUpdateProfile.Location = new System.Drawing.Point(443, 541);
+            this.btnUpdateProfile.Name = "btnUpdateProfile";
+            this.btnUpdateProfile.Size = new System.Drawing.Size(119, 47);
+            this.btnUpdateProfile.TabIndex = 35;
+            this.btnUpdateProfile.Text = "Update Admin Profile";
+            this.btnUpdateProfile.UseVisualStyleBackColor = true;
+            this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
+            // 
             // FormAHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1175, 603);
+            this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.prgAdmin);
             this.Controls.Add(this.picBrics);
             this.Controls.Add(this.grpProfile);
@@ -671,6 +683,7 @@ namespace Assignment
         private System.Windows.Forms.ErrorProvider erric;
         private System.Windows.Forms.ErrorProvider errUsername;
         private System.Windows.Forms.ErrorProvider errPassword;
+        private System.Windows.Forms.Button btnUpdateProfile;
     }
 }
 

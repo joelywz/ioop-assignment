@@ -18,7 +18,7 @@ namespace Assignment
         // Variable for storing CompletedService table
         List<CompletedService> retrievedServices = CompletedService.GetAll().ToList();
 
-        //Store a list
+        // List for storing statistic listbox items
         List<CompletedService> ListedStatistics = new List<CompletedService>();
 
         /// <summary>
@@ -26,23 +26,18 @@ namespace Assignment
         /// </summary>
         public void Display_statistics()
         {
-            var cnt = 0;
+            ClearListedServices();
             if (cmbFilterby.SelectedIndex == 0)
             {
-                lstStatistics.Items.Clear();
-                foreach (var item in retrievedServices)
+                foreach (var service in retrievedServices)
                 {
-                    if (selectedMonth == item.DateTimeCompleted.Date.Month)
-                    {
-                        cnt += 1;
-                        lstStatistics.Items.Add(cnt + ". [Service ID: " + item.Id + "]   [User ID: " + item.User.Id + "]   [Technician ID: " + item.CompletedBy.Id + "]   [Service type: " + item.Service.Name + "]   [Urgency: " + item.Urgent + "]   [Price: " + item.Price + "]   [Description: " + item.Description + "]   [Paid: " + item.HasPaid + "]   [Date of service requested: " + item.DateTimeCreated + "]   [Service completion date: " + item.DateTimeCompleted + "]");
-                    }
+                    if (selectedMonth != service.DateTimeCompleted.Date.Month) continue;
+                    AddListedService(service);
                 }
             }
             else if (cmbFilterby.SelectedIndex == 1)
             {
                 double sum = 0;
-                lstStatistics.Items.Clear();
                 foreach (var item in retrievedServices)
                 {
                     if (selectedMonth == item.DateTimeCompleted.Date.Month)
@@ -54,27 +49,39 @@ namespace Assignment
             }
         }
 
+        /// <summary>
+        /// Add items into statistic listbox
+        /// </summary>
+        /// <param name="service"></param>
         private void AddListedService(CompletedService service)
         {
             lstStatistics.Items.Add(
                 "[Service ID: " + service.Id +
-                "][User ID: " + service.User.Id +
-                "][Technician ID: " + service.CompletedBy.Id +
-                "][Service type: " + service.Service.Name +
-                "][Urgency: " + service.Urgent +
-                "][Price: " + service.Price +
-                "][Description: " + service.Description +
-                "][Paid: " + service.HasPaid +
-                "][Date of service requested: " + service.DateTimeCreated +
-                "][Service completion date: " + service.DateTimeCompleted + "]");
+                "]   [User ID: " + service.User.Id +
+                "]   [Technician ID: " + service.CompletedBy.Id +
+                "]   [Service type: " + service.Service.Name +
+                "]   [Urgency: " + service.Urgent +
+                "]   [Price: " + service.Price +
+                "]   [Description: " + service.Description +
+                "]   [Paid: " + service.HasPaid +
+                "]   [Date of service requested: " + service.DateTimeCreated +
+                "]   [Service completion date: " + service.DateTimeCompleted + "]");
             //lstStatistics.Items.Add(service.Id + " | " + service.DateTimeCompleted.ToString("dd-MM-yyyy") + " | " + service.Service.Name);
             ListedStatistics.Add(service);
         }
 
+        /// <summary>
+        /// Clear items in statistic listbox
+        /// </summary>
         private void ClearListedServices()
         {
             lstStatistics.Items.Clear();
             ListedStatistics.Clear();
+        }
+
+        private void TestFunction()
+        {
+            CompletedService selectedService = ListedStatistics[lstStatistics.SelectedIndex];
         }
 
         /// <summary>
@@ -192,6 +199,8 @@ namespace Assignment
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Start timer for progressbar
+            tmrAdmin.Start();
             ClearFields();
         }
 
@@ -414,12 +423,12 @@ namespace Assignment
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
+            // Start timer for progressbar
+            tmrAdmin.Start();
+
             ClearErrors();
 
-            // To limit character data type within textbox fields
-            foreach (char a in txtPhone.Text)
-            foreach (char c in txtic.Text)
-            
+            //Verify every textbox fields
             if (cmbRoles.Text == " - Select Roles -")
             {
                 errRoles.SetError(cmbRoles, "Field is required!");
@@ -440,18 +449,9 @@ namespace Assignment
             {
                 errPhone.SetError(txtPhone, "Field is required!");
             }
-            else if (char.IsDigit(a) == false)
-            {
-                if (a == '-') continue;    
-                errPhone.SetError(txtPhone, "Only numeric digits and dashes are allowed!");    
-            }
             else if (txtic.Text == "Enter IC number in this field")
             {
                 erric.SetError(txtic, "Field is required!");
-            }
-            else if (char.IsDigit(c) == false)
-            {
-                erric.SetError(txtic, "Only numeric digits are allowed!");
             }
             else if (txtUsername.Text == "Enter Username")
             {
@@ -483,6 +483,24 @@ namespace Assignment
             }
             else
             {
+                // To limit character data type within textbox fields
+                foreach (char a in txtPhone.Text)
+                {
+                    if (char.IsDigit(a) == false)
+                    {
+                        errPhone.SetError(txtPhone, "Only numeric digits and dashes are allowed!");
+                        return;
+                    }
+                }
+
+                foreach (char c in txtic.Text)
+                {
+                    if (char.IsDigit(c) == false)
+                    {
+                        erric.SetError(txtic, "Only numeric digits are allowed!");
+                        return;
+                    }
+                }
                 VerifyCredential();            
             }
         }
@@ -517,18 +535,7 @@ namespace Assignment
         {
             // Start timer for progressbar
             tmrAdmin.Start();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            // Start timer for progressbar
-            tmrAdmin.Start();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            // Start timer for progressbar
-            tmrAdmin.Start();
+            this.Close();
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
@@ -554,6 +561,15 @@ namespace Assignment
             ClearTechProfile();
             selectedMonth = cdrStatistics.SelectionRange.Start.Date.Month;
             Display_statistics();
+        }
+
+        private void btnUpdateProfile_Click(object sender, EventArgs e)
+        {
+            // Start timer for progressbar
+            tmrAdmin.Start();
+
+            FormUpdateProfile update_profile = new FormUpdateProfile();
+            update_profile.Show();
         }
     }
 }

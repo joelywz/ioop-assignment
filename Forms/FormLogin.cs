@@ -85,5 +85,10 @@ namespace Assignment
         {
             this.Close();
         }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
