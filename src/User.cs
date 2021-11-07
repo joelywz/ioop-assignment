@@ -46,7 +46,7 @@ namespace Assignment
                 .AddParameter<string>("@email", System.Data.SqlDbType.VarChar, email)
                 .AddParameter<string>("@password", System.Data.SqlDbType.VarChar, password)
                 .AddParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, phoneNo)
-                .AddParameter<int>("@role", System.Data.SqlDbType.Int, (int)role);
+                .AddParameter<int>("@role", System.Data.SqlDbType.Int, RoleToInt(role));
 
             bsc.Cmd.ExecuteNonQuery();
 
