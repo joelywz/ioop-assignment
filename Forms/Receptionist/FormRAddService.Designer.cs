@@ -157,10 +157,10 @@ namespace Assignment
             this.rdo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.rdo2.Location = new System.Drawing.Point(16, 42);
             this.rdo2.Name = "rdo2";
-            this.rdo2.Size = new System.Drawing.Size(224, 17);
+            this.rdo2.Size = new System.Drawing.Size(230, 17);
             this.rdo2.TabIndex = 0;
             this.rdo2.TabStop = true;
-            this.rdo2.Text = "Troubleshot and fix computer running slow";
+            this.rdo2.Text = "Troubleshoot and fix computer running slow";
             this.rdo2.UseVisualStyleBackColor = true;
             this.rdo2.CheckedChanged += new System.EventHandler(this.rdoChecked_Change);
             // 

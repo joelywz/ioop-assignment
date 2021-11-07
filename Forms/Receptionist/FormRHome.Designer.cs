@@ -31,10 +31,10 @@ namespace Assignment
         {
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
-            this.txtboxSearch = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.lstCustomers = new System.Windows.Forms.ListBox();
-            this.gbViewUser = new System.Windows.Forms.GroupBox();
+            this.lstCust = new System.Windows.Forms.ListBox();
+            this.grpViewCust = new System.Windows.Forms.GroupBox();
             this.chkNotPaid = new System.Windows.Forms.CheckBox();
             this.rdoEmail = new System.Windows.Forms.RadioButton();
             this.rdoUsername = new System.Windows.Forms.RadioButton();
@@ -45,18 +45,18 @@ namespace Assignment
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnService = new System.Windows.Forms.Button();
             this.btnViewPayment = new System.Windows.Forms.Button();
-            this.grpCustomer = new System.Windows.Forms.GroupBox();
+            this.grpSelectedCust = new System.Windows.Forms.GroupBox();
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhoneNo = new System.Windows.Forms.Label();
-            this.lblPayment = new System.Windows.Forms.Label();
+            this.lblPaymentStatus = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.gbViewUser.SuspendLayout();
-            this.grpCustomer.SuspendLayout();
+            this.grpViewCust.SuspendLayout();
+            this.grpSelectedCust.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogOut
@@ -78,12 +78,12 @@ namespace Assignment
             this.btnUpdateProfile.Text = "Update Profile";
             this.btnUpdateProfile.UseVisualStyleBackColor = true;
             // 
-            // txtboxSearch
+            // txtSearch
             // 
-            this.txtboxSearch.Location = new System.Drawing.Point(17, 22);
-            this.txtboxSearch.Name = "txtboxSearch";
-            this.txtboxSearch.Size = new System.Drawing.Size(210, 20);
-            this.txtboxSearch.TabIndex = 1;
+            this.txtSearch.Location = new System.Drawing.Point(17, 22);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(210, 20);
+            this.txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
@@ -95,33 +95,33 @@ namespace Assignment
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // lstCustomers
+            // lstCust
             // 
-            this.lstCustomers.FormattingEnabled = true;
-            this.lstCustomers.Location = new System.Drawing.Point(20, 119);
-            this.lstCustomers.Name = "lstCustomers";
-            this.lstCustomers.Size = new System.Drawing.Size(366, 186);
-            this.lstCustomers.TabIndex = 3;
-            this.lstCustomers.SelectedValueChanged += new System.EventHandler(this.lstCustomers_SelectedValueChanged);
+            this.lstCust.FormattingEnabled = true;
+            this.lstCust.Location = new System.Drawing.Point(20, 119);
+            this.lstCust.Name = "lstCust";
+            this.lstCust.Size = new System.Drawing.Size(366, 186);
+            this.lstCust.TabIndex = 3;
+            this.lstCust.SelectedValueChanged += new System.EventHandler(this.lstCustomers_SelectedValueChanged);
             // 
-            // gbViewUser
+            // grpViewCust
             // 
-            this.gbViewUser.Controls.Add(this.chkNotPaid);
-            this.gbViewUser.Controls.Add(this.rdoEmail);
-            this.gbViewUser.Controls.Add(this.rdoUsername);
-            this.gbViewUser.Controls.Add(this.rdoFullName);
-            this.gbViewUser.Controls.Add(this.txtboxSearch);
-            this.gbViewUser.Controls.Add(this.btnRefersh);
-            this.gbViewUser.Controls.Add(this.btnReset);
-            this.gbViewUser.Controls.Add(this.btnSearch);
-            this.gbViewUser.Controls.Add(this.btnNewCustomer);
-            this.gbViewUser.Controls.Add(this.lstCustomers);
-            this.gbViewUser.Location = new System.Drawing.Point(12, 63);
-            this.gbViewUser.Name = "gbViewUser";
-            this.gbViewUser.Size = new System.Drawing.Size(401, 385);
-            this.gbViewUser.TabIndex = 6;
-            this.gbViewUser.TabStop = false;
-            this.gbViewUser.Text = "View Customers";
+            this.grpViewCust.Controls.Add(this.chkNotPaid);
+            this.grpViewCust.Controls.Add(this.rdoEmail);
+            this.grpViewCust.Controls.Add(this.rdoUsername);
+            this.grpViewCust.Controls.Add(this.rdoFullName);
+            this.grpViewCust.Controls.Add(this.txtSearch);
+            this.grpViewCust.Controls.Add(this.btnRefersh);
+            this.grpViewCust.Controls.Add(this.btnReset);
+            this.grpViewCust.Controls.Add(this.btnSearch);
+            this.grpViewCust.Controls.Add(this.btnNewCustomer);
+            this.grpViewCust.Controls.Add(this.lstCust);
+            this.grpViewCust.Location = new System.Drawing.Point(12, 63);
+            this.grpViewCust.Name = "grpViewCust";
+            this.grpViewCust.Size = new System.Drawing.Size(401, 385);
+            this.grpViewCust.TabIndex = 6;
+            this.grpViewCust.TabStop = false;
+            this.grpViewCust.Text = "View Customers";
             // 
             // chkNotPaid
             // 
@@ -224,25 +224,25 @@ namespace Assignment
             this.btnViewPayment.UseVisualStyleBackColor = true;
             this.btnViewPayment.Click += new System.EventHandler(this.btnViewPayment_Click);
             // 
-            // grpCustomer
+            // grpSelectedCust
             // 
-            this.grpCustomer.Controls.Add(this.txtPhoneNo);
-            this.grpCustomer.Controls.Add(this.txtEmail);
-            this.grpCustomer.Controls.Add(this.txtUsername);
-            this.grpCustomer.Controls.Add(this.txtFullName);
-            this.grpCustomer.Controls.Add(this.btnService);
-            this.grpCustomer.Controls.Add(this.lblEmail);
-            this.grpCustomer.Controls.Add(this.btnViewPayment);
-            this.grpCustomer.Controls.Add(this.lblPhoneNo);
-            this.grpCustomer.Controls.Add(this.lblPayment);
-            this.grpCustomer.Controls.Add(this.lblUsername);
-            this.grpCustomer.Controls.Add(this.lblName);
-            this.grpCustomer.Location = new System.Drawing.Point(432, 63);
-            this.grpCustomer.Name = "grpCustomer";
-            this.grpCustomer.Size = new System.Drawing.Size(221, 385);
-            this.grpCustomer.TabIndex = 8;
-            this.grpCustomer.TabStop = false;
-            this.grpCustomer.Text = "Selected Customer";
+            this.grpSelectedCust.Controls.Add(this.txtPhoneNo);
+            this.grpSelectedCust.Controls.Add(this.txtEmail);
+            this.grpSelectedCust.Controls.Add(this.txtUsername);
+            this.grpSelectedCust.Controls.Add(this.txtFullName);
+            this.grpSelectedCust.Controls.Add(this.btnService);
+            this.grpSelectedCust.Controls.Add(this.lblEmail);
+            this.grpSelectedCust.Controls.Add(this.btnViewPayment);
+            this.grpSelectedCust.Controls.Add(this.lblPhoneNo);
+            this.grpSelectedCust.Controls.Add(this.lblPaymentStatus);
+            this.grpSelectedCust.Controls.Add(this.lblUsername);
+            this.grpSelectedCust.Controls.Add(this.lblName);
+            this.grpSelectedCust.Location = new System.Drawing.Point(432, 63);
+            this.grpSelectedCust.Name = "grpSelectedCust";
+            this.grpSelectedCust.Size = new System.Drawing.Size(221, 385);
+            this.grpSelectedCust.TabIndex = 8;
+            this.grpSelectedCust.TabStop = false;
+            this.grpSelectedCust.Text = "Selected Customer";
             // 
             // txtPhoneNo
             // 
@@ -296,15 +296,15 @@ namespace Assignment
             this.lblPhoneNo.TabIndex = 0;
             this.lblPhoneNo.Text = "Phone Number:";
             // 
-            // lblPayment
+            // lblPaymentStatus
             // 
-            this.lblPayment.AutoSize = true;
-            this.lblPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblPayment.Location = new System.Drawing.Point(6, 191);
-            this.lblPayment.Name = "lblPayment";
-            this.lblPayment.Size = new System.Drawing.Size(54, 13);
-            this.lblPayment.TabIndex = 0;
-            this.lblPayment.Text = "Payment: ";
+            this.lblPaymentStatus.AutoSize = true;
+            this.lblPaymentStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblPaymentStatus.Location = new System.Drawing.Point(6, 191);
+            this.lblPaymentStatus.Name = "lblPaymentStatus";
+            this.lblPaymentStatus.Size = new System.Drawing.Size(54, 13);
+            this.lblPaymentStatus.TabIndex = 0;
+            this.lblPaymentStatus.Text = "Payment: ";
             // 
             // lblUsername
             // 
@@ -331,9 +331,9 @@ namespace Assignment
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 470);
-            this.Controls.Add(this.grpCustomer);
+            this.Controls.Add(this.grpSelectedCust);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.gbViewUser);
+            this.Controls.Add(this.grpViewCust);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnLogOut);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -341,10 +341,10 @@ namespace Assignment
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receptionist Home";
             this.Load += new System.EventHandler(this.FormRHome_Load);
-            this.gbViewUser.ResumeLayout(false);
-            this.gbViewUser.PerformLayout();
-            this.grpCustomer.ResumeLayout(false);
-            this.grpCustomer.PerformLayout();
+            this.grpViewCust.ResumeLayout(false);
+            this.grpViewCust.PerformLayout();
+            this.grpSelectedCust.ResumeLayout(false);
+            this.grpSelectedCust.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,10 +354,10 @@ namespace Assignment
 
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnUpdateProfile;
-        private System.Windows.Forms.TextBox txtboxSearch;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ListBox lstCustomers;
-        private System.Windows.Forms.GroupBox gbViewUser;
+        private System.Windows.Forms.ListBox lstCust;
+        private System.Windows.Forms.GroupBox grpViewCust;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnNewCustomer;
         private System.Windows.Forms.Button btnReset;
@@ -367,10 +367,10 @@ namespace Assignment
         private System.Windows.Forms.CheckBox chkNotPaid;
         private System.Windows.Forms.Button btnService;
         private System.Windows.Forms.Button btnViewPayment;
-        private System.Windows.Forms.GroupBox grpCustomer;
+        private System.Windows.Forms.GroupBox grpSelectedCust;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPhoneNo;
-        private System.Windows.Forms.Label lblPayment;
+        private System.Windows.Forms.Label lblPaymentStatus;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnRefersh;

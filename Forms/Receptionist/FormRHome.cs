@@ -28,7 +28,7 @@ namespace Assignment
         }
         private void FormRHome_Load(object sender, EventArgs e)
         {
-            lblPayment.Text = "";
+            lblPaymentStatus.Text = "";
             btnService.Enabled = false;
             btnViewPayment.Enabled = false;
             rdoFullName.Checked = true;
@@ -42,7 +42,7 @@ namespace Assignment
 
         private void lstCustomers_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedIndex = lstCustomers.SelectedIndex;
+            int selectedIndex = lstCust.SelectedIndex;
             if (selectedIndex >= 0)
             {
                 SelectedCustomer = ListedCustomers[selectedIndex];
@@ -106,13 +106,13 @@ namespace Assignment
         private void ClearListedCustomers()
         {
             ListedCustomers.Clear();
-            lstCustomers.Items.Clear();
+            lstCust.Items.Clear();
         }
 
         private void AddListedCustomer(User user)
         {
             ListedCustomers.Add(user);
-            lstCustomers.Items.Add(user.FullName);
+            lstCust.Items.Add(user.FullName);
         }
 
         private void Search()
@@ -123,9 +123,9 @@ namespace Assignment
             foreach (User user in Customers)
             {
                 // Radiobox filter
-                if (rdoFullName.Checked && !user.FullName.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
-                else if (rdoUsername.Checked && !user.Username.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
-                else if (rdoEmail.Checked && !user.Email.ToLower().Contains(txtboxSearch.Text.ToLower())) continue;
+                if (rdoFullName.Checked && !user.FullName.ToLower().Contains(txtSearch.Text.ToLower())) continue;
+                else if (rdoUsername.Checked && !user.Username.ToLower().Contains(txtSearch.Text.ToLower())) continue;
+                else if (rdoEmail.Checked && !user.Email.ToLower().Contains(txtSearch.Text.ToLower())) continue;
 
                 // Checkbox not paid filter
                 if (chkNotPaid.Checked)
@@ -141,7 +141,7 @@ namespace Assignment
 
         private void Reset()
         {
-            txtboxSearch.Text = "";
+            txtSearch.Text = "";
             chkNotPaid.Checked = false;
             ClearListedCustomers();
             foreach (User customer in Customers)
@@ -187,13 +187,13 @@ namespace Assignment
 
             if (paymentDue > 0)
             {
-                lblPayment.Text = paymentDue + " outstanding payment(s)";
-                lblPayment.ForeColor = Color.Red;
+                lblPaymentStatus.Text = paymentDue + " outstanding payment(s)";
+                lblPaymentStatus.ForeColor = Color.Red;
             }
             else
             {
-                lblPayment.Text = "No outstanding payment";
-                lblPayment.ForeColor = Color.Green;
+                lblPaymentStatus.Text = "No outstanding payment";
+                lblPaymentStatus.ForeColor = Color.Green;
             }
         }
 
