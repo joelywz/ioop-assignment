@@ -289,10 +289,36 @@ namespace Assignment
             conn.Close();
         }
         
-        // Convert role to int
+        /// <summary>
+        /// Convert User.Roles to int
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns>integer of the role</returns>
         public static int RoleToInt(Roles role)
         {
             return (int)role;
+        }
+        
+        /// <summary>
+        /// Conver User.Roles to string
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns>name of the role</returns>
+        public static string RoleToString(Roles role)
+        {
+            switch (role)
+            {
+                case User.Roles.Customer:
+                     return "Customer";
+                case User.Roles.Administrator:
+                    return "Administrator";
+                case User.Roles.Receptionist:
+                    return "Receptionist";
+                case User.Roles.Technician:
+                    return "Technician";
+                default:
+                    return "Unknown Role";
+            }
         }
     }
 
