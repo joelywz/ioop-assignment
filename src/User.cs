@@ -277,7 +277,7 @@ namespace Assignment
                 .AddParameter<string>("@email", System.Data.SqlDbType.VarChar, Email)
                 .AddParameter<string>("@password", System.Data.SqlDbType.VarChar, Password)
                 .AddParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, PhoneNo)
-                .AddParameter<int>("@role", System.Data.SqlDbType.Bit, (int)Role)
+                .AddParameter<int>("@role", System.Data.SqlDbType.Bit, User.RoleToInt(Role))
                 .AddParameter<string>("@ic", System.Data.SqlDbType.VarChar, Ic)
                 .AddParameter<DateTime?>("@dateOfBirth", System.Data.SqlDbType.Date, DateOfBirth);
 
@@ -288,5 +288,13 @@ namespace Assignment
             Console.WriteLine("rowsAffected: {0}", rowsAffected);
             conn.Close();
         }
+        
+        // Convert role to int
+        public static int RoleToInt(Roles role)
+        {
+            return (int)role;
+        }
     }
+
+
 }
