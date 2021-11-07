@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRAddService));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdo8 = new System.Windows.Forms.RadioButton();
@@ -221,6 +222,7 @@ namespace Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(421, 406);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.btnCancel);
@@ -229,9 +231,10 @@ namespace Assignment
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRAddService";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Service";
+            this.Text = "Brics Laptop Repair";
             this.Load += new System.EventHandler(this.FormRAddService_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

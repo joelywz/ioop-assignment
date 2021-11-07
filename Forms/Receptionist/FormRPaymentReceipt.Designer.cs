@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRPaymentReceipt));
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpPayments = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -325,6 +326,7 @@ namespace Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(742, 511);
             this.Controls.Add(this.btnClose);
@@ -332,9 +334,10 @@ namespace Assignment
             this.Controls.Add(this.grpPayments);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRPaymentReceipt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Payment and Receipt";
+            this.Text = "Brics Laptop Repair";
             this.Load += new System.EventHandler(this.FormRPaymentReceipt_Load);
             this.grpPayments.ResumeLayout(false);
             this.grpPayments.PerformLayout();

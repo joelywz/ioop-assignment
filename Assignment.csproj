@@ -192,6 +192,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\Technician\FormTCompletion.resx">
       <DependentUpon>FormTCompletion.cs</DependentUpon>
@@ -226,6 +227,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="assets\Group 3brics.png" />
     <Content Include="Database\db.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

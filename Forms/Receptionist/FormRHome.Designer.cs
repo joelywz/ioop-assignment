@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRHome));
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnUpdateProfile = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -55,8 +56,10 @@ namespace Assignment
             this.lblPaymentStatus = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grpViewCust.SuspendLayout();
             this.grpSelectedCust.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogOut
@@ -82,7 +85,7 @@ namespace Assignment
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(13, 22);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(215, 20);
             this.txtSearch.TabIndex = 1;
@@ -101,7 +104,7 @@ namespace Assignment
             // 
             this.lstCust.FormattingEnabled = true;
             this.lstCust.Location = new System.Drawing.Point(13, 105);
-            this.lstCust.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstCust.Margin = new System.Windows.Forms.Padding(2);
             this.lstCust.Name = "lstCust";
             this.lstCust.Size = new System.Drawing.Size(369, 199);
             this.lstCust.TabIndex = 3;
@@ -120,9 +123,9 @@ namespace Assignment
             this.grpViewCust.Controls.Add(this.btnNewCustomer);
             this.grpViewCust.Controls.Add(this.lstCust);
             this.grpViewCust.Location = new System.Drawing.Point(11, 50);
-            this.grpViewCust.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpViewCust.Margin = new System.Windows.Forms.Padding(2);
             this.grpViewCust.Name = "grpViewCust";
-            this.grpViewCust.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpViewCust.Padding = new System.Windows.Forms.Padding(2);
             this.grpViewCust.Size = new System.Drawing.Size(392, 375);
             this.grpViewCust.TabIndex = 6;
             this.grpViewCust.TabStop = false;
@@ -243,9 +246,9 @@ namespace Assignment
             this.grpSelectedCust.Controls.Add(this.lblUsername);
             this.grpSelectedCust.Controls.Add(this.lblName);
             this.grpSelectedCust.Location = new System.Drawing.Point(414, 50);
-            this.grpSelectedCust.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelectedCust.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelectedCust.Name = "grpSelectedCust";
-            this.grpSelectedCust.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelectedCust.Padding = new System.Windows.Forms.Padding(2);
             this.grpSelectedCust.Size = new System.Drawing.Size(228, 375);
             this.grpSelectedCust.TabIndex = 8;
             this.grpSelectedCust.TabStop = false;
@@ -334,25 +337,39 @@ namespace Assignment
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Full Name";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Assignment.Properties.Resources.Group_3brics;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(85, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormRHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(654, 436);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.grpSelectedCust);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.grpViewCust);
             this.Controls.Add(this.btnUpdateProfile);
             this.Controls.Add(this.btnLogOut);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Receptionist Home";
+            this.Text = "Brics Laptop Repair";
             this.Load += new System.EventHandler(this.FormRHome_Load);
             this.grpViewCust.ResumeLayout(false);
             this.grpViewCust.PerformLayout();
             this.grpSelectedCust.ResumeLayout(false);
             this.grpSelectedCust.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,5 +403,6 @@ namespace Assignment
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
