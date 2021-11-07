@@ -58,7 +58,7 @@ namespace Assignment
                     homeForm = new FormTHome(user);
                     break;
                 case User.Roles.Administrator:
-                    homeForm = new FormAHome();
+                    homeForm = new FormAHome(user);
                     break;
             }
 

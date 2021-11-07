@@ -268,7 +268,7 @@ namespace Assignment
         {
             // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [phoneNo]=@phoneNo, [role]=@role, [dateOfBirth]=@dateOfBirth, [ic]=@ic WHERE [userId]=@userId;";
+            string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [email]=@email, [phoneNo]=@phoneNo, [role]=@role, [dateOfBirth]=@dateOfBirth, [ic]=@ic WHERE [userId]=@userId;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn);
             bsc
                 .AddParameter<int>("@userId", System.Data.SqlDbType.VarChar, Id)

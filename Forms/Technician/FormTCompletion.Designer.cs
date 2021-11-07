@@ -40,13 +40,13 @@ namespace Assignment
             this.btnComplete = new System.Windows.Forms.Button();
             this.lstServices = new System.Windows.Forms.ListBox();
             this.grpServices = new System.Windows.Forms.GroupBox();
+            this.lblFields = new System.Windows.Forms.Label();
             this.lblSerTypeContent = new System.Windows.Forms.Label();
             this.lblSerType = new System.Windows.Forms.Label();
             this.grpCollectionDate = new System.Windows.Forms.GroupBox();
             this.calCollectionDate = new System.Windows.Forms.DateTimePicker();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnViewServices = new System.Windows.Forms.Button();
-            this.lblFields = new System.Windows.Forms.Label();
             this.grpID.SuspendLayout();
             this.grpDescription.SuspendLayout();
             this.grpServices.SuspendLayout();
@@ -161,6 +161,16 @@ namespace Assignment
             this.grpServices.TabStop = false;
             this.grpServices.Text = "Services";
             // 
+            // lblFields
+            // 
+            this.lblFields.AutoSize = true;
+            this.lblFields.Location = new System.Drawing.Point(3, 21);
+            this.lblFields.Margin = new System.Windows.Forms.Padding(3);
+            this.lblFields.Name = "lblFields";
+            this.lblFields.Size = new System.Drawing.Size(301, 17);
+            this.lblFields.TabIndex = 5;
+            this.lblFields.Text = "Date Time    --    User ID    --    User Full Name";
+            // 
             // lblSerTypeContent
             // 
             this.lblSerTypeContent.AutoSize = true;
@@ -219,16 +229,6 @@ namespace Assignment
             this.btnViewServices.UseVisualStyleBackColor = true;
             this.btnViewServices.Click += new System.EventHandler(this.btnViewServices_Click);
             // 
-            // lblFields
-            // 
-            this.lblFields.AutoSize = true;
-            this.lblFields.Location = new System.Drawing.Point(3, 21);
-            this.lblFields.Margin = new System.Windows.Forms.Padding(3);
-            this.lblFields.Name = "lblFields";
-            this.lblFields.Size = new System.Drawing.Size(301, 17);
-            this.lblFields.TabIndex = 5;
-            this.lblFields.Text = "Date Time    --    User ID    --    User Full Name";
-            // 
             // FormTCompletion
             // 
             this.AcceptButton = this.btnComplete;
@@ -252,7 +252,7 @@ namespace Assignment
             this.Padding = new System.Windows.Forms.Padding(5);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Service Completion";
+            this.Text = "Brics";
             this.Load += new System.EventHandler(this.FormTCompletion_Load);
             this.grpID.ResumeLayout(false);
             this.grpID.PerformLayout();
