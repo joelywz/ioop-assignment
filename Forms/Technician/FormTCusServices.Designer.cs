@@ -232,7 +232,7 @@ namespace Assignment
             this.Padding = new System.Windows.Forms.Padding(5);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Brics";
+            this.Text = "Brics Laptop Repair";
             this.Load += new System.EventHandler(this.cusServices_Load);
             this.grpFilter.ResumeLayout(false);
             this.grpFilter.PerformLayout();
