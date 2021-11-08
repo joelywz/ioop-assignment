@@ -31,10 +31,10 @@ namespace Assignment
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTCusServices));
             this.cboDisplay = new System.Windows.Forms.ComboBox();
-            this.cboServiceStatus = new System.Windows.Forms.ComboBox();
+            this.cboUrgency = new System.Windows.Forms.ComboBox();
             this.lstServices = new System.Windows.Forms.ListBox();
             this.grpFilter = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUrgency = new System.Windows.Forms.Label();
             this.lblDisplay = new System.Windows.Forms.Label();
             this.btnFilterApply = new System.Windows.Forms.Button();
             this.btnFilterClear = new System.Windows.Forms.Button();
@@ -62,23 +62,23 @@ namespace Assignment
             this.cboDisplay.Size = new System.Drawing.Size(310, 24);
             this.cboDisplay.TabIndex = 1;
             // 
-            // cboServiceStatus
+            // cboUrgency
             // 
-            this.cboServiceStatus.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.cboServiceStatus.AutoCompleteCustomSource.AddRange(new string[] {
+            this.cboUrgency.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.cboUrgency.AutoCompleteCustomSource.AddRange(new string[] {
             "Urgency",
             "Normal",
             "Urgent"});
-            this.cboServiceStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboServiceStatus.FormattingEnabled = true;
-            this.cboServiceStatus.Items.AddRange(new object[] {
+            this.cboUrgency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUrgency.FormattingEnabled = true;
+            this.cboUrgency.Items.AddRange(new object[] {
             "All",
             "Normal",
             "Urgent"});
-            this.cboServiceStatus.Location = new System.Drawing.Point(86, 51);
-            this.cboServiceStatus.Name = "cboServiceStatus";
-            this.cboServiceStatus.Size = new System.Drawing.Size(310, 24);
-            this.cboServiceStatus.TabIndex = 4;
+            this.cboUrgency.Location = new System.Drawing.Point(86, 51);
+            this.cboUrgency.Name = "cboUrgency";
+            this.cboUrgency.Size = new System.Drawing.Size(310, 24);
+            this.cboUrgency.TabIndex = 4;
             // 
             // lstServices
             // 
@@ -93,10 +93,10 @@ namespace Assignment
             // grpFilter
             // 
             this.grpFilter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.grpFilter.Controls.Add(this.label1);
+            this.grpFilter.Controls.Add(this.lblUrgency);
             this.grpFilter.Controls.Add(this.lblDisplay);
             this.grpFilter.Controls.Add(this.btnFilterApply);
-            this.grpFilter.Controls.Add(this.cboServiceStatus);
+            this.grpFilter.Controls.Add(this.cboUrgency);
             this.grpFilter.Controls.Add(this.btnFilterClear);
             this.grpFilter.Controls.Add(this.cboDisplay);
             this.grpFilter.Location = new System.Drawing.Point(10, 50);
@@ -107,15 +107,15 @@ namespace Assignment
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Filters";
             // 
-            // label1
+            // lblUrgency
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 54);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 17);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Urgency:";
+            this.lblUrgency.AutoSize = true;
+            this.lblUrgency.Location = new System.Drawing.Point(3, 54);
+            this.lblUrgency.Margin = new System.Windows.Forms.Padding(3);
+            this.lblUrgency.Name = "lblUrgency";
+            this.lblUrgency.Size = new System.Drawing.Size(65, 17);
+            this.lblUrgency.TabIndex = 13;
+            this.lblUrgency.Text = "Urgency:";
             // 
             // lblDisplay
             // 
@@ -246,7 +246,7 @@ namespace Assignment
         #endregion
 
         private System.Windows.Forms.ComboBox cboDisplay;
-        private System.Windows.Forms.ComboBox cboServiceStatus;
+        private System.Windows.Forms.ComboBox cboUrgency;
         private System.Windows.Forms.ListBox lstServices;
         private System.Windows.Forms.GroupBox grpFilter;
         private System.Windows.Forms.Button btnFilterClear;
@@ -256,7 +256,7 @@ namespace Assignment
         private System.Windows.Forms.Button btnComplete;
         private System.Windows.Forms.Label lblSerTypeContent;
         private System.Windows.Forms.Label lblSerType;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUrgency;
         private System.Windows.Forms.Label lblDisplay;
         private System.Windows.Forms.Button btnCompleteServices;
     }
