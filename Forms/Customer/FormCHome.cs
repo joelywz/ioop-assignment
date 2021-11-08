@@ -23,20 +23,24 @@ namespace Assignment
         private void btnCustServ_Click(object sender, EventArgs e)
         {
             FormCServiceDetails objCServiceDetais = new FormCServiceDetails(customer);
-            objCServiceDetais.ShowDialog();
             this.Hide();
+            objCServiceDetais.ShowDialog();
+            this.Show();
         }
 
         private void btnCustProf_Click(object sender, EventArgs e)
         {
             FormCProfile objCProfile = new FormCProfile(customer);
-            objCProfile.ShowDialog();
             this.Hide();
+            objCProfile.ShowDialog();
+            this.Show();
         }
 
         private void btnCustLogout_Click(object sender, EventArgs e)
         {
             //add loading animation
+            FormLogin objLogin = new FormLogin();
+            objLogin.Show();
             this.Close();
         }
     }

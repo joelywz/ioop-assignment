@@ -43,22 +43,25 @@ namespace Assignment
         private void btnCustProfChgProf_Click(object sender, EventArgs e)
         {
             FormUpdateProfile objUpdateProfile = new FormUpdateProfile();
-            objUpdateProfile.ShowDialog();
             this.Hide();
+            objUpdateProfile.ShowDialog();
+            this.Show();
         }
 
         private void btnCustProfServ_Click(object sender, EventArgs e)
         {
             FormCServiceDetails objCServiceDetails = new FormCServiceDetails(customer);
-            objCServiceDetails.ShowDialog();
             this.Hide();
+            objCServiceDetails.ShowDialog();
+            this.Show();
         }
 
         private void btnCustProfBack_Click(object sender, EventArgs e)
         {
             FormCHome objCHome = new FormCHome(customer);
-            objCHome.ShowDialog();
             this.Hide();
+            objCHome.ShowDialog();
+            this.Show();
         }
 
        

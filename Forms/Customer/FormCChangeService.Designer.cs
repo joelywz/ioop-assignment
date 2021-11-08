@@ -30,6 +30,8 @@ namespace Assignment.Forms.Customer
         private void InitializeComponent()
         {
             this.grpCustChangeDispCurrent = new System.Windows.Forms.GroupBox();
+            this.lblCustChangeDispPrice = new System.Windows.Forms.Label();
+            this.lblCustChangePrice = new System.Windows.Forms.Label();
             this.lblCustChangeDispCurrent = new System.Windows.Forms.Label();
             this.grpCustChangeSelect = new System.Windows.Forms.GroupBox();
             this.chkCustChangeUrgent = new System.Windows.Forms.CheckBox();
@@ -46,8 +48,8 @@ namespace Assignment.Forms.Customer
             this.lblCustChangeDispPayment = new System.Windows.Forms.Label();
             this.btnCustChange = new System.Windows.Forms.Button();
             this.btnCustChangeBack = new System.Windows.Forms.Button();
-            this.lblCustChangePrice = new System.Windows.Forms.Label();
-            this.lblCustChangeDispPrice = new System.Windows.Forms.Label();
+            this.chkCustChangeConfirm = new System.Windows.Forms.CheckBox();
+            this.lblCustChangeDispServChanged = new System.Windows.Forms.Label();
             this.grpCustChangeDispCurrent.SuspendLayout();
             this.grpCustChangeSelect.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +66,24 @@ namespace Assignment.Forms.Customer
             this.grpCustChangeDispCurrent.TabIndex = 0;
             this.grpCustChangeDispCurrent.TabStop = false;
             this.grpCustChangeDispCurrent.Text = "Current Service";
+            // 
+            // lblCustChangeDispPrice
+            // 
+            this.lblCustChangeDispPrice.AutoSize = true;
+            this.lblCustChangeDispPrice.Location = new System.Drawing.Point(83, 66);
+            this.lblCustChangeDispPrice.Name = "lblCustChangeDispPrice";
+            this.lblCustChangeDispPrice.Size = new System.Drawing.Size(53, 17);
+            this.lblCustChangeDispPrice.TabIndex = 2;
+            this.lblCustChangeDispPrice.Text = "RM 100";
+            // 
+            // lblCustChangePrice
+            // 
+            this.lblCustChangePrice.AutoSize = true;
+            this.lblCustChangePrice.Location = new System.Drawing.Point(10, 66);
+            this.lblCustChangePrice.Name = "lblCustChangePrice";
+            this.lblCustChangePrice.Size = new System.Drawing.Size(39, 17);
+            this.lblCustChangePrice.TabIndex = 1;
+            this.lblCustChangePrice.Text = "Price:";
             // 
             // lblCustChangeDispCurrent
             // 
@@ -106,6 +126,7 @@ namespace Assignment.Forms.Customer
             this.chkCustChangeUrgent.TabIndex = 9;
             this.chkCustChangeUrgent.Text = "Urgent";
             this.chkCustChangeUrgent.UseVisualStyleBackColor = true;
+            this.chkCustChangeUrgent.CheckedChanged += new System.EventHandler(this.chkCustChangeUrgent_CheckedChanged);
             // 
             // rbtnCustChange8
             // 
@@ -118,6 +139,7 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange8.TabStop = true;
             this.rbtnCustChange8.Text = "Internet connectivity issues";
             this.rbtnCustChange8.UseVisualStyleBackColor = true;
+            this.rbtnCustChange8.CheckedChanged += new System.EventHandler(this.rbtnCustChange8_CheckedChanged);
             // 
             // rbtnCustChange7
             // 
@@ -130,6 +152,7 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange7.TabStop = true;
             this.rbtnCustChange7.Text = "Data backup and recovery";
             this.rbtnCustChange7.UseVisualStyleBackColor = true;
+            this.rbtnCustChange7.CheckedChanged += new System.EventHandler(this.rbtnCustChange7_CheckedChanged);
             // 
             // lblCustChangePayment
             // 
@@ -152,6 +175,7 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange6.TabStop = true;
             this.rbtnCustChange6.Text = "Operating System Format and Installation";
             this.rbtnCustChange6.UseVisualStyleBackColor = true;
+            this.rbtnCustChange6.CheckedChanged += new System.EventHandler(this.rbtnCustChange6_CheckedChanged);
             // 
             // rbtnCustChange5
             // 
@@ -164,6 +188,7 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange5.TabStop = true;
             this.rbtnCustChange5.Text = "Laptop battery replacement";
             this.rbtnCustChange5.UseVisualStyleBackColor = true;
+            this.rbtnCustChange5.CheckedChanged += new System.EventHandler(this.rbtnCustChange5_CheckedChanged);
             // 
             // rbtnCustChange4
             // 
@@ -176,6 +201,7 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange4.TabStop = true;
             this.rbtnCustChange4.Text = "Laptop keyboard replacement";
             this.rbtnCustChange4.UseVisualStyleBackColor = true;
+            this.rbtnCustChange4.CheckedChanged += new System.EventHandler(this.rbtnCustChange4_CheckedChanged);
             // 
             // rbtnCustChange3
             // 
@@ -188,6 +214,7 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange3.TabStop = true;
             this.rbtnCustChange3.Text = "Laptop screen replacement";
             this.rbtnCustChange3.UseVisualStyleBackColor = true;
+            this.rbtnCustChange3.CheckedChanged += new System.EventHandler(this.rbtnCustChange3_CheckedChanged);
             // 
             // rbtnCustChange2
             // 
@@ -200,6 +227,7 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange2.TabStop = true;
             this.rbtnCustChange2.Text = "Troubleshot and fix computer running slow";
             this.rbtnCustChange2.UseVisualStyleBackColor = true;
+            this.rbtnCustChange2.CheckedChanged += new System.EventHandler(this.rbtnCustChange2_CheckedChanged);
             // 
             // rbtnCustChange1
             // 
@@ -212,6 +240,7 @@ namespace Assignment.Forms.Customer
             this.rbtnCustChange1.TabStop = true;
             this.rbtnCustChange1.Text = "Remove virus / malware";
             this.rbtnCustChange1.UseVisualStyleBackColor = true;
+            this.rbtnCustChange1.CheckedChanged += new System.EventHandler(this.rbtnCustChange1_CheckedChanged);
             // 
             // lblCustChangeSelect
             // 
@@ -234,7 +263,7 @@ namespace Assignment.Forms.Customer
             // 
             // btnCustChange
             // 
-            this.btnCustChange.Location = new System.Drawing.Point(38, 477);
+            this.btnCustChange.Location = new System.Drawing.Point(38, 519);
             this.btnCustChange.Name = "btnCustChange";
             this.btnCustChange.Size = new System.Drawing.Size(253, 27);
             this.btnCustChange.TabIndex = 12;
@@ -244,37 +273,40 @@ namespace Assignment.Forms.Customer
             // 
             // btnCustChangeBack
             // 
-            this.btnCustChangeBack.Location = new System.Drawing.Point(38, 519);
+            this.btnCustChangeBack.Location = new System.Drawing.Point(38, 552);
             this.btnCustChangeBack.Name = "btnCustChangeBack";
             this.btnCustChangeBack.Size = new System.Drawing.Size(253, 27);
-            this.btnCustChangeBack.TabIndex = 13;
+            this.btnCustChangeBack.TabIndex = 14;
             this.btnCustChangeBack.Text = "Back";
             this.btnCustChangeBack.UseVisualStyleBackColor = true;
             this.btnCustChangeBack.Click += new System.EventHandler(this.btnCustChangeBack_Click);
             // 
-            // lblCustChangePrice
+            // chkCustChangeConfirm
             // 
-            this.lblCustChangePrice.AutoSize = true;
-            this.lblCustChangePrice.Location = new System.Drawing.Point(10, 66);
-            this.lblCustChangePrice.Name = "lblCustChangePrice";
-            this.lblCustChangePrice.Size = new System.Drawing.Size(39, 17);
-            this.lblCustChangePrice.TabIndex = 1;
-            this.lblCustChangePrice.Text = "Price:";
+            this.chkCustChangeConfirm.AutoSize = true;
+            this.chkCustChangeConfirm.Location = new System.Drawing.Point(25, 471);
+            this.chkCustChangeConfirm.Name = "chkCustChangeConfirm";
+            this.chkCustChangeConfirm.Size = new System.Drawing.Size(224, 17);
+            this.chkCustChangeConfirm.TabIndex = 15;
+            this.chkCustChangeConfirm.Text = "I have confirmed to change my service to:";
+            this.chkCustChangeConfirm.UseVisualStyleBackColor = true;
             // 
-            // lblCustChangeDispPrice
+            // lblCustChangeDispServChanged
             // 
-            this.lblCustChangeDispPrice.AutoSize = true;
-            this.lblCustChangeDispPrice.Location = new System.Drawing.Point(83, 66);
-            this.lblCustChangeDispPrice.Name = "lblCustChangeDispPrice";
-            this.lblCustChangeDispPrice.Size = new System.Drawing.Size(53, 17);
-            this.lblCustChangeDispPrice.TabIndex = 2;
-            this.lblCustChangeDispPrice.Text = "RM 100";
+            this.lblCustChangeDispServChanged.AutoSize = true;
+            this.lblCustChangeDispServChanged.Location = new System.Drawing.Point(42, 491);
+            this.lblCustChangeDispServChanged.Name = "lblCustChangeDispServChanged";
+            this.lblCustChangeDispServChanged.Size = new System.Drawing.Size(148, 13);
+            this.lblCustChangeDispServChanged.TabIndex = 16;
+            this.lblCustChangeDispServChanged.Text = "Laptop keyboard replacement";
             // 
             // FormCChangeService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 556);
+            this.ClientSize = new System.Drawing.Size(340, 591);
+            this.Controls.Add(this.lblCustChangeDispServChanged);
+            this.Controls.Add(this.chkCustChangeConfirm);
             this.Controls.Add(this.btnCustChangeBack);
             this.Controls.Add(this.btnCustChange);
             this.Controls.Add(this.lblCustChangeDispPayment);
@@ -282,6 +314,7 @@ namespace Assignment.Forms.Customer
             this.Controls.Add(this.grpCustChangeDispCurrent);
             this.Name = "FormCChangeService";
             this.Text = "Edit Service";
+            this.Load += new System.EventHandler(this.FormCChangeService_Load);
             this.grpCustChangeDispCurrent.ResumeLayout(false);
             this.grpCustChangeDispCurrent.PerformLayout();
             this.grpCustChangeSelect.ResumeLayout(false);
@@ -309,8 +342,10 @@ namespace Assignment.Forms.Customer
         private System.Windows.Forms.Label lblCustChangePayment;
         private System.Windows.Forms.Label lblCustChangeDispPayment;
         private System.Windows.Forms.Button btnCustChange;
-        private System.Windows.Forms.Button btnCustChangeBack;
         private System.Windows.Forms.Label lblCustChangeDispPrice;
         private System.Windows.Forms.Label lblCustChangePrice;
+        private System.Windows.Forms.Button btnCustChangeBack;
+        private System.Windows.Forms.CheckBox chkCustChangeConfirm;
+        private System.Windows.Forms.Label lblCustChangeDispServChanged;
     }
 }

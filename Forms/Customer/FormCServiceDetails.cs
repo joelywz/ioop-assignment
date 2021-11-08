@@ -47,7 +47,7 @@ namespace Assignment
             {
                 if (s.User.Id == customer.Id)
                 {
-                    return "RM" + Convert.ToString(s.Service.Price);
+                    return Convert.ToString(s.Service.Price);
                 }
             }
 
@@ -60,22 +60,32 @@ namespace Assignment
             InitializeComponent();
             lblCustServDispID.Text = servID();
             lblCustServDispDesc.Text = servDesc();
-            lblCustServDispTotal.Text = servPrice();
+            lblCustServDispTotal.Text = "RM" + servPrice();
         }
 
         private void btnCustServChg_Click(object sender, EventArgs e)
         {
             //customer is going to change service themselves
-            Assignment.Forms.Customer.FormCChangeService objCChangeService = new Assignment.Forms.Customer.FormCChangeService(customer);
-            objCChangeService.ShowDialog();
-            this.Hide();
+            // (lblCustServDispID.Text != "-")
+            {
+                Assignment.Forms.Customer.FormCChangeService objCChangeService = new Assignment.Forms.Customer.FormCChangeService(customer);
+                this.Hide();
+                objCChangeService.ShowDialog();
+                this.Show();
+            }
+
+            //else
+            {
+                //MessageBox.Show("There is no current service. Please enquire the receptionist for a service if required.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);                
+            }
         }
 
         private void btnCustServBack_Click(object sender, EventArgs e)
         {
             FormCHome objCHome = new FormCHome(customer);
-            objCHome.ShowDialog();
             this.Hide();
+            objCHome.ShowDialog();
+            this.Show();
         }
     }
 }
