@@ -38,9 +38,6 @@ namespace Assignment
 
         private void btnCustLogout_Click(object sender, EventArgs e)
         {
-            //add loading animation
-            FormLogin objLogin = new FormLogin();
-            objLogin.Show();
             this.Close();
         }
     }

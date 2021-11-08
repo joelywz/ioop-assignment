@@ -201,6 +201,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\Technician\FormTCompletion.resx">
       <DependentUpon>FormTCompletion.cs</DependentUpon>
@@ -241,6 +242,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Haowendb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\WhatsApp Image 2021-10-31 at 21.30.45.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

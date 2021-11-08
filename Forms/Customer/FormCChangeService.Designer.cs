@@ -29,6 +29,7 @@ namespace Assignment.Forms.Customer
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCChangeService));
             this.grpCustChangeDispCurrent = new System.Windows.Forms.GroupBox();
             this.lblCustChangeDispPrice = new System.Windows.Forms.Label();
             this.lblCustChangePrice = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@ namespace Assignment.Forms.Customer
             this.btnCustChangeBack = new System.Windows.Forms.Button();
             this.chkCustChangeConfirm = new System.Windows.Forms.CheckBox();
             this.lblCustChangeDispServChanged = new System.Windows.Forms.Label();
+            this.lblCustChangeTitle = new System.Windows.Forms.Label();
             this.grpCustChangeDispCurrent.SuspendLayout();
             this.grpCustChangeSelect.SuspendLayout();
             this.SuspendLayout();
@@ -60,9 +62,9 @@ namespace Assignment.Forms.Customer
             this.grpCustChangeDispCurrent.Controls.Add(this.lblCustChangePrice);
             this.grpCustChangeDispCurrent.Controls.Add(this.lblCustChangeDispCurrent);
             this.grpCustChangeDispCurrent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCustChangeDispCurrent.Location = new System.Drawing.Point(25, 12);
+            this.grpCustChangeDispCurrent.Location = new System.Drawing.Point(25, 45);
             this.grpCustChangeDispCurrent.Name = "grpCustChangeDispCurrent";
-            this.grpCustChangeDispCurrent.Size = new System.Drawing.Size(287, 100);
+            this.grpCustChangeDispCurrent.Size = new System.Drawing.Size(286, 100);
             this.grpCustChangeDispCurrent.TabIndex = 0;
             this.grpCustChangeDispCurrent.TabStop = false;
             this.grpCustChangeDispCurrent.Text = "Current Service";
@@ -109,7 +111,7 @@ namespace Assignment.Forms.Customer
             this.grpCustChangeSelect.Controls.Add(this.rbtnCustChange1);
             this.grpCustChangeSelect.Controls.Add(this.lblCustChangeSelect);
             this.grpCustChangeSelect.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCustChangeSelect.Location = new System.Drawing.Point(25, 118);
+            this.grpCustChangeSelect.Location = new System.Drawing.Point(25, 151);
             this.grpCustChangeSelect.Name = "grpCustChangeSelect";
             this.grpCustChangeSelect.Size = new System.Drawing.Size(286, 344);
             this.grpCustChangeSelect.TabIndex = 1;
@@ -255,7 +257,7 @@ namespace Assignment.Forms.Customer
             // 
             this.lblCustChangeDispPayment.AutoSize = true;
             this.lblCustChangeDispPayment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustChangeDispPayment.Location = new System.Drawing.Point(187, 437);
+            this.lblCustChangeDispPayment.Location = new System.Drawing.Point(187, 470);
             this.lblCustChangeDispPayment.Name = "lblCustChangeDispPayment";
             this.lblCustChangeDispPayment.Size = new System.Drawing.Size(46, 15);
             this.lblCustChangeDispPayment.TabIndex = 11;
@@ -263,7 +265,7 @@ namespace Assignment.Forms.Customer
             // 
             // btnCustChange
             // 
-            this.btnCustChange.Location = new System.Drawing.Point(38, 519);
+            this.btnCustChange.Location = new System.Drawing.Point(38, 552);
             this.btnCustChange.Name = "btnCustChange";
             this.btnCustChange.Size = new System.Drawing.Size(253, 27);
             this.btnCustChange.TabIndex = 12;
@@ -273,7 +275,7 @@ namespace Assignment.Forms.Customer
             // 
             // btnCustChangeBack
             // 
-            this.btnCustChangeBack.Location = new System.Drawing.Point(38, 552);
+            this.btnCustChangeBack.Location = new System.Drawing.Point(38, 585);
             this.btnCustChangeBack.Name = "btnCustChangeBack";
             this.btnCustChangeBack.Size = new System.Drawing.Size(253, 27);
             this.btnCustChangeBack.TabIndex = 14;
@@ -284,7 +286,7 @@ namespace Assignment.Forms.Customer
             // chkCustChangeConfirm
             // 
             this.chkCustChangeConfirm.AutoSize = true;
-            this.chkCustChangeConfirm.Location = new System.Drawing.Point(25, 471);
+            this.chkCustChangeConfirm.Location = new System.Drawing.Point(25, 504);
             this.chkCustChangeConfirm.Name = "chkCustChangeConfirm";
             this.chkCustChangeConfirm.Size = new System.Drawing.Size(224, 17);
             this.chkCustChangeConfirm.TabIndex = 15;
@@ -294,17 +296,28 @@ namespace Assignment.Forms.Customer
             // lblCustChangeDispServChanged
             // 
             this.lblCustChangeDispServChanged.AutoSize = true;
-            this.lblCustChangeDispServChanged.Location = new System.Drawing.Point(42, 491);
+            this.lblCustChangeDispServChanged.Location = new System.Drawing.Point(42, 524);
             this.lblCustChangeDispServChanged.Name = "lblCustChangeDispServChanged";
             this.lblCustChangeDispServChanged.Size = new System.Drawing.Size(148, 13);
             this.lblCustChangeDispServChanged.TabIndex = 16;
             this.lblCustChangeDispServChanged.Text = "Laptop keyboard replacement";
             // 
+            // lblCustChangeTitle
+            // 
+            this.lblCustChangeTitle.AutoSize = true;
+            this.lblCustChangeTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustChangeTitle.Location = new System.Drawing.Point(20, 9);
+            this.lblCustChangeTitle.Name = "lblCustChangeTitle";
+            this.lblCustChangeTitle.Size = new System.Drawing.Size(155, 30);
+            this.lblCustChangeTitle.TabIndex = 17;
+            this.lblCustChangeTitle.Text = "Change Service";
+            // 
             // FormCChangeService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 591);
+            this.ClientSize = new System.Drawing.Size(340, 642);
+            this.Controls.Add(this.lblCustChangeTitle);
             this.Controls.Add(this.lblCustChangeDispServChanged);
             this.Controls.Add(this.chkCustChangeConfirm);
             this.Controls.Add(this.btnCustChangeBack);
@@ -312,8 +325,9 @@ namespace Assignment.Forms.Customer
             this.Controls.Add(this.lblCustChangeDispPayment);
             this.Controls.Add(this.grpCustChangeSelect);
             this.Controls.Add(this.grpCustChangeDispCurrent);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCChangeService";
-            this.Text = "Edit Service";
+            this.Text = "Brics Laptop Repair";
             this.Load += new System.EventHandler(this.FormCChangeService_Load);
             this.grpCustChangeDispCurrent.ResumeLayout(false);
             this.grpCustChangeDispCurrent.PerformLayout();
@@ -347,5 +361,6 @@ namespace Assignment.Forms.Customer
         private System.Windows.Forms.Button btnCustChangeBack;
         private System.Windows.Forms.CheckBox chkCustChangeConfirm;
         private System.Windows.Forms.Label lblCustChangeDispServChanged;
+        private System.Windows.Forms.Label lblCustChangeTitle;
     }
 }

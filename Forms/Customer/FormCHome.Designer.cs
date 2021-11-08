@@ -29,37 +29,29 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCustMain = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCHome));
             this.lblCustIntro = new System.Windows.Forms.Label();
             this.btnCustServ = new System.Windows.Forms.Button();
             this.btnCustProf = new System.Windows.Forms.Button();
             this.btnCustLogout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblCustMain
-            // 
-            this.lblCustMain.AutoSize = true;
-            this.lblCustMain.Font = new System.Drawing.Font("Imprint MT Shadow", 48F);
-            this.lblCustMain.Location = new System.Drawing.Point(174, 23);
-            this.lblCustMain.Name = "lblCustMain";
-            this.lblCustMain.Size = new System.Drawing.Size(407, 75);
-            this.lblCustMain.TabIndex = 0;
-            this.lblCustMain.Text = "WELCOME!";
             // 
             // lblCustIntro
             // 
             this.lblCustIntro.AutoSize = true;
             this.lblCustIntro.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.lblCustIntro.Location = new System.Drawing.Point(29, 102);
+            this.lblCustIntro.Location = new System.Drawing.Point(20, 156);
             this.lblCustIntro.Name = "lblCustIntro";
-            this.lblCustIntro.Size = new System.Drawing.Size(364, 25);
+            this.lblCustIntro.Size = new System.Drawing.Size(278, 25);
             this.lblCustIntro.TabIndex = 1;
-            this.lblCustIntro.Text = "Please choose from the following options:";
+            this.lblCustIntro.Text = "Welcome to Brics Laptop Repair";
             // 
             // btnCustServ
             // 
             this.btnCustServ.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnCustServ.Location = new System.Drawing.Point(232, 163);
+            this.btnCustServ.Location = new System.Drawing.Point(39, 206);
             this.btnCustServ.Name = "btnCustServ";
             this.btnCustServ.Size = new System.Drawing.Size(242, 34);
             this.btnCustServ.TabIndex = 2;
@@ -70,7 +62,7 @@ namespace Assignment
             // btnCustProf
             // 
             this.btnCustProf.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnCustProf.Location = new System.Drawing.Point(232, 224);
+            this.btnCustProf.Location = new System.Drawing.Point(39, 261);
             this.btnCustProf.Name = "btnCustProf";
             this.btnCustProf.Size = new System.Drawing.Size(242, 34);
             this.btnCustProf.TabIndex = 3;
@@ -81,7 +73,7 @@ namespace Assignment
             // btnCustLogout
             // 
             this.btnCustLogout.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnCustLogout.Location = new System.Drawing.Point(232, 288);
+            this.btnCustLogout.Location = new System.Drawing.Point(39, 314);
             this.btnCustLogout.Name = "btnCustLogout";
             this.btnCustLogout.Size = new System.Drawing.Size(242, 34);
             this.btnCustLogout.TabIndex = 4;
@@ -89,30 +81,41 @@ namespace Assignment
             this.btnCustLogout.UseVisualStyleBackColor = true;
             this.btnCustLogout.Click += new System.EventHandler(this.btnCustLogout_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(295, 132);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormCHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
+            this.ClientSize = new System.Drawing.Size(323, 390);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCustLogout);
             this.Controls.Add(this.btnCustProf);
             this.Controls.Add(this.btnCustServ);
             this.Controls.Add(this.lblCustIntro);
-            this.Controls.Add(this.lblCustMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCHome";
-            this.Text = "Main Menu";
+            this.Text = "Brics Laptop Repair";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblCustMain;
         private System.Windows.Forms.Label lblCustIntro;
         private System.Windows.Forms.Button btnCustServ;
         private System.Windows.Forms.Button btnCustProf;
         private System.Windows.Forms.Button btnCustLogout;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

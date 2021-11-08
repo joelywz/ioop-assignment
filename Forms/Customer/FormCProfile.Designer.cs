@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCProfile));
             this.lblCustProfUser = new System.Windows.Forms.Label();
             this.lblCustProfServ = new System.Windows.Forms.Label();
             this.grpCustProfServ = new System.Windows.Forms.GroupBox();
@@ -45,6 +46,7 @@ namespace Assignment
             this.btnCustProfServ = new System.Windows.Forms.Button();
             this.btnCustProfChgProf = new System.Windows.Forms.Button();
             this.btnCustProfBack = new System.Windows.Forms.Button();
+            this.lblCustProfTitle = new System.Windows.Forms.Label();
             this.grpCustProfServ.SuspendLayout();
             this.grpCustProf.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +55,7 @@ namespace Assignment
             // 
             this.lblCustProfUser.AutoSize = true;
             this.lblCustProfUser.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.lblCustProfUser.Location = new System.Drawing.Point(29, 34);
+            this.lblCustProfUser.Location = new System.Drawing.Point(27, 60);
             this.lblCustProfUser.Name = "lblCustProfUser";
             this.lblCustProfUser.Size = new System.Drawing.Size(103, 32);
             this.lblCustProfUser.TabIndex = 0;
@@ -98,7 +100,7 @@ namespace Assignment
             this.grpCustProf.Controls.Add(this.lblCustProfDispName);
             this.grpCustProf.Controls.Add(this.lblCustProfName);
             this.grpCustProf.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.grpCustProf.Location = new System.Drawing.Point(44, 72);
+            this.grpCustProf.Location = new System.Drawing.Point(47, 96);
             this.grpCustProf.Name = "grpCustProf";
             this.grpCustProf.Size = new System.Drawing.Size(291, 282);
             this.grpCustProf.TabIndex = 3;
@@ -207,11 +209,22 @@ namespace Assignment
             this.btnCustProfBack.UseVisualStyleBackColor = true;
             this.btnCustProfBack.Click += new System.EventHandler(this.btnCustProfBack_Click);
             // 
+            // lblCustProfTitle
+            // 
+            this.lblCustProfTitle.AutoSize = true;
+            this.lblCustProfTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustProfTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblCustProfTitle.Name = "lblCustProfTitle";
+            this.lblCustProfTitle.Size = new System.Drawing.Size(153, 37);
+            this.lblCustProfTitle.TabIndex = 8;
+            this.lblCustProfTitle.Text = "User Profile";
+            // 
             // FormCProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 390);
+            this.Controls.Add(this.lblCustProfTitle);
             this.Controls.Add(this.btnCustProfBack);
             this.Controls.Add(this.btnCustProfChgProf);
             this.Controls.Add(this.btnCustProfServ);
@@ -219,8 +232,9 @@ namespace Assignment
             this.Controls.Add(this.grpCustProfServ);
             this.Controls.Add(this.lblCustProfServ);
             this.Controls.Add(this.lblCustProfUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCProfile";
-            this.Text = "Profile";
+            this.Text = "Brics Laptop Repair";
             this.grpCustProfServ.ResumeLayout(false);
             this.grpCustProfServ.PerformLayout();
             this.grpCustProf.ResumeLayout(false);
@@ -248,5 +262,6 @@ namespace Assignment
         private System.Windows.Forms.Button btnCustProfServ;
         private System.Windows.Forms.Button btnCustProfChgProf;
         private System.Windows.Forms.Button btnCustProfBack;
+        private System.Windows.Forms.Label lblCustProfTitle;
     }
 }

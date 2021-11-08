@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCServiceDetails));
             this.lblCustServTitle = new System.Windows.Forms.Label();
             this.grpCustServ = new System.Windows.Forms.GroupBox();
             this.lblCustServDispTotal = new System.Windows.Forms.Label();
@@ -155,8 +156,9 @@ namespace Assignment
             this.Controls.Add(this.btnCustServChg);
             this.Controls.Add(this.grpCustServ);
             this.Controls.Add(this.lblCustServTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCServiceDetails";
-            this.Text = "Service Details";
+            this.Text = "Brics Laptop Repair";
             this.grpCustServ.ResumeLayout(false);
             this.grpCustServ.PerformLayout();
             this.ResumeLayout(false);
