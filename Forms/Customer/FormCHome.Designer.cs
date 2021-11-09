@@ -34,8 +34,8 @@ namespace Assignment
             this.btnCustServ = new System.Windows.Forms.Button();
             this.btnCustProf = new System.Windows.Forms.Button();
             this.btnCustLogout = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.picCustHome = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picCustHome)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCustIntro
@@ -81,22 +81,22 @@ namespace Assignment
             this.btnCustLogout.UseVisualStyleBackColor = true;
             this.btnCustLogout.Click += new System.EventHandler(this.btnCustLogout_Click);
             // 
-            // pictureBox1
+            // picCustHome
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(295, 132);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.picCustHome.Image = ((System.Drawing.Image)(resources.GetObject("picCustHome.Image")));
+            this.picCustHome.InitialImage = ((System.Drawing.Image)(resources.GetObject("picCustHome.InitialImage")));
+            this.picCustHome.Location = new System.Drawing.Point(12, 12);
+            this.picCustHome.Name = "picCustHome";
+            this.picCustHome.Size = new System.Drawing.Size(295, 132);
+            this.picCustHome.TabIndex = 5;
+            this.picCustHome.TabStop = false;
             // 
             // FormCHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 390);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picCustHome);
             this.Controls.Add(this.btnCustLogout);
             this.Controls.Add(this.btnCustProf);
             this.Controls.Add(this.btnCustServ);
@@ -104,7 +104,7 @@ namespace Assignment
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCHome";
             this.Text = "Brics Laptop Repair";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCustHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,7 +115,7 @@ namespace Assignment
         private System.Windows.Forms.Button btnCustServ;
         private System.Windows.Forms.Button btnCustProf;
         private System.Windows.Forms.Button btnCustLogout;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picCustHome;
     }
 }
 

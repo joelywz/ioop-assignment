@@ -58,10 +58,7 @@ namespace Assignment
 
         private void btnCustProfBack_Click(object sender, EventArgs e)
         {
-            FormCHome objCHome = new FormCHome(customer);
-            this.Hide();
-            objCHome.ShowDialog();
-            this.Show();
+            this.Close();
         }
 
        

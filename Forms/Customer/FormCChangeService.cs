@@ -339,10 +339,7 @@ namespace Assignment.Forms.Customer
 
         private void btnCustChangeBack_Click(object sender, EventArgs e)
         {
-            FormCServiceDetails objCServiceDetails = new FormCServiceDetails(customer);
-            this.Hide();
-            objCServiceDetails.ShowDialog();
-            this.Show();
+            this.Close();
         }
     }
 }
