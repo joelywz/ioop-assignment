@@ -69,7 +69,7 @@ namespace Assignment.Forms.Customer
                 }
             }
 
-            return -1;
+            return 0;
         }
 
         //display

@@ -265,7 +265,7 @@ namespace Assignment.Forms.Customer
             // 
             // btnCustChange
             // 
-            this.btnCustChange.Location = new System.Drawing.Point(38, 552);
+            this.btnCustChange.Location = new System.Drawing.Point(39, 552);
             this.btnCustChange.Name = "btnCustChange";
             this.btnCustChange.Size = new System.Drawing.Size(253, 27);
             this.btnCustChange.TabIndex = 12;

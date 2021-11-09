@@ -57,9 +57,9 @@ namespace Assignment
             this.lblCustProfUser.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.lblCustProfUser.Location = new System.Drawing.Point(27, 60);
             this.lblCustProfUser.Name = "lblCustProfUser";
-            this.lblCustProfUser.Size = new System.Drawing.Size(103, 32);
+            this.lblCustProfUser.Size = new System.Drawing.Size(143, 32);
             this.lblCustProfUser.TabIndex = 0;
-            this.lblCustProfUser.Text = "chris123";
+            this.lblCustProfUser.Text = "johndoe123";
             // 
             // lblCustProfServ
             // 
@@ -85,9 +85,9 @@ namespace Assignment
             this.lblCustProfDispServ.AutoSize = true;
             this.lblCustProfDispServ.Location = new System.Drawing.Point(11, 16);
             this.lblCustProfDispServ.Name = "lblCustProfDispServ";
-            this.lblCustProfDispServ.Size = new System.Drawing.Size(72, 13);
+            this.lblCustProfDispServ.Size = new System.Drawing.Size(148, 13);
             this.lblCustProfDispServ.TabIndex = 0;
-            this.lblCustProfDispServ.Text = "Remove virus";
+            this.lblCustProfDispServ.Text = "Laptop keyboard replacement";
             // 
             // grpCustProf
             // 
