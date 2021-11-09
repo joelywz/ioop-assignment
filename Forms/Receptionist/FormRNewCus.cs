@@ -113,5 +113,10 @@ namespace Assignment.Forms.Receptionist
                 return;
             }
         }
+
+        private void FormRNewCus_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

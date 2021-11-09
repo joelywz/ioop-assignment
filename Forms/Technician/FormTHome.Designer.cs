@@ -29,9 +29,10 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTHome));
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpFunctions = new System.Windows.Forms.GroupBox();
-            this.rdpUpdateProfile = new System.Windows.Forms.RadioButton();
+            this.rdoUpdateProfile = new System.Windows.Forms.RadioButton();
             this.rdoComplete = new System.Windows.Forms.RadioButton();
             this.rdoService = new System.Windows.Forms.RadioButton();
             this.btnProceed = new System.Windows.Forms.Button();
@@ -45,14 +46,14 @@ namespace Assignment
             this.lblTitle.Location = new System.Drawing.Point(15, 15);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(10, 10, 10, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(377, 25);
+            this.lblTitle.Size = new System.Drawing.Size(204, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Technician Home\r\n";
             // 
             // grpFunctions
             // 
             this.grpFunctions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.grpFunctions.Controls.Add(this.rdpUpdateProfile);
+            this.grpFunctions.Controls.Add(this.rdoUpdateProfile);
             this.grpFunctions.Controls.Add(this.rdoComplete);
             this.grpFunctions.Controls.Add(this.rdoService);
             this.grpFunctions.Location = new System.Drawing.Point(10, 50);
@@ -64,16 +65,16 @@ namespace Assignment
             this.grpFunctions.TabStop = false;
             this.grpFunctions.Text = "Functions";
             // 
-            // rdpUpdateProfile
+            // rdoUpdateProfile
             // 
-            this.rdpUpdateProfile.AutoSize = true;
-            this.rdpUpdateProfile.Location = new System.Drawing.Point(6, 75);
-            this.rdpUpdateProfile.Name = "rdpUpdateProfile";
-            this.rdpUpdateProfile.Size = new System.Drawing.Size(119, 21);
-            this.rdpUpdateProfile.TabIndex = 2;
-            this.rdpUpdateProfile.TabStop = true;
-            this.rdpUpdateProfile.Text = "Update Profile";
-            this.rdpUpdateProfile.UseVisualStyleBackColor = true;
+            this.rdoUpdateProfile.AutoSize = true;
+            this.rdoUpdateProfile.Location = new System.Drawing.Point(6, 75);
+            this.rdoUpdateProfile.Name = "rdoUpdateProfile";
+            this.rdoUpdateProfile.Size = new System.Drawing.Size(119, 21);
+            this.rdoUpdateProfile.TabIndex = 2;
+            this.rdoUpdateProfile.TabStop = true;
+            this.rdoUpdateProfile.Text = "Update Profile";
+            this.rdoUpdateProfile.UseVisualStyleBackColor = true;
             // 
             // rdoComplete
             // 
@@ -112,6 +113,7 @@ namespace Assignment
             // btnLogOut
             // 
             this.btnLogOut.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogOut.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnLogOut.Location = new System.Drawing.Point(10, 208);
             this.btnLogOut.MinimumSize = new System.Drawing.Size(294, 27);
             this.btnLogOut.Name = "btnLogOut";
@@ -119,23 +121,29 @@ namespace Assignment
             this.btnLogOut.TabIndex = 3;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // techHome
+            // FormTHome
             // 
             this.AcceptButton = this.btnProceed;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.White;
+            this.CancelButton = this.btnLogOut;
             this.ClientSize = new System.Drawing.Size(407, 245);
             this.Controls.Add(this.grpFunctions);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnProceed);
             this.Controls.Add(this.btnLogOut);
-            this.MinimumSize = new System.Drawing.Size(425, 292);
-            this.Name = "techHome";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormTHome";
             this.Padding = new System.Windows.Forms.Padding(5);
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Technician Homepage";
+            this.Text = "Brics Laptop Repair";
             this.grpFunctions.ResumeLayout(false);
             this.grpFunctions.PerformLayout();
             this.ResumeLayout(false);
@@ -146,7 +154,7 @@ namespace Assignment
 
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.GroupBox grpFunctions;
-        private System.Windows.Forms.RadioButton rdpUpdateProfile;
+        private System.Windows.Forms.RadioButton rdoUpdateProfile;
         private System.Windows.Forms.RadioButton rdoComplete;
         private System.Windows.Forms.RadioButton rdoService;
         private System.Windows.Forms.Button btnProceed;

@@ -18,7 +18,7 @@ namespace Assignment
         public string Ic { get; set; }
         public Roles Role { get; set; }
         public DateTime? DateOfBirth { get; set; }
-
+            
         public enum Roles
         {
             Customer = 0,
@@ -34,22 +34,24 @@ namespace Assignment
 
         public static User Save(string username, string fullName, string email, string password, string phoneNo, Roles role)
         {
+            // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            conn.Open();
-
             string cmdText = "INSERT INTO [User] ([username], [fullName], [email], [password], [phoneNo], [role]) " +
                 "VALUES (@username, @fullName, @email, @password, @phoneNo, @role);";
-
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<string>("@username", System.Data.SqlDbType.VarChar, username)
                 .AddParameter<string>("@fullName", System.Data.SqlDbType.VarChar, fullName)
                 .AddParameter<string>("@email", System.Data.SqlDbType.VarChar, email)
                 .AddParameter<string>("@password", System.Data.SqlDbType.VarChar, password)
                 .AddParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, phoneNo)
-                .AddParameter<int>("@role", System.Data.SqlDbType.Int, (int)role);
-
+                .AddParameter<int>("@role", System.Data.SqlDbType.Int, RoleToInt(role));
+            
+            // Execution
+            conn.Open();
             bsc.Cmd.ExecuteNonQuery();
 
+            // Clean up
+            bsc.Dispose();
             conn.Close();
             return User.GetByUsername(username);
         }
@@ -95,6 +97,64 @@ namespace Assignment
             BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE userId=@userId;", conn);
             bsc.AddParameter<int>("@userId", System.Data.SqlDbType.Int, id);
             
+            // Execution
+            conn.Open();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
+            User user = null;
+            while (reader.Read())
+            {
+                user = Reader(reader);
+                break;
+            }
+
+            // Clean up
+            reader.Close();
+            bsc.Cmd.Dispose();
+            conn.Close();
+            return user;
+        }
+
+        /// <summary>
+        /// Get a user from database by Ic.
+        /// </summary>
+        /// <param name="ic"></param>
+        /// <returns></returns>
+        public static User GetByIc(string ic)
+        {
+            // Preperation
+            SqlConnection conn = Database.GetSqlConnection();
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE ic=@userIc;", conn);
+            bsc.AddParameter<string>("@userIc", System.Data.SqlDbType.VarChar, ic);
+
+            // Execution
+            conn.Open();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
+            User user = null;
+            while (reader.Read())
+            {
+                user = Reader(reader);
+                break;
+            }
+
+            // Clean up
+            reader.Close();
+            bsc.Cmd.Dispose();
+            conn.Close();
+            return user;
+        }
+
+        /// <summary>
+        /// Get a user from database by phoneNo.
+        /// </summary>
+        /// <param name="phoneNo"></param>
+        /// <returns></returns>
+        public static User GetByPhoneNo(string phoneNo)
+        {
+            // Preperation
+            SqlConnection conn = Database.GetSqlConnection();
+            BetterSqlCommand bsc = new BetterSqlCommand("SELECT * FROM [User] WHERE PhoneNo=@phone;", conn);
+            bsc.AddParameter<string>("@phone", System.Data.SqlDbType.VarChar, phoneNo);
+
             // Execution
             conn.Open();
             SqlDataReader reader = bsc.Cmd.ExecuteReader();
@@ -182,13 +242,13 @@ namespace Assignment
         {
             int id = (int)reader["userId"];
             User user = new User(id);
-            user.Username = (string)reader["username"];
-            user.Password = (string)reader["password"];
-            user.Email = (string)reader["email"];
-            user.FullName = (string)reader["fullName"];
-            user.PhoneNo = (string)reader["phoneNo"];
+            user.Username = reader["username"].ToString();
+            user.Password = reader["password"].ToString();
+            user.Email = reader["email"].ToString();
+            user.FullName = reader["fullName"].ToString();
+            user.PhoneNo = reader["phoneNo"].ToString();
             user.Ic = reader["ic"].ToString();
-            user.Role = (Roles)(int)reader["role"];
+            user.Role = (Roles)Convert.ToInt32(reader["role"]);
 
             try
             {
@@ -210,7 +270,8 @@ namespace Assignment
         {
             // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [phoneNo]=@phoneNo, [role]=@role, [dateOfBirth]=@dateOfBirth, [ic]=@ic WHERE [userId]=@userId;";
+            string cmdText = "UPDATE [User] SET [username]=@username, [fullName]=@fullName, [password]=@password, [email]=@email, [phoneNo]=@phoneNo, " +
+                "[role]=@role, [dateOfBirth]=@dateOfBirth, [ic]=@ic WHERE [userId]=@userId;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn);
             bsc
                 .AddParameter<int>("@userId", System.Data.SqlDbType.VarChar, Id)
@@ -219,16 +280,52 @@ namespace Assignment
                 .AddParameter<string>("@email", System.Data.SqlDbType.VarChar, Email)
                 .AddParameter<string>("@password", System.Data.SqlDbType.VarChar, Password)
                 .AddParameter<string>("@phoneNo", System.Data.SqlDbType.VarChar, PhoneNo)
-                .AddParameter<int>("@role", System.Data.SqlDbType.Bit, (int)Role)
+                .AddParameter<int>("@role", System.Data.SqlDbType.Int, RoleToInt(Role))
                 .AddParameter<string>("@ic", System.Data.SqlDbType.VarChar, Ic)
                 .AddParameter<DateTime?>("@dateOfBirth", System.Data.SqlDbType.Date, DateOfBirth);
-
 
             // Execution
             conn.Open();
             int rowsAffected = bsc.Cmd.ExecuteNonQuery();
             Console.WriteLine("rowsAffected: {0}", rowsAffected);
+
+            // Clean Up
+            bsc.Dispose();
             conn.Close();
         }
+        
+        /// <summary>
+        /// Convert User.Roles to int
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns>integer of the role</returns>
+        public static int RoleToInt(Roles role)
+        {
+            return Convert.ToInt32(role);
+        }
+        
+        /// <summary>
+        /// Conver User.Roles to string
+        /// </summary>
+        /// <param name="role"></param>
+        /// <returns>name of the role</returns>
+        public static string RoleToString(Roles role)
+        {
+            switch (role)
+            {
+                case User.Roles.Customer:
+                    return "Customer";
+                case User.Roles.Administrator:
+                    return "Administrator";
+                case User.Roles.Receptionist:
+                    return "Receptionist";
+                case User.Roles.Technician:
+                    return "Technician";
+                default:
+                    return "Unknown Role";
+            }
+        }
     }
+
+
 }

@@ -30,16 +30,16 @@ namespace Assignment
             // You can automatically log in to your form here by uncommenting the right one
 
             // Customer
-            //Application.Run(new FormRHome(User.GetById(1)));
+            //Application.Run(new FormCHome(User.GetById(1)));
 
             // Admin
-            //Application.Run(new FormRHome(User.GetById(2)));
+            //Application.Run(new FormAHome(User.GetById(2)));
 
             // Receptionist
             //Application.Run(new FormRHome(User.GetById(3)));
 
             // Technican
-            //Application.Run(new FormRHome(User.GetById(4)));
+            //Application.Run(new FormTHome(User.GetById(4)));
 
 
         }

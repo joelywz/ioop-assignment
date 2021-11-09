@@ -30,11 +30,12 @@ namespace Assignment.Forms.Receptionist
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gbNewCustomer = new System.Windows.Forms.GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRNewCus));
+            this.grpNewCust = new System.Windows.Forms.GroupBox();
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtRepeatPassword = new System.Windows.Forms.TextBox();
-            this.btnNewCustomer = new System.Windows.Forms.Button();
+            this.btnNewCust = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -52,7 +53,7 @@ namespace Assignment.Forms.Receptionist
             this.errRepeatPassword = new System.Windows.Forms.ErrorProvider(this.components);
             this.errEmail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errPhoneNo = new System.Windows.Forms.ErrorProvider(this.components);
-            this.gbNewCustomer.SuspendLayout();
+            this.grpNewCust.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errFullName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errPassword)).BeginInit();
@@ -61,27 +62,27 @@ namespace Assignment.Forms.Receptionist
             ((System.ComponentModel.ISupportInitialize)(this.errPhoneNo)).BeginInit();
             this.SuspendLayout();
             // 
-            // gbNewCustomer
+            // grpNewCust
             // 
-            this.gbNewCustomer.Controls.Add(this.txtPhoneNo);
-            this.gbNewCustomer.Controls.Add(this.txtEmail);
-            this.gbNewCustomer.Controls.Add(this.txtRepeatPassword);
-            this.gbNewCustomer.Controls.Add(this.btnNewCustomer);
-            this.gbNewCustomer.Controls.Add(this.txtPassword);
-            this.gbNewCustomer.Controls.Add(this.txtUsername);
-            this.gbNewCustomer.Controls.Add(this.txtName);
-            this.gbNewCustomer.Controls.Add(this.lblPhoneNo);
-            this.gbNewCustomer.Controls.Add(this.lblEmail);
-            this.gbNewCustomer.Controls.Add(this.lblRepeatPassword);
-            this.gbNewCustomer.Controls.Add(this.lblPassword);
-            this.gbNewCustomer.Controls.Add(this.lblUsername);
-            this.gbNewCustomer.Controls.Add(this.lblName);
-            this.gbNewCustomer.Location = new System.Drawing.Point(12, 58);
-            this.gbNewCustomer.Name = "gbNewCustomer";
-            this.gbNewCustomer.Size = new System.Drawing.Size(269, 404);
-            this.gbNewCustomer.TabIndex = 6;
-            this.gbNewCustomer.TabStop = false;
-            this.gbNewCustomer.Text = "New Customer";
+            this.grpNewCust.Controls.Add(this.txtPhoneNo);
+            this.grpNewCust.Controls.Add(this.txtEmail);
+            this.grpNewCust.Controls.Add(this.txtRepeatPassword);
+            this.grpNewCust.Controls.Add(this.btnNewCust);
+            this.grpNewCust.Controls.Add(this.txtPassword);
+            this.grpNewCust.Controls.Add(this.txtUsername);
+            this.grpNewCust.Controls.Add(this.txtName);
+            this.grpNewCust.Controls.Add(this.lblPhoneNo);
+            this.grpNewCust.Controls.Add(this.lblEmail);
+            this.grpNewCust.Controls.Add(this.lblRepeatPassword);
+            this.grpNewCust.Controls.Add(this.lblPassword);
+            this.grpNewCust.Controls.Add(this.lblUsername);
+            this.grpNewCust.Controls.Add(this.lblName);
+            this.grpNewCust.Location = new System.Drawing.Point(12, 58);
+            this.grpNewCust.Name = "grpNewCust";
+            this.grpNewCust.Size = new System.Drawing.Size(269, 404);
+            this.grpNewCust.TabIndex = 6;
+            this.grpNewCust.TabStop = false;
+            this.grpNewCust.Text = "New Customer";
             // 
             // txtPhoneNo
             // 
@@ -105,15 +106,15 @@ namespace Assignment.Forms.Receptionist
             this.txtRepeatPassword.Size = new System.Drawing.Size(230, 20);
             this.txtRepeatPassword.TabIndex = 4;
             // 
-            // btnNewCustomer
+            // btnNewCust
             // 
-            this.btnNewCustomer.Location = new System.Drawing.Point(10, 350);
-            this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(245, 30);
-            this.btnNewCustomer.TabIndex = 7;
-            this.btnNewCustomer.Text = "New Customer";
-            this.btnNewCustomer.UseVisualStyleBackColor = true;
-            this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
+            this.btnNewCust.Location = new System.Drawing.Point(10, 350);
+            this.btnNewCust.Name = "btnNewCust";
+            this.btnNewCust.Size = new System.Drawing.Size(245, 30);
+            this.btnNewCust.TabIndex = 7;
+            this.btnNewCust.Text = "New Customer";
+            this.btnNewCust.UseVisualStyleBackColor = true;
+            this.btnNewCust.Click += new System.EventHandler(this.btnNewCustomer_Click);
             // 
             // txtPassword
             // 
@@ -239,16 +240,19 @@ namespace Assignment.Forms.Receptionist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(297, 521);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.gbNewCustomer);
+            this.Controls.Add(this.grpNewCust);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRNewCus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Customer";
-            this.gbNewCustomer.ResumeLayout(false);
-            this.gbNewCustomer.PerformLayout();
+            this.Text = "Brics Laptop Repair";
+            this.Load += new System.EventHandler(this.FormRNewCus_Load);
+            this.grpNewCust.ResumeLayout(false);
+            this.grpNewCust.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errFullName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errUsername)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errPassword)).EndInit();
@@ -262,9 +266,9 @@ namespace Assignment.Forms.Receptionist
 
         #endregion
 
-        private System.Windows.Forms.GroupBox gbNewCustomer;
+        private System.Windows.Forms.GroupBox grpNewCust;
         private System.Windows.Forms.TextBox txtRepeatPassword;
-        private System.Windows.Forms.Button btnNewCustomer;
+        private System.Windows.Forms.Button btnNewCust;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtName;

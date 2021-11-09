@@ -19,7 +19,6 @@ namespace Assignment
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-    
             // Check if fields are empty
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
@@ -49,16 +48,16 @@ namespace Assignment
             switch (user.Role)
             {
                 case User.Roles.Customer:
-                    homeForm = new FormCHome();
+                    homeForm = new FormCHome(user);
                     break;
                 case User.Roles.Receptionist:
                     homeForm = new FormRHome(user);
                     break;
                 case User.Roles.Technician:
-                    homeForm = new FormTHome();
+                    homeForm = new FormTHome(user);
                     break;
                 case User.Roles.Administrator:
-                    homeForm = new FormAHome();
+                    homeForm = new FormAHome(user);
                     break;
             }
 
@@ -84,6 +83,11 @@ namespace Assignment
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
