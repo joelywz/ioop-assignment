@@ -63,9 +63,9 @@ namespace Assignment.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Group_3brics {
+        internal static System.Drawing.Bitmap brics_full_logo {
             get {
-                object obj = ResourceManager.GetObject("Group 3brics", resourceCulture);
+                object obj = ResourceManager.GetObject("brics-full-logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

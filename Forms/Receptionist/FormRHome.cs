@@ -74,6 +74,7 @@ namespace Assignment
             if (SelectedCustomer == null) return;
             Form addServiceForm = new FormRAddService(SelectedCustomer);
             addServiceForm.ShowDialog();
+            RefreshContent();
         }
 
         private void btnRefersh_Click(object sender, EventArgs e)

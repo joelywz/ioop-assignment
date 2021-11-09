@@ -33,7 +33,7 @@ namespace Assignment
             this.grpInformation = new System.Windows.Forms.GroupBox();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
-            this.grpDetails = new System.Windows.Forms.GroupBox();
+                                                                                                                                                                                                                                                                                                                        this.grpDetails = new System.Windows.Forms.GroupBox();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();

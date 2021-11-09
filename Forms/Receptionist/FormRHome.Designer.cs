@@ -339,7 +339,6 @@ namespace Assignment
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Assignment.Properties.Resources.Group_3brics;
             this.pictureBox1.Location = new System.Drawing.Point(163, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(85, 37);

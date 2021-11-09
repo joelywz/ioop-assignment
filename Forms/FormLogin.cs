@@ -19,7 +19,6 @@ namespace Assignment
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-    
             // Check if fields are empty
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
@@ -49,7 +48,7 @@ namespace Assignment
             switch (user.Role)
             {
                 case User.Roles.Customer:
-                    homeForm = new FormCHome();
+                    homeForm = new FormCHome(user);
                     break;
                 case User.Roles.Receptionist:
                     homeForm = new FormRHome(user);
