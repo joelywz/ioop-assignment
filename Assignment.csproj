@@ -193,16 +193,6 @@
     <EmbeddedResource Include="Forms\Receptionist\FormRPaymentReceipt.resx">
       <DependentUpon>FormRPaymentReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Forms\Technician\FormTCompletion.resx">
       <DependentUpon>FormTCompletion.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,17 +225,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="assets\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Database\db.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\db_log.ldf">
-      <DependentUpon>db.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>db.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\WhatsApp Image 2021-10-31 at 21.30.45.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

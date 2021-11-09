@@ -11,7 +11,7 @@ namespace Assignment
     {
         public int Id { get; }
         public User User { get; }
-        public User CompletedBy { get; }
+        public User Technician { get; }
         public Service Service { get; }
         public bool Urgent { get; }
         public double Price { get;  }
@@ -20,11 +20,11 @@ namespace Assignment
         public DateTime DateTimeCreated { get; }
         public DateTime DateTimeCompleted { get; }
 
-        private CompletedService(int id, User user, User completedBy, Service service, bool urgent, double price, bool hasPaid, string description, DateTime created, DateTime completed)
+        private CompletedService(int id, User user, User technician, Service service, bool urgent, double price, bool hasPaid, string description, DateTime created, DateTime completed)
         {
             this.Id = id;
             this.User = user;
-            this.CompletedBy = completedBy;
+            this.Technician = technician;
             this.Service = service;
             this.Urgent = urgent;
             this.Price = price;
@@ -39,14 +39,14 @@ namespace Assignment
         /// This is how you should create a CompleteService
         /// </summary>
         /// <param name="incompleteService"></param>
-        /// <param name="completedBy"></param>
+        /// <param name="technician"></param>
         /// <param name="description"></param>
         /// <param name="dateTimeCompleted"</param>
         /// <returns>CompletedService</returns>
-        public static CompletedService Save(IncompleteService incompleteService, User completedBy, string description, DateTime dateTimeCompleted)
+        public static CompletedService Save(IncompleteService incompleteService, User technician, string description, DateTime dateTimeCompleted)
         {
             int userId = incompleteService.User.Id;
-            int completedByUserId = completedBy.Id;
+            int completedByUserId = technician.Id;
             int serviceId = incompleteService.Service.Id;
             bool urgent = incompleteService.Urgent;
             DateTime dateTimeCreated = incompleteService.DateTimeCreated;
@@ -58,12 +58,12 @@ namespace Assignment
             // Preperation
             SqlConnection conn = Database.GetSqlConnection();
             string cmdText =
-                "INSERT INTO [CompletedService]([userId], [completedByUserId], [serviceId], [urgent], [price], [description], [dateTimeCreated], [dateTimeCompleted]) " +
-                "VALUES(@userId, @completedByUserId, @serviceId, @urgent, @price, @description, @dateTimeCreated, @dateTimeCompleted);" +
+                "INSERT INTO [CompletedService]([userId], [technicianId], [serviceId], [urgent], [price], [description], [dateTimeCreated], [dateTimeCompleted]) " +
+                "VALUES(@userId, @technicianId, @serviceId, @urgent, @price, @description, @dateTimeCreated, @dateTimeCompleted);" +
                 "SELECT SCOPE_IDENTITY();";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, userId)
-                .AddParameter<int>("@completedByUserId", System.Data.SqlDbType.Int, completedByUserId)
+                .AddParameter<int>("@technicianId", System.Data.SqlDbType.Int, completedByUserId)
                 .AddParameter<int>("@serviceId", System.Data.SqlDbType.Int, serviceId)
                 .AddParameter<byte>("@urgent", System.Data.SqlDbType.Bit, Convert.ToByte(urgent))
                 .AddParameter<double>("@price", System.Data.SqlDbType.Float, price)
@@ -87,12 +87,12 @@ namespace Assignment
         /// Automatically sets completed DateTime to current DateTime
         /// </summary>
         /// <param name="incompleteService"></param>
-        /// <param name="completedBy"></param>
+        /// <param name="technician"></param>
         /// <param name="description"></param>
         /// <returns>CompletedService</returns>
-        public static CompletedService Save(IncompleteService incompleteService, User completedBy, string description)
+        public static CompletedService Save(IncompleteService incompleteService, User technician, string description)
         {
-            return CompletedService.Save(incompleteService, completedBy, description, DateTime.Now);
+            return CompletedService.Save(incompleteService, technician, description, DateTime.Now);
         }
 
         /// <summary>
@@ -213,16 +213,16 @@ namespace Assignment
         {
             int completedServiceId = Convert.ToInt32(reader["completedServiceId"]);
             User user = User.GetById(Convert.ToInt32(reader["userId"]));
-            User completedBy = User.GetById(Convert.ToInt32(reader["completedByUserId"]));
+            User technician = User.GetById(Convert.ToInt32(reader["technicianId"]));
             Service service = Service.GetService(Convert.ToInt32(reader["serviceId"]));
-            bool urgent = (bool)reader["urgent"];
-            bool hasPaid = (bool)reader["hasPaid"];
+            bool urgent = Convert.ToBoolean(reader["urgent"]);
+            bool hasPaid = Convert.ToBoolean(reader["hasPaid"]);
             double price = Convert.ToDouble(reader["price"]);
             string description = reader["description"].ToString();
             DateTime created = (DateTime)reader["dateTimeCreated"];
             DateTime completed = (DateTime)reader["dateTimeCompleted"];
 
-            return new CompletedService(completedServiceId, user, completedBy, service, urgent, price, hasPaid, description, created, completed);
+            return new CompletedService(completedServiceId, user, technician, service, urgent, price, hasPaid, description, created, completed);
             
 
         }

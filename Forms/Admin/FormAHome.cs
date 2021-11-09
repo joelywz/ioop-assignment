@@ -61,7 +61,7 @@ namespace Assignment
             lstStatistics.Items.Add(
                 "[Service ID: " + service.Id +
                 "]   [User ID: " + service.User.Id +
-                "]   [Technician ID: " + service.CompletedBy.Id +
+                "]   [Technician ID: " + service.Technician.Id +
                 "]   [Service type: " + service.Service.Name +
                 "]   [Urgency: " + service.Urgent +
                 "]   [Price: " + service.Price +
@@ -93,7 +93,7 @@ namespace Assignment
         public void FindUserFromlst()
         {
             CompletedService selectedService = ListedStatistics[lstStatistics.SelectedIndex];
-            User technician = selectedService.CompletedBy;
+            User technician = selectedService.Technician;
             txtName_display.Text = technician.FullName;
             txtUserID_display.Text = technician.Id.ToString();
             txtAge_display.Text = technician.DateOfBirth.ToString();
