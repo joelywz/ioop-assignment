@@ -164,12 +164,12 @@ namespace Assignment
             // lblFields
             // 
             this.lblFields.AutoSize = true;
-            this.lblFields.Location = new System.Drawing.Point(3, 21);
+            this.lblFields.Location = new System.Drawing.Point(32, 21);
             this.lblFields.Margin = new System.Windows.Forms.Padding(3);
             this.lblFields.Name = "lblFields";
-            this.lblFields.Size = new System.Drawing.Size(301, 17);
+            this.lblFields.Size = new System.Drawing.Size(266, 17);
             this.lblFields.TabIndex = 5;
-            this.lblFields.Text = "Date Time    --    User ID    --    User Full Name";
+            this.lblFields.Text = "Date    --    User ID    --    User Full Name";
             // 
             // lblSerTypeContent
             // 

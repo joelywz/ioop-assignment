@@ -41,8 +41,15 @@ namespace Assignment
         //To add incomplete services to a list to be displayed
         private void addListedService(IncompleteService service)
         {
+            String dateCreated = "";
+            foreach (char c in Convert.ToString(service.DateTimeCreated))
+                {
+                    if (c == ' ')
+                        break;
+                    dateCreated += Convert.ToString(c);
+                }
             listedServices.Add(service);
-            lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + "    --    " + Convert.ToString(service.User.Id) + "    --    " + Convert.ToString(service.User.FullName));
+            lstServices.Items.Add((dateCreated) + "    --    " + Convert.ToString(service.User.Id) + "    --    " + Convert.ToString(service.User.FullName));
         }
 
         //To search for service by user ID
@@ -122,19 +129,19 @@ namespace Assignment
 
 
         //EVENTS
-        public FormTCompletion(User user, IncompleteService vSelectedService)
+        public FormTCompletion(User user, IncompleteService viewSelectedService)
         {
-            this.technician = user;
-            this.vSelectedService = vSelectedService;
+            technician = user;
+            vSelectedService = viewSelectedService;
             InitializeComponent();
         }
 
         private void btnViewServices_Click(object sender, EventArgs e)
         {
             FormTCusServices obj1 = new FormTCusServices(technician);
-            this.Hide();
+            Hide();
             obj1.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void FormTCompletion_Load(object sender, EventArgs e)
@@ -149,14 +156,14 @@ namespace Assignment
 
         private void btnIDSearch_Click(object sender, EventArgs e)
         {
-            this.selectedService = null;
+            selectedService = null;
             search(0);
             loader();
         }
 
         private void btnIDClear_Click(object sender, EventArgs e)
         {
-            this.selectedService = null;
+            selectedService = null;
             txtID.Text = "";
             search(1);
             loader();
@@ -166,7 +173,7 @@ namespace Assignment
         {
             int selectedIndex = Convert.ToInt32(lstServices.SelectedIndex);
             if (selectedIndex >= 0)
-                this.selectedService = listedServices[selectedIndex];
+                selectedService = listedServices[selectedIndex];
             loader();
         }
 
@@ -194,7 +201,7 @@ namespace Assignment
 
                 CompletedService compService = CompletedService.Save(selectedService, technician, rtxtDescription.Text, dtpCollectionDate.Value);
                 MessageBox.Show("Service for " + selectedService.User.FullName + " has been completed.");
-                this.selectedService = null;
+                selectedService = null;
                 rtxtDescription.Clear();
                 loader();
                 txtID.Clear();

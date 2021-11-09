@@ -42,7 +42,6 @@ namespace Assignment
 
             //To store user first name
             String uFirstName = "";
-
             foreach (char c in Convert.ToString(service.User.FullName))
             {
                 if (Convert.ToString(c) == " ") break;
@@ -50,12 +49,21 @@ namespace Assignment
                     uFirstName = uFirstName + Convert.ToString(c);
             }
 
+            //To store date created
+            String dateCreated = "";
+            foreach (char c in Convert.ToString(service.DateTimeCreated))
+            {
+                if (c == ' ')
+                    break;
+                dateCreated += Convert.ToString(c);
+            }
+
             if (cboDisplay.SelectedIndex == 0)
-                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + "    --    " + uFirstName);
+                lstServices.Items.Add(dateCreated + "    --    " + uFirstName);
             else if (cboDisplay.SelectedIndex == 1)
-                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + "    --    " + Convert.ToString(service.User.Id));
+                lstServices.Items.Add(dateCreated + "    --    " + Convert.ToString(service.User.Id));
             else if (cboDisplay.SelectedIndex == 2)
-                lstServices.Items.Add(Convert.ToString(service.DateTimeCreated) + "    --    " + Convert.ToString(service.Service.Id));
+                lstServices.Items.Add(dateCreated + "    --    " + Convert.ToString(service.Service.Id));
         }
 
         //Clear listbox items and listed list
@@ -73,9 +81,9 @@ namespace Assignment
             foreach (IncompleteService service in services)
             {
                 if (cboUrgency.SelectedIndex == 1)
-                    if (Convert.ToInt32(service.Urgent) == 1) continue;
+                    if (service.Urgent == true) continue;
                 else if (cboUrgency.SelectedIndex == 2)
-                    if (Convert.ToInt32(service.Urgent) == 0) continue;
+                    if (service.Urgent == false) continue;
 
                 addListedService(service);
             }
@@ -98,7 +106,7 @@ namespace Assignment
         //EVENTS
         public FormTCusServices(User user)
         {
-            this.technician = user;
+            technician = user;
             InitializeComponent();
         }
 
@@ -121,14 +129,14 @@ namespace Assignment
             if (cboUrgency.SelectedIndex != 0)
                 cboUrgency.SelectedIndex = 0;
 
-            this.selectedService = null;
+            selectedService = null;
             loader();
             urgencyFilter();
         }
 
         private void btnFilterApply_Click(object sender, EventArgs e)
         {
-            this.selectedService = null;
+            selectedService = null;
             clearListed();
             loader();
             urgencyFilter();
@@ -138,7 +146,7 @@ namespace Assignment
         {
             int selectedIndex = Convert.ToInt32(lstServices.SelectedIndex);
             if (selectedIndex >= 0)
-                this.selectedService = listedServices[selectedIndex];
+                selectedService = listedServices[selectedIndex];
             loader();
         }
 
@@ -147,9 +155,9 @@ namespace Assignment
             if (selectedService != null)
             {
                 FormTCompletion obj1 = new FormTCompletion(technician, selectedService);
-                this.Hide();
+                Hide();
                 obj1.ShowDialog();
-                this.Close();
+                Close();
             }
             else
                 MessageBox.Show("Please select a service to complete.");
@@ -158,9 +166,9 @@ namespace Assignment
         private void btnCompleteServices_Click(object sender, EventArgs e)
         {
             FormTCompletion obj1 = new FormTCompletion(technician, null);
-            this.Hide();
+            Hide();
             obj1.ShowDialog();
-            this.Close();
+            Close();
         }
     }
 }
