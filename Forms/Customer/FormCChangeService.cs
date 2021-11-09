@@ -22,19 +22,27 @@ namespace Assignment.Forms.Customer
         {
             this.customer = user;
             InitializeComponent();
-            lblCustChangeDispCurrent.Text = servDesc();
+            lblCustChangeDispCurrent.Text = servDescDel(true);
             lblCustChangeDispPrice.Text = "RM" + servPrice();
         }
 
-        //display
+        //display & function
         //method to retrieve current service name
-        private string servDesc()
+        //true = return name, false = delete data
+        private string servDescDel(bool returndata)
         {
             IncompleteService[] serviceDesc = IncompleteService.GetAll();
             foreach (IncompleteService s in serviceDesc)
             {
-                if (s.User.Id == customer.Id)
+                if ((s.User.Id == customer.Id) && (returndata == true))
+                {
                     return s.Service.Name;
+                }
+
+                else if ((s.User.Id == customer.Id) && (returndata == false))
+                {
+                    s.Delete();
+                }
             }
 
             return "No pending services.";
@@ -116,30 +124,6 @@ namespace Assignment.Forms.Customer
         }
 
         //function
-        //method for identifying if original service was urgent
-        private bool deleteUrgent()
-        {
-            IncompleteService[] serviceDetails = IncompleteService.GetAll();
-            foreach (IncompleteService s in serviceDetails)
-            {
-                if (s.User.Id == customer.Id)
-                {
-                    if (s.Urgent == true)
-                    {
-                        return true;
-                    }
-
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        //function
         //method for identifying if changed service is urgent
         private bool changeUrgent()
         {
@@ -204,40 +188,30 @@ namespace Assignment.Forms.Customer
         }
 
         //function
-        //method for service parameter during update/delete
-        //1 = delete, else(using 2 in code) = update
-        private Service servicedb(int mode)
+        //method for service parameter during update
+        private Service servicedb()
         {
-            if (mode == 1)
-            { 
-                return Service.GetService(servindex());
-            }
-
-            else 
+            rbtnlist();
+            for (int r = 0; r < radioButton.Length; r++)
             {
-                rbtnlist();
-                for (int r = 0; r < radioButton.Length; r++)
+                if (radioButton[r].Checked)
                 {
-                    if (radioButton[r].Checked)
-                    {
-                        return Service.GetService(r + 1);
-                    }
+                    return Service.GetService(r + 1);
                 }
-
-                return null;
             }
+
+            return null;
         }
 
         //function
         //method to delete the incomplete service and add new incomplete service (change service)
         private void changeUpdate()
         {
-            string indicator = servDesc();
+            string indicator = servDescDel(true);
             if (indicator != "No pending services.")
             {
-                IncompleteService deleteData = IncompleteService.Save(customer, servicedb(1), deleteUrgent());
-                deleteData.Delete();
-                IncompleteService updateData = IncompleteService.Save(customer, servicedb(2), changeUrgent());
+                servDescDel(false);
+                IncompleteService updateData = IncompleteService.Save(customer, servicedb(), changeUrgent());
                 updateData.Update();
                 MessageBox.Show("Service changed successfully. Bringing you back to the homepage.");
                 FormCHome objCHome = new FormCHome(customer);
