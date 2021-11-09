@@ -72,9 +72,9 @@ namespace Assignment
 
             foreach (IncompleteService service in services)
             {
-                if (cboServiceStatus.SelectedIndex == 1)
+                if (cboUrgency.SelectedIndex == 1)
                     if (Convert.ToInt32(service.Urgent) == 1) continue;
-                else if (cboServiceStatus.SelectedIndex == 2)
+                else if (cboUrgency.SelectedIndex == 2)
                     if (Convert.ToInt32(service.Urgent) == 0) continue;
 
                 addListedService(service);
@@ -106,7 +106,7 @@ namespace Assignment
         {
             //Setting default state for comboboxes
             cboDisplay.SelectedIndex = 0;
-            cboServiceStatus.SelectedIndex = 0;
+            cboUrgency.SelectedIndex = 0;
 
             fetchServices();
             loader();
@@ -118,8 +118,8 @@ namespace Assignment
             //Resetting comboboxes
             if (cboDisplay.SelectedIndex != 0)
                 cboDisplay.SelectedIndex = 0;
-            if (cboServiceStatus.SelectedIndex != 0)
-                cboServiceStatus.SelectedIndex = 0;
+            if (cboUrgency.SelectedIndex != 0)
+                cboUrgency.SelectedIndex = 0;
 
             this.selectedService = null;
             loader();

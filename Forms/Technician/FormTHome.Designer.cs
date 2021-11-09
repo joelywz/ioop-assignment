@@ -143,7 +143,7 @@ namespace Assignment
             this.Padding = new System.Windows.Forms.Padding(5);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Brics";
+            this.Text = "Brics Laptop Repair";
             this.grpFunctions.ResumeLayout(false);
             this.grpFunctions.PerformLayout();
             this.ResumeLayout(false);

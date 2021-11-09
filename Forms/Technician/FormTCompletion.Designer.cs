@@ -44,7 +44,7 @@ namespace Assignment
             this.lblSerTypeContent = new System.Windows.Forms.Label();
             this.lblSerType = new System.Windows.Forms.Label();
             this.grpCollectionDate = new System.Windows.Forms.GroupBox();
-            this.calCollectionDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpCollectionDate = new System.Windows.Forms.DateTimePicker();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnViewServices = new System.Windows.Forms.Button();
             this.grpID.SuspendLayout();
@@ -192,7 +192,7 @@ namespace Assignment
             // 
             // grpCollectionDate
             // 
-            this.grpCollectionDate.Controls.Add(this.calCollectionDate);
+            this.grpCollectionDate.Controls.Add(this.dtpCollectionDate);
             this.grpCollectionDate.Location = new System.Drawing.Point(257, 371);
             this.grpCollectionDate.Margin = new System.Windows.Forms.Padding(5);
             this.grpCollectionDate.Name = "grpCollectionDate";
@@ -201,12 +201,12 @@ namespace Assignment
             this.grpCollectionDate.TabStop = false;
             this.grpCollectionDate.Text = "Collection Date";
             // 
-            // calCollectionDate
+            // dtpCollectionDate
             // 
-            this.calCollectionDate.Location = new System.Drawing.Point(6, 21);
-            this.calCollectionDate.Name = "calCollectionDate";
-            this.calCollectionDate.Size = new System.Drawing.Size(250, 22);
-            this.calCollectionDate.TabIndex = 0;
+            this.dtpCollectionDate.Location = new System.Drawing.Point(6, 21);
+            this.dtpCollectionDate.Name = "dtpCollectionDate";
+            this.dtpCollectionDate.Size = new System.Drawing.Size(250, 22);
+            this.dtpCollectionDate.TabIndex = 0;
             // 
             // lblTitle
             // 
@@ -252,7 +252,7 @@ namespace Assignment
             this.Padding = new System.Windows.Forms.Padding(5);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Brics";
+            this.Text = "Brics Laptop Repair";
             this.Load += new System.EventHandler(this.FormTCompletion_Load);
             this.grpID.ResumeLayout(false);
             this.grpID.PerformLayout();
@@ -278,7 +278,7 @@ namespace Assignment
         private System.Windows.Forms.RichTextBox rtxtDescription;
         private System.Windows.Forms.Button btnComplete;
         private System.Windows.Forms.GroupBox grpCollectionDate;
-        private System.Windows.Forms.DateTimePicker calCollectionDate;
+        private System.Windows.Forms.DateTimePicker dtpCollectionDate;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnViewServices;
         private System.Windows.Forms.Label lblSerType;

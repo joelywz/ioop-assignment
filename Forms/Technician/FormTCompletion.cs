@@ -144,6 +144,7 @@ namespace Assignment
 
             fetchServices();
             search(1);
+            loader();
         }
 
         private void btnIDSearch_Click(object sender, EventArgs e)
@@ -191,7 +192,7 @@ namespace Assignment
                     return;
                 }
 
-                CompletedService compService = CompletedService.Save(selectedService, technician, rtxtDescription.Text, calCollectionDate.Value);
+                CompletedService compService = CompletedService.Save(selectedService, technician, rtxtDescription.Text, dtpCollectionDate.Value);
                 MessageBox.Show("Service for " + selectedService.User.FullName + " has been completed.");
                 this.selectedService = null;
                 rtxtDescription.Clear();
