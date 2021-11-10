@@ -41,21 +41,21 @@ namespace Assignment
             this.lblCurTotal = new System.Windows.Forms.Label();
             this.lblCurServiceCreated = new System.Windows.Forms.Label();
             this.btnCustServBack = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpCustServ2 = new System.Windows.Forms.GroupBox();
             this.txtServiceCompleted = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtServiceCreated = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtServiceName = new System.Windows.Forms.TextBox();
             this.txtServiceId = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblServiceCompleted = new System.Windows.Forms.Label();
             this.lblServiceCreated = new System.Windows.Forms.Label();
             this.lblServiceName = new System.Windows.Forms.Label();
             this.lblServiceId = new System.Windows.Forms.Label();
             this.grpCustServ.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpCustServ2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCustServTitle
@@ -168,26 +168,26 @@ namespace Assignment
             this.btnCustServBack.UseVisualStyleBackColor = true;
             this.btnCustServBack.Click += new System.EventHandler(this.btnCustServBack_Click);
             // 
-            // groupBox1
+            // grpCustServ2
             // 
-            this.groupBox1.Controls.Add(this.txtServiceCompleted);
-            this.groupBox1.Controls.Add(this.txtTotal);
-            this.groupBox1.Controls.Add(this.txtServiceCreated);
-            this.groupBox1.Controls.Add(this.txtDescription);
-            this.groupBox1.Controls.Add(this.txtServiceName);
-            this.groupBox1.Controls.Add(this.txtServiceId);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.lblDescription);
-            this.groupBox1.Controls.Add(this.lblServiceCompleted);
-            this.groupBox1.Controls.Add(this.lblServiceCreated);
-            this.groupBox1.Controls.Add(this.lblServiceName);
-            this.groupBox1.Controls.Add(this.lblServiceId);
-            this.groupBox1.Location = new System.Drawing.Point(24, 236);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(352, 255);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ready to be Collected";
+            this.grpCustServ2.Controls.Add(this.txtServiceCompleted);
+            this.grpCustServ2.Controls.Add(this.txtTotal);
+            this.grpCustServ2.Controls.Add(this.txtServiceCreated);
+            this.grpCustServ2.Controls.Add(this.txtDescription);
+            this.grpCustServ2.Controls.Add(this.txtServiceName);
+            this.grpCustServ2.Controls.Add(this.txtServiceId);
+            this.grpCustServ2.Controls.Add(this.lblTotal);
+            this.grpCustServ2.Controls.Add(this.lblDescription);
+            this.grpCustServ2.Controls.Add(this.lblServiceCompleted);
+            this.grpCustServ2.Controls.Add(this.lblServiceCreated);
+            this.grpCustServ2.Controls.Add(this.lblServiceName);
+            this.grpCustServ2.Controls.Add(this.lblServiceId);
+            this.grpCustServ2.Location = new System.Drawing.Point(24, 236);
+            this.grpCustServ2.Name = "grpCustServ2";
+            this.grpCustServ2.Size = new System.Drawing.Size(352, 255);
+            this.grpCustServ2.TabIndex = 1;
+            this.grpCustServ2.TabStop = false;
+            this.grpCustServ2.Text = "Ready to be Collected";
             // 
             // txtServiceCompleted
             // 
@@ -238,14 +238,14 @@ namespace Assignment
             this.txtServiceId.Size = new System.Drawing.Size(100, 20);
             this.txtServiceId.TabIndex = 1;
             // 
-            // label6
+            // lblTotal
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 198);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Total";
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(8, 198);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(31, 13);
+            this.lblTotal.TabIndex = 0;
+            this.lblTotal.Text = "Total";
             // 
             // lblDescription
             // 
@@ -299,7 +299,7 @@ namespace Assignment
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(392, 551);
             this.Controls.Add(this.btnCustServBack);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpCustServ2);
             this.Controls.Add(this.grpCustServ);
             this.Controls.Add(this.lblCustServTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -309,8 +309,8 @@ namespace Assignment
             this.Load += new System.EventHandler(this.FormCServiceDetails_Load);
             this.grpCustServ.ResumeLayout(false);
             this.grpCustServ.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpCustServ2.ResumeLayout(false);
+            this.grpCustServ2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,14 +329,14 @@ namespace Assignment
         private System.Windows.Forms.TextBox txtCurServiceName;
         private System.Windows.Forms.Label lblCurTotal;
         private System.Windows.Forms.Label lblCurServiceCreated;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpCustServ2;
         private System.Windows.Forms.TextBox txtServiceCompleted;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtServiceCreated;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtServiceName;
         private System.Windows.Forms.TextBox txtServiceId;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblServiceCompleted;
         private System.Windows.Forms.Label lblServiceCreated;
