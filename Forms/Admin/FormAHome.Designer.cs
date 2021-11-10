@@ -609,7 +609,7 @@ namespace Assignment
             this.Controls.Add(this.grpRegister);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAHome";
-            this.Text = "Admin\'s Homepage";
+            this.Text = "Brics Laptop Repair";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.grpRegister.ResumeLayout(false);
             this.grpRegister.PerformLayout();
