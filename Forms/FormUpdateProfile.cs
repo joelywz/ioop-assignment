@@ -27,10 +27,6 @@ namespace Assignment
         /// </summary>
         private void Loader()
         {
-            // Disable save/cancel button
-            btnSave.Enabled = false;
-            btnCancel.Enabled = false;
-
             // Get the role name of logged in user
             String roleName = User.RoleToString(LoggedInUser.Role);
 
@@ -53,6 +49,7 @@ namespace Assignment
                 dtpDateOfBirth.Hide();
             }
             btnSave.Enabled = false;
+            btnCancel.Enabled = false;
         }
 
         private void FormUpdateProfile_Load(object sender, EventArgs e)
@@ -63,6 +60,7 @@ namespace Assignment
         private void btnEdit_Click(object sender, EventArgs e)
         {
             SetEditEnabled(true);
+            btnCancel.Enabled = true;
 
         }
 
