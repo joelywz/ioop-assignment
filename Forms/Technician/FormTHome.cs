@@ -17,7 +17,7 @@ namespace Assignment
 
         public FormTHome(User user)
         {
-            this.technician = user;
+            technician = user;
             InitializeComponent();
         }
         
@@ -37,15 +37,15 @@ namespace Assignment
             if (rdoUpdateProfile.Checked)
                 menuForm = new FormUpdateProfile(technician);
 
-            this.Hide();
+            Hide();
             menuForm.ShowDialog();
-            this.Show();
+            Show();
 
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
