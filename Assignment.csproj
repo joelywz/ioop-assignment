@@ -106,6 +106,11 @@
     <Compile Include="Forms\Receptionist\FormRNewCus.Designer.cs">
       <DependentUpon>FormRNewCus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="src\BetterSqlCommand.cs" />
     <Compile Include="src\CompletedService.cs" />
     <Compile Include="src\Database.cs" />
@@ -198,6 +203,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Technician\FormTHome.resx">
       <DependentUpon>FormTHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
