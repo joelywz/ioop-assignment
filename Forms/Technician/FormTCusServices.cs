@@ -82,7 +82,7 @@ namespace Assignment
             {
                 if (cboUrgency.SelectedIndex == 1)
                     if (service.Urgent == true) continue;
-                else if (cboUrgency.SelectedIndex == 2)
+                if (cboUrgency.SelectedIndex == 2)
                     if (service.Urgent == false) continue;
 
                 addListedService(service);
