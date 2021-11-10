@@ -25,7 +25,6 @@ namespace Assignment
         private void btnCustServChg_Click(object sender, EventArgs e)
         {
             //customer is going to change service themselves
-            // (lblCustServDispID.Text != "-")
             if (this.IncompleteService == null) return;
 
             FormCChangeService objCChangeService = new FormCChangeService(this.IncompleteService);
