@@ -24,7 +24,7 @@ namespace Assignment
                 return;
             }
             // Main
-            //Application.Run(new FormLogin());
+            Application.Run(new FormLogin());
 
 
             // You can automatically log in to your form here by uncommenting the right one
