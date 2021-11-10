@@ -32,7 +32,7 @@ namespace Assignment
         {
             FetchCompletedService();
             txtCustomerName.Text = Customer.FullName;
-            lblPaymentInfo.Text = "";
+            lblPaymentStatus.Text = "";
             rdoAll.Checked = true;
             Filter();
 
@@ -60,7 +60,7 @@ namespace Assignment
         {
             if (SelectedService == null) return;
 
-            DialogResult confirmation = MessageBox.Show("Confirm payment for " + SelectedService.User.FullName + " at RM " + SelectedService.Price,
+            DialogResult confirmation = MessageBox.Show("Confirm payment for " + SelectedService.User.FullName + " with the total of RM " + SelectedService.Price,
                 "Confirmaton" , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             
             if (confirmation == DialogResult.OK)
@@ -86,21 +86,21 @@ namespace Assignment
 
             txtServiceId.Text = SelectedService.Id.ToString();
             txtServiceName.Text = SelectedService.Service.Name;
-            txtCompleted.Text = SelectedService.DateTimeCompleted.ToString("dd-MM-yyyy");
-            txtCreated.Text = SelectedService.DateTimeCreated.ToString("dd-MM-yyyy");
-            txtTotalAmount.Text = "RM " + SelectedService.Price;
+            txtServiceCompleted.Text = SelectedService.DateTimeCompleted.ToString("dd-MM-yyyy");
+            txtServiceCreated.Text = SelectedService.DateTimeCreated.ToString("dd-MM-yyyy");
+            txtTotal.Text = "RM " + SelectedService.Price;
             txtDescription.Text = SelectedService.Description;
 
             if (SelectedService.HasPaid)
             {
-                lblPaymentInfo.Text = "Payment Completed";
-                lblPaymentInfo.ForeColor = Color.Green;
+                lblPaymentStatus.Text = "Payment Completed";
+                lblPaymentStatus.ForeColor = Color.Green;
                 btnPaid.Enabled = false;
             }
             else
             {
-                lblPaymentInfo.Text = "Outstanding Payment";
-                lblPaymentInfo.ForeColor = Color.Red;
+                lblPaymentStatus.Text = "Outstanding Payment";
+                lblPaymentStatus.ForeColor = Color.Red;
                 btnPaid.Enabled = true;
             }
 

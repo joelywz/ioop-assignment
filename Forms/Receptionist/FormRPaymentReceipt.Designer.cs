@@ -29,6 +29,7 @@ namespace Assignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRPaymentReceipt));
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpPayments = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -39,21 +40,21 @@ namespace Assignment
             this.rdoAll = new System.Windows.Forms.RadioButton();
             this.grpReceipt = new System.Windows.Forms.GroupBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.txtTotalAmount = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.txtCompleted = new System.Windows.Forms.TextBox();
-            this.txtCreated = new System.Windows.Forms.TextBox();
+            this.txtServiceCompleted = new System.Windows.Forms.TextBox();
+            this.txtServiceCreated = new System.Windows.Forms.TextBox();
             this.txtServiceName = new System.Windows.Forms.TextBox();
             this.txtServiceId = new System.Windows.Forms.TextBox();
-            this.lblPaymentInfo = new System.Windows.Forms.Label();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.lblPaymentStatus = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.lblServiceId = new System.Windows.Forms.Label();
             this.btnPaid = new System.Windows.Forms.Button();
             this.lblServiceName = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.lblCustomerName = new System.Windows.Forms.Label();
-            this.lblCompletedAt = new System.Windows.Forms.Label();
-            this.lblCreatedAt = new System.Windows.Forms.Label();
+            this.lblCustName = new System.Windows.Forms.Label();
+            this.lblServiceCompleted = new System.Windows.Forms.Label();
+            this.lblServiceCreated = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.grpPayments.SuspendLayout();
             this.grpReceipt.SuspendLayout();
@@ -149,21 +150,21 @@ namespace Assignment
             // grpReceipt
             // 
             this.grpReceipt.Controls.Add(this.txtDescription);
-            this.grpReceipt.Controls.Add(this.txtTotalAmount);
+            this.grpReceipt.Controls.Add(this.txtTotal);
             this.grpReceipt.Controls.Add(this.txtCustomerName);
-            this.grpReceipt.Controls.Add(this.txtCompleted);
-            this.grpReceipt.Controls.Add(this.txtCreated);
+            this.grpReceipt.Controls.Add(this.txtServiceCompleted);
+            this.grpReceipt.Controls.Add(this.txtServiceCreated);
             this.grpReceipt.Controls.Add(this.txtServiceName);
             this.grpReceipt.Controls.Add(this.txtServiceId);
-            this.grpReceipt.Controls.Add(this.lblPaymentInfo);
-            this.grpReceipt.Controls.Add(this.lblTotalAmount);
+            this.grpReceipt.Controls.Add(this.lblPaymentStatus);
+            this.grpReceipt.Controls.Add(this.lblTotal);
             this.grpReceipt.Controls.Add(this.lblServiceId);
             this.grpReceipt.Controls.Add(this.btnPaid);
             this.grpReceipt.Controls.Add(this.lblServiceName);
             this.grpReceipt.Controls.Add(this.lblDescription);
-            this.grpReceipt.Controls.Add(this.lblCustomerName);
-            this.grpReceipt.Controls.Add(this.lblCompletedAt);
-            this.grpReceipt.Controls.Add(this.lblCreatedAt);
+            this.grpReceipt.Controls.Add(this.lblCustName);
+            this.grpReceipt.Controls.Add(this.lblServiceCompleted);
+            this.grpReceipt.Controls.Add(this.lblServiceCreated);
             this.grpReceipt.Location = new System.Drawing.Point(425, 59);
             this.grpReceipt.Name = "grpReceipt";
             this.grpReceipt.Size = new System.Drawing.Size(306, 427);
@@ -180,13 +181,13 @@ namespace Assignment
             this.txtDescription.Size = new System.Drawing.Size(265, 71);
             this.txtDescription.TabIndex = 8;
             // 
-            // txtTotalAmount
+            // txtTotal
             // 
-            this.txtTotalAmount.Enabled = false;
-            this.txtTotalAmount.Location = new System.Drawing.Point(22, 315);
-            this.txtTotalAmount.Name = "txtTotalAmount";
-            this.txtTotalAmount.Size = new System.Drawing.Size(265, 20);
-            this.txtTotalAmount.TabIndex = 7;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(22, 315);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(265, 20);
+            this.txtTotal.TabIndex = 7;
             // 
             // txtCustomerName
             // 
@@ -196,21 +197,21 @@ namespace Assignment
             this.txtCustomerName.Size = new System.Drawing.Size(265, 20);
             this.txtCustomerName.TabIndex = 7;
             // 
-            // txtCompleted
+            // txtServiceCompleted
             // 
-            this.txtCompleted.Enabled = false;
-            this.txtCompleted.Location = new System.Drawing.Point(177, 126);
-            this.txtCompleted.Name = "txtCompleted";
-            this.txtCompleted.Size = new System.Drawing.Size(101, 20);
-            this.txtCompleted.TabIndex = 6;
+            this.txtServiceCompleted.Enabled = false;
+            this.txtServiceCompleted.Location = new System.Drawing.Point(177, 126);
+            this.txtServiceCompleted.Name = "txtServiceCompleted";
+            this.txtServiceCompleted.Size = new System.Drawing.Size(101, 20);
+            this.txtServiceCompleted.TabIndex = 6;
             // 
-            // txtCreated
+            // txtServiceCreated
             // 
-            this.txtCreated.Enabled = false;
-            this.txtCreated.Location = new System.Drawing.Point(22, 126);
-            this.txtCreated.Name = "txtCreated";
-            this.txtCreated.Size = new System.Drawing.Size(101, 20);
-            this.txtCreated.TabIndex = 6;
+            this.txtServiceCreated.Enabled = false;
+            this.txtServiceCreated.Location = new System.Drawing.Point(22, 126);
+            this.txtServiceCreated.Name = "txtServiceCreated";
+            this.txtServiceCreated.Size = new System.Drawing.Size(101, 20);
+            this.txtServiceCreated.TabIndex = 6;
             // 
             // txtServiceName
             // 
@@ -228,23 +229,23 @@ namespace Assignment
             this.txtServiceId.Size = new System.Drawing.Size(265, 20);
             this.txtServiceId.TabIndex = 6;
             // 
-            // lblPaymentInfo
+            // lblPaymentStatus
             // 
-            this.lblPaymentInfo.AutoSize = true;
-            this.lblPaymentInfo.Location = new System.Drawing.Point(19, 350);
-            this.lblPaymentInfo.Name = "lblPaymentInfo";
-            this.lblPaymentInfo.Size = new System.Drawing.Size(69, 13);
-            this.lblPaymentInfo.TabIndex = 3;
-            this.lblPaymentInfo.Text = "Payment Info";
+            this.lblPaymentStatus.AutoSize = true;
+            this.lblPaymentStatus.Location = new System.Drawing.Point(19, 350);
+            this.lblPaymentStatus.Name = "lblPaymentStatus";
+            this.lblPaymentStatus.Size = new System.Drawing.Size(69, 13);
+            this.lblPaymentStatus.TabIndex = 3;
+            this.lblPaymentStatus.Text = "Payment Info";
             // 
-            // lblTotalAmount
+            // lblTotal
             // 
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Location = new System.Drawing.Point(19, 298);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(70, 13);
-            this.lblTotalAmount.TabIndex = 3;
-            this.lblTotalAmount.Text = "Total Amount";
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(19, 298);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(70, 13);
+            this.lblTotal.TabIndex = 3;
+            this.lblTotal.Text = "Total Amount";
             // 
             // lblServiceId
             // 
@@ -283,32 +284,32 @@ namespace Assignment
             this.lblDescription.TabIndex = 0;
             this.lblDescription.Text = "Description";
             // 
-            // lblCustomerName
+            // lblCustName
             // 
-            this.lblCustomerName.AutoSize = true;
-            this.lblCustomerName.Location = new System.Drawing.Point(19, 159);
-            this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.Size = new System.Drawing.Size(51, 13);
-            this.lblCustomerName.TabIndex = 0;
-            this.lblCustomerName.Text = "Customer";
+            this.lblCustName.AutoSize = true;
+            this.lblCustName.Location = new System.Drawing.Point(19, 159);
+            this.lblCustName.Name = "lblCustName";
+            this.lblCustName.Size = new System.Drawing.Size(89, 13);
+            this.lblCustName.TabIndex = 0;
+            this.lblCustName.Text = "Customer\'s Name";
             // 
-            // lblCompletedAt
+            // lblServiceCompleted
             // 
-            this.lblCompletedAt.AutoSize = true;
-            this.lblCompletedAt.Location = new System.Drawing.Point(174, 110);
-            this.lblCompletedAt.Name = "lblCompletedAt";
-            this.lblCompletedAt.Size = new System.Drawing.Size(96, 13);
-            this.lblCompletedAt.TabIndex = 0;
-            this.lblCompletedAt.Text = "Service Completed";
+            this.lblServiceCompleted.AutoSize = true;
+            this.lblServiceCompleted.Location = new System.Drawing.Point(174, 110);
+            this.lblServiceCompleted.Name = "lblServiceCompleted";
+            this.lblServiceCompleted.Size = new System.Drawing.Size(96, 13);
+            this.lblServiceCompleted.TabIndex = 0;
+            this.lblServiceCompleted.Text = "Service Completed";
             // 
-            // lblCreatedAt
+            // lblServiceCreated
             // 
-            this.lblCreatedAt.AutoSize = true;
-            this.lblCreatedAt.Location = new System.Drawing.Point(19, 110);
-            this.lblCreatedAt.Name = "lblCreatedAt";
-            this.lblCreatedAt.Size = new System.Drawing.Size(83, 13);
-            this.lblCreatedAt.TabIndex = 0;
-            this.lblCreatedAt.Text = "Service Created";
+            this.lblServiceCreated.AutoSize = true;
+            this.lblServiceCreated.Location = new System.Drawing.Point(19, 110);
+            this.lblServiceCreated.Name = "lblServiceCreated";
+            this.lblServiceCreated.Size = new System.Drawing.Size(83, 13);
+            this.lblServiceCreated.TabIndex = 0;
+            this.lblServiceCreated.Text = "Service Created";
             // 
             // btnClose
             // 
@@ -325,6 +326,7 @@ namespace Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(742, 511);
             this.Controls.Add(this.btnClose);
@@ -332,9 +334,10 @@ namespace Assignment
             this.Controls.Add(this.grpPayments);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormRPaymentReceipt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Payment and Receipt";
+            this.Text = "Brics Laptop Repair";
             this.Load += new System.EventHandler(this.FormRPaymentReceipt_Load);
             this.grpPayments.ResumeLayout(false);
             this.grpPayments.PerformLayout();
@@ -351,27 +354,27 @@ namespace Assignment
         private System.Windows.Forms.GroupBox grpPayments;
         private System.Windows.Forms.ListBox lstPayments;
         private System.Windows.Forms.GroupBox grpReceipt;
-        private System.Windows.Forms.Label lblCreatedAt;
+        private System.Windows.Forms.Label lblServiceCreated;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblTotalAmount;
+        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnPaid;
-        private System.Windows.Forms.Label lblCustomerName;
+        private System.Windows.Forms.Label lblCustName;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.RadioButton rdoSettled;
         private System.Windows.Forms.RadioButton rdoOutstanding;
         private System.Windows.Forms.RadioButton rdoAll;
-        private System.Windows.Forms.TextBox txtTotalAmount;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.TextBox txtServiceName;
         private System.Windows.Forms.TextBox txtServiceId;
-        private System.Windows.Forms.Label lblPaymentInfo;
+        private System.Windows.Forms.Label lblPaymentStatus;
         private System.Windows.Forms.Label lblServiceId;
         private System.Windows.Forms.Label lblServiceName;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblCompletedAt;
+        private System.Windows.Forms.Label lblServiceCompleted;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.TextBox txtCompleted;
-        private System.Windows.Forms.TextBox txtCreated;
+        private System.Windows.Forms.TextBox txtServiceCompleted;
+        private System.Windows.Forms.TextBox txtServiceCreated;
     }
 }

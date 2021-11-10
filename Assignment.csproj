@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -69,6 +69,12 @@
     </Compile>
     <Compile Include="Forms\Admin\FormAHome.Designer.cs">
       <DependentUpon>FormAHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customer\FormCChangeService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customer\FormCChangeService.Designer.cs">
+      <DependentUpon>FormCChangeService.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customer\FormCHome.cs">
       <SubType>Form</SubType>
@@ -154,6 +160,9 @@
     <EmbeddedResource Include="Forms\Admin\FormAHome.resx">
       <DependentUpon>FormAHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customer\FormCChangeService.resx">
+      <DependentUpon>FormCChangeService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\FormCHome.resx">
       <DependentUpon>FormCHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,15 +193,6 @@
     <EmbeddedResource Include="Forms\Receptionist\FormRPaymentReceipt.resx">
       <DependentUpon>FormRPaymentReceipt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\Technician\FormTCompletion.resx">
       <DependentUpon>FormTCompletion.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +223,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\db.mdf">
