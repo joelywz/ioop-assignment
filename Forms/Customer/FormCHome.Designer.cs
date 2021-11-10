@@ -50,10 +50,10 @@ namespace Assignment
             // 
             // btnCustServ
             // 
-            this.btnCustServ.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCustServ.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustServ.Location = new System.Drawing.Point(39, 206);
             this.btnCustServ.Name = "btnCustServ";
-            this.btnCustServ.Size = new System.Drawing.Size(242, 34);
+            this.btnCustServ.Size = new System.Drawing.Size(242, 39);
             this.btnCustServ.TabIndex = 2;
             this.btnCustServ.Text = "View Service";
             this.btnCustServ.UseVisualStyleBackColor = true;
@@ -95,6 +95,7 @@ namespace Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(323, 390);
             this.Controls.Add(this.picCustHome);
             this.Controls.Add(this.btnCustLogout);
@@ -103,6 +104,7 @@ namespace Assignment
             this.Controls.Add(this.lblCustIntro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Brics Laptop Repair";
             ((System.ComponentModel.ISupportInitialize)(this.picCustHome)).EndInit();
             this.ResumeLayout(false);

@@ -136,7 +136,7 @@ namespace Assignment
         {
             // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            string cmdText = "SELECT * FROM [CompletedService] WHERE [userId]=@userId;";
+            string cmdText = "SELECT * FROM [CompletedService] WHERE [userId]=@userId ORDER BY [dateTimeCompleted] DESC;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, user.Id);
 
@@ -183,6 +183,33 @@ namespace Assignment
             conn.Close();
 
             return cs.ToArray();
+        }
+
+        public static CompletedService GetLatestByUser(User user)
+        {
+            // Preperation
+            SqlConnection conn = Database.GetSqlConnection();
+            string cmdText = "SELECT TOP 1 * FROM [CompletedService] WHERE [userId]=@userId; ";
+            BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
+                .AddParameter<int>("@userId", System.Data.SqlDbType.Int, user.Id);
+
+            // Execution
+            conn.Open();
+            SqlDataReader reader = bsc.Cmd.ExecuteReader();
+
+            CompletedService cs = null;
+            while (reader.Read())
+            {
+                cs = Reader(reader);
+                break;
+            }
+
+            // Clean up
+            reader.Close();
+            bsc.Dispose();
+            conn.Close();
+
+            return cs;
         }
 
         /// <summary>

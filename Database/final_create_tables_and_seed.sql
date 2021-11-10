@@ -64,6 +64,7 @@ INSERT INTO [dbo].[User] ([userId], [username], [fullName], [email], [password],
 INSERT INTO [dbo].[User] ([userId], [username], [fullName], [email], [password], [phoneNo], [ic], [dateOfBirth], [role]) VALUES (8, N'peglegge', N'Peg Legge', N'iampeg@hotmail.com', N'peglegge', N'0122837679', NULL, NULL, 0)
 SET IDENTITY_INSERT [dbo].[User] OFF
 
+-- Services
 INSERT INTO [dbo].[Service] ([serviceId], [price], [urgentPrice], [name]) VALUES (1, 50, 80, N'Remove virus, malware or spyware')
 INSERT INTO [dbo].[Service] ([serviceId], [price], [urgentPrice], [name]) VALUES (2, 60, 90, N'Troubleshot and fix computer running slow')
 INSERT INTO [dbo].[Service] ([serviceId], [price], [urgentPrice], [name]) VALUES (3, 380, 430, N'Laptop screen replacement')
@@ -73,11 +74,13 @@ INSERT INTO [dbo].[Service] ([serviceId], [price], [urgentPrice], [name]) VALUES
 INSERT INTO [dbo].[Service] ([serviceId], [price], [urgentPrice], [name]) VALUES (7, 80, 130, N'Data backup and recovery')
 INSERT INTO [dbo].[Service] ([serviceId], [price], [urgentPrice], [name]) VALUES (8, 70, 100, N'Internet connectivity issues')
 
+-- Incomplete Service
 INSERT INTO [dbo].[IncompleteService] ([userId], [serviceId], [urgent], [dateTimeCreated]) VALUES (1, 4, 1, N'2021-11-09 23:31:20')
 INSERT INTO [dbo].[IncompleteService] ([userId], [serviceId], [urgent], [dateTimeCreated]) VALUES (6, 7, 1, N'2021-11-09 23:32:56')
-INSERT INTO [dbo].[IncompleteService] ([userId], [serviceId], [urgent], [dateTimeCreated]) VALUES (7, 5, 1, N'2021-10-26 13:08:50')
-INSERT INTO [dbo].[IncompleteService] ([userId], [serviceId], [urgent], [dateTimeCreated]) VALUES (8, 3, 1, N'2021-10-26 10:35:09')
+INSERT INTO [dbo].[IncompleteService] ([userId], [serviceId], [urgent], [dateTimeCreated]) VALUES (7, 5, 0, N'2021-10-26 13:08:50')
+INSERT INTO [dbo].[IncompleteService] ([userId], [serviceId], [urgent], [dateTimeCreated]) VALUES (8, 3, 0, N'2021-10-26 10:35:09')
 
+-- Completed Service
 SET IDENTITY_INSERT [dbo].[CompletedService] ON
 INSERT INTO [dbo].[CompletedService] ([completedServiceId], [userId], [technicianId], [serviceId], [urgent], [price], [hasPaid], [description], [dateTimeCreated], [dateTimeCompleted]) VALUES (1, 6, 4, 6, 1, 150, 1, N'Warranty 1 year.', N'2021-06-26 10:23:38', N'2021-06-26 16:24:17')
 INSERT INTO [dbo].[CompletedService] ([completedServiceId], [userId], [technicianId], [serviceId], [urgent], [price], [hasPaid], [description], [dateTimeCreated], [dateTimeCompleted]) VALUES (2, 7, 3, 2, 1, 90, 1, N'Warranty 2 years.', N'2021-07-15 10:23:38', N'2021-07-16 16:24:17')

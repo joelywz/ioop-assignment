@@ -223,6 +223,7 @@ namespace Assignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.lblCustProfTitle);
             this.Controls.Add(this.btnCustProfBack);
@@ -234,6 +235,7 @@ namespace Assignment
             this.Controls.Add(this.lblCustProfUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Brics Laptop Repair";
             this.grpCustProfServ.ResumeLayout(false);
             this.grpCustProfServ.PerformLayout();
