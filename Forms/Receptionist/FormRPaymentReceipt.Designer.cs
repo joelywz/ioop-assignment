@@ -258,6 +258,7 @@ namespace Assignment
             // 
             // btnPaid
             // 
+            this.btnPaid.Enabled = false;
             this.btnPaid.Location = new System.Drawing.Point(22, 381);
             this.btnPaid.Name = "btnPaid";
             this.btnPaid.Size = new System.Drawing.Size(265, 28);
