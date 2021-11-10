@@ -136,7 +136,7 @@ namespace Assignment
         {
             // Preperation
             SqlConnection conn = Database.GetSqlConnection();
-            string cmdText = "SELECT * FROM [CompletedService] WHERE [userId]=@userId;";
+            string cmdText = "SELECT * FROM [CompletedService] WHERE [userId]=@userId ORDER BY [dateTimeCompleted] DESC;";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, user.Id);
 
