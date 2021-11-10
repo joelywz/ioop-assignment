@@ -47,6 +47,7 @@ namespace Assignment
             this.btnService = new System.Windows.Forms.Button();
             this.btnViewPayment = new System.Windows.Forms.Button();
             this.grpSelectedCust = new System.Windows.Forms.GroupBox();
+            this.lblCurrentService = new System.Windows.Forms.Label();
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -57,7 +58,7 @@ namespace Assignment
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblCurrentService = new System.Windows.Forms.Label();
+            this.btnEditCustomer = new System.Windows.Forms.Button();
             this.grpViewCust.SuspendLayout();
             this.grpSelectedCust.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -121,6 +122,7 @@ namespace Assignment
             this.grpViewCust.Controls.Add(this.btnRefersh);
             this.grpViewCust.Controls.Add(this.btnReset);
             this.grpViewCust.Controls.Add(this.btnSearch);
+            this.grpViewCust.Controls.Add(this.btnEditCustomer);
             this.grpViewCust.Controls.Add(this.btnNewCustomer);
             this.grpViewCust.Controls.Add(this.lstCust);
             this.grpViewCust.Location = new System.Drawing.Point(11, 50);
@@ -197,7 +199,7 @@ namespace Assignment
             // 
             this.btnNewCustomer.Location = new System.Drawing.Point(13, 326);
             this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(369, 30);
+            this.btnNewCustomer.Size = new System.Drawing.Size(175, 30);
             this.btnNewCustomer.TabIndex = 4;
             this.btnNewCustomer.Text = "New Customer";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
@@ -256,6 +258,17 @@ namespace Assignment
             this.grpSelectedCust.TabIndex = 8;
             this.grpSelectedCust.TabStop = false;
             this.grpSelectedCust.Text = "Selected Customer";
+            // 
+            // lblCurrentService
+            // 
+            this.lblCurrentService.AutoSize = true;
+            this.lblCurrentService.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblCurrentService.Location = new System.Drawing.Point(7, 243);
+            this.lblCurrentService.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCurrentService.Name = "lblCurrentService";
+            this.lblCurrentService.Size = new System.Drawing.Size(80, 13);
+            this.lblCurrentService.TabIndex = 13;
+            this.lblCurrentService.Text = "Current Service";
             // 
             // txtPhoneNo
             // 
@@ -350,16 +363,15 @@ namespace Assignment
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // lblCurrentService
+            // btnEditCustomer
             // 
-            this.lblCurrentService.AutoSize = true;
-            this.lblCurrentService.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lblCurrentService.Location = new System.Drawing.Point(7, 243);
-            this.lblCurrentService.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCurrentService.Name = "lblCurrentService";
-            this.lblCurrentService.Size = new System.Drawing.Size(80, 13);
-            this.lblCurrentService.TabIndex = 13;
-            this.lblCurrentService.Text = "Current Service";
+            this.btnEditCustomer.Location = new System.Drawing.Point(207, 326);
+            this.btnEditCustomer.Name = "btnEditCustomer";
+            this.btnEditCustomer.Size = new System.Drawing.Size(175, 30);
+            this.btnEditCustomer.TabIndex = 4;
+            this.btnEditCustomer.Text = "Edit Customer Profile";
+            this.btnEditCustomer.UseVisualStyleBackColor = true;
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             // 
             // FormRHome
             // 
@@ -419,5 +431,6 @@ namespace Assignment
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCurrentService;
+        private System.Windows.Forms.Button btnEditCustomer;
     }
 }

@@ -52,6 +52,7 @@ namespace Assignment
                 SelectedCustomer = ListedCustomers[selectedIndex];
                 LoadDetails();
             }
+  
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -165,6 +166,9 @@ namespace Assignment
         // Customer Detail
         private void LoadDetails()
         {
+            btnViewPayment.Enabled = false;
+            btnEditCustomer.Enabled = false;
+
             // Reset current service text
             lblCurrentService.Text = "";
             if (SelectedCustomer == null) return;
@@ -175,6 +179,7 @@ namespace Assignment
             txtEmail.Text =  SelectedCustomer.Email;
 
             btnViewPayment.Enabled = true;
+            btnEditCustomer.Enabled = true;
 
 
             // Check for payments
@@ -220,6 +225,17 @@ namespace Assignment
             Form updateProfileForm = new FormUpdateProfile(receptionist);
             updateProfileForm.ShowDialog();
             this.Show();
+        }
+
+        private void btnEditCustomer_Click(object sender, EventArgs e)
+        {
+            if (SelectedCustomer == null) return;
+            this.Hide();
+            Form updateProfileForm = new FormUpdateProfile(SelectedCustomer);
+            updateProfileForm.ShowDialog();
+            this.Show();
+            RefreshContent();
+
         }
     }
 }
