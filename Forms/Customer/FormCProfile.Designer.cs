@@ -234,6 +234,7 @@ namespace Assignment
             this.Controls.Add(this.lblCustProfUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Brics Laptop Repair";
             this.grpCustProfServ.ResumeLayout(false);
             this.grpCustProfServ.PerformLayout();

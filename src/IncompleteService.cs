@@ -136,7 +136,7 @@ namespace Assignment
             // Preperation
             SqlConnection conn = Database.GetSqlConnection();
             string cmdText = "UPDATE [IncompleteService] " +
-                "SET [userId]=@userId, [serviceId]=@serviceId, [urgent]=@urgent [dateTimeCreated]=@dateTimeCreated" +
+                "SET [userId]=@userId, [serviceId]=@serviceId, [urgent]=@urgent, [dateTimeCreated]=@dateTimeCreated " +
                 "WHERE [userId]=@userId";
             BetterSqlCommand bsc = new BetterSqlCommand(cmdText, conn)
                 .AddParameter<int>("@userId", System.Data.SqlDbType.Int, User.Id)
