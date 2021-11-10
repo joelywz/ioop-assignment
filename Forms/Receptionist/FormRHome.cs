@@ -165,6 +165,8 @@ namespace Assignment
         // Customer Detail
         private void LoadDetails()
         {
+            // Reset current service text
+            lblCurrentService.Text = "";
             if (SelectedCustomer == null) return;
 
             txtFullName.Text = SelectedCustomer.FullName;
@@ -172,20 +174,8 @@ namespace Assignment
             txtPhoneNo.Text = SelectedCustomer.PhoneNo;
             txtEmail.Text =  SelectedCustomer.Email;
 
-            // Check if any service is active
-            IncompleteService services = IncompleteService.GetByUser(SelectedCustomer);
             btnViewPayment.Enabled = true;
-            btnService.Enabled = services == null ? false : true;
 
-            if(services == null)
-            {
-                btnService.Enabled = true;
-                btnService.Text = "Add Service";
-            } else
-            {
-                btnService.Enabled = false;
-                btnService.Text = "A Service is Active";
-            }
 
             // Check for payments
             int paymentDue = CompletedService.GetUnpaidCount(SelectedCustomer);
@@ -194,12 +184,34 @@ namespace Assignment
             {
                 lblPaymentStatus.Text = paymentDue + " outstanding payment(s)";
                 lblPaymentStatus.ForeColor = Color.Red;
+
+                // Disable add service when payment is incomplete
+                btnService.Enabled = false;
+                btnService.Text = "Service Payment Incomplete";
             }
             else
             {
                 lblPaymentStatus.Text = "No outstanding payment";
                 lblPaymentStatus.ForeColor = Color.Green;
+
+                // Check if any service is active
+                IncompleteService service = IncompleteService.GetByUser(SelectedCustomer);
+
+                if (service == null)
+                {
+                    btnService.Enabled = true;
+                    btnService.Text = "Add Service";
+                }
+                else
+                {
+                    btnService.Enabled = false;
+                    btnService.Text = "A Service is Active";
+                    lblCurrentService.Text = "Current Service: \n" + service.Service.Name;
+                }
             }
+
+
+
         }
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)

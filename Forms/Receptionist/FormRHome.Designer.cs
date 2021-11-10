@@ -57,6 +57,7 @@ namespace Assignment
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblCurrentService = new System.Windows.Forms.Label();
             this.grpViewCust.SuspendLayout();
             this.grpSelectedCust.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -214,6 +215,7 @@ namespace Assignment
             // 
             // btnService
             // 
+            this.btnService.Enabled = false;
             this.btnService.Location = new System.Drawing.Point(9, 290);
             this.btnService.Name = "btnService";
             this.btnService.Size = new System.Drawing.Size(206, 30);
@@ -234,6 +236,7 @@ namespace Assignment
             // 
             // grpSelectedCust
             // 
+            this.grpSelectedCust.Controls.Add(this.lblCurrentService);
             this.grpSelectedCust.Controls.Add(this.txtPhoneNo);
             this.grpSelectedCust.Controls.Add(this.txtEmail);
             this.grpSelectedCust.Controls.Add(this.txtUsername);
@@ -347,6 +350,17 @@ namespace Assignment
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // lblCurrentService
+            // 
+            this.lblCurrentService.AutoSize = true;
+            this.lblCurrentService.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lblCurrentService.Location = new System.Drawing.Point(7, 243);
+            this.lblCurrentService.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCurrentService.Name = "lblCurrentService";
+            this.lblCurrentService.Size = new System.Drawing.Size(80, 13);
+            this.lblCurrentService.TabIndex = 13;
+            this.lblCurrentService.Text = "Current Service";
+            // 
             // FormRHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -404,5 +418,6 @@ namespace Assignment
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblCurrentService;
     }
 }

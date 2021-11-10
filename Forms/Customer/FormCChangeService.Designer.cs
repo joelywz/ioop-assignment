@@ -251,7 +251,8 @@ namespace Assignment.Forms.Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 544);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(340, 521);
             this.Controls.Add(this.lblCustChangeTitle);
             this.Controls.Add(this.chkCustChangeConfirm);
             this.Controls.Add(this.btnCustChangeBack);
