@@ -23,7 +23,7 @@ namespace Assignment
                 MessageBox.Show(dbTest, "Failed to connect to database", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
                 return;
             }
-            CompletedService s = CompletedService.GetLatestByUser(User.GetById(6));
+
             // Main
             Application.Run(new FormLogin());
 
