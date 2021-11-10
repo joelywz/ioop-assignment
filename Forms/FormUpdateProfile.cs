@@ -27,18 +27,31 @@ namespace Assignment
         /// </summary>
         private void Loader()
         {
+            // Disable save/cancel button
+            btnSave.Enabled = false;
+            btnCancel.Enabled = false;
+
             // Get the role name of logged in user
             String roleName = User.RoleToString(LoggedInUser.Role);
 
             //Initializing displayed data
-            lblFullName.Text = "Full Name: " + LoggedInUser.FullName;
             lblRole.Text = "Role: " + roleName;
+            txtFullName.Text = LoggedInUser.FullName;
             txtUsername.Text = LoggedInUser.Username;
             txtPassword.Text = LoggedInUser.Password;
             txtEmail.Text = LoggedInUser.Email;
             txtPhoneNo.Text = LoggedInUser.PhoneNo;
             if (LoggedInUser.Role != User.Roles.Customer)
+            {
+                lblDateOfBirth.Show();
+                dtpDateOfBirth.Show();
                 dtpDateOfBirth.Value = Convert.ToDateTime(LoggedInUser.DateOfBirth);
+            }
+            else
+            {
+                lblDateOfBirth.Hide();
+                dtpDateOfBirth.Hide();
+            }
             btnSave.Enabled = false;
         }
 
@@ -49,21 +62,13 @@ namespace Assignment
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            txtUsername.Enabled = true;
-            txtPassword.Enabled = true;
-            txtEmail.Enabled = true;
-            txtPhoneNo.Enabled = true;
-            if (LoggedInUser.Role != User.Roles.Customer)
-                dtpDateOfBirth.Enabled = true;
+            SetEditEnabled(true);
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            txtUsername.Enabled = false;
-            txtPassword.Enabled = false;
-            txtEmail.Enabled = false;
-            txtPhoneNo.Enabled = false;
-            dtpDateOfBirth.Enabled = false;
+            SetEditEnabled(false);
             Loader();
         }
 
@@ -74,6 +79,7 @@ namespace Assignment
                 // Validation of new details
                 Validation.ValidateUsername(txtUsername.Text);
                 Validation.ValidatePassword(txtPassword.Text);
+                Validation.ValidateFullName(txtFullName.Text);
                 Validation.ValidateEmail(txtEmail.Text);
                 Validation.ValidatePhoneNo(txtPhoneNo.Text);
 
@@ -86,6 +92,7 @@ namespace Assignment
                 // Updating user details
                 this.LoggedInUser.Username = txtUsername.Text;
                 this.LoggedInUser.Password = txtPassword.Text;
+                this.LoggedInUser.FullName = txtFullName.Text;
                 this.LoggedInUser.Email = txtEmail.Text;
                 this.LoggedInUser.PhoneNo = txtPhoneNo.Text;
                 if (LoggedInUser.Role != User.Roles.Customer)
@@ -94,11 +101,7 @@ namespace Assignment
                 MessageBox.Show("Profile successfully updated!");
 
                 // Resetting form to default state
-                txtUsername.Enabled = false;
-                txtPassword.Enabled = false;
-                txtEmail.Enabled = false;
-                txtPhoneNo.Enabled = false;
-                dtpDateOfBirth.Enabled = false;
+                SetEditEnabled(false);
                 Loader();
             }
             catch (Exception exception)
@@ -108,37 +111,27 @@ namespace Assignment
             }
         }
 
+        // Enable or Disable TextBoxes/DateTimePicker
+        private void SetEditEnabled(bool b)
+        {
+            txtUsername.Enabled = b;
+            txtPassword.Enabled = b;
+            txtFullName.Enabled = b;
+            txtEmail.Enabled = b;
+            txtPhoneNo.Enabled = b;
+            dtpDateOfBirth.Enabled = b;
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-
-
         //Text changed or value changed events
-        private void txtUsername_TextChanged(object sender, EventArgs e)
+        private void txt_TextChanges(object sender, EventArgs e)
         {
             btnSave.Enabled = true;
-        }
-        
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void txtPhoneNo_TextChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
-        }
-
-        private void dtpDateOfBirth_ValueChanged(object sender, EventArgs e)
-        {
-            btnSave.Enabled = true;
+            btnCancel.Enabled = true;
         }
     }
 }
