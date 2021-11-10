@@ -48,7 +48,7 @@ namespace Assignment
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtServiceName = new System.Windows.Forms.TextBox();
             this.txtServiceId = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblServiceCompleted = new System.Windows.Forms.Label();
             this.lblServiceCreated = new System.Windows.Forms.Label();
@@ -176,7 +176,7 @@ namespace Assignment
             this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.txtServiceName);
             this.groupBox1.Controls.Add(this.txtServiceId);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.lblTotal);
             this.groupBox1.Controls.Add(this.lblDescription);
             this.groupBox1.Controls.Add(this.lblServiceCompleted);
             this.groupBox1.Controls.Add(this.lblServiceCreated);
@@ -238,14 +238,14 @@ namespace Assignment
             this.txtServiceId.Size = new System.Drawing.Size(100, 20);
             this.txtServiceId.TabIndex = 1;
             // 
-            // label6
+            // lblTotal
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 198);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Total";
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(8, 198);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(31, 13);
+            this.lblTotal.TabIndex = 0;
+            this.lblTotal.Text = "Total";
             // 
             // lblDescription
             // 
@@ -336,7 +336,7 @@ namespace Assignment
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtServiceName;
         private System.Windows.Forms.TextBox txtServiceId;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblServiceCompleted;
         private System.Windows.Forms.Label lblServiceCreated;
