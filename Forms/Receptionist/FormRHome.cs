@@ -96,9 +96,29 @@ namespace Assignment
             RefreshContent();
         }
 
+        private void btnUpdateProfile_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form updateProfileForm = new FormUpdateProfile(receptionist);
+            updateProfileForm.ShowDialog();
+            this.Show();
+        }
+
+        private void btnEditCustomer_Click(object sender, EventArgs e)
+        {
+            if (SelectedCustomer == null) return;
+            this.Hide();
+            Form updateProfileForm = new FormUpdateProfile(SelectedCustomer);
+            updateProfileForm.ShowDialog();
+            this.Show();
+            RefreshContent();
+
+        }
+
         // Helper functions
         private void FetchCustomers()
         {
+            // To fetch customers from database and store them in a class variable
             Customers = User.GetByRole(User.Roles.Customer).ToList<User>();
         }
         
@@ -216,25 +236,6 @@ namespace Assignment
             }
 
 
-
-        }
-
-        private void btnUpdateProfile_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form updateProfileForm = new FormUpdateProfile(receptionist);
-            updateProfileForm.ShowDialog();
-            this.Show();
-        }
-
-        private void btnEditCustomer_Click(object sender, EventArgs e)
-        {
-            if (SelectedCustomer == null) return;
-            this.Hide();
-            Form updateProfileForm = new FormUpdateProfile(SelectedCustomer);
-            updateProfileForm.ShowDialog();
-            this.Show();
-            RefreshContent();
 
         }
     }
