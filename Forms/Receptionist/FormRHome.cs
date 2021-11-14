@@ -78,7 +78,7 @@ namespace Assignment
             RefreshContent();
         }
 
-        private void btnRefersh_Click(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshContent();
         }

@@ -40,8 +40,9 @@ namespace Assignment
             this.rdoEmail = new System.Windows.Forms.RadioButton();
             this.rdoUsername = new System.Windows.Forms.RadioButton();
             this.rdoFullName = new System.Windows.Forms.RadioButton();
-            this.btnRefersh = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.btnEditCustomer = new System.Windows.Forms.Button();
             this.btnNewCustomer = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnService = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@ namespace Assignment
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnEditCustomer = new System.Windows.Forms.Button();
             this.grpViewCust.SuspendLayout();
             this.grpSelectedCust.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -119,7 +119,7 @@ namespace Assignment
             this.grpViewCust.Controls.Add(this.rdoUsername);
             this.grpViewCust.Controls.Add(this.rdoFullName);
             this.grpViewCust.Controls.Add(this.txtSearch);
-            this.grpViewCust.Controls.Add(this.btnRefersh);
+            this.grpViewCust.Controls.Add(this.btnRefresh);
             this.grpViewCust.Controls.Add(this.btnReset);
             this.grpViewCust.Controls.Add(this.btnSearch);
             this.grpViewCust.Controls.Add(this.btnEditCustomer);
@@ -175,15 +175,15 @@ namespace Assignment
             this.rdoFullName.Text = "By Full Name";
             this.rdoFullName.UseVisualStyleBackColor = true;
             // 
-            // btnRefersh
+            // btnRefresh
             // 
-            this.btnRefersh.Location = new System.Drawing.Point(316, 50);
-            this.btnRefersh.Name = "btnRefersh";
-            this.btnRefersh.Size = new System.Drawing.Size(70, 23);
-            this.btnRefersh.TabIndex = 2;
-            this.btnRefersh.Text = "Refresh";
-            this.btnRefersh.UseVisualStyleBackColor = true;
-            this.btnRefersh.Click += new System.EventHandler(this.btnRefersh_Click);
+            this.btnRefresh.Location = new System.Drawing.Point(316, 50);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(70, 23);
+            this.btnRefresh.TabIndex = 2;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnReset
             // 
@@ -194,6 +194,16 @@ namespace Assignment
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnEditCustomer
+            // 
+            this.btnEditCustomer.Location = new System.Drawing.Point(207, 326);
+            this.btnEditCustomer.Name = "btnEditCustomer";
+            this.btnEditCustomer.Size = new System.Drawing.Size(175, 30);
+            this.btnEditCustomer.TabIndex = 4;
+            this.btnEditCustomer.Text = "Edit Customer Profile";
+            this.btnEditCustomer.UseVisualStyleBackColor = true;
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             // 
             // btnNewCustomer
             // 
@@ -363,16 +373,6 @@ namespace Assignment
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // btnEditCustomer
-            // 
-            this.btnEditCustomer.Location = new System.Drawing.Point(207, 326);
-            this.btnEditCustomer.Name = "btnEditCustomer";
-            this.btnEditCustomer.Size = new System.Drawing.Size(175, 30);
-            this.btnEditCustomer.TabIndex = 4;
-            this.btnEditCustomer.Text = "Edit Customer Profile";
-            this.btnEditCustomer.UseVisualStyleBackColor = true;
-            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
-            // 
             // FormRHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,7 +424,7 @@ namespace Assignment
         private System.Windows.Forms.Label lblPaymentStatus;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Button btnRefersh;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.TextBox txtPhoneNo;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtUsername;
