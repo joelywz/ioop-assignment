@@ -138,7 +138,10 @@ namespace Assignment
         private void AddListedCustomer(User user)
         {
             ListedCustomers.Add(user);
-            lstCust.Items.Add(user.FullName);
+            String displayText = user.FullName;
+            if (rdoUsername.Checked) displayText = user.Username;
+            else if (rdoEmail.Checked) displayText = user.Email;
+            lstCust.Items.Add(displayText);
         }
 
         private void Search()
